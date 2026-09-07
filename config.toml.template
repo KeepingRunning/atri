@@ -1,0 +1,28 @@
+# 复制为 config.toml，填写群号、机器人 QQ 号、OneBot token 和模型配置。
+# config.toml 包含密钥，已加入 Git 忽略。
+[bot]
+data_dir = "data"
+personal_info = "personal_info.txt"
+allowed_groups = []
+self_id = ""
+queue_size = 32
+max_parallel_generations = 4
+
+[onebot]
+host = "0.0.0.0"
+port = 28080
+path = "/onebot/v11/ws"
+action_timeout = 15
+token = ""
+
+[llm]
+# OpenAI 兼容接口地址，包含供应商要求的版本路径（例如 /v1）。
+base_url = ""
+model = ""
+api_key = ""
+timeout = 60
+max_output_tokens = 512
+output_limit_field = "max_tokens"
+
+[context]
+recent_messages = 50

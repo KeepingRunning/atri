@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "atri-bot"
+version = "0.1.0"
+description = "A minimal ATRI QQ chatbot"
+requires-python = ">=3.11"
+dependencies = ["aiohttp>=3.12,<4"]
+
+[project.scripts]
+atri = "atri_bot.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/atri_bot"]
