@@ -40,3 +40,21 @@ continuation_seconds = 90
 max_message_age_seconds = 120
 # 可选：同一接口上的快速判断模型；空字符串沿用 llm.model。
 judgment_model = ""
+
+[logging]
+# DEBUG 显示各步计算；INFO 只显示主要结果。
+level = "DEBUG"
+# auto 终端自动彩色；always 即使重定向也保留颜色；never 关闭颜色。
+color = "auto"
+# 无色轮转日志；路径相对于配置文件目录，空字符串关闭文件日志。
+file = "data/logs/atri.log"
+max_bytes = 10485760
+backup_count = 3
+# 收发正文预览字符数，0 隐藏正文。凭据不写入运行日志。
+preview_chars = 500
+
+[logging.modules]
+# 各分类可独立覆盖级别，例如：
+# willingness = "DEBUG"
+# storage = "INFO"
+# "plugins.weather" = "DEBUG"

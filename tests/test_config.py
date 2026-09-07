@@ -75,3 +75,25 @@ class ConfigTests(unittest.TestCase):
                 path.write_text('[reply]\n' + value + '\n')
                 with self.subTest(value=value), self.assertRaises(ValueError):
                     Config.load(path)
+
+    def test_logging_defaults_and_per_module_configuration(self):
+        config = Config.load(ROOT / 'config.toml.template')
+        self.assertEqual(config.logging.level, 'DEBUG')
+        self.assertEqual(config.logging.color, 'auto')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            path.write_text('[logging]\nlevel="INFO"\ncolor="always"\nfile=""\n[logging.modules]\nwillingness="DEBUG"\n')
+            config = Config.load(path)
+            self.assertEqual(config.logging.modules, {'willingness': 'DEBUG'})
+            self.assertEqual(config.logging.file, '')
+
+    def test_invalid_logging_options_fail_during_load(self):
+        invalid = ['level="TRACE"', 'color="rainbow"', 'max_bytes=0', 'backup_count=-1',
+                   'preview_chars=-1', 'preview_chars=true', 'file=42', 'modules=[]',
+                   'modules={willingness=["DEBUG"]}', 'modules={""="DEBUG"}', 'typo=1']
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for value in invalid:
+                path.write_text('[logging]\n' + value + '\n')
+                with self.subTest(value=value), self.assertRaises(ValueError):
+                    Config.load(path)

@@ -6,6 +6,7 @@ import tomllib
 from urllib.parse import urlsplit
 
 from .willingness import ReplyConfig
+from .logging_setup import LoggingConfig
 
 
 @dataclass
@@ -30,6 +31,7 @@ class Config:
     recent_messages: int = 50
     personal_info: str = "personal_info.txt"
     reply: ReplyConfig = field(default_factory=ReplyConfig)
+    logging: LoggingConfig = field(default_factory=LoggingConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -55,6 +57,11 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [reply] configuration fields") from None
         conf.reply.validate()
+        try:
+            conf.logging = LoggingConfig(**raw.get("logging", {}))
+        except TypeError:
+            raise ValueError("Invalid [logging] configuration fields") from None
+        conf.logging.validate()
         for name in ("queue_size", "parallel", "action_timeout", "llm_timeout", "max_output_tokens", "recent_messages"):
             if getattr(conf, name) <= 0:
                 raise ValueError(f"{name} must be positive")

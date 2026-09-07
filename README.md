@@ -43,6 +43,40 @@ uv run atri serve
 
 连接状态可通过 `http://127.0.0.1:28080/healthz` 查看。
 
+## 查看处理日志
+
+默认 `DEBUG` 详细日志，终端按模块配色：接收为青色、队列为蓝色、willingness 为粉紫色、上下文为紫色、模型为金色、发送为绿色、存储为灰青色。警告和错误额外使用橙色和红色。每条消息的处理日志带 `g=群号 m=消息号 u=用户号`，并发群聊和异步发送回执也能对应到原消息。
+
+日志包含接收/过滤/去重、排队耗时、各项意愿计算与公式、冷却和退避剩余时间、上下文数量、模型调用耗时与接口返回的 token 用量、回复预览、发送回执和总耗时。这里展示可观测的计算和模型返回的判断理由。
+
+```sh
+# 只预览完整日志效果：本地模拟模型和 OneBot，不读取真实配置、不连接 QQ。
+uv run python scripts/demo_logs.py
+
+# 启动实际服务时查看彩色日志；若重定向后还想保留颜色，使用 --log-color always。
+uv run atri --log-level DEBUG --log-color auto serve
+
+# 后台日志默认另存为无色文件，可按消息号搜索；单文件 10 MiB、最多 3 份备份。
+tail -f data/logs/atri.log
+```
+
+`[logging]` 支持级别、颜色、文件路径、轮转大小和正文预览长度；`preview_chars=0` 可隐藏收发正文。`color="auto"` 在终端启用颜色，重定向时自动关闭，支持 `NO_COLOR`；`always` 强制保留 ANSI 颜色，`never` 关闭颜色。API key、OneBot token 不会写入运行日志，模型请求不打印认证头或完整请求体。
+
+可以单独提高或降低模块的详细程度，例如：
+
+```toml
+[logging]
+level = "INFO"
+color = "auto"
+
+[logging.modules]
+willingness = "DEBUG"
+storage = "WARNING"
+"plugins.weather" = "DEBUG"
+```
+
+以后插件使用 `logging.getLogger("atri.plugins.插件名")` 即可获得独立分类和稳定配色；在消息处理任务内调用会自动继承消息追踪信息。详细 JSONL 聊天记录仍保存在原来的 `data/groups/` 下。
+
 ## 测试
 
 ```sh

@@ -3,10 +3,13 @@ from __future__ import annotations
 from collections import deque
 from contextlib import contextmanager
 import json
+import logging
 import os
 from pathlib import Path
 import time
 import uuid
+
+log = logging.getLogger("atri.storage")
 
 
 def read_jsonl(path: Path):
@@ -74,12 +77,16 @@ class GroupLog:
         self.sent_message_ids = set()
         self.last_sent = None
         self.activity = deque()
+        log.debug("[加载群记录] 路径=%s 历史上限=%d", self.path, history_limit)
         for row in read_jsonl(self.path):
             self._apply(row)
         # A crash after submission leaves an unknown result, never silently retried.
         for key, row in list(self.last_receipts.items()):
             if row["status"] == "pending":
+                log.warning("[恢复发送状态] key=%s 原状态=pending，标记为unknown，避免重复发送", key)
                 self.append({"kind": "delivery", "key": key, "status": "unknown", "reason": "process_restarted"})
+        log.debug("[加载完成] 历史=%d 已收消息=%d 已发送ID=%d 近期活动=%d",
+                  len(self.history), len(self.seen), len(self.sent_message_ids), len(self.activity))
 
     def _apply(self, row):
         now = row["time"]
@@ -106,3 +113,5 @@ class GroupLog:
             f.flush()
             os.fsync(f.fileno())
         self._apply(row)
+        log.debug("[记录已落盘] 类型=%s 阶段=%s 状态=%s key=%s 历史条数=%d",
+                  row["kind"], row.get("stage", "-"), row.get("status", "-"), row.get("key", "-"), len(self.history))
