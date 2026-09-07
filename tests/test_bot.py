@@ -9,6 +9,7 @@ from atri_bot.config import Config
 from atri_bot.model import ModelError
 from atri_bot.storage import GroupLog, read_jsonl
 from atri_bot.types import Event, Receipt
+from atri_bot.willingness import ReplyConfig
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -34,7 +35,8 @@ class RecordingModel:
 class BotTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.tmp = tempfile.TemporaryDirectory()
-        self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1", "2"}), self_id="99")
+        self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1", "2"}), self_id="99",
+                             reply=ReplyConfig(mode="at_only"))
         self.model = RecordingModel()
         self.bot = Bot(self.config, self.model)
         self.sent = []

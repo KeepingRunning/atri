@@ -5,6 +5,8 @@ from pathlib import Path
 import tomllib
 from urllib.parse import urlsplit
 
+from .willingness import ReplyConfig
+
 
 @dataclass
 class Config:
@@ -27,6 +29,7 @@ class Config:
     output_limit_field: str = "max_tokens"
     recent_messages: int = 50
     personal_info: str = "personal_info.txt"
+    reply: ReplyConfig = field(default_factory=ReplyConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -47,6 +50,11 @@ class Config:
             output_limit_field=l.get("output_limit_field", "max_tokens"),
             recent_messages=c.get("recent_messages", 50),
             personal_info=b.get("personal_info", "personal_info.txt"))
+        try:
+            conf.reply = ReplyConfig(**raw.get("reply", {}))
+        except TypeError:
+            raise ValueError("Invalid [reply] configuration fields") from None
+        conf.reply.validate()
         for name in ("queue_size", "parallel", "action_timeout", "llm_timeout", "max_output_tokens", "recent_messages"):
             if getattr(conf, name) <= 0:
                 raise ValueError(f"{name} must be positive")

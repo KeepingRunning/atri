@@ -1,4 +1,5 @@
 import asyncio
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -11,6 +12,8 @@ from atri_bot.bot import Bot
 from atri_bot.config import Config
 from atri_bot.model import ChatModel, ModelError
 from atri_bot.onebot import create_app
+from atri_bot.types import Event
+from atri_bot.willingness import ReplyConfig
 from test_bot import ROOT, raw
 
 
@@ -18,12 +21,14 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.requests = []
+        self.responses = []
         self.response = {"choices": [{"message": {"content": "模型回复"}}]}
         self.status = 200
         async def provider(request):
             self.assertEqual(request.headers.get("Authorization"), "Bearer test-api-key")
             self.requests.append(await request.json())
-            return web.json_response(self.response, status=self.status)
+            response = self.responses.pop(0) if self.responses else self.response
+            return web.json_response(response, status=self.status)
         app = web.Application()
         app.router.add_post("/v1/chat/completions", provider)
         self.provider = TestServer(app)
@@ -31,7 +36,8 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.session = aiohttp.ClientSession()
         self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1"}), self_id="99",
                              token="test-token", api_key="test-api-key", model="test-model",
-                             base_url=str(self.provider.make_url('/v1')), action_timeout=.2)
+                             base_url=str(self.provider.make_url('/v1')), action_timeout=.2,
+                             reply=ReplyConfig(mode="at_only"))
         self.bot = Bot(self.config, ChatModel(self.config, self.session))
         self.client = TestClient(TestServer(create_app(self.config, self.bot)))
         await self.client.start_server()
@@ -112,3 +118,38 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
             await self.bot.model.complete([])
         self.assertNotIn('test-api-key', str(error.exception))
         self.assertEqual(error.exception.code, 'model_http_401')
+
+    async def test_willingness_http_judgment_then_reply_and_ack(self):
+        self.config.reply.mode = 'willingness'
+        self.config.reply.judgment_model = 'fast-judge'
+        self.config.output_limit_field = 'max_completion_tokens'
+        self.responses = [
+            {'choices': [{'message': {'content': json.dumps({'score': 90, 'reason': '可以回答'})}}]},
+            {'choices': [{'message': {'content': '接话结果'}}]},
+        ]
+        ws = await self.client.ws_connect(self.config.ws_path, headers=self.headers)
+        await ws.send_json(raw(text='谁能帮我看看这个报错怎么处理？', mention=False))
+        action = await asyncio.wait_for(ws.receive_json(), 2)
+        self.assertEqual(action['params']['message'][0]['data']['text'], '接话结果')
+        self.assertEqual([r['model'] for r in self.requests], ['fast-judge', 'test-model'])
+        self.assertEqual(self.requests[0]['max_completion_tokens'], 256)
+        self.assertEqual(self.requests[1]['max_completion_tokens'], 512)
+        self.assertIn('群聊参与判断器', self.requests[0]['messages'][0]['content'])
+        await ws.send_json({'echo': action['echo'], 'status': 'ok', 'retcode': 0, 'data': {'message_id': 800}})
+        await asyncio.wait_for(self.bot.queues['1'].join(), 1)
+        self.assertIn('800', self.bot.group('1').sent_message_ids)
+        self.assertEqual(self.bot.group('1').last_sent['reply_to_user_id'], '2')
+        await ws.close()
+
+    async def test_willingness_invalid_or_waiting_http_response_never_sends(self):
+        self.config.reply.mode = 'willingness'
+        async def forbidden_sender(gid, parts):
+            self.fail('Judgment must never be sent as a chat reply')
+        for mid, content in enumerate(('不是JSON', '{"score":true,"reason":"x"}',
+                                       '```json\n{"score":90,"reason":"x"}\n```',
+                                       '{"score":10,"reason":"保持安静"}'), 1):
+            self.response = {'choices': [{'message': {'content': content}}]}
+            result = await self.bot.enqueue(Event.parse(raw(mid=mid)), forbidden_sender)
+            self.assertEqual(result.reason, 'model_wait' if mid == 4 else 'invalid_reply_assessment')
+        self.assertEqual(len(self.requests), 4)
+        self.assertFalse(any(r.get('role') == 'assistant' for r in self.bot.group('1').history))

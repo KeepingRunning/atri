@@ -26,3 +26,17 @@ output_limit_field = "max_tokens"
 
 [context]
 recent_messages = 50
+
+[reply]
+# willingness：规则评分后由模型判断是否接话；at_only：原先的仅 @ 回复。
+mode = "willingness"
+# 0 只评估真正 @ 自己或引用自己已发送消息的内容；越大越容易评估普通群聊。
+frequency = 0.7
+names = ["亚托莉", "ATRI", "アトリ"]
+# 判断模型的意愿分达到此值才生成回复，范围 1–100；分数不是概率。
+threshold = 60
+cooldown_seconds = 10
+continuation_seconds = 90
+max_message_age_seconds = 120
+# 可选：同一接口上的快速判断模型；空字符串沿用 llm.model。
+judgment_model = ""

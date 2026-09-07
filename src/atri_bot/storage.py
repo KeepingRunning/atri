@@ -71,6 +71,9 @@ class GroupLog:
         self.seen: set[str] = set()
         self.history = deque(maxlen=history_limit)
         self.last_receipts = {}
+        self.sent_message_ids = set()
+        self.last_sent = None
+        self.activity = deque()
         for row in read_jsonl(self.path):
             self._apply(row)
         # A crash after submission leaves an unknown result, never silently retried.
@@ -79,13 +82,22 @@ class GroupLog:
                 self.append({"kind": "delivery", "key": key, "status": "unknown", "reason": "process_restarted"})
 
     def _apply(self, row):
+        now = row["time"]
+        while self.activity and now - self.activity[0][0] > 300:
+            self.activity.popleft()
         if row["kind"] == "incoming":
             self.seen.add(row["key"])
             self.history.append(row)
+            self.activity.append((now, False))
         elif row["kind"] == "delivery":
             self.last_receipts[row["key"]] = row
             if row["status"] == "sent":
-                self.history.append({"role": "assistant", "text": row.get("text", ""), "time": row["time"]})
+                self.last_sent = row
+                if row.get("message_id") is not None:
+                    self.sent_message_ids.add(str(row["message_id"]))
+                self.activity.append((now, True))
+                self.history.append({"role": "assistant", "text": row.get("text", ""), "time": now,
+                                     "message_id": row.get("message_id")})
 
     def append(self, row):
         row = {"time": time.time(), **row}

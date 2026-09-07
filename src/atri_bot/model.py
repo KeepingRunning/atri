@@ -1,6 +1,9 @@
 import asyncio
+import json
 
 import aiohttp
+
+from .willingness import ReplyAssessment
 
 
 class ModelError(RuntimeError):
@@ -15,10 +18,10 @@ class ChatModel:
     def __init__(self, config, session):
         self.config, self.session = config, session
 
-    async def complete(self, messages):
+    async def complete(self, messages, *, max_output_tokens=None, model=None):
         self.config.require_live()
-        payload = {"model": self.config.model, "messages": messages,
-                   self.config.output_limit_field: self.config.max_output_tokens}
+        payload = {"model": model or self.config.model, "messages": messages,
+                   self.config.output_limit_field: max_output_tokens or self.config.max_output_tokens}
         try:
             async with self.session.post(
                 self.config.base_url.rstrip("/") + "/chat/completions",
@@ -39,3 +42,12 @@ class ChatModel:
             raise ModelError("Model request timed out", "model_timeout") from None
         except Exception as exc:
             raise ModelError(f"Model request failed: {type(exc).__name__}") from None
+
+    async def assess_reply(self, messages):
+        text = await self.complete(messages, max_output_tokens=256,
+                                   model=self.config.reply.judgment_model)
+        try:
+            return ReplyAssessment.parse(json.loads(text))
+        except (ValueError, TypeError):
+            # 无效判断不能被误当作聊天内容发到群里，也不能悄悄当成同意回复。
+            raise ModelError("Invalid reply assessment", "invalid_reply_assessment") from None

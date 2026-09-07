@@ -51,3 +51,27 @@ class ConfigTests(unittest.TestCase):
         self.assertFalse(config.groups)
         with self.assertRaisesRegex(ValueError, "llm.api_key in config.toml"):
             config.require_live()
+
+    def test_reply_configuration_and_legacy_mode(self):
+        config = Config.load(ROOT / 'config.toml.template')
+        self.assertEqual(config.reply.mode, 'willingness')
+        self.assertEqual(config.reply.threshold, 60)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            path.write_text('[reply]\nmode="at_only"\nfrequency=0\nnames=["小亚"]\njudgment_model="fast"\n')
+            config = Config.load(path)
+            self.assertEqual(config.reply.mode, 'at_only')
+            self.assertEqual(config.reply.names, ['小亚'])
+            self.assertEqual(config.reply.judgment_model, 'fast')
+
+    def test_invalid_reply_configuration_is_rejected_at_load(self):
+        invalid = ['frequency=nan', 'frequency=inf', 'frequency=-0.1', 'frequency=1.1',
+                   'frequency=true', 'threshold=0', 'threshold=60.5', 'threshold=true',
+                   'cooldown_seconds=-1', 'continuation_seconds=nan', 'max_message_age_seconds=0',
+                   'mode="random"', 'names="ATRI"', 'names=[""]', 'judgment_model=42', 'typo=1']
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for value in invalid:
+                path.write_text('[reply]\n' + value + '\n')
+                with self.subTest(value=value), self.assertRaises(ValueError):
+                    Config.load(path)
