@@ -12,7 +12,8 @@ from atri_bot.bot import Bot
 from atri_bot.config import Config
 from atri_bot.model import ChatModel, ModelError
 from atri_bot.onebot import create_app
-from atri_bot.types import Event
+from atri_bot.types import Event, Receipt
+from atri_bot.storage import read_jsonl
 from atri_bot.willingness import ReplyConfig
 from test_bot import ROOT, raw
 
@@ -150,8 +151,58 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         for mid, content in enumerate(('不是JSON', '{"score":true,"reason":"x"}',
                                        '```json\n{"score":90,"reason":"x"}\n```',
                                        '{"score":10,"reason":"保持安静"}'), 1):
-            self.response = {'choices': [{'message': {'content': content}}]}
+            invalid = {'choices': [{'message': {'content': content}}]}
+            waiting = {'choices': [{'message': {'content': '{"score":10,"reason":"保持安静"}'}}]}
+            self.responses = [invalid, invalid, waiting] if mid < 4 else [waiting]
             result = await self.bot.enqueue(Event.parse(raw(mid=mid)), forbidden_sender)
-            self.assertEqual(result.reason, 'model_wait' if mid == 4 else 'invalid_reply_assessment')
-        self.assertEqual(len(self.requests), 4)
+            self.assertEqual(result.reason, 'model_wait')
+        self.assertEqual(len(self.requests), 10)
         self.assertFalse(any(r.get('role') == 'assistant' for r in self.bot.group('1').history))
+
+    async def test_second_attempt_recovers_and_keeps_original_prompt_unchanged(self):
+        self.responses = [
+            {'choices': [{'message': {'content': '应该回复'}}]},
+            {'choices': [{'message': {'content': '{"score":80,"reason":"可以回应"}'}}]},
+        ]
+        messages = [{'role': 'system', 'content': '只判断接话意愿。'}, {'role': 'user', 'content': '你好'}]
+        assessment = await self.bot.model.assess_reply(messages)
+        self.assertEqual(assessment.score, 80)
+        self.assertEqual(len(self.requests), 2)
+        self.assertEqual(messages[0]['content'], '只判断接话意愿。')
+        self.assertIn('重新判断', self.requests[1]['messages'][0]['content'])
+        self.assertNotIn('应该回复', str(self.requests[1]['messages']))
+        self.assertTrue(all('response_format' not in r for r in self.requests))
+
+    async def test_exhausted_judgment_uses_rule_score_for_reply_and_wait(self):
+        self.config.reply.mode = 'willingness'
+        self.config.groups = frozenset({'1', '2'})
+        failed = {'choices': [{'message': {'content': '应当回应，但没有输出 JSON'}}]}
+        reply = {'choices': [{'message': {'content': '这是重新生成的聊天回复'}}]}
+        self.responses = [failed, failed, failed, reply, failed, failed, failed]
+        sent = []
+        async def sender(gid, parts):
+            sent.append(parts[0]['data']['text'])
+            return Receipt('sent', '801')
+        high = await self.bot.enqueue(Event.parse(raw(text='亚托莉在干嘛', mention=False)), sender)
+        low = await self.bot.enqueue(Event.parse(raw(gid=2, text='有人在吗？', mention=False)), sender)
+        self.assertEqual(high.status, 'sent')
+        self.assertEqual(low.reason, 'rule_fallback_wait')
+        self.assertEqual(sent, ['这是重新生成的聊天回复'])
+        self.assertEqual(len(self.requests), 7)
+        self.assertEqual(self.bot.willingness['1'].wait_count, 0)
+        self.assertEqual(self.bot.willingness['2'].wait_count, 1)
+        for gid, score, status in [('1', 70, 'reply'), ('2', 45, 'wait')]:
+            rows = list(read_jsonl(self.bot.group(gid).path))
+            fallback = next(r for r in rows if r.get('stage') == 'fallback')
+            self.assertEqual((fallback['score'], fallback['threshold'], fallback['status'], fallback['attempts']),
+                             (score, 60, status, 3))
+        # 降级回复是独立生成；失败的评分文本不会混入聊天上下文。
+        self.assertNotIn('应当回应，但没有输出 JSON', str(self.requests[3]['messages']))
+
+    async def test_http_failure_is_retried_exactly_twice(self):
+        self.status = 503
+        with self.assertRaises(ModelError) as raised:
+            await self.bot.model.assess_reply([{'role': 'user', 'content': '你好'}])
+        self.assertEqual(raised.exception.code, 'model_http_503')
+        self.assertEqual(raised.exception.attempts, 3)
+        self.assertEqual(len(self.requests), 3)

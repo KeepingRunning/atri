@@ -6,6 +6,7 @@ import time
 
 from .context import build_conversation, build_willingness_context
 from .logging_setup import log_context, preview
+from .model import ModelError
 from .storage import GroupLog
 from .types import Receipt
 from .willingness import ReplyWillingness
@@ -163,13 +164,20 @@ class Bot:
             async with self.semaphore:
                 willingness_log.debug("[模型判断] 已取得并发槽位，等待=%.1fms", (time.perf_counter() - started) * 1000)
                 assessment = await self.model.assess_reply(messages)
-        except Exception as exc:
-            state.finish_check(False, time.time())
+        except ModelError as exc:
             group.append({"kind": "willingness", "key": event.key, "stage": "judgment",
-                          "status": "failed", "reason": getattr(exc, "code", type(exc).__name__)})
-            willingness_log.error("[模型判断失败] 错误=%s 耗时=%.1fms",
-                                   getattr(exc, "code", type(exc).__name__), (time.perf_counter() - started) * 1000)
-            raise
+                          "status": "failed", "reason": exc.code, "attempts": exc.attempts})
+            should_reply = gate.score >= self.config.reply.threshold
+            # 只按最终决策更新一次状态，单次技术失败不累加“连续等待”。
+            state.finish_check(should_reply, time.time())
+            group.append({"kind": "willingness", "key": event.key, "stage": "fallback",
+                          "status": "reply" if should_reply else "wait", "source": "rule",
+                          "score": gate.score, "threshold": self.config.reply.threshold,
+                          "reason": exc.code, "attempts": exc.attempts})
+            willingness_log.warning("[规则降级] 模型判断失败 尝试=%d 错误=%s 规则分=%d 回复阈值=%d 决策=%s 总耗时=%.1fms",
+                                    exc.attempts, exc.code, gate.score, self.config.reply.threshold,
+                                    "回复" if should_reply else "等待", (time.perf_counter() - started) * 1000)
+            return None if should_reply else Receipt("ignored", reason="rule_fallback_wait")
         should_reply = assessment.score >= self.config.reply.threshold
         state.finish_check(should_reply, time.time())
         group.append({"kind": "willingness", "key": event.key, "stage": "judgment",

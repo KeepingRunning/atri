@@ -6,15 +6,17 @@ import time
 import aiohttp
 
 from .willingness import ReplyAssessment
+from .context import WILLINGNESS_OUTPUT_RULES
 from .logging_setup import preview
 
 log = logging.getLogger("atri.model")
 
 
 class ModelError(RuntimeError):
-    def __init__(self, message, code="model_error"):
+    def __init__(self, message, code="model_error", *, attempts=1):
         super().__init__(message)
         self.code = code
+        self.attempts = attempts
 
 
 class ChatModel:
@@ -47,7 +49,9 @@ class ChatModel:
                 if response.status != 200:
                     raise ModelError(f"Model HTTP {response.status}", f"model_http_{response.status}")
                 data = await response.json()
-            message = data["choices"][0]["message"]
+            choice = data["choices"][0]
+            log.debug("[生成结束原因] 用途=%s finish_reason=%s", purpose, choice.get("finish_reason", "未提供"))
+            message = choice["message"]
             content = message.get("content") or message.get("refusal")
             if not isinstance(content, str) or not content.strip():
                 raise ModelError("Model returned no text", "model_empty_response")
@@ -68,6 +72,29 @@ class ChatModel:
             raise ModelError(f"Model request failed: {type(exc).__name__}") from None
 
     async def assess_reply(self, messages):
+        for attempt in range(1, 4):
+            log.info("[判断尝试] 第%d/3次，用途=willingness", attempt)
+            attempt_messages = messages
+            if attempt > 1:
+                # 重申协议，不把不合法输出加为 assistant 示例，也不修改调用方上下文。
+                attempt_messages = [{**m} for m in messages]
+                correction = "\n\n本次是失败后的重新判断，请重新分析原始数据并完整输出 JSON。\n" + WILLINGNESS_OUTPUT_RULES
+                if attempt_messages and attempt_messages[0].get("role") == "system":
+                    attempt_messages[0]["content"] += correction
+                else:
+                    attempt_messages.insert(0, {"role": "system", "content": correction.strip()})
+            try:
+                assessment = await self._assess_reply_once(attempt_messages)
+                log.info("[判断尝试成功] 第%d/3次 score=%d", attempt, assessment.score)
+                return assessment
+            except ModelError as exc:
+                exc.attempts = attempt
+                if attempt == 3:
+                    log.error("[判断重试耗尽] 已尝试3次（首次+2次重试），错误=%s", exc.code)
+                    raise
+                log.warning("[判断重试] 第%d/3次失败 错误=%s，将进行第%d/3次", attempt, exc.code, attempt + 1)
+
+    async def _assess_reply_once(self, messages):
         text = await self.complete(messages, max_output_tokens=256,
                                    model=self.config.reply.judgment_model, purpose="willingness")
         try:

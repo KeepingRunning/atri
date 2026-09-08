@@ -46,6 +46,23 @@ class LogCapture:
 
 
 class FormatterTests(unittest.TestCase):
+    def test_every_traceback_and_stack_line_has_the_full_log_prefix(self):
+        capture = LogCapture(color='always')
+        self.addCleanup(capture.close)
+        with log_context(group_id='12', message_id='34', user_id='56'):
+            try:
+                raise ValueError('secret-api-value')
+            except ValueError:
+                logging.getLogger('atri.bot').exception('处理失败')
+            logging.getLogger('atri.bot').error('调用位置', stack_info=True)
+        plain = capture.file_text()
+        self.assertIn('Traceback (most recent call last)', plain)
+        self.assertNotIn('secret-api-value', plain)
+        self.assertGreater(len(plain.splitlines()), 3)
+        for line in plain.splitlines():
+            self.assertRegex(line, r'^\d{4}-\d\d-\d\d .* \|ERROR\| bot \| g=12 m=34 u=56 \| ')
+        self.assertEqual(re.sub(r'\x1b\[[0-9;]*m', '', capture.stream.getvalue()), plain)
+
     def test_module_colors_and_plain_file_keep_same_trace(self):
         capture = LogCapture(color='always')
         self.addCleanup(capture.close)

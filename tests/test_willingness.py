@@ -1,4 +1,5 @@
 import asyncio
+import json
 from pathlib import Path
 from types import SimpleNamespace
 import tempfile
@@ -6,10 +7,11 @@ import unittest
 
 from atri_bot.bot import Bot
 from atri_bot.config import Config
+from atri_bot.context import build_willingness_context
 from atri_bot.model import ModelError
 from atri_bot.storage import GroupLog, read_jsonl
 from atri_bot.types import Event, Receipt
-from atri_bot.willingness import ReplyAssessment, ReplyConfig, ReplyWillingness
+from atri_bot.willingness import GateDecision, ReplyAssessment, ReplyConfig, ReplyWillingness
 from test_bot import ROOT, raw
 
 
@@ -167,15 +169,38 @@ class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(self.sent)
         self.assertFalse(self.model.replies)
 
-    async def test_judgment_failure_does_not_send_or_poison_history(self):
+    async def test_judgment_failure_falls_back_without_poisoning_history(self):
         async def fail(messages):
-            raise ModelError('bad result', 'invalid_reply_assessment')
+            raise ModelError('bad result', 'invalid_reply_assessment', attempts=3)
         self.model.assess_reply = fail
         result = await self.submit()
-        self.assertEqual(result.reason, 'invalid_reply_assessment')
+        self.assertEqual(result.status, 'sent')
+        self.assertEqual(len(self.sent), 1)
+        group = self.bot.group('1')
+        self.assertEqual([r['text'] for r in group.history if r.get('role') == 'assistant'], ['这是实际回复'])
+        rows = list(read_jsonl(group.path))
+        self.assertTrue(any(r.get('stage') == 'judgment' and r['status'] == 'failed' for r in rows))
+        fallback = next(r for r in rows if r.get('stage') == 'fallback')
+        self.assertEqual((fallback['source'], fallback['status'], fallback['attempts']), ('rule', 'reply', 3))
+        self.assertEqual(self.bot.willingness['1'].wait_count, 0)
+
+    async def test_programming_errors_do_not_trigger_rule_fallback(self):
+        async def fail(messages):
+            raise RuntimeError('unexpected bug')
+        self.model.assess_reply = fail
+        result = await self.submit()
+        self.assertEqual(result.status, 'failed')
         self.assertFalse(self.sent)
-        self.assertFalse(any(r.get('role') == 'assistant' for r in self.bot.group('1').history))
-        self.assertEqual(list(read_jsonl(self.bot.group('1').path))[-1]['status'], 'failed')
+        self.assertEqual(self.bot.willingness['1'].wait_count, 0)
+
+    async def test_cancellation_does_not_trigger_rule_fallback(self):
+        async def cancel(messages):
+            raise asyncio.CancelledError
+        self.model.assess_reply = cancel
+        result = await self.submit()
+        self.assertEqual(result.reason, 'shutdown')
+        self.assertFalse(self.sent)
+        self.assertEqual(self.bot.willingness['1'].wait_count, 0)
 
     async def test_quote_identity_survives_restart_and_is_group_scoped(self):
         await self.submit()
@@ -235,6 +260,26 @@ class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
 
 
 class AssessmentTests(unittest.TestCase):
+    def test_persona_and_chat_history_are_data_instead_of_judgment_examples(self):
+        persona = '使用自然中文，一至三句，不要输出 JSON。'
+        event = Event.parse(raw(text='亚托莉在干嘛'))
+        history = [{'key': str(i), 'role': 'assistant' if i % 2 else 'user',
+                    'text': f'旧聊天-{i}', 'time': i + 1} for i in range(15)]
+        history.append({'key': event.key, 'text': event.text})
+        gate = GateDecision(True, 100, 42, 'at_self')
+        messages = build_willingness_context(persona, event, history, gate)
+        self.assertEqual([m['role'] for m in messages], ['system', 'user'])
+        self.assertNotIn(persona, messages[0]['content'])
+        self.assertIn('{"score":90,"reason":', messages[0]['content'])
+        data = json.loads(messages[1]['content'])
+        self.assertEqual(data['persona_reference'], persona)
+        self.assertEqual(len(data['history']), 12)
+        self.assertEqual(data['history'][0]['text'], '旧聊天-3')
+        self.assertEqual(data['history'][0]['timestamp'], 4)
+        self.assertEqual(data['current_message']['text'], event.text)
+        self.assertTrue(data['current_message']['mentions_self'])
+        self.assertEqual(data['rule_observation']['score'], 100)
+
     def test_only_bounded_integer_score_and_short_reason_are_accepted(self):
         self.assertEqual(ReplyAssessment.parse({'score': 80, 'reason': '需要帮忙'}).score, 80)
         for value in ({'score': True, 'reason': 'x'}, {'score': 80.5, 'reason': 'x'},

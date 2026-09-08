@@ -37,6 +37,7 @@ mode = "willingness"
 frequency = 0.7
 names = ["亚托莉", "ATRI", "アトリ"]
 # 判断模型的意愿分达到此值才生成回复，范围 1–100；分数不是概率。
+# 判断失败会重试2次；三次都失败时，用本条消息的规则分对比此阈值。
 threshold = 60
 cooldown_seconds = 10
 continuation_seconds = 90

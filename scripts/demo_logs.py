@@ -33,7 +33,8 @@ async def demo(color):
             payload = await request.json()
             await asyncio.sleep(.02)
             if payload['model'] == 'demo-judge':
-                waiting = '不用回复' in payload['messages'][-1]['content']
+                current = json.loads(payload['messages'][-1]['content'])['current_message']['text']
+                waiting = '不用回复' in current
                 text = json.dumps({'score': 10 if waiting else 88,
                                    'reason': '对方要求安静' if waiting else '对方在寻求帮助，可以参与'}, ensure_ascii=False)
             else:

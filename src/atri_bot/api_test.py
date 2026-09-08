@@ -57,7 +57,7 @@ async def run_api_tests(config, *, stream=None):
     emit(f"API 地址：{config.base_url.rstrip('/')}/chat/completions")
     emit(f"回复模型：{config.model}；判断模型：{config.reply.judgment_model or config.model}")
     emit(f"单次超时：{config.llm_timeout:g} 秒；思考模式：{config.thinking or '接口默认'}")
-    emit("将调用真实模型 4 次，使用人设和模拟消息，不连接 QQ。")
+    emit("将测试 4 项，通常调用模型 4 次；判断失败各重试2次，最多8次请求。使用人设和模拟消息，不连接 QQ。")
     results = []
     started = time.perf_counter()
     async with aiohttp.ClientSession() as session:

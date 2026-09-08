@@ -26,8 +26,13 @@ class ApiTestTests(unittest.IsolatedAsyncioTestCase):
 
         async def provider(request):
             self.assertEqual(request.headers.get('Authorization'), 'Bearer fake-api-secret')
-            index = len(self.requests)
-            self.requests.append(await request.json())
+            payload = await request.json()
+            self.requests.append(payload)
+            if payload['model'] == 'judge-model':
+                current = json.loads(payload['messages'][1]['content'])['current_message']['text']
+                index = 2 if '保持安静' in current else 1
+            else:
+                index = 0 if '接口连接测试' in payload['messages'][-1]['content'] else 3
             if self.delays[index]:
                 await asyncio.sleep(self.delays[index])
             return web.json_response({'choices': [{'message': {'content': self.contents[index]}}]},
@@ -76,8 +81,10 @@ class ApiTestTests(unittest.IsolatedAsyncioTestCase):
                          ['reply-model', 'judge-model', 'judge-model', 'reply-model'])
         self.assertEqual([r['max_completion_tokens'] for r in self.requests], [512, 256, 256, 512])
         self.assertTrue(all(r['thinking'] == {'type': 'disabled'} for r in self.requests))
-        for request in self.requests[1:]:
-            self.assertIn(self.config.read_personal_info(), request['messages'][0]['content'])
+        for request in self.requests[1:3]:
+            data = json.loads(request['messages'][1]['content'])
+            self.assertEqual(self.config.read_personal_info(), data['persona_reference'])
+        self.assertIn(self.config.read_personal_info(), self.requests[3]['messages'][0]['content'])
         self.assertIn('群聊参与判断器', self.requests[1]['messages'][0]['content'])
 
     async def test_failures_are_distinguished_and_remaining_cases_still_run(self):
@@ -90,7 +97,7 @@ class ApiTestTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual([r.error for r in results],
                          ['model_http_401', 'invalid_reply_assessment', 'unexpected_response', ''])
         self.assertEqual([r.passed for r in results], [False, False, False, True])
-        self.assertEqual(len(self.requests), 4)
+        self.assertEqual(len(self.requests), 6)
         self.assertIn('1/4 通过', stream.getvalue())
         self.assertIn('接口已返回结果，但未符合测试预期', stream.getvalue())
         self.assertNotIn('fake-api-secret', stream.getvalue())

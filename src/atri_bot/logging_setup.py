@@ -99,30 +99,32 @@ class ModuleFormatter(logging.Formatter):
 
     def format(self, record):
         component = self.clean(self.component(record))
+        level_name = {"WARNING": "WARN", "CRITICAL": "CRIT"}.get(record.levelname, record.levelname)
+        level = f"{level_name[:5]:<5}"
         timestamp = f"{self.formatTime(record, self.datefmt)}.{int(record.msecs):03d}"
         trace = getattr(record, "atri_trace", {})
         location = " ".join(f"{short}={self.clean(str(trace[key]))}" for key, short in
                             (("group_id", "g"), ("message_id", "m"), ("user_id", "u"))
                             if trace.get(key) is not None)
-        message = self.clean(record.getMessage())
+        messages = [self.clean(record.getMessage())]
         if record.exc_info:
-            # 每条异常栈另起行并缩进；只信任格式化器产生的换行。
-            message += "\n" + "\n".join("    " + self.clean(line)
-                                           for line in self.formatException(record.exc_info).splitlines())
+            # 异常栈逐行保留相同的时间、模块、级别、追踪信息和配色。
+            messages.extend(self.clean(line) for line in self.formatException(record.exc_info).splitlines())
         if record.stack_info:
-            message += "\n" + "\n".join("    " + self.clean(line) for line in record.stack_info.splitlines())
+            messages.extend(self.clean(line) for line in record.stack_info.splitlines())
         if not self.color:
-            return f"{timestamp} | {record.levelname:<8} | {component} | {location or '-'} | {message}"
+            prefix = f"{timestamp} |{level}| {component} | {location or '-'} | "
+            return "\n".join(prefix + message for message in messages)
         module_color = COLORS.get(component)
         if module_color is None:
             module_color = PLUGIN_COLORS[zlib.crc32(component.encode('utf-8')) % len(PLUGIN_COLORS)]
         level_color = 196 if record.levelno >= logging.ERROR else 214 if record.levelno >= logging.WARNING else 120 if record.levelno >= logging.INFO else 245
         body_color = level_color if record.levelno >= logging.WARNING else module_color
-        return (f"\033[38;5;245m{timestamp}\033[0m | "
-                f"\033[38;5;{level_color}m{record.levelname:<8}\033[0m | "
+        prefix = (f"\033[38;5;245m{timestamp}\033[0m |"
+                f"\033[38;5;{level_color}m{level}\033[0m| "
                 f"\033[1;38;5;{module_color}m{component}\033[0m | "
-                f"\033[38;5;245m{location or '-'}\033[0m | "
-                f"\033[38;5;{body_color}m{message}\033[0m")
+                f"\033[38;5;245m{location or '-'}\033[0m | ")
+        return "\n".join(prefix + f"\033[38;5;{body_color}m{message}\033[0m" for message in messages)
 
 
 def configure_logging(config, root: Path, *, secrets=(), stream=None):
