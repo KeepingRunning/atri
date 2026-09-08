@@ -123,6 +123,7 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.config.reply.mode = 'willingness'
         self.config.reply.judgment_model = 'fast-judge'
         self.config.output_limit_field = 'max_completion_tokens'
+        self.config.thinking = 'disabled'
         self.responses = [
             {'choices': [{'message': {'content': json.dumps({'score': 90, 'reason': '可以回答'})}}]},
             {'choices': [{'message': {'content': '接话结果'}}]},
@@ -132,6 +133,7 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         action = await asyncio.wait_for(ws.receive_json(), 2)
         self.assertEqual(action['params']['message'][0]['data']['text'], '接话结果')
         self.assertEqual([r['model'] for r in self.requests], ['fast-judge', 'test-model'])
+        self.assertEqual([r['thinking'] for r in self.requests], [{'type': 'disabled'}] * 2)
         self.assertEqual(self.requests[0]['max_completion_tokens'], 256)
         self.assertEqual(self.requests[1]['max_completion_tokens'], 512)
         self.assertIn('群聊参与判断器', self.requests[0]['messages'][0]['content'])

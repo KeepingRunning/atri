@@ -64,6 +64,18 @@ class ConfigTests(unittest.TestCase):
             self.assertEqual(config.reply.names, ['小亚'])
             self.assertEqual(config.reply.judgment_model, 'fast')
 
+    def test_optional_thinking_configuration(self):
+        self.assertEqual(Config.load(ROOT / 'config.toml.template').thinking, '')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for mode in ('enabled', 'disabled', ''):
+                path.write_text(f'[llm]\nthinking="{mode}"\n')
+                self.assertEqual(Config.load(path).thinking, mode)
+            for value in ('true', '42', '"auto"', '[]'):
+                path.write_text(f'[llm]\nthinking={value}\n')
+                with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'llm.thinking'):
+                    Config.load(path)
+
     def test_invalid_reply_configuration_is_rejected_at_load(self):
         invalid = ['frequency=nan', 'frequency=inf', 'frequency=-0.1', 'frequency=1.1',
                    'frequency=true', 'threshold=0', 'threshold=60.5', 'threshold=true',

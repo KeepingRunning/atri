@@ -6,6 +6,7 @@ from pathlib import Path
 import aiohttp
 from aiohttp import web
 
+from .api_test import run_api_tests
 from .bot import Bot
 from .config import Config
 from .model import ChatModel
@@ -40,7 +41,8 @@ def main(argv=None):
     parser.add_argument("--config", type=Path, default=Path("config.toml"))
     parser.add_argument("--log-level", choices=("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"))
     parser.add_argument("--log-color", choices=("auto", "always", "never"))
-    parser.add_argument("command", nargs="?", choices=("serve", "check"), default="serve")
+    parser.add_argument("command", nargs="?", choices=("serve", "check", "test-api"), default="serve",
+                        help="serve 启动服务；check 检查配置；test-api 实测模型接口")
     args = parser.parse_args(argv)
     try:
         config = Config.load(args.config)
@@ -52,12 +54,17 @@ def main(argv=None):
         if args.command == "check":
             config.require_serve()
             print("配置检查通过。")
+        elif args.command == "test-api":
+            results = asyncio.run(run_api_tests(config))
+            if not all(result.passed for result in results):
+                parser.exit(1)
         else:
             asyncio.run(serve(config))
     except (ValueError, RuntimeError, OSError) as exc:
         parser.exit(2, f"配置或启动失败：{exc}\n")
     except KeyboardInterrupt:
-        pass
+        if args.command == "test-api":
+            parser.exit(130, "API 测试已中断。\n")
 
 
 if __name__ == "__main__":

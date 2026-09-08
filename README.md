@@ -28,6 +28,8 @@ cp -n config.toml.template config.toml
 
 编辑 `config.toml`，填写 `bot.allowed_groups`、`bot.self_id`、`onebot.token`，以及 `llm.base_url`、`llm.model`、`llm.api_key`。按需修改 `personal_info.txt`。所有运行配置均从 TOML 读取；含密钥的 `config.toml` 已被 Git 忽略。
 
+DeepSeek 官方接口可使用 `llm.base_url = "https://api.deepseek.com"`、`llm.model = "deepseek-v4-flash"`，并设置 `llm.thinking = "disabled"` 关闭深度思考，适配短回复和意愿评分。该设置同时作用于回复与判断请求；其他供应商默认留空，不发送此参数。参数说明见 [DeepSeek 官方文档](https://api-docs.deepseek.com/guides/thinking_mode/)。
+
 在 QQ 客户端配置 **Universal 反向 WebSocket**：同机部署的默认地址为 `ws://127.0.0.1:28080/onebot/v11/ws`，access token 与 `onebot.token` 一致；跨主机或容器部署时使用客户端可访问的 bot 地址。
 
 ```sh
@@ -79,11 +81,25 @@ storage = "WARNING"
 
 ## 测试
 
+实测当前配置的大模型 API：
+
+```sh
+uv run atri test-api
+# 指定其他配置；只显示测试结果和错误日志：
+uv run atri --config config.local.toml --log-level ERROR test-api
+```
+
+`test-api` 会发起 4 次真实模型请求：最短 `OK` 回复、打招呼时的意愿判断、明确要求安静时的意愿判断、携带人设的聊天回复。复用正式模型客户端、上下文和超时配置，显示每项耗时、回复或评分、错误码与最终汇总；判断请求使用 `reply.judgment_model`（留空则沿用 `llm.model`）。这是小样本冒烟测试，不代表完整的人设或语义准确率评测。
+
+测试读取 `config.toml` 和人设文件，不要求填写 QQ 配置，不启动服务、不读取真实群历史、不写入群聊记录；运行日志仍按 `[logging]` 配置输出。退出码为 0（全部通过）、1（请求失败或结果不符合预期）、2（配置错误），Ctrl+C 中断为 130。`atri check` 仍仅检查配置，不请求模型。
+
+本地自动测试：
+
 ```sh
 uv run python -m unittest discover -s tests -v
 ```
 
-测试使用模拟群消息和本地模拟模型接口，不连接真实 QQ 或外部模型。
+自动测试使用模拟群消息和本地模拟模型接口，不连接真实 QQ 或外部模型；不会自动执行上述真实 API 请求。
 
 ## 许可证
 
