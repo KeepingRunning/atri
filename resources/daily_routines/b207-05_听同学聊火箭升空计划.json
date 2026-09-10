@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "id": "b207-05",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "教室里的火箭升空话题",
+  "summary": "亚托莉到校后遇到同学热议火箭发射，从不解歪头到被“0%变1%”打动，主动加入话题。两小时里大家一起听新闻、翻资料、商量发射日观察计划，亚托莉学着自己查证并记下不懂的地方。",
+  "suggested_time_of_day": [
+    "上午"
+  ],
+  "scene": "学校教室内，同学们围在一起讨论火箭即将发射的新闻，凛凛花带着自制收音机，凯瑟琳提议把发射那天当作特别课程。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司",
+    "凛凛花",
+    "水菜萌",
+    "凯瑟琳"
+  ],
+  "preconditions": [
+    "教室里有凛凛花自制的收音机，可以收听新闻",
+    "凯瑟琳作为教师愿意把火箭发射那天安排成特别课程",
+    "亚托莉和夏生今天到校稍晚，进教室时同学们已在讨论",
+    "可见的火箭资料来自同学手边已有的笔记或新闻片段，不额外联网"
+  ],
+  "adaptation_notes": [
+    "原作是教室里的短讨论，本模板把讨论后的两小时扩展为小组学习和观察计划，属于创作补足",
+    "亚托莉从不解到感兴趣的过程忠于原作，但她后续查资料、写计划的细节为虚构日常扩展",
+    "只迁移“火箭话题与特别课程提议”这一活动背景，不把后期剧情中的其他发展当作常态",
+    "同学均作为原作背景伙伴出现，不安排约会或身体亲密等情节"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "听新闻与加入话题",
+      "intent": "亚托莉先弄明白大家在兴奋什么，再决定要不要一起聊"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "翻资料问不懂的地方",
+      "intent": "围绕火箭为什么要发射、能看到什么，和同学一起查手边材料"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "商量发射日观察计划",
+      "intent": "讨论特别课程怎么安排、从哪里看、要记录什么"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "整理笔记与闲歇",
+      "intent": "把讨论内容收拢成小计划，随口聊聊各自的期待"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "听新闻与加入话题",
+      "detail": "亚托莉跟着夏生走进教室，看到大家围成一圈，先安静听龙司说这次一定要成功。",
+      "mood": "刚到校的迷糊"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "听新闻与加入话题",
+      "detail": "凛凛花举着自制收音机主张，亚托莉看了看收音机，好奇它怎么能证明火箭会飞。",
+      "mood": "有点好奇"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "听新闻与加入话题",
+      "detail": "听到“火箭升空地球就能被拯救”时亚托莉歪着脑袋，没马上接话，想先弄清拯救和发射的关系。",
+      "mood": "不解地歪头"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "翻资料问不懂的地方",
+      "detail": "夏生说0%变1%就是很大的进步，亚托莉把这句记下来，突然对火箭产生了兴趣。",
+      "mood": "被那句话触到"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "翻资料问不懂的地方",
+      "detail": "她主动凑到凛凛花和水菜萌旁边，想看看收音机收到的新闻里还写了什么。",
+      "mood": "想自己弄明白"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "翻资料问不懂的地方",
+      "detail": "龙司翻出之前记的火箭笔记，亚托莉一边看一边问漂浮基地和轨道是什么意思。",
+      "mood": "问题一个接一个"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "商量发射日观察计划",
+      "detail": "凯瑟琳提议发射那天当特别课程，亚托莉立刻赞成，开始想那天要准备什么。",
+      "mood": "积极加入"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "商量发射日观察计划",
+      "detail": "大家讨论从学校能不能看到，亚托莉把“天气好坏”和“海上漂浮基地”两个条件并排写在一起。",
+      "mood": "认真核对"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "商量发射日观察计划",
+      "detail": "她嘴上说自己肯定能记清楚发射时间，手里却把日期又对了一遍凛凛花的收音机新闻。",
+      "mood": "得意又谨慎"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "整理笔记与闲歇",
+      "detail": "讨论告一段落，亚托莉把笔记收拢，问水菜萌那天要不要一起早点到教室占位置。",
+      "mood": "期待那天"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "整理笔记与闲歇",
+      "detail": "她靠着桌子听龙司和凯瑟琳还在聊火箭，偶尔插一句自己刚学到的词。",
+      "mood": "放松地旁听"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理笔记与闲歇",
+      "detail": "亚托莉把笔记合上，说发射那天要亲眼看看那1%是什么样子。",
+      "mood": "单纯地期待"
+    }
+  ],
+  "source": {
+    "chapter": "b207.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "龙司说这次火箭一定要成功，凛凛花拿着自制收音机说收音机都这么说了。",
+      "凯瑟琳提议发射那天当特别课程，大家一起来看。",
+      "亚托莉最初不解地歪着脑袋，问火箭升空地球就能被拯救吗。",
+      "夏生说0%变成1%就是很大的进步，亚托莉说突然对火箭感兴趣了。",
+      "亚托莉加入大家，聊起了火箭的话题。"
+    ],
+    "character_hook": "亚托莉从不解歪头到‘喔喔，是这样啊’迅速产生兴趣，积极加入同学讨论，展现她对拯救地球话题的单纯好奇与参与热情。",
+    "adaptation": "原作是教室里的短讨论，可扩展为两小时的特别课程或小组学习：亚托莉和同学一起听新闻、查火箭资料、制作观察计划，保持她对火箭从不懂到感兴趣的过程。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 6399,
+        "id": "vol1/b207.ks.scn/0/dialogue/103",
+        "speaker": "龙司",
+        "text": "这次希望一定要成功。不然就真的没有未来了"
+      },
+      {
+        "line": 6400,
+        "id": "vol1/b207.ks.scn/0/dialogue/104",
+        "speaker": "凛凛花",
+        "text": "当然！收音机都这么说了！"
+      },
+      {
+        "line": 6405,
+        "id": "vol1/b207.ks.scn/0/dialogue/109",
+        "speaker": "亚托莉",
+        "text": "早上好"
+      },
+      {
+        "line": 6408,
+        "id": "vol1/b207.ks.scn/0/dialogue/112",
+        "speaker": "龙司",
+        "text": "阿夏，昨天的新闻你听了吗？"
+      },
+      {
+        "line": 6411,
+        "id": "vol1/b207.ks.scn/0/dialogue/115",
+        "speaker": "凛凛花",
+        "text": "火箭啊！这次终于要发射了！"
+      },
+      {
+        "line": 6412,
+        "id": "vol1/b207.ks.scn/0/dialogue/116",
+        "speaker": "龙司",
+        "text": "计划风调雨顺，新闻说，计划下下周发射"
+      },
+      {
+        "line": 6418,
+        "id": "vol1/b207.ks.scn/0/dialogue/122",
+        "speaker": "凯瑟琳",
+        "text": "那天就当做特别课程，大家一起来看吧"
+      },
+      {
+        "line": 6432,
+        "id": "vol1/b207.ks.scn/0/dialogue/136",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "只有亚托莉一个人看着大家，不解地歪着脑袋。"
+      },
+      {
+        "line": 6433,
+        "id": "vol1/b207.ks.scn/0/dialogue/137",
+        "speaker": "亚托莉",
+        "text": "如果火箭升空的话，地球就能被拯救吗？"
+      },
+      {
+        "line": 6441,
+        "id": "vol1/b207.ks.scn/0/dialogue/145",
+        "speaker": "亚托莉",
+        "text": "喔喔，是这样啊。我突然间对火箭感兴趣起来了！"
+      },
+      {
+        "line": 6442,
+        "id": "vol1/b207.ks.scn/0/dialogue/146",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉也加入了大家之中，聊起了火箭的话题。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时日程围绕火箭新闻讨论、查资料和观察计划展开，与adaptation声明的扩展方向一致。角色归属、关键事实和情绪走向均未偏离原作，未出现捏造设定或提前断言结果。活动节奏分布合理，没有把小动作重复拉满时长的问题。餐食、味道、事故等无关题材未出现。可视为通过。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时日程围绕火箭新闻讨论、查资料和观察计划展开，与adaptation声明的扩展方向一致。角色归属、关键事实和情绪走向均未偏离原作，未出现捏造设定或提前断言结果。活动节奏分布合理，没有把小动作重复拉满时长的问题。餐食、味道、事故等无关题材未出现。可视为通过。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "48ef12d7472a5420193a7dca2a8f5ec683a8fa2a4d921f568369a8a4fcc2d7db",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "8de4cdbca162a6c3fc7b92aff2bd0aaf75944140c7dfddf13cb41e4f1da3dad2"
+  }
+}

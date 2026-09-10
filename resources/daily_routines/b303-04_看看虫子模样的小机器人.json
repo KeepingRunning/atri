@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "id": "b303-04",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "虫型机器人观察两小时",
+  "summary": "亚托莉与夏生在人工岛上追踪观察虫型机器人，记录不同形态与职能，讨论它们如何用岛上草木做材料、死后回归大地，组成分工循环的维护系统。中途休息整理笔记，最后回到据点交流发现。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "人工岛草木繁茂的坡地与小径，虫型机器人穿梭其间，亚托莉和夏生带着观察用纸笔走走停停。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "人工岛上有多种虫型机器人，外观类似蝴蝶、蜘蛛、青虫等生物",
+    "这些机器人以岛上草木为材料制造，死后回归大地化为养料",
+    "亚托莉和夏生可以两小时内在岛上走动观察并做简单记录",
+    "亚托莉对未知事物会提问，也能理解分工循环的系统"
+  ],
+  "adaptation_notes": [
+    "原作中只是夏生带回虫型机器人给亚托莉看并简短讨论，本模板将其扩展为两小时实地追踪观察。",
+    "延伸了记录和休息环节，原作未描写具体观察流程。",
+    "去掉了亚托莉当时性能衰退的设定，只保留好奇与理解系统的特质。",
+    "不写亚托莉能制造、控制或修复这些机器人。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "追踪第一只虫型机器人",
+      "intent": "亚托莉想弄清眼前这只类似蝴蝶的机器人到底在做什么，夏生带她从据点出发沿小径寻找。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "记录不同形态与职能",
+      "intent": "见到蜘蛛型、青虫型等不同个体，亚托莉关注它们各自的动作差异，往纸上记下疑点。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "休息并讨论循环原理",
+      "intent": "在树荫下歇脚，亚托莉把所见串起来，向夏生确认它们是否用草木制造、死后回归大地。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "整理观察结论与闲谈",
+      "intent": "走回据点附近，亚托莉边翻记录边整理分工循环的想法，也随口感叹这座岛的系统。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "追踪第一只虫型机器人",
+      "detail": "亚托莉蹲在草丛边，盯着那只蝴蝶模样的机器人，等它动起来才挪一步。",
+      "mood": "好奇而专注"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "追踪第一只虫型机器人",
+      "detail": "它飞向一棵树，亚托莉跟过去，想确认它是不是在啃树皮或采集什么。",
+      "mood": "想弄明白"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "追踪第一只虫型机器人",
+      "detail": "夏生在旁边说明这是维护岛屿的机器人之一，亚托莉点头，仍盯着它回旋的路径。",
+      "mood": "边听边看"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "记录不同形态与职能",
+      "detail": "又发现一只蜘蛛型，亚托莉觉得它和刚才那只动作完全不同，掏出纸记下外形。",
+      "mood": "有点兴奋"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "记录不同形态与职能",
+      "detail": "青虫型的在修补墙缝，亚托莉凑近看，问夏生这些材料是不是都来自岛上草木。",
+      "mood": "认真求证"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "记录不同形态与职能",
+      "detail": "纸上画了几种简易轮廓，亚托莉在旁边标箭头，想理清谁做什么、谁又负责别的。",
+      "mood": "整理思绪"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "休息并讨论循环原理",
+      "detail": "两人在树荫下坐下，亚托莉把记录摊开，问夏生机器人死后是不是真的回归大地。",
+      "mood": "想确认"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "休息并讨论循环原理",
+      "detail": "夏生解释它们用岛上草木做材料，死后化为养料，亚托莉接话说那是复数种类形成的循环。",
+      "mood": "理解得快"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "休息并讨论循环原理",
+      "detail": "亚托莉把分工和循环在脑子里排了一遍，觉得小小的个体合起来能维持整座岛很了不起。",
+      "mood": "由衷感叹"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "整理观察结论与闲谈",
+      "detail": "往回走的路上，她又瞄见一只虫型机器人，顺手在记录末尾补了一笔。",
+      "mood": "意犹未尽"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "整理观察结论与闲谈",
+      "detail": "亚托莉翻着纸页，说想把不同职能列成一张表，夏生帮她想该按什么顺序排。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理观察结论与闲谈",
+      "detail": "回到据点附近，亚托莉把记录收好，还在琢磨这座岛的系统到底被建造了多久。",
+      "mood": "安静回味"
+    }
+  ],
+  "source": {
+    "chapter": "b303.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉看到虫型机器人后问它们是不是机器人。",
+      "夏生向亚托莉解释虫型机器人以岛上草木为材料，死后回归大地。",
+      "亚托莉理解到这是用复数种类形成循环的系统。"
+    ],
+    "character_hook": "对未知事物会提问，并能迅速理解系统原理。",
+    "adaptation": "将观察虫型机器人扩展为两小时的生态观察活动，亚托莉和夏生在岛上追踪、记录不同职能的机器人。",
+    "editor_note": "保留观察与讨论循环分工；来源涉及人工岛，场景前提明确标出。不要写她能制造、控制这些机器人，去掉她当时性能衰退。",
+    "evidence": [
+      {
+        "line": 7714,
+        "id": "vol1/b303.ks.scn/0/dialogue/343",
+        "speaker": "夏生",
+        "text": "你看，是你的同类"
+      },
+      {
+        "line": 7715,
+        "id": "vol1/b303.ks.scn/0/dialogue/344",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我把抓到的虫型机器人拿给亚托莉看。"
+      },
+      {
+        "line": 7716,
+        "id": "vol1/b303.ks.scn/0/dialogue/345",
+        "speaker": "亚托莉",
+        "text": "这些虫子……是机器人吗？"
+      },
+      {
+        "line": 7717,
+        "id": "vol1/b303.ks.scn/0/dialogue/346",
+        "speaker": "夏生",
+        "text": "它们有着不同的职能，不断为这座岛进行维护"
+      },
+      {
+        "line": 7718,
+        "id": "vol1/b303.ks.scn/0/dialogue/347",
+        "speaker": "夏生",
+        "text": "这些东西也是机器人制造出来的，恐怕就是用岛上的草木作为材料。死后就回归大地，化为养料"
+      },
+      {
+        "line": 7719,
+        "id": "vol1/b303.ks.scn/0/dialogue/348",
+        "speaker": "亚托莉",
+        "text": "是用复数种类形成循环的系统吧"
+      },
+      {
+        "line": 7720,
+        "id": "vol1/b303.ks.scn/0/dialogue/349",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "通过分工，来让小小的机器人组成一套庞大的系统。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时观察活动围绕虫型机器人提问与理解循环系统展开，符合adaptation扩展边界；未出现制造/控制机器人或性能衰退，也未把他人行为归给亚托莉；时长分配为追踪、记录、休息讨论、整理收尾，无明显拖时长或重复拉满。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时观察活动围绕虫型机器人提问与理解循环系统展开，符合adaptation扩展边界；未出现制造/控制机器人或性能衰退，也未把他人行为归给亚托莉；时长分配为追踪、记录、休息讨论、整理收尾，无明显拖时长或重复拉满。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "009e1e3fe00aead7582bfa81c944184c397905ca701622cb3859fd52ca6a7750",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "d235f88ad71fc4d59bc7daff557d4be9bd63f185ed3a5fc91b036b8612c70d0b"
+  }
+}

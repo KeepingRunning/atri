@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "id": "b123-10",
+  "category": "观察",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "退潮时水车观察",
+  "summary": "傍晚退潮时分，亚托莉与夏生等人到设置发电机的教室观察水车运转。她敏锐发现水车动了并告知夏生，随后围绕水量与转速交换疑问，最后带着记录纸收尾离开。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "太阳西沉后的学校教室，二楼走廊水坝截住的海水汇聚到水车处，退潮缓慢，水流不湍急，众人小心脚下湿滑地面。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "教室一角已设置好利用水流驱动的水车与发电机",
+    "当前正值退潮时段，海水从二楼走廊的水坝处缓慢流下",
+    "亚托莉、夏生、龙司和水菜萌都在现场，可以自由观察和交流",
+    "现场备有记录用的纸笔和可临时堆放的沙袋"
+  ],
+  "adaptation_notes": [
+    "原作仅呈现退潮时亚托莉注意到水车动了、夏生等人讨论水量与改良方案，本模板将这一片段扩展为约两小时的连续观察。",
+    "原作中亚托莉的直接依据是发现水车动了，本模板保留她敏锐观察和直观提问，不把她写成专业论断者。",
+    "水车转速、水位变化与改良草图等细节属于创作补足，用于填充十分钟格子的具体关注点。",
+    "所有活动均发生在虚构背景中，不涉及现实中存在的水车、发电机或工具操作。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "到场发现水车动了",
+      "intent": "亚托莉先注意到水车转动并告诉夏生，留意退潮时水流缓慢的直观感受。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "观察水流与叶片",
+      "intent": "陪着看水车叶片节奏和水面变化，对水量与转速提出简单疑问，听夏生解释。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "听讨论改良方案",
+      "intent": "听夏生、龙司和水菜萌讨论缩小地洞、水闸或沙袋方案，亚托莉偶尔插话或点头。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "走动歇脚与收尾",
+      "intent": "在教室附近走动放松，再回头看一眼水车，收拾记录纸后和大家一起离开。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "到场发现水车动了",
+      "detail": "亚托莉走到设置发电机的教室，一眼就注意到水车叶片在动，立刻转头告诉夏生。",
+      "mood": "敏锐而兴奋"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "到场发现水车动了",
+      "detail": "大家小心避开脚下的水流，亚托莉站在水车侧面，看着退潮的水缓缓推着叶片，觉得速度比预想中慢。",
+      "mood": "专注观察"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "到场发现水车动了",
+      "detail": "夏生确认水量充足但退潮慢，亚托莉盯着水面，发现确实没有形成大漩涡，把这点记在心里。",
+      "mood": "认真核对"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "观察水流与叶片",
+      "detail": "亚托莉数着叶片转过去的次数，发现每转一圈的时间差不多，但整体并不快，随手在纸上画了道线。",
+      "mood": "平静记录"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "观察水流与叶片",
+      "detail": "水菜萌问起水车情况，亚托莉指着水面说水量够但流得慢，自己也不太确定转速算不算稳定。",
+      "mood": "坦率分享"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "观察水流与叶片",
+      "detail": "夏生提到海面与一楼天花板的距离会影响转速，亚托莉顺着他的话抬头看了看天花板，想象水再涨高些的样子。",
+      "mood": "跟着思考"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "听讨论改良方案",
+      "detail": "夏生说起缩小地洞尺寸的打算，亚托莉在旁边听着，觉得这跟刚才看到的水量变化能对上。",
+      "mood": "安静倾听"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "听讨论改良方案",
+      "detail": "听龙司和夏生讨论水闸，亚托莉指着教室入口问是不是要装在那里，想把听到的办法和眼前位置对应起来。",
+      "mood": "务实回应"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "听讨论改良方案",
+      "detail": "大家提起沙袋时，亚托莉看看水边空地，想知道自己能帮忙搬什么，施工决定仍等夏生他们讨论。",
+      "mood": "认真评估"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "走动歇脚与收尾",
+      "detail": "讨论告一段落，亚托莉站起来在教室附近走了几步，活动一下脖子，水车还在按原来的节奏转着。",
+      "mood": "放松肩颈"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "走动歇脚与收尾",
+      "detail": "亚托莉靠着窗边看了一会儿水流，没有急着说话，只把记录纸上的箭头又描清楚一点。",
+      "mood": "安静放空"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "走动歇脚与收尾",
+      "detail": "夏生说暂且先看看情况，亚托莉点头，把纸笔收好，和大家一起离开教室。",
+      "mood": "踏实收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b123.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "太阳西沉后到退潮时间。",
+      "亚托莉发现水车动了。",
+      "水量充足但退潮速度慢，无法形成大漩涡。",
+      "夏生考虑缩小地洞尺寸、设置水闸或堆沙袋。"
+    ],
+    "character_hook": "亚托莉敏锐观察到水车动了，并第一时间告诉夏生。",
+    "adaptation": "可扩成两小时的观察与记录：定时查看水位、记录水车转速、画改良草图、讨论沙袋方案。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 3590,
+        "id": "vol1/b123.ks.scn/0/dialogue/181",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "太阳开始西沉。"
+      },
+      {
+        "line": 3591,
+        "id": "vol1/b123.ks.scn/0/dialogue/182",
+        "speaker": "夏生",
+        "text": "差不多到退潮的时间了"
+      },
+      {
+        "line": 3592,
+        "id": "vol1/b123.ks.scn/0/dialogue/183",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们到设置发电机的教室看看情况。"
+      },
+      {
+        "line": 3593,
+        "id": "vol1/b123.ks.scn/0/dialogue/184",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "大家遵照着凯瑟琳的嘱咐，注意不被脚下的水流冲倒。"
+      },
+      {
+        "line": 3594,
+        "id": "vol1/b123.ks.scn/0/dialogue/185",
+        "speaker": "亚托莉",
+        "text": "啊，夏生先生，水车动了哦"
+      },
+      {
+        "line": 3595,
+        "id": "vol1/b123.ks.scn/0/dialogue/186",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "积存在二楼的海水被走廊的水坝截住，聚集到了这里。"
+      },
+      {
+        "line": 3596,
+        "id": "vol1/b123.ks.scn/0/dialogue/187",
+        "speaker": "夏生",
+        "text": "水量很充足……但退潮的速度太慢，无法形成大漩涡啊"
+      },
+      {
+        "line": 3597,
+        "id": "vol1/b123.ks.scn/0/dialogue/188",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水车转得并不快，虽然这也在预料之内。"
+      },
+      {
+        "line": 3598,
+        "id": "vol1/b123.ks.scn/0/dialogue/189",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "如果海面与一楼天花板的距离再远一些，转动速度也会更稳定吧。"
+      },
+      {
+        "line": 3599,
+        "id": "vol1/b123.ks.scn/0/dialogue/190",
+        "speaker": "夏生",
+        "text": "问题是那时还会剩多少水量啊……"
+      },
+      {
+        "line": 3600,
+        "id": "vol1/b123.ks.scn/0/dialogue/191",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我将这个因素也计算进去，缩小了地洞的尺寸。"
+      },
+      {
+        "line": 3601,
+        "id": "vol1/b123.ks.scn/0/dialogue/192",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "这招不行还有其他办法，在教室入口设置水闸是效果最明显的，但需要进行大规模施工。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "40871e45f387525df36512f98ecf3ceb6c19788df17f9eb229de59d5cc5de7d8",
+    "content_sha256": "0e0a7ef2b58917930adbb2042eafe163b5facfa88434b3ab7628835025d8edd3"
+  }
+}

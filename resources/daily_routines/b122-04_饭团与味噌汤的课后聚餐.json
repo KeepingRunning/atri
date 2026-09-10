@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "id": "b122-04",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "饭团与味噌汤的课后聚餐",
+  "summary": "水菜萌和孩子们准备好饭团、味噌汤与小菜；亚托莉结束劳动后被邀请留下，等大家到齐后分到自己的份，一起吃饭聊天，再帮忙普通收拾。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "学校附近的厨房与长桌，桌上摆着饭团、味噌汤和简单小菜；孩子们和水菜萌还在张罗，夏生他们收工回来。",
+  "participants": [
+    "亚托莉",
+    "水菜萌",
+    "凛凛花",
+    "夏生",
+    "龙司",
+    "孩子B",
+    "孩子C"
+  ],
+  "preconditions": [
+    "水菜萌、凛凛花和孩子们已经准备好饭团、味噌汤和简单小菜",
+    "亚托莉和大家刚干完活回来，被邀请留下来一起吃",
+    "桌边有足够的份量分给在场所有人，亚托莉的份由水菜萌来分",
+    "亚托莉知道饭团和味噌汤是什么，但这次不是她负责准备"
+  ],
+  "adaptation_notes": [
+    "原作确认饭团、味噌汤和小菜由水菜萌与孩子们准备，亚托莉劳动后加入用餐；本模板不把她改成主要厨师。",
+    "原作聚餐紧接劳动之后，本模板保留这一顺序，但把场景放在普通课后厨房，不绑定具体挖掘现场。",
+    "等开饭、一起用餐、饭后聊天和收拾的两小时分配属于创作扩展，原作只呈现吃饭与满足感。",
+    "亚托莉被邀请时的开心、吃饭时的啊呣啊呣和“劳动过后的饭菜更美味”保持为方向，不预先断言饭菜味道或别人称赞。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "收工来到餐桌边",
+      "intent": "劳动后惦记饭菜，想知道自己能不能一起吃。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 50,
+      "activity": "饭团味噌汤聚餐",
+      "intent": "吃自己的份，也听伙伴们聊天。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 100,
+      "activity": "饭后闲坐与聊天",
+      "intent": "放下劳动后的紧绷，享受有人一起待着。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "帮忙收尾",
+      "intent": "做些普通收拾再离开。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "收工来到餐桌边",
+      "detail": "结束手头劳动来到桌边，看到水菜萌和孩子们准备的饭团、味噌汤和小菜，眼睛先被饭菜吸引。",
+      "mood": "好奇又期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "收工来到餐桌边",
+      "detail": "洗好手在桌边等着，想问自己能不能也一起吃，期待并没有藏得特别好。",
+      "mood": "认真听"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "饭团味噌汤聚餐",
+      "detail": "接过给自己的那份时认真道谢，先看一眼饭团和汤，再找地方坐好。",
+      "mood": "意外"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "饭团味噌汤聚餐",
+      "detail": "吃着自己的饭团，对劳动之后坐下来吃饭这件事很在意，也想尝尝汤的味道。",
+      "mood": "开心"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "饭团味噌汤聚餐",
+      "detail": "听水菜萌和孩子们聊准备饭菜的事，有空就搭两句，不急着评价谁的手艺。",
+      "mood": "感激"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "饭后闲坐与聊天",
+      "detail": "吃得差不多就把碗放稳，靠着椅背听人说话，手头暂时没有急着要做的活。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "饭后闲坐与聊天",
+      "detail": "对孩子们一起捏饭团的分工有点好奇，想知道这么多份是怎么准备的。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "饭后闲坐与聊天",
+      "detail": "话题如果转回刚才的劳动，也愿意说说自己负责的部分，不替别人宣布已经成功。",
+      "mood": "得意又温暖"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "饭后闲坐与聊天",
+      "detail": "桌边声音热闹时就听一会儿，想起自己也参加了今天的事情，忍不住带点得意。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "饭后闲坐与聊天",
+      "detail": "安静下来的时候看看窗外，不必继续围着同一碗汤找话说，等大家慢慢吃完。",
+      "mood": "愿意帮忙"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "帮忙收尾",
+      "detail": "帮忙归拢空碗和盘子，留意还有人在吃的那份，等对方用完再收。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "帮忙收尾",
+      "detail": "擦好桌面后收起抹布，向准备饭菜的人道谢，再看看接下来是休息还是回去。",
+      "mood": "温暖留恋"
+    }
+  ],
+  "source": {
+    "chapter": "b122.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌在大家干活时准备了饭团、味噌汤和简单小菜",
+      "凛凛花和孩子们也帮忙做饭团和煮味噌汤",
+      "亚托莉一开始说“好羡慕”，夏生邀请她一起吃",
+      "水菜萌给亚托莉分了她的份",
+      "亚托莉说“劳动过后的饭菜就更美味了”"
+    ],
+    "character_hook": "亚托莉对和大家一起吃饭充满向往，被邀请时非常开心，吃东西时发出啊呣啊呣的声音并表达满足。",
+    "adaptation": "保持水菜萌、凛凛花和孩子们准备饭菜、亚托莉劳动后加入用餐的分工，以等开饭、聚餐、饭后聊天和普通收拾扩展两小时。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 3254,
+        "id": "vol1/b122.ks.scn/0/dialogue/183",
+        "speaker": "水菜萌",
+        "text": "那个……阿夏你们在下面干活的时候，我准备了这些东西"
+      },
+      {
+        "line": 3255,
+        "id": "vol1/b122.ks.scn/0/dialogue/184",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "桌上摆着饭团、味噌汤和简单的小菜。"
+      },
+      {
+        "line": 3256,
+        "id": "vol1/b122.ks.scn/0/dialogue/185",
+        "speaker": "凛凛花",
+        "text": "我们也帮忙做了！对吧！"
+      },
+      {
+        "line": 3257,
+        "id": "vol1/b122.ks.scn/0/dialogue/186",
+        "speaker": "孩子Ｂ",
+        "text": "最大的饭团是我做的"
+      },
+      {
+        "line": 3258,
+        "id": "vol1/b122.ks.scn/0/dialogue/187",
+        "speaker": "孩子Ｃ",
+        "text": "我和水菜萌姐姐一起煮了味噌汤"
+      },
+      {
+        "line": 3261,
+        "id": "vol1/b122.ks.scn/0/dialogue/190",
+        "speaker": "龙司",
+        "text": "机会难得，吃完再回去吧"
+      },
+      {
+        "line": 3262,
+        "id": "vol1/b122.ks.scn/0/dialogue/191",
+        "speaker": "亚托莉",
+        "text": "……好羡慕啊"
+      },
+      {
+        "line": 3263,
+        "id": "vol1/b122.ks.scn/0/dialogue/192",
+        "speaker": "夏生",
+        "text": "你也一起吃不就行了"
+      },
+      {
+        "line": 3264,
+        "id": "vol1/b122.ks.scn/0/dialogue/193",
+        "speaker": "亚托莉",
+        "text": "我可以吃吗？"
+      },
+      {
+        "line": 3265,
+        "id": "vol1/b122.ks.scn/0/dialogue/194",
+        "speaker": "夏生",
+        "text": "你也付出了。好吃等于高兴，对吧？"
+      },
+      {
+        "line": 3267,
+        "id": "vol1/b122.ks.scn/0/dialogue/196",
+        "speaker": "水菜萌",
+        "text": "给，小亚托莉的份"
+      },
+      {
+        "line": 3269,
+        "id": "vol1/b122.ks.scn/0/dialogue/198",
+        "speaker": "亚托莉",
+        "text": "啊呣啊呣……劳动过后的饭菜就更美味了"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "76ddad176217480dd6fb54a681af59ea8ceea653a07802970a86eb9bce6da043",
+    "content_sha256": "e55273f1f0d66723f3b07d75b483b1c3e6c9c95d04677649de5f3d6470bbc728"
+  }
+}

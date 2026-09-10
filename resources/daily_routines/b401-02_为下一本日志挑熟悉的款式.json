@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "id": "b401-02",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "为下一本日志挑熟悉款式",
+  "summary": "亚托莉和夏生去商店街文具店，为下一本记录新菜谱的日志挑笔记本。她已有使用经验，仍在一本本比较中花费心思，想找熟悉顺手的款式，最后带着选好的本子回桌边试写。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "商店街文具店内，亚托莉在笔记本货架前一本本翻看，夏生把钱交给她后去回收站办事；她挑完后回到桌边翻看试写。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "记录留在伊甸了，亚托莉需要买新笔记本记新菜谱。",
+    "两人已来到商店街，夏生有回收站的事要办，把钱交给亚托莉让她自己挑。",
+    "亚托莉之前用过一段时间的笔记本，对纸张和排版有习惯偏好。",
+    "文具店里有笔记本货架和笔类小文具可供挑选，店外不远有能坐下翻看的位置。"
+  ],
+  "adaptation_notes": [
+    "原作中挑选过程被夏生离开略过，本模板补足她从进店、比较到回桌边试写的连续日常。",
+    "原作只写她最终拿了和之前一样的本子，未给出封面颜色、装订或纸张型号，模板不虚构这些细节。",
+    "买笔和回桌边试写是购物日常的自然扩展，不引入原作未提的特定商品或品牌。",
+    "原作后续要去学校拿成绩，本模板只截取买完笔记本后的两小时，不涉及成绩内容。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "前往文具店并初看",
+      "intent": "亚托莉和夏生走到商店街文具店，她先大致扫过货架，想找记新菜谱顺手的款式。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "逐本比较与回想",
+      "intent": "她一本本翻看内页，嘴上说要选不一样的，手里仍反复掂量用惯的排版和手感。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "顺带看笔与结账",
+      "intent": "挑定笔记本后瞄几支笔，考虑记账顺手，随后结账并收拾东西。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "回桌边试写与休息",
+      "intent": "她在店外桌边翻看新本子、试写几笔，等夏生回来，顺便歇一歇。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "前往文具店并初看",
+      "detail": "和夏生一起走到商店街文具店门口，亚托莉先探头看货架方向。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "前往文具店并初看",
+      "detail": "走进店里，她站在笔记本货架前大致扫一眼，觉得比上次多了一些没见过的封面。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "前往文具店并初看",
+      "detail": "夏生说选和以前一样的就好，她嘴上应着“还是选不一样的”，眼睛却先去找熟悉的那一排。",
+      "mood": "嘴硬"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "逐本比较与回想",
+      "detail": "她抽出一本翻翻内页，比较行距和纸张手感，回想之前记菜谱时哪种更顺手。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "逐本比较与回想",
+      "detail": "翻到一本和用惯的差不多的，她拿在手里多看了几秒，又放回去，说还是想试试别的。",
+      "mood": "犹豫"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "逐本比较与回想",
+      "detail": "她把几本候选并排放在架子上，小声念着实用性、价格和带着方不方便。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "逐本比较与回想",
+      "detail": "转了一圈回来，她发现还是最初那本最顺眼，伸手把它从架子上拿下来。",
+      "mood": "了然"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "顺带看笔与结账",
+      "detail": "挑定笔记本后，她走到笔架前，拿起一支笔在试用纸上画了两下，想记账时标重点是否顺手。",
+      "mood": "分心"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "顺带看笔与结账",
+      "detail": "她确认价格没超预算，把笔记本和笔一起拿到收银台结账，收好零钱和收据。",
+      "mood": "踏实"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "回桌边试写与休息",
+      "detail": "她走到店外桌边坐下，翻开新本子，在第一页试着写下日期和几个菜名。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "回桌边试写与休息",
+      "detail": "试写几笔后，她合上本子摸了摸封面，觉得手感熟悉，嘴角忍不住翘起来。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "回桌边试写与休息",
+      "detail": "她朝回收站方向张望，把本子收进包里，靠在椅背上等夏生回来。",
+      "mood": "轻松"
+    }
+  ],
+  "source": {
+    "chapter": "b401.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "因为记录都留在伊甸了，亚托莉需要买新笔记本记新菜谱。",
+      "亚托莉从笔记本架子挨个看，夏生建议选和之前一样的，她先说“还是选不一样的”，最后还是选了和之前一样的。",
+      "亚托莉自称找到了“实用性与经济性兼具”的笔记本，得意洋洋。"
+    ],
+    "character_hook": "亚托莉选东西时非常认真、会花很多时间比较，自称“我的眼光绝不会错”，但选完后又回到原来的选择。",
+    "adaptation": "把文具店挑笔记扩展为两小时的购物日常：比较不同笔记本、讨论用途、最终决定，也可顺便买笔等文具。",
+    "editor_note": "与第一次买纸笔区别：有使用经验后再挑一本。原文没有具体封面颜色、装订或纸张型号，不伪装成官方细节。",
+    "evidence": [
+      {
+        "line": 8253,
+        "id": "vol1/b401.ks.scn/0/dialogue/101",
+        "speaker": "夏生",
+        "text": "也是，毕竟记录都留在伊甸了。去学校之前先一起去买吧"
+      },
+      {
+        "line": 8260,
+        "id": "vol1/b401.ks.scn/0/dialogue/108",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们在文具店面前停下脚步。"
+      },
+      {
+        "line": 8261,
+        "id": "vol1/b401.ks.scn/0/dialogue/109",
+        "speaker": "亚托莉",
+        "text": "选哪个好呢～"
+      },
+      {
+        "line": 8262,
+        "id": "vol1/b401.ks.scn/0/dialogue/110",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉从笔记本架子挨个看着。"
+      },
+      {
+        "line": 8264,
+        "id": "vol1/b401.ks.scn/0/dialogue/112",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "之前选的笔记本，也是深思熟虑的一会儿才决定的。"
+      },
+      {
+        "line": 8265,
+        "id": "vol1/b401.ks.scn/0/dialogue/113",
+        "speaker": "亚托莉",
+        "text": "之前的那个……"
+      },
+      {
+        "line": 8267,
+        "id": "vol1/b401.ks.scn/0/dialogue/115",
+        "speaker": "亚托莉",
+        "text": "还是选不一样的"
+      },
+      {
+        "line": 8268,
+        "id": "vol1/b401.ks.scn/0/dialogue/116",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "说着这样的话，开始一本本细细调查了起来。"
+      },
+      {
+        "line": 8335,
+        "id": "vol1/b401.ks.scn/0/dialogue/183",
+        "speaker": "亚托莉",
+        "text": "如你所见非常完美！"
+      },
+      {
+        "line": 8336,
+        "id": "vol1/b401.ks.scn/0/dialogue/184",
+        "speaker": "亚托莉",
+        "text": "找到了本实用性与经济性兼具的笔记本。我的眼光绝不会错！"
+      },
+      {
+        "line": 8337,
+        "id": "vol1/b401.ks.scn/0/dialogue/185",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉得意洋洋地拿出的笔记本，是和之前一样的。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "区别于第一次文具店：这次已有使用习惯，想找熟悉款式作为下一本日志，用来记新菜谱。店里挑本不拉满90分钟，加入去店和回来路程、回桌边试写准备和休息。不要实际写出没有提供的昨天菜谱或必定买到同款。",
+    "user_approval": false,
+    "editorial_sha256": "fc7cf1698e58f9043abdbb2ddcae436fbeee26d6cfd015be865ef46337293f12",
+    "content_sha256": "be4f689a448b61b2511637a589fe82adc40d8d423c8a2e70d70aeda48d105226"
+  }
+}

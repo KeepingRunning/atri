@@ -16,12 +16,16 @@ send_log = logging.getLogger("atri.send")
 
 
 class Peer:
-    def __init__(self, ws, timeout):
+    def __init__(self, ws, timeout, *, can_send=None):
         self.ws, self.timeout = ws, timeout
         self.pending = {}
         self.traces = {}
+        self.can_send = can_send or (lambda: True)
 
     async def send(self, gid, parts):
+        if not self.can_send():
+            send_log.info("[睡眠拦截] OneBot 提交前已进入睡眠时段")
+            return Receipt("ignored", reason="sleeping")
         if self.ws.closed:
             send_log.warning("[提交失败] WebSocket 已断开")
             return Receipt("failed", reason="disconnected_before_submission")
@@ -90,7 +94,7 @@ def create_app(config, bot):
                 raise web.HTTPConflict(text="Bot already connected")
             ws = web.WebSocketResponse(heartbeat=30, max_msg_size=1024*1024)
             await ws.prepare(request)
-            peer = Peer(ws, config.action_timeout)
+            peer = Peer(ws, config.action_timeout, can_send=lambda: not bot.schedule.is_sleeping())
             active = peer
             log.info("[连接建立] OneBot 已连接，机器人账号=%s", config.self_id)
         try:
@@ -132,7 +136,15 @@ def create_app(config, bot):
             await active.ws.close(code=1001, message=b"Server shutdown")
         await bot.close()
 
+    async def background(app):
+        await bot.start()
+        try:
+            yield
+        finally:
+            await bot.close()
+
     app = web.Application()
+    app.cleanup_ctx.append(background)
     app.router.add_get(config.ws_path, websocket)
     app.router.add_get("/healthz", health)
     app.on_shutdown.append(shutdown)

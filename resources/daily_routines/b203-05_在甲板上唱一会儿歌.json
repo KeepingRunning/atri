@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "id": "b203-05",
+  "category": "音乐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": true,
+  "title": "甲板上练习唱歌的两小时",
+  "summary": "亚托莉想在甲板上把那首模糊的歌重新唱顺，夏生作为唯一听众陪在一旁。两小时里她试唱、听海休息、再试唱，不急着一次唱完。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "傍晚的船甲板，橘色光辉铺在海面上。亚托莉坐在船边，夏生在不远处安静地听着，海风偶尔盖住哼唱声。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉记得那首歌的模糊旋律与零散歌词片段，但还无法一次完整唱顺",
+    "夏生愿意作为唯一听众留在甲板上，不催促也不替她唱",
+    "傍晚的甲板安静，海风与波浪声构成自然的间隔",
+    "船边有可以坐下的位置，适合短歇和听海"
+  ],
+  "adaptation_notes": [
+    "原作中夏生请求后亚托莉一次性唱完，本模板将同一首歌扩展为两小时的反复练习与短歇",
+    "原作唱歌发生在夕阳大海上，本模板保留甲板与傍晚背景，但不预设最终演唱一定完美或获得称赞",
+    "亚托莉最初声音纤细没有自信、后来找回记忆般唱出来，本模板拆成试探、休息、再整理的自然过程",
+    "夏生是听众与陪伴者，不替她演唱，也不在每格都给出反馈台词"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "开口试唱",
+      "intent": "从还记得的片段开始轻声哼唱，不急着从头到尾，先让声音适应海风与傍晚的空气。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 50,
+      "activity": "断续拼接",
+      "intent": "把零散歌词与曲调慢慢连起来，遇到模糊处反复试唱，不太想被夏生接手代唱。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 80,
+      "activity": "听海短歇",
+      "intent": "唱得有些接不上时停下来听波浪声，让耳朵和记忆都歇一歇，再决定从哪里继续。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 100,
+      "activity": "再试一段",
+      "intent": "休息后重新起头，顺着记得的旋律慢慢唱，偶尔漏词也不停住，尽量让整首连贯。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "随海收尾",
+      "intent": "不再刻意整理，只留坐在船边听海与偶尔轻哼的安静时间，不急着宣布完成。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "开口试唱",
+      "detail": "坐在船边静静吸一口气，先试着哼出记忆里最清晰的一小段旋律，声音还放得很轻。",
+      "mood": "有点紧张"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "开口试唱",
+      "detail": "哼到一半停住，皱起眉头回想下一句的走向，手指不自觉在膝盖上轻点节拍。",
+      "mood": "认真回想"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "断续拼接",
+      "detail": "把刚想起的两句连起来再唱一遍，尾音仍不太确定，偷偷瞟了夏生一眼。",
+      "mood": "有点在意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "断续拼接",
+      "detail": "开始把更多歌词片段拼进去，遇到模糊处就放慢速度，不愿跳过任何能想起来的词。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "断续拼接",
+      "detail": "唱到一处总接不上的地方，停下来用不同调子试着哼两遍，比较哪个更像记忆里的样子。",
+      "mood": "琢磨"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "听海短歇",
+      "detail": "觉得嗓子有点紧，暂时停下望向海面，听波浪一层层推过来，让脑子放空一会儿。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "听海短歇",
+      "detail": "夏生没有催她，她也只是安静坐着，偶尔用极轻的声音把断掉的那句再哼一下。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "听海短歇",
+      "detail": "从海声里找回一点感觉，坐直身子，把刚才练得最顺的一段重新起头。",
+      "mood": "重新集中"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "再试一段",
+      "detail": "不再逐句纠结，而是顺着记得的旋律慢慢唱下去，偶尔漏词也不停住。",
+      "mood": "投入"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "再试一段",
+      "detail": "唱到一半又被海风打断，她停下来听了一会儿风声，再决定要不要继续。",
+      "mood": "不急不躁"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "随海收尾",
+      "detail": "声音渐轻，最后安静下来，只听见海风与船边水声，她仍坐在原处。",
+      "mood": "安宁"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "随海收尾",
+      "detail": "偶尔再轻哼一个片段，更多时候只是望着海面，让傍晚的光洒在甲板上。",
+      "mood": "放空"
+    }
+  ],
+  "source": {
+    "chapter": "b203.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生问亚托莉能否唱那首歌，亚托莉点头并静静吸气",
+      "亚托莉起初声音纤细没有自信，后来找回记忆般唱出来",
+      "歌声响彻泛着橘色光辉的大海之上",
+      "夏生听得入迷并流下眼泪"
+    ],
+    "character_hook": "亚托莉会为唱歌认真调整呼吸，即便起初没自信也会努力把记忆片段编织成旋律。",
+    "adaptation": "将一次唱歌扩展为两小时的音乐练习时间，亚托莉可以反复试唱、回忆歌词、和夏生一起确认旋律；原文只有一次完整演唱，需设定为练习与重复。",
+    "editor_note": "她能哼唱熟悉旋律，夏生是听众。唱歌、短歇与听海声自然交替，不输出歌词或预定唱完获赞。",
+    "evidence": [
+      {
+        "line": 4997,
+        "id": "vol1/b203.ks.scn/0/dialogue/292",
+        "speaker": "夏生",
+        "text": "……好想听歌啊"
+      },
+      {
+        "line": 4998,
+        "id": "vol1/b203.ks.scn/0/dialogue/293",
+        "speaker": "亚托莉",
+        "text": "？"
+      },
+      {
+        "line": 4999,
+        "id": "vol1/b203.ks.scn/0/dialogue/294",
+        "speaker": "夏生",
+        "text": "你能给我唱那首歌吗"
+      },
+      {
+        "line": 5000,
+        "id": "vol1/b203.ks.scn/0/dialogue/295",
+        "speaker": "亚托莉",
+        "text": "……"
+      },
+      {
+        "line": 5001,
+        "id": "vol1/b203.ks.scn/0/dialogue/296",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉点头，静静地吸了一口气。"
+      },
+      {
+        "line": 5002,
+        "id": "vol1/b203.ks.scn/0/dialogue/297",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "一开始发出只是纤细的，没有自信的声音――"
+      },
+      {
+        "line": 5003,
+        "id": "vol1/b203.ks.scn/0/dialogue/298",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉寻找着模糊的记忆，歌唱了起来。"
+      },
+      {
+        "line": 5004,
+        "id": "vol1/b203.ks.scn/0/dialogue/299",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "捡起埋藏在砂砾之中的记忆片段，编织着旋律。"
+      },
+      {
+        "line": 5006,
+        "id": "vol1/b203.ks.scn/0/dialogue/301",
+        "speaker": "亚托莉",
+        "text": "――――"
+      },
+      {
+        "line": 5007,
+        "id": "vol1/b203.ks.scn/0/dialogue/302",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉歌唱了出来。"
+      },
+      {
+        "line": 5008,
+        "id": "vol1/b203.ks.scn/0/dialogue/303",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "心怀确信，回忆起一切。"
+      },
+      {
+        "line": 5009,
+        "id": "vol1/b203.ks.scn/0/dialogue/304",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "如同一副乐器一般，奏出朴素的歌曲，响彻泛着橘色光辉的大海之上。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "开口唱歌前的吸气或试声不能单独30分钟。简单开始后唱一会儿、听海歇一会儿、想唱时再唱，允许留白。不写旋律已经练稳、比刚才进步或成功完整唱出，不复制歌词。",
+    "user_approval": false,
+    "editorial_sha256": "7f3018e74304c30e303e92ae6bfa5e7313b027568ba20e8d2f331eb02a7d0e17",
+    "content_sha256": "d02cb0da0957e2080d9f1ecd3b5df75f1772b15899bc84a01ed127be3c308f27"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "id": "b201-02",
+  "category": "料理",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "料理部的新部员时间",
+  "summary": "亚托莉作为料理部普通部员，和水菜萌部长一起度过两小时社团活动：先了解分工并观察示范，再短时练手，之后等候并试吃，最后一起收拾记录，重点在参与和向部长学习。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "学校料理教室，水菜萌和亚托莉穿着围裙，台面上有肉馅、洋葱、鸡蛋和少量小麦粉，夏生和龙司在附近等待或路过。",
+  "participants": [
+    "亚托莉",
+    "水菜萌",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "水菜萌创立料理部并担任部长，亚托莉是普通部员。",
+    "料理教室备有肉馅、洋葱、鸡蛋、少量小麦粉、盐和基本炊具。",
+    "亚托莉加入料理部的理由是想要给夏生做美味的饭菜。",
+    "亚托莉的做菜水平目前还比较差，但愿意继续学习。"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉加入料理部并拼命练习做菜，两小时日程是对社团活动时间的扩展。",
+    "汉堡排方向来自原作已有料理线索，配料以肉馅、洋葱、鸡蛋、少量小麦粉和盐为限，不添加原作未出现的新菜名。",
+    "夏生和龙司作为背景伙伴出现，不让他们扮演主人或恋人。",
+    "不预设练习结果，具体味道和进步留给实际RP。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "了解分工与备料",
+      "intent": "亚托莉想先弄清楚料理部今天要做什么、自己负责哪部分，同时帮水菜萌准备材料。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "观察示范与短时练手",
+      "intent": "亚托莉看水菜萌示范处理肉馅和洋葱，自己只短时练手，不想被小看也愿意听指导。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "等候与照看",
+      "intent": "汉堡排开始烹调后，亚托莉一边等候一边注意火候，听水菜萌讲判断熟度的方法。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "试吃与一起收拾",
+      "intent": "亚托莉想尝尝咸淡，记下水菜萌的改进建议，并把料理教室收拾干净。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "了解分工与备料",
+      "detail": "亚托莉系上围裙，把洋葱和肉馅摆到台面上，先问水菜萌今天自己负责哪一部分。",
+      "mood": "干劲满满"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "了解分工与备料",
+      "detail": "水菜萌讲汉堡排的材料和大致流程，亚托莉边听边看手边的笔记，怕自己记漏。",
+      "mood": "认真记要点"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "了解分工与备料",
+      "detail": "亚托莉想帮忙切洋葱，水菜萌先示范握刀方法，她点头说自己来试试。",
+      "mood": "想自己来"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "观察示范与短时练手",
+      "detail": "水菜萌把肉馅、洋葱、鸡蛋和少量小麦粉按顺序放进碗里，亚托莉凑近看比例。",
+      "mood": "好奇观察"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "观察示范与短时练手",
+      "detail": "亚托莉接过碗揉了揉肉馅，觉得比想象中黏，问水菜萌这样算不算混好了。",
+      "mood": "手上有点犹豫"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "观察示范与短时练手",
+      "detail": "水菜萌说接下来交给她整理形状，亚托莉退到旁边看，又忍不住比了比大小。",
+      "mood": "还想再试试"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "等候与照看",
+      "detail": "汉堡排下锅后发出声音，亚托莉握着锅铲，注意火是不是太大。",
+      "mood": "紧张盯火"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "等候与照看",
+      "detail": "水菜萌讲怎么判断熟度，亚托莉边听边看锅，偶尔瞄一眼门口说话的夏生和龙司。",
+      "mood": "边听边看锅"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "等候与照看",
+      "detail": "等待翻面的时候，亚托莉把用过的碗先泡进水槽，说这样等会儿好洗。",
+      "mood": "顺手帮忙"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "试吃与一起收拾",
+      "detail": "亚托莉用筷子戳了戳汉堡排，想尝尝咸淡，又觉得应该先让部长确认。",
+      "mood": "想尝又犹豫"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "试吃与一起收拾",
+      "detail": "水菜萌提出改进点，亚托莉认真记下，说自己下次还要再试一遍。",
+      "mood": "不甘但坚定"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "试吃与一起收拾",
+      "detail": "亚托莉把台面擦干净，收好围裙，确认料理教室恢复原样后才准备离开。",
+      "mood": "踏实收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b201.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌想创立料理部，自己当部长，亚托莉是普通部员",
+      "亚托莉加入料理部的理由是想要给夏生做美味的饭菜",
+      "亚托莉在料理部拼命练习做菜",
+      "亚托莉的做菜水平还很差，但表示会继续学习"
+    ],
+    "character_hook": "亚托莉对料理部充满干劲，坚定敬礼并说会加油；即使做得不好也积极学习。",
+    "adaptation": "把料理部活动扩展为两小时：亚托莉与水菜萌一起准备材料、练习基础做法、品尝并记录改进点。不添加原作未出现的新菜名。",
+    "editor_note": "以参与社团、观察分工、向部长学习为主；不预设教哪道未出现的新菜，具体可用已知汉堡排方向。",
+    "evidence": [
+      {
+        "line": 4023,
+        "id": "vol1/b201.ks.scn/0/dialogue/98",
+        "speaker": "水菜萌",
+        "text": "我想要开展社团活动！"
+      },
+      {
+        "line": 4030,
+        "id": "vol1/b201.ks.scn/0/dialogue/105",
+        "speaker": "水菜萌",
+        "text": "我要创立料理部。我是部长，然后小亚托莉是普通部员"
+      },
+      {
+        "line": 4031,
+        "id": "vol1/b201.ks.scn/0/dialogue/106",
+        "speaker": "亚托莉",
+        "text": "请多指教，水菜萌部长"
+      },
+      {
+        "line": 4033,
+        "id": "vol1/b201.ks.scn/0/dialogue/108",
+        "speaker": "夏生",
+        "text": "亚托莉也想加入吗？"
+      },
+      {
+        "line": 4034,
+        "id": "vol1/b201.ks.scn/0/dialogue/109",
+        "speaker": "亚托莉",
+        "text": "只要夏生先生允许的话"
+      },
+      {
+        "line": 4035,
+        "id": "vol1/b201.ks.scn/0/dialogue/110",
+        "speaker": "水菜萌",
+        "text": "小亚托莉呢，说想要给阿夏做美味的饭菜呢"
+      },
+      {
+        "line": 4041,
+        "id": "vol1/b201.ks.scn/0/dialogue/117",
+        "speaker": "亚托莉",
+        "text": "夏生先生满怀期待！我会加油的！"
+      },
+      {
+        "line": 4189,
+        "id": "vol1/b201.ks.scn/0/dialogue/265",
+        "speaker": "水菜萌",
+        "text": "小亚托莉，可是在拼命地练习做菜哦。……虽说水平菜得让人惊讶"
+      },
+      {
+        "line": 4190,
+        "id": "vol1/b201.ks.scn/0/dialogue/266",
+        "speaker": "亚托莉",
+        "text": "我学习完毕了，下次肯定可以……"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "聚焦料理部新部员生活，与自己完整做汉堡排不同：了解分工、看水菜萌示范、短时练手、等候试吃和一起收拾。肉馅练手不超过一个10分钟格；删除未有依据的面包糠，若涉及配料只用肉馅洋葱鸡蛋少量小麦粉盐。不预定切得不匀/肉排缺口/口感成功。",
+    "user_approval": false,
+    "editorial_sha256": "418abc4e968366610c7a4171f5d2bc4c1b69efb9334fbb8d521feac79a78a373",
+    "content_sha256": "be0606337b98e3552fb30ce70c67f8e9d0f3fed680f036c1e010d877f57a65c2"
+  }
+}

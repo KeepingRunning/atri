@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "id": "b112-03",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "分享水菜萌的便当",
+  "summary": "水菜萌带来自己做的便当，亚托莉一起摆好餐桌并认真品尝。两小时里从分菜、吃煎蛋卷聊到甜咸口味，再到饭后和原作伙伴闲聊收尾，亚托莉在意味觉感受器尝到的味道。",
+  "suggested_time_of_day": [
+    "傍晚",
+    "夜晚"
+  ],
+  "scene": "夏生住处的小桌前，水菜萌打开带来的便当盒，亚托莉帮忙摆好餐具，三人围坐分享晚餐。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "水菜萌带着自己和妈妈一起准备的便当来到夏生住处",
+    "便当里有水菜萌做的煎蛋卷，甜咸口味尚待品尝",
+    "亚托莉搭载味觉感受器，能尝味道但不能摄取营养",
+    "夏生住处的餐桌和餐具可供使用"
+  ],
+  "adaptation_notes": [
+    "原作是水菜萌递便当后三人直接开吃的短暂场景，这里扩展为两小时的傍晚用餐与闲聊。",
+    "煎蛋卷保留原文菜名，且明确由水菜萌制作，亚托莉只负责品尝和评价。",
+    "味觉感受器和无法摄取营养的设定来自原作对话，作为品尝动机使用。",
+    "饭后话题沿用原作中甜咸口味的讨论，不新增其他料理或甜点。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "摆餐桌分便当",
+      "intent": "亚托莉想帮忙摆好餐具和便当盒，同时留意水菜萌带来的菜色，尤其对煎蛋卷好奇。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "品尝便当聊口味",
+      "intent": "三人一起开动，亚托莉认真尝味道并评价煎蛋卷，水菜萌聊起放糖还是放盐的犹豫。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "饭后闲谈收尾",
+      "intent": "吃完后慢慢收拾，围绕味觉和甜咸口味继续闲聊，亚托莉对“美味”有自己的理解。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收拾与歇息",
+      "intent": "把便当盒和餐具归位，三人随意坐着歇息，自然结束这段傍晚。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "摆餐桌分便当",
+      "detail": "亚托莉把餐具摆到桌上，目光先落在便当盒上，想看看水菜萌准备了什么。",
+      "mood": "好奇又认真"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "摆餐桌分便当",
+      "detail": "水菜萌打开便当盒，亚托莉凑近观察，注意到煎蛋卷的颜色和形状。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "摆餐桌分便当",
+      "detail": "亚托莉帮忙把便当分到各自面前，对自己那份的量看了一眼，没有多说什么。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "品尝便当聊口味",
+      "detail": "亚托莉说“那我开动了”，夹起一块煎蛋卷放进嘴里，感受味觉感受器传来的味道。",
+      "mood": "认真品尝"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "品尝便当聊口味",
+      "detail": "夏生夸煎蛋卷好吃，水菜萌笑着说是自己做的，亚托莉边嚼边点头。",
+      "mood": "默默认同"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "品尝便当聊口味",
+      "detail": "亚托莉评价煎蛋卷“确实好吃，手艺不错”，又夹了一块，顺便尝了便当里的其他配菜。",
+      "mood": "满意"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "品尝便当聊口味",
+      "detail": "水菜萌说起做煎蛋卷时犹豫放糖还是放盐，亚托莉听着，心里比较甜咸两种味道。",
+      "mood": "思索"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "饭后闲谈收尾",
+      "detail": "亚托莉放下筷子，说明明不能摄取营养却还是觉得好吃，这种事让她觉得有意思。",
+      "mood": "若有所悟"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "饭后闲谈收尾",
+      "detail": "夏生问亚托莉是不是真的能尝味道，亚托莉得意地说自己搭载了味觉感受器。",
+      "mood": "小小得意"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "饭后闲谈收尾",
+      "detail": "水菜萌收拾便当盒，亚托莉把用过的餐具叠好，话题慢慢转到别的事上。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收拾与歇息",
+      "detail": "亚托莉帮忙把便当盒盖好，问水菜萌下次还会不会带便当来。",
+      "mood": "有点期待"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾与歇息",
+      "detail": "三人坐着随意聊天，亚托莉靠在椅背上，回想刚才煎蛋卷的味道。",
+      "mood": "平静"
+    }
+  ],
+  "source": {
+    "chapter": "b112.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌说妈妈帮忙，自己试着做了便当",
+      "水菜萌请亚托莉一起吃，亚托莉说“那我开动了”并嚼着说很美味",
+      "夏生夸煎蛋卷好吃，水菜萌说是自己做的",
+      "亚托莉也评价煎蛋卷“确实好吃……手艺不错”",
+      "亚托莉搭载味觉感受器，能尝味道，虽然不能摄取营养"
+    ],
+    "character_hook": "明知不能摄取营养也会认真品尝，边吃边评价，对“美味=快乐”有自己的理解。",
+    "adaptation": "把晚餐场景扩展为两小时：一起摆便当、分煎蛋卷、慢慢品尝、聊甜咸口味；可保留原文具体菜名煎蛋卷，不新增其他料理。",
+    "editor_note": "便当由水菜萌准备；可以写煎蛋卷但不得让亚托莉制作原作由水菜萌做的菜。",
+    "evidence": [
+      {
+        "line": 1586,
+        "id": "vol1/b112.ks.scn/0/dialogue/152",
+        "speaker": "水菜萌",
+        "text": "有妈妈帮忙，我就……我就试着做了下便当"
+      },
+      {
+        "line": 1604,
+        "id": "vol1/b112.ks.scn/0/dialogue/170",
+        "speaker": "水菜萌",
+        "text": "嗯，吃吧。小亚托莉不介意的话也一起吃吧"
+      },
+      {
+        "line": 1606,
+        "id": "vol1/b112.ks.scn/0/dialogue/172",
+        "speaker": "亚托莉",
+        "text": "那我开动了"
+      },
+      {
+        "line": 1607,
+        "id": "vol1/b112.ks.scn/0/dialogue/173",
+        "speaker": "亚托莉",
+        "text": "（嚼嚼）……很美味"
+      },
+      {
+        "line": 1642,
+        "id": "vol1/b112.ks.scn/0/dialogue/208",
+        "speaker": "夏生",
+        "text": "……这个煎蛋卷真好吃啊，是你做的吗？"
+      },
+      {
+        "line": 1643,
+        "id": "vol1/b112.ks.scn/0/dialogue/209",
+        "speaker": "水菜萌",
+        "text": "哎？是、是啊。嘿嘿，被夸奖好吃啦"
+      },
+      {
+        "line": 1644,
+        "id": "vol1/b112.ks.scn/0/dialogue/210",
+        "speaker": "亚托莉",
+        "text": "确实好吃……（嚼嚼）……手艺不错"
+      },
+      {
+        "line": 1646,
+        "id": "vol1/b112.ks.scn/0/dialogue/212",
+        "speaker": "亚托莉",
+        "text": "会的，我还搭载了用来尝味道的味觉感受器。我是高性能的嘛！"
+      },
+      {
+        "line": 1650,
+        "id": "vol1/b112.ks.scn/0/dialogue/216",
+        "speaker": "水菜萌",
+        "text": "做煎蛋卷的时候，我犹豫了好久该放糖还是放盐。一直在想你喜欢甜的还是咸的"
+      },
+      {
+        "line": 1651,
+        "id": "vol1/b112.ks.scn/0/dialogue/217",
+        "speaker": "水菜萌",
+        "text": "我说阿夏是男孩子嘛，肯定喜欢吃咸的……"
+      },
+      {
+        "line": 1652,
+        "id": "vol1/b112.ks.scn/0/dialogue/218",
+        "speaker": "水菜萌",
+        "text": "可妈妈说你其实很爱撒娇，肯定喜欢甜的"
+      },
+      {
+        "line": 1655,
+        "id": "vol1/b112.ks.scn/0/dialogue/221",
+        "speaker": "夏生",
+        "text": "嗯……挺好吃的"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "改编边界保持得当：水菜萌负责便当与煎蛋卷，亚托莉仅品尝评价；味觉感受器、无法摄取营养、甜咸讨论均有原作依据。两小时虽长，但已拆成摆桌、用餐、闲谈、收拾，无明显拖时长或设定新增，可接受。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "改编边界保持得当：水菜萌负责便当与煎蛋卷，亚托莉仅品尝评价；味觉感受器、无法摄取营养、甜咸讨论均有原作依据。两小时虽长，但已拆成摆桌、用餐、闲谈、收拾，无明显拖时长或设定新增，可接受。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "3dbc1cf64a83e01a422da150366190c3f32d5d9593314e7dbf3bcfa4e0d38906",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "628bbc25b885193261aa4c34825f2f4667fe4c61c85d2bb21b9978dbc18cfa96"
+  }
+}

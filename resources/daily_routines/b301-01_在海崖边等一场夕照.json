@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "id": "b301-01",
+  "category": "休息",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": true,
+  "title": "海崖边共看夕照的两小时",
+  "summary": "亚托莉与夏生在海崖边安静地度过两小时，从抵达、眺望、短暂休息到目送夕色渐沉。她留意海风、光线和往来的人影，偶尔与夏生说几句话，并不特别谈论过去。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "海边小镇的平缓山坡上，一座能俯瞰海岸线的小海崖。风从海面吹来，傍晚的光把天空和海面染成同一种颜色。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉知道海崖的位置，也愿意在傍晚外出待一段时间",
+    "夏生依靠轮椅可以到达海崖附近平缓处",
+    "天气许可，能看见天空与海面被傍晚的光染成同一颜色",
+    "这是一段没有特别任务的休息时段"
+  ],
+  "adaptation_notes": [
+    "原作该场景包含夏生的绝望与坠海意图，本模板只迁移两人在海崖看海与夕照的安静活动",
+    "原作中亚托莉的悲伤与存在困惑仍保留为气质底色，但不把投海、解脱或救赎安排成重复日常",
+    "夏生作为原作伙伴出现，保持轮椅出行与安静陪伴的特点，不赋予主人或恋人身份",
+    "海崖、浅色头发被海风吹起、火红天空与海面同色等细节来自原作，其余两小时活动为日常补足"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "沿坡道抵达海崖",
+      "intent": "亚托莉先走到崖边确认风景，夏生从另一侧慢慢过来；她想看看今天的海和平时有什么不同。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "并肩眺望夕照海面",
+      "intent": "两人各自安静地看着天空与海面染成同色，亚托莉偶尔留意风把头发吹向哪边。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "在崖边稍作休息",
+      "intent": "站久了就靠一靠旁边的石头，亚托莉说点海风与颜色的闲话，也听夏生简短回应。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "目送夕色渐沉",
+      "intent": "光线变暗后，两人仍多留一会儿，亚托莉确认回去的路，然后自然收尾。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "沿坡道抵达海崖",
+      "detail": "亚托莉顺着平缓的山坡往上走，眼睛已经先一步往崖外看，留意今天的海面是不是比平时更亮。",
+      "mood": "先看再说"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "沿坡道抵达海崖",
+      "detail": "听见身后轮椅碾过碎石的动静，她放慢步子，没有回头催，只把崖边最平整的位置空出来。",
+      "mood": "安静地让路"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "沿坡道抵达海崖",
+      "detail": "站定后先朝海面望了一会儿，又低头确认脚下离崖边还有几步，没有急着再往前。",
+      "mood": "小心而好奇"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "并肩眺望夕照海面",
+      "detail": "浅色头发被海风掀到脸侧，她没去压，只把视线放在天空与海面交界的那条光线上。",
+      "mood": "看得入神"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "并肩眺望夕照海面",
+      "detail": "海面颜色又变深了一点，她想说这算不算火红，话到嘴边又改成问夏生觉得像什么。",
+      "mood": "找词中"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "并肩眺望夕照海面",
+      "detail": "风把她的袖口吹得贴住手腕，她低头看了一眼，又抬头继续看远处那条海岸线。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "并肩眺望夕照海面",
+      "detail": "旁边夏生也没说话，她就也不说，只偶尔用手指把被风吹乱的头发拨到耳后。",
+      "mood": "不必说话"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "在崖边稍作休息",
+      "detail": "站久了往旁边退了半步，靠着石头歇一歇，眼睛还留在海面上，随口说风比刚才凉。",
+      "mood": "有点累了"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "在崖边稍作休息",
+      "detail": "她问夏生是不是也常来这里，问完又自己接一句说这里看海确实不错，不急着等答案。",
+      "mood": "随口问问"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "目送夕色渐沉",
+      "detail": "光开始往云后面收，她眯了眯眼，判断今天能不能看到最后一点亮色沉进海平线。",
+      "mood": "想看到最后"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "目送夕色渐沉",
+      "detail": "天色暗下来后，崖边的风更明显了，她往坡道方向看了一眼，确认回去的路还看得清。",
+      "mood": "准备收尾"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "目送夕色渐沉",
+      "detail": "最后一片亮色从海面上退走，她轻轻呼了口气，没有立刻走，只把视线从远处收回到近处。",
+      "mood": "安静地结束"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "在崖边稍作休息",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          90
+        ]
+      },
+      {
+        "activity": "目送夕色渐沉",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          90,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b301.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉站在海边小海崖边缘眺望海面",
+      "海面与火红天空浑然一色",
+      "夏生也来到同一海崖眺望风景",
+      "亚托莉的浅色头发被海风吹起",
+      "亚托莉眼中透露出浓郁悲伤"
+    ],
+    "character_hook": "亚托莉静静注视海面，说话带有推测语气，习惯性问‘地球也包括我吗’，体现她对自身存在的困惑与疏离感。",
+    "adaptation": "去除自杀意图与坠海危机，改编为两人在海崖边安静眺望夕阳海景、吹海风的两小时休息日常。",
+    "editor_note": "原文夹有童年回忆与当下对照，只有看海与夕照的普通活动被迁移，不将特殊相逢、童年年龄或心灵救赎安排成重复日常。",
+    "evidence": [
+      {
+        "line": 6816,
+        "id": "vol1/b301.ks.scn/0/dialogue/7",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "在海边的小小海崖上，能将海岸线的美丽风景尽收眼底。"
+      },
+      {
+        "line": 6821,
+        "id": "vol1/b301.ks.scn/0/dialogue/12",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我想在临死前看到那副景色。"
+      },
+      {
+        "line": 6825,
+        "id": "vol1/b301.ks.scn/0/dialogue/16",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她的浅色头发被海风吹起，静静注视着与火红天空浑然一色的海面。"
+      },
+      {
+        "line": 6828,
+        "id": "vol1/b301.ks.scn/0/dialogue/19",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "少女就站在海崖的边缘。"
+      },
+      {
+        "line": 6829,
+        "id": "vol1/b301.ks.scn/0/dialogue/20",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她的眼中透露出浓郁的悲伤，仿佛下一秒就会一跃而下。"
+      },
+      {
+        "line": 6906,
+        "id": "vol1/b301.ks.scn/0/dialogue/97",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "感受到了那双通透无暇的眼睛深处，蕴含着无尽的悲伤。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "候选将原作两人在海崖看夕照、浅发被风吹起、火红天色等元素迁移为两小时安静休息日常，去除了投海与救赎情节，符合adaptation与editor_note边界；时间分配为抵达30分、眺望40分、休息20分、目送30分，属合理生活化延展，未见明显拖时长或整段重复同一小动作。无捏造菜品/设定或身份归属错误。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "候选将原作两人在海崖看夕照、浅发被风吹起、火红天色等元素迁移为两小时安静休息日常，去除了投海与救赎情节，符合adaptation与editor_note边界；时间分配为抵达30分、眺望40分、休息20分、目送30分，属合理生活化延展，未见明显拖时长或整段重复同一小动作。无捏造菜品/设定或身份归属错误。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "084053b48c751802f9d0368d244b10b015b6806b327d94a6d59ccd733c590771",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "ee5decf63f82412af198b3a4b9c51376454fb72bd3592d20741d790499df0700"
+  }
+}

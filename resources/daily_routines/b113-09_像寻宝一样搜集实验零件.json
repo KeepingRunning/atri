@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "id": "b113-09",
+  "category": "劳动",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "亚托莉的寻宝零件大作战",
+  "summary": "亚托莉与夏生、水菜萌分头在学校寻找风力发电机零件，把搜集当比赛，途中被水里的鱼和杂物分心；三十分钟后回教室盘点，接着各自拆分可用零件并稍作休息。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "被海水漫过走廊的旧校舍，二楼地板积水成小河；教室黑板上写着所需零件，大家分头下楼寻宝，再回教室盘点。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "夏生已在黑板上列出风力发电机所需零件，并让大家分头寻找。",
+    "学校内有旧自行车、被海水冲来的杂物等潜在材料。",
+    "亚托莉、夏生和水菜萌三人一同从教室出发行动。",
+    "水菜萌有点夏季感冒，体力不如平时。"
+  ],
+  "adaptation_notes": [
+    "原作中搜集约三十分钟后回教室盘点，本模板把这两个小时扩展为领任务、分头搜集、返回盘点、拆分零件与短歇四个阶段。",
+    "凛凛花推回自行车说可能用得上、以及众人主动炫耀找到的东西，属于原作情节，本模板只保留亚托莉视角下的同班活动氛围。",
+    "亚托莉把寻零件当作不能输的小比赛，遇到鱼或杂物会好奇分心；这些性格描写由原作台词和旁白延伸而来，不预定她一定找到最好的零件。",
+    "两小时只涵盖材料搜集与初步分类，不涉及之后组装风力发电机的步骤。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "领任务、分头出发",
+      "intent": "看清黑板上的零件清单，和夏生、水菜萌一起下楼，边走边留意能用的东西。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "楼下分头搜集",
+      "intent": "在水淹走廊和旧校舍里寻找零件，把寻宝当比赛，遇到鱼或杂物会分心。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "回教室盘点战利品",
+      "intent": "把收集到的东西带回教室，听夏生检查分类，自己也凑过去比较。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "拆分零件与短歇",
+      "intent": "照夏生说的各自拆出可用零件，中途歇口气，也留意水菜萌的状态。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "领任务、分头出发",
+      "detail": "亚托莉盯着黑板上的零件名，想把清单都记住，嘴里小声念着怕漏掉。",
+      "mood": "认真又有点好胜"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "领任务、分头出发",
+      "detail": "夏生说大家分头行动，亚托莉已经迈出步子，还回头催了一句“走吧”。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "领任务、分头出发",
+      "detail": "三人一起下楼，亚托莉走在前面，眼睛已经往走廊两侧的杂物堆瞟。",
+      "mood": "好奇地张望"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "楼下分头搜集",
+      "detail": "二楼地板积着水，亚托莉提前脱下鞋子，看到鱼从脚边游过就蹲下来看。",
+      "mood": "被鱼吸引"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "楼下分头搜集",
+      "detail": "她想起不能输，站起来继续翻找，把一根旧金属杆举起来掂了掂。",
+      "mood": "重新振作"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "楼下分头搜集",
+      "detail": "水菜萌在另一边翻箱子，亚托莉朝她喊“这边有看起来能用的东西”。",
+      "mood": "想帮忙"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "楼下分头搜集",
+      "detail": "亚托莉又对走廊尽头的旧推车好奇起来，走近看了两眼才想起时间。",
+      "mood": "容易分心"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "回教室盘点战利品",
+      "detail": "大家陆续回到教室，亚托莉把手里东西放下，先看别人带回了什么。",
+      "mood": "比较着看"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "回教室盘点战利品",
+      "detail": "夏生像分配劫掠物资一样检查，亚托莉把自己找到的金属杆往前推了推。",
+      "mood": "有点得意"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "回教室盘点战利品",
+      "detail": "有人推回一辆自行车说很大，亚托莉噗地笑出来，又凑近看车轮能不能拆。",
+      "mood": "觉得有趣"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "拆分零件与短歇",
+      "detail": "夏生说各自把零件拆出来，亚托莉拿起工具试着拧螺丝，拧不动就换个角度。",
+      "mood": "不肯服输"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "拆分零件与短歇",
+      "detail": "拆了一会儿，她停下来看看水菜萌有没有勉强，顺手把旁边散落的零件拢成一堆。",
+      "mood": "关心同伴"
+    }
+  ],
+  "source": {
+    "chapter": "b113.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生列出需要的零件，让大家分头寻找。",
+      "亚托莉明确说自己的机器人身份不允许败北，并一起下楼寻找。",
+      "大家收集约三十分钟后回教室盘点。"
+    ],
+    "character_hook": "把寻零件当作不能输的小比赛；真遇到好奇东西会分心。",
+    "adaptation": "单独提取材料搜集，区别于组装风车；两小时由领任务、分头搜集、返回分类与短歇组成，不预定必定找到最好的零件。",
+    "editor_note": "回查原文后补充的独立活动或明确愿望；依据与扩展边界见候选。",
+    "evidence": [
+      {
+        "line": 2083,
+        "id": "vol1/b113.ks.scn/0/dialogue/286",
+        "speaker": "夏生",
+        "text": "首先你们要去收集零件。光靠手上这些可造不出发电机。所有人分头行动，去找用得上的东西"
+      },
+      {
+        "line": 2084,
+        "id": "vol1/b113.ks.scn/0/dialogue/287",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我用粉笔将必要的零件板书在黑板上。"
+      },
+      {
+        "line": 2086,
+        "id": "vol1/b113.ks.scn/0/dialogue/289",
+        "speaker": "夏生",
+        "text": "学校里应该会有。好了，大家出发吧"
+      },
+      {
+        "line": 2087,
+        "id": "vol1/b113.ks.scn/0/dialogue/290",
+        "speaker": "凛凛花",
+        "text": "什么啊，感觉像寻宝一样！好像很有意思！"
+      },
+      {
+        "line": 2091,
+        "id": "vol1/b113.ks.scn/0/dialogue/294",
+        "speaker": "亚托莉",
+        "text": "我们也走吧，我的机器人身份不允许在这里败北"
+      },
+      {
+        "line": 2095,
+        "id": "vol1/b113.ks.scn/0/dialogue/298",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "大家分头行动寻找材料，我、亚托莉和水菜萌一起走到了楼下。"
+      },
+      {
+        "line": 2126,
+        "id": "vol1/b113.ks.scn/0/dialogue/329",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "收集了三十分钟左右，大家都回到了教室内。"
+      },
+      {
+        "line": 2127,
+        "id": "vol1/b113.ks.scn/0/dialogue/330",
+        "speaker": "夏生",
+        "text": "盘点一下战利品吧"
+      },
+      {
+        "line": 2131,
+        "id": "vol1/b113.ks.scn/0/dialogue/334",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "大家都兴致勃勃地主动炫耀自己找到的东西。"
+      },
+      {
+        "line": 2143,
+        "id": "vol1/b113.ks.scn/0/dialogue/346",
+        "speaker": "夏生",
+        "text": "……这可能用得上"
+      },
+      {
+        "line": 2147,
+        "id": "vol1/b113.ks.scn/0/dialogue/350",
+        "speaker": "夏生",
+        "text": "大家干的也不错。各自把零件拆出来吧"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "候选严格限定在材料搜集与盘点，内容未超出原作边界：无捏造配方、无固定故障、无事故化，『不能输』和分心均有原作依据。时间分配合理，生活衔接充分，整体聚焦角色在意的搜集比赛与同伴状态，没有拖时长或重复检查感。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "候选严格限定在材料搜集与盘点，内容未超出原作边界：无捏造配方、无固定故障、无事故化，『不能输』和分心均有原作依据。时间分配合理，生活衔接充分，整体聚焦角色在意的搜集比赛与同伴状态，没有拖时长或重复检查感。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "83768c3dbe4ea1d036d0b7a09db0953f5df1aa0faaad796a205991cffb0dadb8",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "11ff536ded9d775996be70b1b2c70e75eb415af385e3282c112ba8e9730556d8"
+  }
+}

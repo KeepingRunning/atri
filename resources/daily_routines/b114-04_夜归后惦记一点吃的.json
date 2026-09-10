@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "id": "b114-04",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "夜归后惦记一点吃的",
+  "summary": "夜归后亚托莉惦记着夏生答应弄吃的，先回船上等着，偶尔催他别忙忘。夏生用现有食材热一份简单现成饭食，亚托莉在旁边看、问、等开饭。两小时里包含等饭、一起用餐、收拾和闲歇。",
+  "suggested_time_of_day": [
+    "夜晚"
+  ],
+  "scene": "夜归后回到夏生的船上，船舱灯光昏黄，厨房不大但有一份现成材料可以热来吃。亚托莉坐在旁边等，不时看向灶台方向。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "夏生答应回去后弄点东西给亚托莉吃",
+    "船上有简易灶台和一份现成饭食材料，无需从头揉面调糊",
+    "亚托莉不能摄取营养，但对食物有好奇心，乐意参与准备和尝试",
+    "凛凛花和龙司已经各自回去，不在船上"
+  ],
+  "adaptation_notes": [
+    "原作中龙司给凛凛花带便当，亚托莉露出想吃的样子，夏生说回去弄东西给她吃；本模板只迁移‘夜归后准备一份简单吃食’的活动，不偷吃别人便当。",
+    "原作没有详细描写回船后具体做了什么，这里用两小时补足等饭、用餐和闲歇的日常过程。",
+    "亚托莉不能摄取营养的设定保留，她会好奇地尝一点或闻味道，不把‘不能摄取营养’等同于‘不能吃’。",
+    "没有具体菜名依据，只写简单现成饭食，不具体编造面粉、黄油、鸡蛋配方或煎面糊情节。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "回船上等饭并催促",
+      "intent": "亚托莉还惦记着刚才的饭香，一进门就问什么时候能弄好，又不想显得太急。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "看夏生热饭并搭话",
+      "intent": "她在旁边看夏生弄简单的吃食，好奇问了几个问题，偶尔搭把手递东西。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "一起坐下用餐",
+      "intent": "现成饭食热好上桌，亚托莉认真尝了尝，聊起刚才凛凛花吃得很香的事。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收拾碗筷与闲歇",
+      "intent": "吃完后一起把碗盘收进水槽，亚托莉坐在椅子上放空，觉得今晚也算吃到了东西。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "回船上等饭并催促",
+      "detail": "推开船舱门先进厨房看了一眼灶台，又退回来问夏生打算弄什么。",
+      "mood": "惦记着吃的"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "回船上等饭并催促",
+      "detail": "坐在小桌旁，手指敲了两下桌面，提醒夏生刚才在教室里答应过的话。",
+      "mood": "怕被忘掉"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "回船上等饭并催促",
+      "detail": "看夏生还在忙别的，嘴上说不催，眼睛又往灶台方向瞟。",
+      "mood": "嘴硬等着"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "看夏生热饭并搭话",
+      "detail": "凑到灶台边看锅里热的东西，问这样热一下就算弄好了吗。",
+      "mood": "好奇又新鲜"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "看夏生热饭并搭话",
+      "detail": "夏生让她帮忙递个盘子，她拿对了但顺手多拿了一个碗，说万一还要用。",
+      "mood": "想帮忙又有点多余"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "看夏生热饭并搭话",
+      "detail": "问凛凛花刚才那份便当是什么味道，说自己只闻到了很香的气味。",
+      "mood": "还在想刚才"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "看夏生热饭并搭话",
+      "detail": "锅里开始冒热气，她退后半步，说闻到这个味道就觉得应该不错。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "一起坐下用餐",
+      "detail": "夏生把热好的饭食端上桌，她先看了看，又用筷子碰了碰问能不能尝一点。",
+      "mood": "认真想尝"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "一起坐下用餐",
+      "detail": "尝了一小口，嚼了嚼说味道比想象中实在，问夏生平时是不是也这么吃。",
+      "mood": "满足地好奇"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "一起坐下用餐",
+      "detail": "提起凛凛花刚才吃便当吃得很快，说自己虽然不能摄取营养但能明白那种感觉。",
+      "mood": "有点感慨"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收拾碗筷与闲歇",
+      "detail": "把自己那份碗筷收进水槽，发现台面上溅了一点汤汁，顺手拿抹布擦了。",
+      "mood": "自然收拾"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾碗筷与闲歇",
+      "detail": "擦完手坐回椅子上，听夏生说以后晚上也可以简单弄点，她点头说那下次要早点回来。",
+      "mood": "放松收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b114.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "龙司给凛凛花带饭过来",
+      "亚托莉说‘好像很好吃……（咽口水）’",
+      "夏生说‘回去之后弄点东西给你吃’",
+      "亚托莉虽然不能摄取营养但表现出对食物的兴趣"
+    ],
+    "character_hook": "亚托莉对食物有好奇心，会咽口水，被拒绝时会说‘夏生先生是机器人迫害主义者’。",
+    "adaptation": "可改为亚托莉参与准备食物、观看他人用餐并讨论味道，或夏生为她制作模拟食物造型，持续两小时。",
+    "editor_note": "原文是她想吃别人的便当、夏生说回去会给东西吃。作为夜归、准备普通小食、休息的意愿改编，不偷吃别人的饭。",
+    "evidence": [
+      {
+        "line": 2436,
+        "id": "vol1/b114.ks.scn/0/dialogue/210",
+        "speaker": "凛凛花",
+        "text": "啊呜……肚子饿了"
+      },
+      {
+        "line": 2437,
+        "id": "vol1/b114.ks.scn/0/dialogue/211",
+        "speaker": "夏生",
+        "text": "你……吃饭怎么解决啊？"
+      },
+      {
+        "line": 2438,
+        "id": "vol1/b114.ks.scn/0/dialogue/212",
+        "speaker": "凛凛花",
+        "text": "这个嘛……靠水菜萌姐姐和小龙……啊，小龙！"
+      },
+      {
+        "line": 2439,
+        "id": "vol1/b114.ks.scn/0/dialogue/213",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我看到了教室前的龙司。"
+      },
+      {
+        "line": 2440,
+        "id": "vol1/b114.ks.scn/0/dialogue/214",
+        "speaker": "龙司",
+        "text": "呦，我给你带饭过来了"
+      },
+      {
+        "line": 2441,
+        "id": "vol1/b114.ks.scn/0/dialogue/215",
+        "speaker": "凛凛花",
+        "text": "我开动了——！！"
+      },
+      {
+        "line": 2443,
+        "id": "vol1/b114.ks.scn/0/dialogue/217",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "饿着肚子的凛凛花扑向了龙司带来的饭菜。"
+      },
+      {
+        "line": 2444,
+        "id": "vol1/b114.ks.scn/0/dialogue/218",
+        "speaker": "亚托莉",
+        "text": "好像很好吃……（咽口水）"
+      },
+      {
+        "line": 2445,
+        "id": "vol1/b114.ks.scn/0/dialogue/219",
+        "speaker": "凛凛花",
+        "text": "小跟班你要吃吗？"
+      },
+      {
+        "line": 2446,
+        "id": "vol1/b114.ks.scn/0/dialogue/220",
+        "speaker": "亚托莉",
+        "text": "可以吗！"
+      },
+      {
+        "line": 2447,
+        "id": "vol1/b114.ks.scn/0/dialogue/221",
+        "speaker": "夏生",
+        "text": "你吃什么吃啊，又不能摄取营养"
+      },
+      {
+        "line": 2449,
+        "id": "vol1/b114.ks.scn/0/dialogue/223",
+        "speaker": "夏生",
+        "text": "知道了，安静点。回去之后弄点东西给你吃"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "原作是夏生答应回去弄点东西给亚托莉吃。亚托莉惦记食物、催他别忙忘、等开饭和用餐，不让她制作面糊煎饼。删除面粉/黄油/鸡蛋配方、腕力不足、必定煎破/第二张变好和口感结论。没有具体菜名，写简单现成饭食即可；两小时含等饭、吃饭、收拾和闲歇。不能摄取营养不等于不能吃。",
+    "user_approval": false,
+    "editorial_sha256": "5d928c5a2ce253903bfa35d1f2cc1be94021a951ab3b9ab77d2f00714a894272",
+    "content_sha256": "beaf0bdbb16f25a2c1f406145d5f96e6e52e0f57c454aaaed6169756e7e1310d"
+  }
+}

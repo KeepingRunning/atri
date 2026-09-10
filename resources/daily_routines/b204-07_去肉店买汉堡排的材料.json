@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "id": "b204-07",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "去肉店买汉堡排材料",
+  "summary": "亚托莉与女生们一起去肉店和商店街采购肉馅、洋葱等食材，为回去做汉堡排做准备。沿途边看边聊，享受外出购物与小吃，最后提着袋子返回。",
+  "suggested_time_of_day": [
+    "下午"
+  ],
+  "scene": "商店街的午后，亚托莉拎着购物袋和女生们一起走向肉店，计划买肉馅和洋葱，准备回去做汉堡排。",
+  "participants": [
+    "亚托莉",
+    "女生们",
+    "肉店老板"
+  ],
+  "preconditions": [
+    "亚托莉已经学会做汉堡排，知道大致需要肉馅和洋葱。",
+    "商店街有肉店和若干小吃摊，是虚构的日常背景。",
+    "亚托莉带着购物袋和零钱，愿意自己完成采购。",
+    "女生们正好也要去商店街，于是结伴同行。"
+  ],
+  "adaptation_notes": [
+    "原作中只提到亚托莉带回肉馅和洋葱并说肉店老板给了特价，本模板将这一采购过程扩展为两小时的商店街出行。",
+    "原作没有描写购物途中具体对话和小吃，本模板按日常背景补足。",
+    "不预设今天老板一定会给特价，是否特价留到实际互动。",
+    "夏生对女生们边走边吃的猜想仅作为旁白，没有被当作已发生事实。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "出发与逛商店街",
+      "intent": "和女生们一起走向肉店，路上看看商店街的摊位，心情轻松。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "肉店买肉馅和洋葱",
+      "intent": "在肉店挑肉馅和洋葱，想自己决定，也留意老板会不会给特价。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "小吃与闲聊歇脚",
+      "intent": "买点小吃边走边吃，和女生们聊天，顺便歇一歇。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "慢慢走回住处",
+      "intent": "提着食材返回，路上盘算回去做汉堡排的步骤，期待晚餐。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "出发与逛商店街",
+      "detail": "亚托莉拎起购物袋，和女生们一起走出门，脚步轻快。",
+      "mood": "轻松期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "出发与逛商店街",
+      "detail": "路过一家卖小玩意儿的店，亚托莉多看了两眼，但提醒自己今天重点是买食材。",
+      "mood": "好奇但克制"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "出发与逛商店街",
+      "detail": "女生们聊起各自想买的东西，亚托莉听着，偶尔插一句，手里还攥着购物袋。",
+      "mood": "合群愉快"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "肉店买肉馅和洋葱",
+      "detail": "到了肉店，亚托莉先看玻璃柜里的肉馅，又转头找洋葱，想自己开口问价。",
+      "mood": "认真挑选"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "肉店买肉馅和洋葱",
+      "detail": "肉店老板认出她是学者老师家的，亚托莉有点得意，但还没敢先问特价。",
+      "mood": "暗自期待"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "肉店买肉馅和洋葱",
+      "detail": "老板把肉馅和洋葱包好递过来，亚托莉付了钱，把袋子小心放进自己的购物袋。",
+      "mood": "满足踏实"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "小吃与闲聊歇脚",
+      "detail": "经过小吃摊，女生们买了些吃的，亚托莉也分到一点，边吃边聊刚才买的食材。",
+      "mood": "放松开心"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "小吃与闲聊歇脚",
+      "detail": "亚托莉说起回去要做汉堡排，女生们问她做法，她讲得头头是道，但心里还在核对步骤。",
+      "mood": "嘴上得意"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "小吃与闲聊歇脚",
+      "detail": "大家站在路边把小吃吃完，亚托莉擦了擦手，又检查购物袋里的东西还在不在。",
+      "mood": "细致谨慎"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "慢慢走回住处",
+      "detail": "返回的路上，亚托莉和女生们道别，独自提着袋子走最后一段，开始想先切洋葱还是先拌肉馅。",
+      "mood": "专注盘算"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "慢慢走回住处",
+      "detail": "路过熟悉的街角，亚托莉放慢脚步，回想料理笔记上关于汉堡排的要点。",
+      "mood": "认真回忆"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "慢慢走回住处",
+      "detail": "到了门口，亚托莉提了提手里的袋子，确认肉馅和洋葱都买齐了，准备进去动手做晚餐。",
+      "mood": "跃跃欲试"
+    }
+  ],
+  "source": {
+    "chapter": "b204.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "袋中有肉馅和洋葱。",
+      "亚托莉说肉店老板给了特价。",
+      "本次购物为后面的料理作准备。"
+    ],
+    "character_hook": "亚托莉为做饭采购食材，能拿到特价，并享受和女生们一起购物的时光。",
+    "adaptation": "扩展为两小时的购物出行：亚托莉和朋友们去肉店、商店街购买食材和零食，边走边吃，聊天。",
+    "editor_note": "不把夏生对女生们边走边吃的猜想当已发生；不预定今天老板一定打折。与熟食采购、可乐饼分享分别保存。",
+    "evidence": [
+      {
+        "line": 5438,
+        "id": "vol1/b204.ks.scn/0/dialogue/307",
+        "speaker": "亚托莉",
+        "text": "我回来了～～～～♪"
+      },
+      {
+        "line": 5439,
+        "id": "vol1/b204.ks.scn/0/dialogue/308",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉一回到房间，就把购物袋扔在床上，朝我黏了过来。"
+      },
+      {
+        "line": 5452,
+        "id": "vol1/b204.ks.scn/0/dialogue/321",
+        "speaker": "亚托莉",
+        "text": "可是，我今天只买了做菜用的食材"
+      },
+      {
+        "line": 5453,
+        "id": "vol1/b204.ks.scn/0/dialogue/322",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "购物袋里，放着肉馅和洋葱。"
+      },
+      {
+        "line": 5454,
+        "id": "vol1/b204.ks.scn/0/dialogue/323",
+        "speaker": "亚托莉",
+        "text": "肉店老板知道我是学者老师家的，就给我特价了♪夏生先生名震四方！"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时购物出行分为出发、肉店采购、小吃歇脚、返回四段，节奏合理，无拖时长或空洞动作。核心元素（肉馅、洋葱、肉店老板、购物袋）均有原作依据，特价留待实际互动，未预设结果，也未把夏生的猜想或老板行为写成已发生。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时购物出行分为出发、肉店采购、小吃歇脚、返回四段，节奏合理，无拖时长或空洞动作。核心元素（肉馅、洋葱、肉店老板、购物袋）均有原作依据，特价留待实际互动，未预设结果，也未把夏生的猜想或老板行为写成已发生。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "edf8474dd25f1b74399926e2c012b897ccf8c2058b354be5b2bb9831c9db259f",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "5ed082b68efe3e689986e1c20ece1515e0bd4d9a40e6c8c65a0e5c789f8caba5"
+  }
+}

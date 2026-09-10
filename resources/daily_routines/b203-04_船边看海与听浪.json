@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "id": "b203-04",
+  "category": "休息",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "船边听海的两小时",
+  "summary": "亚托莉坐在船边安静看海听浪，夏生偶尔过来搭话，两人有时交谈有时沉默。她一直在想那种被怀念的人呼唤的感觉，想弄明白却又不想被小看，于是把注意力放在波浪与海风上。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "船边一角，海风平稳，波浪声持续。亚托莉靠坐船边远眺海面，夏生在附近偶尔经过或坐下。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉可以坐在船边看海，海风与波浪声平稳持续",
+    "夏生在场，但不需要全程陪着她",
+    "场景是日常可重复的船边休息，不涉及特定结局",
+    "亚托莉对海有无法解析的怀念感"
+  ],
+  "adaptation_notes": [
+    "原作片段是黄昏到夜晚的船边看海与听浪，这里改为可重复的日常时段",
+    "原作中夏生搭话后转为沉默与歌声，这里只保留看海听浪的安静休息，不迁移唱歌情节",
+    "两小时时长和偶尔交谈属于创作扩展，原作只提供短暂片段"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "船边坐下看海",
+      "intent": "亚托莉被海面与波浪声吸引，想弄明白那种怀念感，暂时不想被搭话打扰"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "夏生过来搭话",
+      "intent": "两人简短交谈，她说不知道是看还是听，像被怀念的人呼唤"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "沉默着一起听浪",
+      "intent": "亚托莉重新望向海面，安静专注，夏生在一旁不催她"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "自然收尾与缓神",
+      "intent": "海风渐凉，亚托莉伸了伸腰，承认今天还是没解析明白，但心情平和"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "船边坐下看海",
+      "detail": "亚托莉在船边找个能靠的位置坐下，眼睛先被远处海面吸引住",
+      "mood": "安静专注"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "船边坐下看海",
+      "detail": "她试着分辨是波浪声还是海风声，耳朵微微侧向声音来处",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "船边坐下看海",
+      "detail": "侧脸安静下来，像在想念什么，自己也没完全说清",
+      "mood": "柔和"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "船边坐下看海",
+      "detail": "她想用高性能解析这种怀念感，却发现找不到对应数据",
+      "mood": "有点困惑"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "夏生过来搭话",
+      "detail": "夏生走近问她在看什么，亚托莉说不知道是看还是听",
+      "mood": "自然回应"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "夏生过来搭话",
+      "detail": "她描述那种像被怀念的人呼唤的感觉，说完又看向海面",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "夏生过来搭话",
+      "detail": "夏生没有追问，亚托莉也不勉强解释，只把海风当成答案的一部分",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "沉默着一起听浪",
+      "detail": "两人都不说话，波浪声平稳地填满空隙，亚托莉没有觉得尴尬",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "沉默着一起听浪",
+      "detail": "她把手搭在船边，感受海风方向有没有变化，偶尔眨一下眼",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "沉默着一起听浪",
+      "detail": "夏生坐在不远处，亚托莉不看他，但知道他在旁边",
+      "mood": "安心"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "自然收尾与缓神",
+      "detail": "海风渐凉，她轻轻呼出一口气，像从很长的一段思绪里回来",
+      "mood": "缓和"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "自然收尾与缓神",
+      "detail": "亚托莉承认今天还是没解析明白，但觉得这样坐着也不错，准备起身回去",
+      "mood": "满足"
+    }
+  ],
+  "source": {
+    "chapter": "b203.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉坐在船边远眺大海，侧脸像在想念故乡",
+      "她说不知道是看还是听，感觉像被怀念的人呼唤",
+      "波浪与海风发出平稳的声音"
+    ],
+    "character_hook": "亚托莉对海有无法解析的怀念感，会用‘被怀念的人呼唤’来描述，安静时显得柔和而专注。",
+    "adaptation": "把船边看海扩为两小时的安静休息，可加入听浪、看夕阳、偶尔交谈；原文是黄昏到夜晚的片段，需改为可重复的日常时段。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 4984,
+        "id": "vol1/b203.ks.scn/0/dialogue/279",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉坐在船边，呆呆地远眺着大海。"
+      },
+      {
+        "line": 4985,
+        "id": "vol1/b203.ks.scn/0/dialogue/280",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "侧脸的表情就好像在想念故乡一般，我犹豫自己该不该向她搭话，站在了原地。"
+      },
+      {
+        "line": 4986,
+        "id": "vol1/b203.ks.scn/0/dialogue/281",
+        "speaker": "亚托莉",
+        "text": "？　夏生先生。怎么了？"
+      },
+      {
+        "line": 4989,
+        "id": "vol1/b203.ks.scn/0/dialogue/284",
+        "speaker": "亚托莉",
+        "text": "不知道应该说是看……还应该是听……"
+      },
+      {
+        "line": 4990,
+        "id": "vol1/b203.ks.scn/0/dialogue/285",
+        "speaker": "亚托莉",
+        "text": "就好像被怀念的人呼唤一样，有一种无法解析的感觉"
+      },
+      {
+        "line": 4991,
+        "id": "vol1/b203.ks.scn/0/dialogue/286",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她说完，又眺向海去。"
+      },
+      {
+        "line": 5020,
+        "id": "vol1/b203.ks.scn/0/dialogue/315",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "波浪与海风发出平稳的声音。"
+      },
+      {
+        "line": 5021,
+        "id": "vol1/b203.ks.scn/0/dialogue/316",
+        "speaker": "亚托莉",
+        "text": "呼……"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "repetition",
+        "location": "micro 0-40（船边坐下看海）",
+        "detail": "前40分钟四个十分钟格全部是同一个人坐在同一点持续看海、听浪、想怀念感，只靠内心反复解析撑满时长，缺少自然的生活过渡或场景变化，属于明显拖时长。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "整体符合direct证据与改编边界，未捏造设定、未迁移唱歌或结局剧情，角色归属正确。主要问题是前半段靠单一静态动作反复填充，建议压缩看海时长并补入短歇、走动、喝水等生活衔接；其余结构可保留。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "repetition",
+            "location": "micro 0-40（船边坐下看海）",
+            "detail": "前40分钟四个十分钟格全部是同一个人坐在同一点持续看海、听浪、想怀念感，只靠内心反复解析撑满时长，缺少自然的生活过渡或场景变化，属于明显拖时长。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "整体符合direct证据与改编边界，未捏造设定、未迁移唱歌或结局剧情，角色归属正确。主要问题是前半段靠单一静态动作反复填充，建议压缩看海时长并补入短歇、走动、喝水等生活衔接；其余结构可保留。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "6b6b142893bff28f959f8b7fe7d14b75f131ff4c8fbd0e4bc2e442437940f394",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "0405a4eae82e8e2bc486d4847b67da786b91dc33e21d617f6b835f27804ae210"
+  }
+}

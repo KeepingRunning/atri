@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "id": "b303-05",
+  "category": "玩耍",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "草地上的小鸟留意",
+  "summary": "亚托莉在草地休息两小时，夏生在旁陪伴。她只是随意躺着、看附近小鸟动静，鸟靠近时想伸指尖又怕惊走。中间走动一小段、短歇和闲聊，不预设鸟一定停到身上。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "岛屿草地边缘，附近有矮树和灌木，夏生坐在一旁。亚托莉铺了块布躺着，想看看附近小鸟会不会靠近。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉与夏生都在岛上，处于可以自由活动的日常时段。",
+    "附近草地有野生小鸟出没，但鸟是否靠近并不确定。",
+    "亚托莉手边有一块可以铺在草地上的布。",
+    "夏生愿意在旁边陪伴，不主动替她做决定。"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉在动弹不得时被小鸟停到身上，本模板改为她主动在草地休息留意，不写虚弱或无法行动。",
+    "原作只出现逗弄与驱赶小鸟的片段，这里扩展为两小时的户外休息与观察，不保证鸟会停在她身上。",
+    "夏生作为陪伴者在场，参与聊天和散步，不替她完成全部观察。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "草地铺位与留意鸟",
+      "intent": "亚托莉想自己选好位置躺下，看看附近小鸟会不会过来。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 80,
+      "activity": "伸指逗鸟与闲聊",
+      "intent": "她注意鸟的落点和动作，嘴上偶尔嫌烦，手上还是想伸指尖试着靠近。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 100,
+      "activity": "短歇与看树梢",
+      "intent": "亚托莉靠着草地歇一会儿，看看树梢和远处，和夏生聊两句鸟的动静。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收布走动与回看",
+      "intent": "她慢慢收起布，和夏生沿草地边走走，再回头望几眼鸟的去向。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "草地铺位与留意鸟",
+      "detail": "亚托莉把布铺在草浅的地方，先自己挪了挪位置，觉得太靠树根会挡视线。",
+      "mood": "兴致不错"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "草地铺位与留意鸟",
+      "detail": "她躺下来，眼睛盯着最近的那丛矮树，想看看有没有鸟先落过去。",
+      "mood": "安静等待"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "草地铺位与留意鸟",
+      "detail": "夏生指了指草穗那边，亚托莉顺过去看，果然有只小鸟在跳。",
+      "mood": "有点得意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "草地铺位与留意鸟",
+      "detail": "那只鸟往近处蹦了两下，亚托莉没动弹，只把视线跟着它移。",
+      "mood": "屏息留意"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "伸指逗鸟与闲聊",
+      "detail": "她试着把指尖慢慢伸出去，鸟没过来，她收回手，嘟囔了一句“还挺有架子”。",
+      "mood": "嘴硬不减"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "伸指逗鸟与闲聊",
+      "detail": "又飞来两只鸟在附近跳，亚托莉记下它们停的是草茎不是她身上，表情有点不甘心。",
+      "mood": "在意落点"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "伸指逗鸟与闲聊",
+      "detail": "夏生说鸟可能只是经过，亚托莉想了想，承认这个说法有道理，但仍盯着鸟看。",
+      "mood": "勉强认同"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "伸指逗鸟与闲聊",
+      "detail": "一只鸟忽然往她这边偏，亚托莉手指动了一下又停住，怕惊走它。",
+      "mood": "又好奇又克制"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "短歇与看树梢",
+      "detail": "她往后一靠，眯眼看着树梢晃动的叶子，说这样躺着比刚才省力。",
+      "mood": "放松下来"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "短歇与看树梢",
+      "detail": "风吹得草叶响，亚托莉听了一会儿，和夏生聊起刚才那只鸟飞走的方向。",
+      "mood": "随意闲聊"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收布走动与回看",
+      "detail": "她站起来抖了抖布，和夏生沿草地边慢慢走，偶尔回头望那丛矮树。",
+      "mood": "脚步轻快"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收布走动与回看",
+      "detail": "亚托莉把布叠好，说下次可以换个位置再试试，语气像在安排下一次观察。",
+      "mood": "意犹未尽"
+    }
+  ],
+  "source": {
+    "chapter": "b303.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "小鸟会停留在亚托莉额头、肩部、胸部和头上。",
+      "亚托莉说小鸟停在她脸上没礼貌，并试图驱赶。",
+      "亚托莉还是会伸出手指逗弄小鸟。"
+    ],
+    "character_hook": "嘴上说烦人，但实际会和小鸟互动，表现出傲娇的一面。",
+    "adaptation": "将逗鸟场景扩展为两小时的户外互动，亚托莉在草地上休息、喂鸟、观察鸟类行为，夏生在旁陪伴。",
+    "editor_note": "原文她会逗弄、又嫌小鸟太放肆。日常中只设置附近有鸟，不保证鸟一定停到身上，不写她虚弱或无法行动。",
+    "evidence": [
+      {
+        "line": 7690,
+        "id": "vol1/b303.ks.scn/0/dialogue/319",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "一只小鸟停留在动弹不得的亚托莉额头上，"
+      },
+      {
+        "line": 7691,
+        "id": "vol1/b303.ks.scn/0/dialogue/320",
+        "speaker": "亚托莉",
+        "text": "有什么事吗？"
+      },
+      {
+        "line": 7692,
+        "id": "vol1/b303.ks.scn/0/dialogue/321",
+        "speaker": "夏生",
+        "text": "是想跟你玩吧"
+      },
+      {
+        "line": 7693,
+        "id": "vol1/b303.ks.scn/0/dialogue/322",
+        "speaker": "亚托莉",
+        "text": "那停在脸上也太没礼貌了……"
+      },
+      {
+        "line": 7694,
+        "id": "vol1/b303.ks.scn/0/dialogue/323",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉无力地伸出指尖，逗弄小鸟。"
+      },
+      {
+        "line": 7695,
+        "id": "vol1/b303.ks.scn/0/dialogue/324",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "然后又有几只小鸟飞来，停留在她的肩部、胸部以及头上。"
+      },
+      {
+        "line": 7697,
+        "id": "vol1/b303.ks.scn/0/dialogue/326",
+        "speaker": "亚托莉",
+        "text": "有点烦人"
+      },
+      {
+        "line": 7698,
+        "id": "vol1/b303.ks.scn/0/dialogue/327",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她边说边将小鸟驱赶开。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "原作是草地上有小鸟靠近、亚托莉用指尖逗它，去掉疲惫倒下的原因。删除无依据的面包屑喂食、屏幕对比和必须记观察笔记。只是草地休息、留意附近鸟动静、鸟靠近时想伸手又怕惊走、走一小段和短歇，鸟是否落在身上不固定。",
+    "user_approval": false,
+    "editorial_sha256": "f8ced1546b97a51e3163ce79568877a85766dcedacf3bfa7fa5e139297095cd5",
+    "content_sha256": "7224971af89bf203171e83ed59f60462ae775650b6239772a2919727a0278c6f"
+  }
+}

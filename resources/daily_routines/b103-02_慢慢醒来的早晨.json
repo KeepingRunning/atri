@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "id": "b103-02",
+  "category": "生活",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "慢慢醒来的早晨",
+  "summary": "亚托莉被夏生叫醒后犯困赖床，慢吞吞穿好衣服去梳洗。随后用早餐，和夏生互相调侃，再沿着上学路慢慢走，把晨间时光过得闲散而自然。",
+  "suggested_time_of_day": [
+    "清晨",
+    "上午"
+  ],
+  "scene": "从卧室开始的晨间日常：阳光透进窗帘，亚托莉还裹着被子犯困，夏生催她起床。穿衣梳洗后两人吃早餐，再一起出门走一段上学路。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉刚睡醒，昨晚用别扭姿势休眠，脖子肩膀有点僵。",
+    "夏生已经起床，过来叫亚托莉起来。",
+    "房间里有亚托莉的换洗衣物，住宅内有盥洗处和简单厨房。",
+    "两人住同一屋檐下，早晨需要各自收拾后出门。"
+  ],
+  "adaptation_notes": [
+    "原作止于亚托莉答应穿衣，本模板将穿衣后的梳洗、早餐、出门补足为约两小时晨间日常。",
+    "原作亚托莉自称低电压、犯困、关节僵硬作为睡醒状态依据，不写成充电或机械故障。",
+    "删去捏脸、火箭拳、肌肤相亲等身体接触与暧昧玩笑，保留互相调侃的语气。",
+    "'萝卜子'称呼只保留亚托莉在意称呼的一点反应，不反复围绕它。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "赖床与穿衣",
+      "intent": "亚托莉被叫醒后还想赖一会儿，犯困地活动脖子，被提醒先穿好衣服才慢吞吞开始换。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 50,
+      "activity": "梳洗整理",
+      "intent": "去盥洗处刷牙洗脸，对着镜子整理头发和衣领，逐渐清醒过来。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 80,
+      "activity": "早餐闲谈",
+      "intent": "和夏生一起吃简单的早餐，犯困地慢慢吃，聊些无关紧要的早晨话题。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 120,
+      "activity": "晨间闲整与出门",
+      "intent": "整理要带的东西，看看窗外天气，和夏生一起出门，沿着上学路慢慢走一段。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "赖床与穿衣",
+      "detail": "亚托莉被叫醒，迷迷糊糊应了一声，却还裹着被子不动，只把脸往枕头里埋。",
+      "mood": "犯困迷糊"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "赖床与穿衣",
+      "detail": "她哼了一声说自己叫亚托莉，声音却没什么力气，想再赖一小会儿，脖子有点僵。",
+      "mood": "嘴硬但困"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "赖床与穿衣",
+      "detail": "被提醒先穿衣服，她低头看看自己，有点不好意思地伸手去够床边的衣物。",
+      "mood": "后知后觉"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "梳洗整理",
+      "detail": "亚托莉站在盥洗台前刷牙，眼睛半睁半闭，镜子里的人还带着没睡好的样子。",
+      "mood": "困倦未消"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "梳洗整理",
+      "detail": "她洗脸后精神了一些，开始梳头发，把翘起来的一撮压了几次还是不太服帖。",
+      "mood": "开始清醒"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "早餐闲谈",
+      "detail": "坐到桌前吃早餐，她慢慢嚼着，夏生说什么她都只点头，过一会儿才反应过来。",
+      "mood": "慢半拍"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "早餐闲谈",
+      "detail": "亚托莉拿起杯子喝了一口，说早晨的味觉好像也比平时迟钝，觉得自己需要再醒一醒。",
+      "mood": "迷迷糊糊"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "早餐闲谈",
+      "detail": "她吃完最后一口，把碗筷收去水槽，和夏生互相调侃了两句今天谁先起。",
+      "mood": "逐渐轻松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "晨间闲整与出门",
+      "detail": "亚托莉回房间把要带的东西一样样放进包里，边放边小声核对。",
+      "mood": "认真起来"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "晨间闲整与出门",
+      "detail": "她走到窗边看看天气，阳光不错，回头告诉夏生今天应该不用带伞。",
+      "mood": "轻松悠闲"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "晨间闲整与出门",
+      "detail": "两人一起出门，亚托莉在门口又摸了摸脖子，确认僵的感觉已经松快了不少。",
+      "mood": "舒展一些"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "晨间闲整与出门",
+      "detail": "沿着上学路慢慢走，亚托莉看着路边的树和天空，随口聊着今天可能会遇到的事。",
+      "mood": "平静期待"
+    }
+  ],
+  "source": {
+    "chapter": "b103.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉睡觉时会说梦话、犯困，自称低电压。",
+      "亚托莉因用奇怪姿势休眠导致关节僵硬。",
+      "夏生提醒亚托莉先把衣服穿上。",
+      "亚托莉回答“好的～”并准备穿衣。"
+    ],
+    "character_hook": "亚托莉被叫醒时迷迷糊糊，被叫“萝卜子”会警告，表现其在意称呼、爱玩闹的一面。",
+    "adaptation": "将起床后的梳洗穿衣扩展为两小时的晨间日常：亚托莉慢慢唤醒、活动关节、整理衣服、与夏生互相调侃。",
+    "editor_note": "穿衣、伸展和晨间准备可以自然扩展；不把睡眠写成充电、低电压，不安排他人捏脸或身体亲密。",
+    "evidence": [
+      {
+        "line": 1046,
+        "id": "vol1/b103.ks.scn/0/dialogue/147",
+        "speaker": "夏生",
+        "text": "起床了，萝卜子"
+      },
+      {
+        "line": 1047,
+        "id": "vol1/b103.ks.scn/0/dialogue/148",
+        "speaker": "亚托莉",
+        "text": "是亚托莉……萝卜子可是对机器人的蔑称……这是第二次警告哦……看我火箭拳制裁……"
+      },
+      {
+        "line": 1052,
+        "id": "vol1/b103.ks.scn/0/dialogue/153",
+        "speaker": "亚托莉",
+        "text": "啊呀！？"
+      },
+      {
+        "line": 1056,
+        "id": "vol1/b103.ks.scn/0/dialogue/157",
+        "speaker": "亚托莉",
+        "text": "啊……早上好，夏生先生……（哈欠）"
+      },
+      {
+        "line": 1058,
+        "id": "vol1/b103.ks.scn/0/dialogue/159",
+        "speaker": "亚托莉",
+        "text": "因为我低电压啊……吧唧吧唧"
+      },
+      {
+        "line": 1060,
+        "id": "vol1/b103.ks.scn/0/dialogue/161",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉躺在床上扭了扭脖子。"
+      },
+      {
+        "line": 1061,
+        "id": "vol1/b103.ks.scn/0/dialogue/162",
+        "speaker": "亚托莉",
+        "text": "呜呜……都是因为昨晚用奇怪的姿势休眠，关节部位好僵硬……"
+      },
+      {
+        "line": 1062,
+        "id": "vol1/b103.ks.scn/0/dialogue/163",
+        "speaker": "夏生",
+        "text": "你先把衣服穿上。……我都不知道该看哪了"
+      },
+      {
+        "line": 1063,
+        "id": "vol1/b103.ks.scn/0/dialogue/164",
+        "speaker": "亚托莉",
+        "text": "好的～"
+      },
+      {
+        "line": 1068,
+        "id": "vol1/b103.ks.scn/0/dialogue/169",
+        "speaker": "夏生",
+        "text": "行了，你先把衣服穿上"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留慢慢醒来、梳洗和早晨出门，删除未穿衣被看见的暗示、机械检修和固定关节故障。穿戴梳洗约30分钟，轻轻伸展放在起床过程中，不排30分钟关节维护。其余用早餐与晨间闲歇、上学路自然衔接。",
+    "user_approval": false,
+    "editorial_sha256": "622f827fe1fd8ecda72f03bf692e83eb95b44ff56187f59797d6438bd94fe283",
+    "content_sha256": "063cd76658f4879b9bc698d2312e3598004c86cc87499ce4f72c99c683079a15"
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "id": "b203-01",
+  "category": "音乐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": true,
+  "title": "午休听琴与哼唱",
+  "summary": "午休时夏生在教室弹钢琴，亚托莉从旁听；某段旋律让她不自觉哼唱，夏生配合她把最后一曲弹完。曲间她与水菜萌等闲聊或靠窗歇着，再回来继续听。",
+  "suggested_time_of_day": [
+    "中午",
+    "下午"
+  ],
+  "scene": "午休的教室里，钢琴盖被打开，夏生坐在琴前弹奏；亚托莉站在旁边听，阳光照在琴键和桌角上。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌",
+    "凛凛花"
+  ],
+  "preconditions": [
+    "教室或活动室里有一台可弹的钢琴，午休时段可以自由使用。",
+    "夏生小时候练过钢琴，能弹几首熟悉的曲子，但不教课。",
+    "亚托莉能记住并哼出曾听过的旋律，但不会弹钢琴，也不负责调音。",
+    "水菜萌、凛凛花等同学可以在场围观或先离开，不全部占用对白。"
+  ],
+  "adaptation_notes": [
+    "原作写午休数曲中最后一曲亚托莉不自觉哼唱、夏生配合弹完；本模板把听琴与哼唱扩展为约两小时的日常。",
+    "原作里亚托莉没有弹琴、没有当钢琴教师；这里保留她只听和哼唱，不安排她按琴键或试键。",
+    "原作旁白视角是夏生，本模板把亚托莉作为主要行动者来安排听曲、哼唱和休息，不改原作事实。",
+    "不复制原作歌词，只写哼唱、旋律和在场反应；不预设掌声、夸奖或合奏成功等结果。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "聚到钢琴前听琴",
+      "intent": "亚托莉本来在翻笔记，听见试音后靠近；她先不打扰夏生，只从旁边听，留意自己为什么会对某些旋律在意。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "随旋律轻声哼唱",
+      "intent": "熟悉的曲调反复出现，亚托莉不自觉跟着哼；她发现自己哼的和夏生弹的能合上，又困惑这旋律从哪里来。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "曲间闲聊与靠窗歇着",
+      "intent": "一曲结束，亚托莉在间歇里和水菜萌聊几句，走到窗边靠一会儿，让耳朵和注意力松下来。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "再听一会儿并收尾",
+      "intent": "午休快结束，亚托莉回来再听最后一小段；夏生合上琴盖，她嘴上说只是随便哼的，眼睛还往钢琴那边瞟。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "聚到钢琴前听琴",
+      "detail": "亚托莉本来在座位上翻笔记，听见试音的几个音后抬起头，慢慢走到钢琴旁边站定。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "聚到钢琴前听琴",
+      "detail": "看夏生的手指落在琴键上，自己在一旁安静听，想记住这段旋律的走向。",
+      "mood": "安静留意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "聚到钢琴前听琴",
+      "detail": "水菜萌和凛凛花在旁边小声惊叹，亚托莉也凑近一点，想看清夏生两只手怎么配合。",
+      "mood": "兴致上来"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "聚到钢琴前听琴",
+      "detail": "几首曲子过去，教室慢慢安静；亚托莉发现自己不只是在听，还在等下一段旋律。",
+      "mood": "沉浸"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "随旋律轻声哼唱",
+      "detail": "有歌词的曲调响起时，她嘴唇先动了一下，接着很轻地哼出几个音，自己都没立刻察觉。",
+      "mood": "不自觉"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "随旋律轻声哼唱",
+      "detail": "夏生似乎听到了，放慢一点弹；亚托莉的哼唱跟上去，眼睛盯着琴键，表情有点困惑。",
+      "mood": "困惑又专注"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "随旋律轻声哼唱",
+      "detail": "最后一曲里，她哼的旋律和琴声叠在一起；她没停下，直到曲子结束才回过神。",
+      "mood": "微微出神"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "曲间闲聊与靠窗歇着",
+      "detail": "曲子结束后，亚托莉看看周围，像刚想起自己在哪；她退开一步，把琴前位置让给想凑近看的凛凛花。",
+      "mood": "有点不好意思"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "曲间闲聊与靠窗歇着",
+      "detail": "水菜萌小声问她刚才哼的是什么歌，亚托莉说冷不丁地旋律就浮现出来了，自己也不清楚是哪首。",
+      "mood": "坦率"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "曲间闲聊与靠窗歇着",
+      "detail": "她走到窗边靠着，听水菜萌和凛凛花聊别的曲子，偶尔往钢琴那边看一眼。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "再听一会儿并收尾",
+      "detail": "午休快结束，亚托莉回到钢琴附近，安静听夏生弹最后一小段，没再跟着哼。",
+      "mood": "余韵未散"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "再听一会儿并收尾",
+      "detail": "夏生合上琴盖；亚托莉嘴上说只是随便哼的，眼神还往钢琴那边瞟了一眼。",
+      "mood": "嘴硬又留心"
+    }
+  ],
+  "source": {
+    "chapter": "b203.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生在午休弹钢琴。",
+      "亚托莉随其中一首的旋律哼唱。",
+      "夏生配合她的旋律演奏。"
+    ],
+    "character_hook": "亚托莉会不自觉哼出记忆中的旋律，被问起时只说‘冷不丁地旋律就浮现出来了’，表现出困惑又留心的态度。",
+    "adaptation": "将午休数曲的听琴与哼唱扩展为有曲间闲谈和休息的两小时。夏生弹琴，亚托莉听与哼唱，不安排亚托莉按琴键或授课。",
+    "editor_note": "不让亚托莉弹琴、调音或担任钢琴教师，不复制整段歌词。",
+    "evidence": [
+      {
+        "line": 4852,
+        "id": "vol1/b203.ks.scn/0/dialogue/147",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "大家气势十足，全都挤了过来。"
+      },
+      {
+        "line": 4854,
+        "id": "vol1/b203.ks.scn/0/dialogue/149",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我沐浴着大家期待的视线，坐在了钢琴前。"
+      },
+      {
+        "line": 4860,
+        "id": "vol1/b203.ks.scn/0/dialogue/155",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "之后便开始演奏了起来。"
+      },
+      {
+        "line": 4870,
+        "id": "vol1/b203.ks.scn/0/dialogue/165",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我接受要求，弹出大家熟知的曲子。"
+      },
+      {
+        "line": 4871,
+        "id": "vol1/b203.ks.scn/0/dialogue/166",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "大概弹了三曲后，大家慢慢地安静了下来，沉心于此，到了有歌词的曲子就会跟着哼唱。"
+      },
+      {
+        "line": 4890,
+        "id": "vol1/b203.ks.scn/0/dialogue/185",
+        "speaker": "亚托莉",
+        "text": "……"
+      },
+      {
+        "line": 4892,
+        "id": "vol1/b203.ks.scn/0/dialogue/187",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "是亚托莉。是她哼唱的出音乐旋律。"
+      },
+      {
+        "line": 4893,
+        "id": "vol1/b203.ks.scn/0/dialogue/188",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我竖耳倾听亚托莉哼唱出的歌，然后配合她的旋律弹奏钢琴。"
+      },
+      {
+        "line": 4896,
+        "id": "vol1/b203.ks.scn/0/dialogue/191",
+        "speaker": "水菜萌",
+        "text": "好棒的歌～～！"
+      },
+      {
+        "line": 4902,
+        "id": "vol1/b203.ks.scn/0/dialogue/197",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉正在呆呆地看着我。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "3773c19b8b2e02fd89a373cabc63b1dfcbaad034fa8278648cbb6f680a1877d6",
+    "content_sha256": "cd16c7d9dab0f81d1a8ac7ccea7b87fa1cb45b1a5e4d6baa3fe9eca312266a4a"
+  }
+}

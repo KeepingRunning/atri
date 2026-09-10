@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "b202-01",
+  "category": "料理",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "和水菜萌学做汉堡肉",
+  "summary": "亚托莉以料理部部员身份向部长水菜萌请教汉堡肉做法。两人一起备料、揉肉馅、煎制并试吃，亚托莉想自己动手又忍不住看笔记，水菜萌从旁指点，最后一起收拾。",
+  "suggested_time_of_day": [
+    "中午",
+    "下午"
+  ],
+  "scene": "学校料理部活动室，台面上摆着洋葱、肉馅、鸡蛋、小麦粉和调味料，墙边贴着料理笔记，水菜萌系着围裙站在灶台前。",
+  "participants": [
+    "亚托莉",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "亚托莉是料理部部员，水菜萌是料理部部长",
+    "活动室具备灶台、平底锅、搅拌碗等基本烹调设施",
+    "食材可由两人从商店街购得或提前备好",
+    "亚托莉主动请求水菜萌教她美味汉堡肉的做法"
+  ],
+  "adaptation_notes": [
+    "原作中两人在走廊约定、走进教室，本模板扩展为料理部活动室里的两小时实操。",
+    "原作未展示完整烹饪过程，本模板中的备料、煎制、试吃与收拾为日常创作补足。",
+    "原作亚托莉曾主动提出给夏生做汉堡肉，说明她已有此意向，不视为全新技能。",
+    "夏生不在场，仅作为原作相关人物被提及，不扮演主人或恋人角色。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "听水菜萌示范",
+      "intent": "想学会汉堡肉，先看部长怎么做。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 50,
+      "activity": "自己动手练一段",
+      "intent": "想自己做，又不想把不懂的地方蒙混过去。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 80,
+      "activity": "一起试吃与聊天",
+      "intent": "尝尝实际味道，愿意听指导但不提前宣布成功。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 100,
+      "activity": "收拾社团用具",
+      "intent": "和部长分着做收尾。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "课后闲歇",
+      "intent": "给刚学的新东西一点消化时间。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "听水菜萌示范",
+      "detail": "把肉馅、洋葱和笔记放到台面旁，先问水菜萌今天从哪里开始。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "听水菜萌示范",
+      "detail": "看水菜萌示范，注意她为什么要这样处理；有不懂的地方就直接问。",
+      "mood": "嘴硬但认真"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "自己动手练一段",
+      "detail": "轮到自己揉肉馅，把刚听过的次数小声念出来，想试试能不能自己记住。",
+      "mood": "投入"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "自己动手练一段",
+      "detail": "接着准备煎制，眼睛留意锅里的变化，手边的笔记没有急着收起来。",
+      "mood": "追求整齐"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "自己动手练一段",
+      "detail": "做完手头这一段后退到旁边，让部长照看后续，也顺手腾出吃饭的地方。",
+      "mood": "暗自学习"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "一起试吃与聊天",
+      "detail": "坐下来尝一小份，先留意实际口感，想问水菜萌她最在意哪一步。",
+      "mood": "紧张专注"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "一起试吃与聊天",
+      "detail": "边吃边听指导，遇到没听明白的词会认真追问，不靠点头装懂。",
+      "mood": "谨慎"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "一起试吃与聊天",
+      "detail": "没有在聊做法时就安静吃饭，偶尔看看料理教室里其他人都在忙什么。",
+      "mood": "恍然"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "收拾社团用具",
+      "detail": "把用过的碗放进水槽，和水菜萌商量谁洗谁放，想连收拾也一起帮上。",
+      "mood": "认真品尝"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "收拾社团用具",
+      "detail": "擦好料理台，收起笔记和围裙，临走前看看还有没有属于自己的东西。",
+      "mood": "不服输"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "课后闲歇",
+      "detail": "在教室一旁坐会儿，暂时不用忙着证明自己的手艺，听几句社团里的闲聊。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "课后闲歇",
+      "detail": "想到以后还可以来料理部，心里已经有想问的问题，今天先把本子收好。",
+      "mood": "回味"
+    }
+  ],
+  "source": {
+    "chapter": "b202.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌是料理部部长",
+      "亚托莉是料理部部员",
+      "亚托莉主动请求水菜萌教她美味汉堡肉的制作方法",
+      "水菜萌答应指导亚托莉"
+    ],
+    "character_hook": "亚托莉积极向上，会用部员身份认真请求指导，也不掩饰自己想提升料理水平。",
+    "adaptation": "将原文中走廊约定和课堂收束，扩展为料理部两小时一起选购材料、学做汉堡肉并试吃的日常。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 4307,
+        "id": "vol1/b202.ks.scn/0/dialogue/9",
+        "speaker": "水菜萌",
+        "text": "只要阿夏愿意，我就再给你做。谁叫我是料理部的部长呢♪"
+      },
+      {
+        "line": 4310,
+        "id": "vol1/b202.ks.scn/0/dialogue/12",
+        "speaker": "亚托莉",
+        "text": "水菜萌部长！"
+      },
+      {
+        "line": 4311,
+        "id": "vol1/b202.ks.scn/0/dialogue/13",
+        "speaker": "水菜萌",
+        "text": "怎么了，亚托莉部员"
+      },
+      {
+        "line": 4312,
+        "id": "vol1/b202.ks.scn/0/dialogue/14",
+        "speaker": "亚托莉",
+        "text": "我也想提升水平。请教给我美味汉堡肉的制作方法！"
+      },
+      {
+        "line": 4313,
+        "id": "vol1/b202.ks.scn/0/dialogue/15",
+        "speaker": "水菜萌",
+        "text": "很好。就让本部长来指导你吧"
+      },
+      {
+        "line": 4314,
+        "id": "vol1/b202.ks.scn/0/dialogue/16",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌和亚托莉有说有笑，走进了教室。"
+      },
+      {
+        "line": 4695,
+        "id": "vol1/b202.ks.scn/0/dialogue/397",
+        "speaker": "亚托莉",
+        "text": "想吃什么？啊，我来给你做汉堡肉吃怎么样"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "bd57bd81e6569a24e86769c78bd625650faf8873b87b2cc604f495cbefb554b2",
+    "content_sha256": "73f53c3655dc3a569c81d3b3aa2a8eddfdc99b7462ecf3426408fca363dca78e"
+  }
+}

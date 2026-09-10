@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "id": "b204-01",
+  "category": "料理",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "自己做汉堡排和热菜沙拉",
+  "summary": "照料理部教过的办法做汉堡排和热菜沙拉，亚托莉想自己负责，暂时不愿让夏生接手。随后一起吃饭、收拾，饭后歇着聊几句。",
+  "suggested_time_of_day": [
+    "傍晚",
+    "夜晚"
+  ],
+  "scene": "虚构的厨房与餐桌旁，购物袋里放着肉馅和洋葱。亚托莉系好围裙站在灶台前，让夏生待在厨房外，等料理端上桌后一起坐下用餐。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "虚构厨房里备有肉馅、洋葱、鸡蛋、小麦粉和盐等食材。",
+    "亚托莉在料理部跟水菜萌部长及部员学过揉法、调味和火候。",
+    "夏生可以在厨房外等待，并在完成后作为品尝者一起用餐。",
+    "住处有可以腾出位置的餐桌，杂物或文件需要在摆菜前收开。"
+  ],
+  "adaptation_notes": [
+    "原作中夏生调查文件等背景已去除，场景集中为两小时的家庭料理与共餐。",
+    "原作购物环节只作前提，不扩展为外出采购剧情；洋葱、肉馅等按已有材料处理。",
+    "热菜沙拉原文未列清蔬菜种类，本模板不补新配方，只按已有做法处理。",
+    "揉的是肉馅而非面团，不发明面粉过筛或额外松软技巧。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "做汉堡排和热菜沙拉",
+      "intent": "想自己把学来的菜端上桌，记得方法也还会看笔记。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "摆桌与吃晚饭",
+      "intent": "想听听对方的口味，也好好吃自己的那份。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "收拾厨房",
+      "intent": "把用过的东西收好，做饭的兴致还没完全过去。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "饭后闲歇",
+      "intent": "坐一会儿，让料理话题自然接下去或停下来。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "做汉堡排和热菜沙拉",
+      "detail": "把肉馅和洋葱拿出来，先空出料理台。夏生在旁边也不急着请他帮忙，今天想自己来。",
+      "mood": "认真又期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "做汉堡排和热菜沙拉",
+      "detail": "揉肉馅时小声数着右十五、左十五，认真得像在做实验；少量鸡蛋、小麦粉和盐的顺序仍往笔记上瞟。",
+      "mood": "专注计数"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "做汉堡排和热菜沙拉",
+      "detail": "汉堡排下锅后留意火候，想着水菜萌教过的要点。若夏生想接手，她更想先自己试试。",
+      "mood": "一丝不苟"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "做汉堡排和热菜沙拉",
+      "detail": "连同热菜沙拉一起准备端上桌，惦记着饭菜别放凉，想叫夏生先把桌上的东西挪开。",
+      "mood": "集中精神"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "摆桌与吃晚饭",
+      "detail": "把菜摆到腾好的桌上，坐下时还想介绍今天做的是什么，等着对方愿不愿意尝一口。",
+      "mood": "盯着火候"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "摆桌与吃晚饭",
+      "detail": "吃自己的那份，留意眼前汉堡排的口感。想听真实的口味反馈，又有点不想先露出没把握。",
+      "mood": "表面镇定"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "摆桌与吃晚饭",
+      "detail": "边吃边想到料理部，想说揉法和火候是跟水菜萌学的；没有新话题时也能安静吃饭。",
+      "mood": "骄傲又满足"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "收拾厨房",
+      "detail": "把用过的碗盘收拢洗好，嘴上觉得收尾也难不倒自己，手里仍留意别堆得太高。",
+      "mood": "放松愉快"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "收拾厨房",
+      "detail": "擦好台面，把料理笔记放回干燥处；忙完后先在桌边坐下来，暂时没有下一件急事。",
+      "mood": "满足而放松"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "饭后闲歇",
+      "detail": "靠着椅背歇一会儿，视线偶尔落在刚收好的厨房里，做完饭之后反而不急着说什么。",
+      "mood": "回味过程"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "饭后闲歇",
+      "detail": "如果料理话题还在，想问还有什么家常菜值得学；只是有了兴趣，还没决定下一道。",
+      "mood": "轻松闲聊"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "饭后闲歇",
+      "detail": "让饭后的时间慢慢过去，听同伴说话或自己发会儿呆，不必马上把这顿饭总结成成绩。",
+      "mood": "平静余韵"
+    }
+  ],
+  "source": {
+    "chapter": "b204.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉带回肉馅和洋葱。",
+      "她先揉肉馅，按次数与分量加入鸡蛋、小麦粉、盐。",
+      "成品在原文称为汉堡肉、汉堡肉酱和热菜沙拉。",
+      "水菜萌及料理部员教过她揉法、调味和火候。"
+    ],
+    "character_hook": "亚托莉对给夏生做饭充满热情，精确计数操作，被夸奖后开心地说‘我做到了’，并骄傲地提到料理部教学。",
+    "adaptation": "去除夏生调查文件等背景，将场景集中为两小时的料理部活动或家庭烹饪：亚托莉从购物开始，在料理部或厨房学习并制作汉堡肉，夏生作为品尝者参与。",
+    "editor_note": "本条是独立实践，与b202-01料理部学习区分。揉的是肉馅，不能变面团；不发明面粉过筛松软技巧。热菜沙拉原文没有列清蔬菜种类，不补新配方。",
+    "evidence": [
+      {
+        "line": 5448,
+        "id": "vol1/b204.ks.scn/0/dialogue/317",
+        "speaker": "亚托莉",
+        "text": "肚子饿了吧！今天就由我来展示厨艺，给夏生先生做一顿豪华晚餐吧！"
+      },
+      {
+        "line": 5452,
+        "id": "vol1/b204.ks.scn/0/dialogue/321",
+        "speaker": "亚托莉",
+        "text": "可是，我今天只买了做菜用的食材"
+      },
+      {
+        "line": 5453,
+        "id": "vol1/b204.ks.scn/0/dialogue/322",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "购物袋里，放着肉馅和洋葱。"
+      },
+      {
+        "line": 5459,
+        "id": "vol1/b204.ks.scn/0/dialogue/328",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉一脸认真地站在厨房。"
+      },
+      {
+        "line": 5460,
+        "id": "vol1/b204.ks.scn/0/dialogue/329",
+        "speaker": "亚托莉",
+        "text": "首先把肉馅揉一揉。我揉我揉……"
+      },
+      {
+        "line": 5461,
+        "id": "vol1/b204.ks.scn/0/dialogue/330",
+        "speaker": "亚托莉",
+        "text": "右揉十五，左揉十五……"
+      },
+      {
+        "line": 5462,
+        "id": "vol1/b204.ks.scn/0/dialogue/331",
+        "speaker": "亚托莉",
+        "text": "鸡蛋和小麦粉少量，盐少量……然后放到一起……揉十五下……揉出空气……往复五次……"
+      },
+      {
+        "line": 5464,
+        "id": "vol1/b204.ks.scn/0/dialogue/333",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉正确地测出分量以及次数，进行着调理。"
+      },
+      {
+        "line": 5465,
+        "id": "vol1/b204.ks.scn/0/dialogue/334",
+        "speaker": "亚托莉",
+        "text": "做好啦"
+      },
+      {
+        "line": 5473,
+        "id": "vol1/b204.ks.scn/0/dialogue/342",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "汉堡肉・汉堡肉酱，热菜沙拉。"
+      },
+      {
+        "line": 5474,
+        "id": "vol1/b204.ks.scn/0/dialogue/343",
+        "speaker": "夏生",
+        "text": "好好吃的样子……"
+      },
+      {
+        "line": 5488,
+        "id": "vol1/b204.ks.scn/0/dialogue/357",
+        "speaker": "亚托莉",
+        "text": "是的！　从汉堡肉的揉搓方法到调味料的配合，再到火候的调控……都是水菜萌部长还有部员的大家，手把手教给我的哦"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "d714a0ab82d8c302d04a87f7670be12a2a7efe5c8d0196b8b99408b5a94194b7",
+    "content_sha256": "792165431bf9e4f692487450c8181b6f2e5bfc959b7ea0c3c0dc702349ccf692"
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "id": "b123-04",
+  "category": "生活",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "等待教室灯亮起来",
+  "summary": "发电机完工当晚，亚托莉举灯陪夏生走向开关，等其他人做完试通电准备。她帮忙分灯、照路、稳住手电，也把好奇留在灯泡和开关上；灯会不会亮、亮得怎么样，都留到按下开关之后再看。",
+  "suggested_time_of_day": [
+    "傍晚",
+    "夜晚"
+  ],
+  "scene": "被水淹过的学校教室里，临时发电机和配线已经就位。手电的光在桌椅间晃动，孩子们围在门边，等着试通电的时刻。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司",
+    "水菜萌",
+    "凛凛花",
+    "孩子们"
+  ],
+  "preconditions": [
+    "学校教室已经搭好临时发电机的零件和配线",
+    "从被淹区域挖出的旧电线、开关和灯泡已接入测试回路",
+    "手电筒和备用电池有限，需要分给几个孩子和大人",
+    "夏生在黑暗中看不清脚下，需要有人照亮或带路"
+  ],
+  "adaptation_notes": [
+    "原作中发电机完工当晚直接走向开关，本模板将准备和等待扩写为两小时。",
+    "原作中灯亮后众人一起喜悦，本模板保留灯亮前的期待与试灯后的实际观察，不预设灯已亮或效果如何。",
+    "亚托莉牵夏生到开关前的关系只在必要时出现，不写成日常约会或身体亲密。",
+    "学校试通电是需要专门条件的活动，不作为每天重复的日常。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "举灯帮忙与分派手电",
+      "intent": "亚托莉想自己把照明这件事做好，不太愿意被当成只会跟着走的人，同时帮忙照亮教室。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 80,
+      "activity": "等待退潮与试灯前准备",
+      "intent": "潮水还没退到安全水位，大家在教室里等一会儿。亚托莉留意开关位置和孩子们有没有乱碰电线。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 100,
+      "activity": "走到开关前试通电",
+      "intent": "夏生看不清脚下，亚托莉举灯带他走到开关前。大家屏住呼吸等灯亮，亚托莉也在意灯泡会不会闪。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "观察灯光与自然收拾",
+      "intent": "灯按下去后，大家看实际亮度如何。亚托莉跟着高兴或继续等检查，也帮忙收拾手电和工具。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "举灯帮忙与分派手电",
+      "detail": "亚托莉拿手电照教室后排，想自己看好脚下，也帮旁边的人看清桌椅。",
+      "mood": "认真，不想被小看"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "举灯帮忙与分派手电",
+      "detail": "手电不够分，亚托莉把一支递给凛凛花，又提醒孩子们先别碰墙边的电线。",
+      "mood": "帮忙，带点操心"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "举灯帮忙与分派手电",
+      "detail": "夏生说看不清，亚托莉把手电举稳，让他能看清开关旁边的路。",
+      "mood": "自然搭把手"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "举灯帮忙与分派手电",
+      "detail": "龙司在另一边喊准备得差不多了，亚托莉嘴上应着，眼睛还往开关那边瞟。",
+      "mood": "有点得意但没放松"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "等待退潮与试灯前准备",
+      "detail": "潮水还没退，大家暂时坐在课桌边。亚托莉把手电换到左手，活动一下举酸的手腕。",
+      "mood": "耐心，有点好奇"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "等待退潮与试灯前准备",
+      "detail": "水菜萌过来问灯到底能不能亮，亚托莉想了想，说“要等按下去才知道”，没把话说满。",
+      "mood": "诚实，不夸口"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "等待退潮与试灯前准备",
+      "detail": "孩子们开始猜灯泡是什么颜色，亚托莉也跟着看旧灯泡，猜它是不是暖黄的。",
+      "mood": "跟着好奇"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "等待退潮与试灯前准备",
+      "detail": "有人喊外面水位降了，亚托莉站起来，先把散在地上的几颗螺丝收到盒子里。",
+      "mood": "收拾得顺手"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "走到开关前试通电",
+      "detail": "夏生说太黑看不清脚下，亚托莉举灯带他绕过课桌，走到墙边开关前。",
+      "mood": "专注，步子放稳"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "走到开关前试通电",
+      "detail": "夏生把手放上开关，亚托莉站在旁边，视线在开关和头顶灯泡之间来回。",
+      "mood": "屏住呼吸"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "观察灯光与自然收拾",
+      "detail": "按下开关后，大家看灯实际如何。亚托莉也抬头看，留意灯泡有没有闪。",
+      "mood": "高兴或继续等"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "观察灯光与自然收拾",
+      "detail": "观察结束后看看还有没有人需要照明，等夏生他们处理测试结果，自己先收好不用的手电。",
+      "mood": "满足，不急着走"
+    }
+  ],
+  "source": {
+    "chapter": "b123.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉牵着夏生走到开关前。",
+      "夏生按下开关后教室亮起灯光。",
+      "孩子们为灯光喧闹喜悦。",
+      "这是城镇被淹后久违的明亮夜晚。"
+    ],
+    "character_hook": "亚托莉主动帮助夏生看清脚下，并在点灯后与大家一同高兴。",
+    "adaptation": "将一次学校试通电扩展为准备、等待退潮、走向开关和观察表现。技术检查由夏生等人负责，亚托莉举灯和陪同；不预设灯必亮。",
+    "editor_note": "这是需要“学校准备试通电”条件的特别日常。保留试灯前期待，不保证灯一定亮，也不每天重演初次通电。",
+    "evidence": [
+      {
+        "line": 3629,
+        "id": "vol1/b123.ks.scn/0/dialogue/220",
+        "speaker": "夏生",
+        "text": "客套也是浪费时间。亚托莉，帮我一把。太黑了我看不清脚下"
+      },
+      {
+        "line": 3630,
+        "id": "vol1/b123.ks.scn/0/dialogue/221",
+        "speaker": "亚托莉",
+        "text": "好的"
+      },
+      {
+        "line": 3631,
+        "id": "vol1/b123.ks.scn/0/dialogue/222",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉牵着我的手走到开关前。"
+      },
+      {
+        "line": 3632,
+        "id": "vol1/b123.ks.scn/0/dialogue/223",
+        "speaker": "夏生",
+        "text": "那我要按了"
+      },
+      {
+        "line": 3633,
+        "id": "vol1/b123.ks.scn/0/dialogue/224",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "咔嚓——"
+      },
+      {
+        "line": 3636,
+        "id": "vol1/b123.ks.scn/0/dialogue/227",
+        "speaker": "凛凛花",
+        "text": "亮了！！"
+      },
+      {
+        "line": 3637,
+        "id": "vol1/b123.ks.scn/0/dialogue/228",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "短暂的延迟之后，教室内亮起了灯光。"
+      },
+      {
+        "line": 3638,
+        "id": "vol1/b123.ks.scn/0/dialogue/229",
+        "speaker": "孩子Ｂ",
+        "text": "好厉害！好亮啊！！！"
+      },
+      {
+        "line": 3639,
+        "id": "vol1/b123.ks.scn/0/dialogue/230",
+        "speaker": "孩子Ｃ",
+        "text": "哇～～～好棒啊～～～！！"
+      },
+      {
+        "line": 3640,
+        "id": "vol1/b123.ks.scn/0/dialogue/231",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "孩子们喧闹了起来。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "721dd0fef6a5afacbb99f7717ca6995732a45b97678179aa8f87d434b4800b65",
+    "content_sha256": "2da7bef145d78f06f3039be203160b1800d4a3ca6dfc5b6c521e5550c608c32b"
+  }
+}

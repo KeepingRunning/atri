@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "id": "b113-02",
+  "category": "记录",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "纸笔日志初开本",
+  "summary": "亚托莉想用纸笔开始写日志，和夏生去文具店挑本子，再在桌前试写与整理，把一天的记录慢慢搭起来。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "商店街文具店与学校附近的桌前，亚托莉翻看笔记本、落笔写日志，夏生偶尔搭话。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉向夏生借到了纸笔，并得到一起去文具店挑选的机会",
+    "她理解自己的日志需要输出到纸上，因为仿生人大脑无法直接连数码设备",
+    "写日志对她来说是程序中的义务，制造商消失后仍想继续写",
+    "夏生愿意顺路陪同，但不会替她写或决定日志内容"
+  ],
+  "adaptation_notes": [
+    "原作中借纸笔与去文具店只是短场景，这里扩展为两小时内的挑选、试写与整理过程",
+    "加入店内比较、回程与桌前落笔等日常节奏，不改变亚托莉对日志义务的认真态度",
+    "夏生作为陪同者偶尔回应，不代替亚托莉写日志，也不把写日志变成恋爱互动",
+    "日志内容只呈现她自己在意的记录方向，不预先断言写得好或不好"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "文具店挑本子",
+      "intent": "亚托莉想自己选一本合适的日志本，在货架前比较大小和纸张，又不想被夏生小看。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 50,
+      "activity": "回程边走边翻",
+      "intent": "把新本子拿在手里翻看，想回去先写什么，又留意不要碰坏封皮。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 90,
+      "activity": "桌前试写日志",
+      "intent": "亚托莉开始动笔，想按程序义务把今天的活动和想法记下来，字迹和格式都在意。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "翻页整理与歇息",
+      "intent": "写了几段后活动手腕，翻看前面内容，偶尔和夏生聊一句日志的写法。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "文具店挑本子",
+      "detail": "站在笔记本货架前，先看封面颜色，又翻开内页摸纸张厚度。",
+      "mood": "好奇又认真"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "文具店挑本子",
+      "detail": "在两本尺寸不同的本子间犹豫，不想选太薄的，也不想被夏生替她决定。",
+      "mood": "有点倔"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "文具店挑本子",
+      "detail": "拿起笔在试写纸上画了两下，确认写起来顺不顺，又注意不弄乱店里的样品。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "回程边走边翻",
+      "detail": "把新本子抱在胸前，边走边翻空白页，想象第一页要写什么。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "回程边走边翻",
+      "detail": "问夏生上课用的笔记本买了没有，又低头确认自己那本没有折角。",
+      "mood": "细心"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "桌前试写日志",
+      "detail": "在桌前坐下，把本子摆正，先写下日期，再想今天从哪件事开始记。",
+      "mood": "郑重"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "桌前试写日志",
+      "detail": "写到文具店的事，犹豫要不要把夏生说的玩笑也记进去，笔尖悬了一下。",
+      "mood": "认真又好笑"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "桌前试写日志",
+      "detail": "注意字有没有出格，写错一个字就轻轻划掉，不想让日志显得潦草。",
+      "mood": "严格"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "桌前试写日志",
+      "detail": "把今天的活动按时间顺了一遍，想到这是自己该做的事，写得慢了一些。",
+      "mood": "踏实"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "翻页整理与歇息",
+      "detail": "放下笔活动手指，翻回第一页看刚才写的开头，斟酌要不要补一句。",
+      "mood": "放松些"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "翻页整理与歇息",
+      "detail": "夏生随口问日志写了什么，亚托莉说这是记录，不是给别人看的报告。",
+      "mood": "有点得意"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "翻页整理与歇息",
+      "detail": "把本子和笔收好，记下明天也要继续写，再起身整理桌面。",
+      "mood": "安心"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "文具店挑本子",
+        "from_minutes": [
+          0,
+          25
+        ],
+        "to_minutes": [
+          0,
+          30
+        ]
+      },
+      {
+        "activity": "回程边走边翻",
+        "from_minutes": [
+          25,
+          50
+        ],
+        "to_minutes": [
+          30,
+          50
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b113.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉说‘能借我纸笔吗？我想写日志’（n1868）",
+      "机器人日志需写在纸上，因仿生人大脑无法直接输出到数码设备（n1870-1874）",
+      "亚托莉的制造商已消失，但写日志是程序义务（n1875）"
+    ],
+    "character_hook": "亚托莉把写日志视为铭刻在程序中的义务，不写就放不下心，表现出认真和执着。",
+    "adaptation": "可展开为亚托莉在桌前用纸笔写日志的两小时，内容涉及日常记录和反思，夏生偶尔搭话。",
+    "editor_note": "保留纸质日志、初次开本的对象，区别于餐后记食物感想。普通排版与归置是创作补足。",
+    "evidence": [
+      {
+        "line": 1868,
+        "id": "vol1/b113.ks.scn/0/dialogue/71",
+        "speaker": "亚托莉",
+        "text": "能借我纸笔吗？我想写日志"
+      },
+      {
+        "line": 1870,
+        "id": "vol1/b113.ks.scn/0/dialogue/73",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "机器人的行动通常会用日志记录下来。"
+      },
+      {
+        "line": 1871,
+        "id": "vol1/b113.ks.scn/0/dialogue/74",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "这是给制造商进行维护、寻找报错原因时使用的，所以仿生人要将日志输出到外部。"
+      },
+      {
+        "line": 1875,
+        "id": "vol1/b113.ks.scn/0/dialogue/78",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉的制造商已经消失，所以也日志也不再有人需要。但对她而言这是铭刻在程序中的义务，不写就放不下心吧。"
+      },
+      {
+        "line": 1876,
+        "id": "vol1/b113.ks.scn/0/dialogue/79",
+        "speaker": "夏生",
+        "text": "那顺路去买吧"
+      },
+      {
+        "line": 1877,
+        "id": "vol1/b113.ks.scn/0/dialogue/80",
+        "speaker": "亚托莉",
+        "text": "好耶，非常感谢"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "source",
+        "location": "routine.micro 100-110",
+        "detail": "“亚托莉说这是记录，不是给别人看的报告”——原作中日志是要输出给制造商进行维护的外部记录（n1870-1874），亚托莉视其为程序义务（n1875），并非“不给人看”的私人记录；该台词与原作对日志用途的说明相抵触。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "整体改编边界把握得当：纸质日志初开本的核心保留，两小时拆为挑本/回程/试写/整理，未出现做菜或事故剧情，也没有假历史或能力故障。仅需修正日志“不给人看”的断言。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "source",
+            "location": "routine.micro 100-110",
+            "detail": "“亚托莉说这是记录，不是给别人看的报告”——原作中日志是要输出给制造商进行维护的外部记录（n1870-1874），亚托莉视其为程序义务（n1875），并非“不给人看”的私人记录；该台词与原作对日志用途的说明相抵触。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "整体改编边界把握得当：纸质日志初开本的核心保留，两小时拆为挑本/回程/试写/整理，未出现做菜或事故剧情，也没有假历史或能力故障。仅需修正日志“不给人看”的断言。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "8a73ff1404f63189049bd34ec0062a9230ced140f6c79c075f778490bff7667b",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "8dae6a3650307d037264aea8052c85d36380726189dd081be846cfd9f199f406"
+  }
+}

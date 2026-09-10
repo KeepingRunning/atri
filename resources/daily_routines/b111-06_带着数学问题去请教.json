@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "id": "b111-06",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "向夏生请教数学题",
+  "summary": "亚托莉翻出课本里攒下的几道题，先自己试，再把最卡壳的一题拿去问夏生；听完讲解后道谢，并在笔记本上补算类似题。水菜萌在旁边偶尔插话。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "校舍内一张靠窗桌旁，亚托莉把三年级课本摊开，旁边是写了几行又划掉的演算纸；夏生和水菜萌各自在附近。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "亚托莉手边有三年级数学课本和笔记本，题是课上还没完全弄懂的类型",
+    "夏生能看懂这些题并愿意讲给她听",
+    "水菜萌在附近，偶尔会凑过来看同一道题",
+    "当前是虚构的日常自习场景，不涉及考试结果或成绩排名"
+  ],
+  "adaptation_notes": [
+    "原作中只呈现一次请教和解答，本模板把同一方向扩展为两小时的自习片段。",
+    "扩展部分包括她先自行尝试、听讲后补做类似题并偶尔分心，这些是创作补足，不是原作具体描写。",
+    "夏生的学历和能力保持原样，不把会做题说成超越设定的表现。",
+    "水菜萌的参与只保留原作中她对夏生会做三年级题的惊讶印象，不新增额外关系。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "翻课本，自查题目",
+      "intent": "先自己把不懂的地方理一遍，不太想被小看，也想问清楚到底卡在哪个步骤。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "拿题请教夏生",
+      "intent": "挑出最没把握的一题递过去，留意解题的入手方式和关键转换。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "听讲后补写演算",
+      "intent": "在笔记本上把讲解改成自己的写法，想确认是不是每一步都跟得上。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "做类似题与闲歇",
+      "intent": "试一道相近的题，顺手整理桌面，也和水菜萌聊几句刚听到的部分。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "翻课本，自查题目",
+      "detail": "把课本翻到折过角的那页，视线在题目和例题之间来回，先圈出自己最没把握的记号。",
+      "mood": "专注又有点不服气"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "翻课本，自查题目",
+      "detail": "在笔记本边角写下一行尝试的算式，写到一半发现和例题的解法不太一样，停笔重看条件。",
+      "mood": "想自己弄明白"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "翻课本，自查题目",
+      "detail": "把先前做对一半的步骤和卡住的地方分开画线，小声把题意读了一遍，确认不是看漏字。",
+      "mood": "认真核对"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "翻课本，自查题目",
+      "detail": "发现有几道题都停在同一个类似的地方，决定先把最典型的那道圈起来，其余的先放一边。",
+      "mood": "找到切口"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "拿题请教夏生",
+      "detail": "把课本往夏生那边推了推，指着自己圈出的题，说这题从第二步开始就不太确定。",
+      "mood": "坦率求助"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "拿题请教夏生",
+      "detail": "听夏生讲时，手指跟着对方说的步骤在题目上移动，偶尔点头，偶尔皱眉确认条件。",
+      "mood": "努力跟上"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "拿题请教夏生",
+      "detail": "听到关键转换时轻轻啊了一声，把课本上那行圈住，像是终于对上了之前卡住的地方。",
+      "mood": "原来如此"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "听讲后补写演算",
+      "detail": "在笔记本空白处重新写一遍，不照抄讲解顺序，而是按自己习惯的写法排下来。",
+      "mood": "边写边消化"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "听讲后补写演算",
+      "detail": "写到中间停住，回头对照课本上的原题，确认自己有没有把某个符号抄反。",
+      "mood": "谨慎核对"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "听讲后补写演算",
+      "detail": "把补写好的部分和先前卡住的草稿并排放，发现确实有一处思路顺序不同，轻轻用笔尖点了一下那行。",
+      "mood": "若有所悟"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "做类似题与闲歇",
+      "detail": "翻到课后类似的练习题，试着不翻刚才的笔记做开头几步，水菜萌凑过来时也没把本子移开。",
+      "mood": "小试一下"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "做类似题与闲歇",
+      "detail": "手边写得差不多，把演算纸叠好夹进课本，顺口和水菜萌说刚才那一步原来是这么回事。",
+      "mood": "放松下来"
+    }
+  ],
+  "source": {
+    "chapter": "b111.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生问‘哪题不会’，亚托莉指出题目（1388-1390）",
+      "夏生将那道数学题的解法告诉亚托莉（1391）",
+      "亚托莉说‘原来如此……非常感谢’（1392）",
+      "水菜萌惊讶夏生会做三年级的题（1393）"
+    ],
+    "character_hook": "亚托莉遇到难题会直接求助，得到解答后礼貌道谢；学习态度坦率，不因对方年龄而犹豫。",
+    "adaptation": "把一次解题扩展成两小时的学习辅导：亚托莉整理出多道不会的题，夏生逐一讲解，她边听边在笔记本上演算，再自己出类似题练习。",
+    "editor_note": "先自己尝试，再问夏生并消化讲解；不预先判定答案正确，不把夏生的大学学历归给她。",
+    "evidence": [
+      {
+        "line": 1388,
+        "id": "vol1/b111.ks.scn/0/dialogue/315",
+        "speaker": "夏生",
+        "text": "哪题不会"
+      },
+      {
+        "line": 1390,
+        "id": "vol1/b111.ks.scn/0/dialogue/317",
+        "speaker": "亚托莉",
+        "text": "这一题"
+      },
+      {
+        "line": 1391,
+        "id": "vol1/b111.ks.scn/0/dialogue/318",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我将那道数学题的解法告诉了亚托莉。"
+      },
+      {
+        "line": 1392,
+        "id": "vol1/b111.ks.scn/0/dialogue/319",
+        "speaker": "亚托莉",
+        "text": "原来如此……非常感谢"
+      },
+      {
+        "line": 1393,
+        "id": "vol1/b111.ks.scn/0/dialogue/320",
+        "speaker": "水菜萌",
+        "text": "阿夏好厉害呀。为什么你会做啊？"
+      },
+      {
+        "line": 1394,
+        "id": "vol1/b111.ks.scn/0/dialogue/321",
+        "speaker": "夏生",
+        "text": "这点小事没什么了不起的，学过的都会做"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "repetition",
+        "location": "0-40 minute macro and micro",
+        "detail": "整整40分钟都只是翻课本自查同一道题，micro细节反复围绕圈题、划线、停笔，没有其他生活衔接，显得靠同一小动作拖时长。"
+      },
+      {
+        "kind": "repetition",
+        "location": "70-100 minute macro and micro",
+        "detail": "30分钟全部用于补写同一次演算，micro反复写、停、对照、点笔尖，内容高度同质，缺少自然短歇或对话调节。"
+      },
+      {
+        "kind": "repetition",
+        "location": "100-120 minute macro and micro",
+        "detail": "最后20分钟做类似题与闲歇，但细节仍以写题、夹纸为主，只结尾一句闲聊，整体仍像连续演算收尾。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "核心事实（亚托莉问夏生并道谢、水菜萌惊讶）与改编边界基本相符，无身份或结局篡改；主要问题是两小时安排里大段用同一种操作反复撑满，建议压缩自习主要活动，加入喝水、看窗外、聊题外话等自然留白和短歇。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "repetition",
+            "location": "0-40 minute macro and micro",
+            "detail": "整整40分钟都只是翻课本自查同一道题，micro细节反复围绕圈题、划线、停笔，没有其他生活衔接，显得靠同一小动作拖时长。"
+          },
+          {
+            "kind": "repetition",
+            "location": "70-100 minute macro and micro",
+            "detail": "30分钟全部用于补写同一次演算，micro反复写、停、对照、点笔尖，内容高度同质，缺少自然短歇或对话调节。"
+          },
+          {
+            "kind": "repetition",
+            "location": "100-120 minute macro and micro",
+            "detail": "最后20分钟做类似题与闲歇，但细节仍以写题、夹纸为主，只结尾一句闲聊，整体仍像连续演算收尾。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "核心事实（亚托莉问夏生并道谢、水菜萌惊讶）与改编边界基本相符，无身份或结局篡改；主要问题是两小时安排里大段用同一种操作反复撑满，建议压缩自习主要活动，加入喝水、看窗外、聊题外话等自然留白和短歇。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "53d91539b1cbd13c685dba638d9972704be0a5821556c2fe1c480c4f54e91c2a",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "10692a527b25a3b12d20d5ec0e3eb17384da59b130d19705ca93b7ab19f6b746"
+  }
+}

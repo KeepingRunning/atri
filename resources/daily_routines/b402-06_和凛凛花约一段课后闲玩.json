@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "id": "b402-06",
+  "category": "玩耍",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": true,
+  "title": "课后和凛凛花闲玩两小时",
+  "summary": "凛凛花终于能来亚托莉这里玩。两人在附近校园与房间之间散步闲聊，玩些不用屏幕的简单互动，中途歇脚、找点吃的，亚托莉好奇凛凛花最近在忙什么，凛凛花则兴致勃勃围着亚托铃转。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "课后校园与亚托莉常待的房间之间。凛凛花跑来找亚托莉，两人在走廊、校门附近和房间一角消磨两小时。",
+  "participants": [
+    "亚托莉",
+    "凛凛花"
+  ],
+  "preconditions": [
+    "凛凛花当天课后有空，并已被告知可以去找亚托莉。",
+    "两人在虚构背景中能正常见面，原作禁见情节被移除。",
+    "附近有走廊、校园角落和亚托莉的房间可用，不需要额外出行工具。",
+    "手边有纸牌、翻绳或普通小点心等闲玩用的简单物件。"
+  ],
+  "adaptation_notes": [
+    "原作中凛凛花确实说想找亚托莉玩，但被凯瑟琳阻止、并未成行；本模板只把这份意愿改成一次普通课后相处。",
+    "原作这段涉及凯瑟琳与安田的紧张情节；模板去掉了禁见、危险人物和冲突，只保留凛凛花亲近亚托莉、想一起玩的关系。",
+    "凛凛花跑来报信这一原作行为被换成了课后自然碰面，不把危机事件带入日常。",
+    "亚托莉用模拟感情回应身边人这一点保留为温和、愿意配合的相处状态，不写成性能故障或强制切换。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "碰面与走动",
+      "intent": "凛凛花找到亚托莉，两人商量往哪走，亚托莉在意凛凛花为什么这么有精神。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "散步闲聊",
+      "intent": "一边在学校附近慢慢走，一边聊最近各自碰到的事，亚托莉对凛凛花说的细节好奇。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "坐下玩点东西",
+      "intent": "找个地方歇脚，用简单物件玩一会儿，亚托莉想自己弄明白规则，不太愿意被小看。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "吃点东西收尾",
+      "intent": "分享小点心，收拾手边东西，把这次见面自然收住，期待下次还能一起玩。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "碰面与走动",
+      "detail": "凛凛花带着课后那股劲跑过来，亚托莉让她慢一点，又忍不住问今天怎么有空来。",
+      "mood": "轻快又好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "碰面与走动",
+      "detail": "两人沿走廊往外走，凛凛花左右张望说想去个不太闷的地方，亚托莉点头但顺手把门带好。",
+      "mood": "随意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "碰面与走动",
+      "detail": "在楼梯口选方向时，凛凛花问亚托铃平时喜欢待在哪，亚托莉认真想了想才回答。",
+      "mood": "认真思考"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "散步闲聊",
+      "detail": "走到校门附近，凛凛花说起课上遇到的麻烦，亚托莉听得仔细，偶尔追问一句后来呢。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "散步闲聊",
+      "detail": "路过树荫时，凛凛花开始比划自己最近学会的事，亚托莉嘴上说这也没什么，眼睛还是看着她动作。",
+      "mood": "嘴硬但在意"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "散步闲聊",
+      "detail": "两人折返往房间方向走，话题转到喜欢什么小东西，亚托莉对凛凛花的答案有点意外。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "坐下玩点东西",
+      "detail": "回到房间，凛凛花翻出纸牌要玩，亚托莉先拿过来看规则，表示自己想试着自己搞明白。",
+      "mood": "想自己来"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "坐下玩点东西",
+      "detail": "第一轮出了点小误会，凛凛花笑出声，亚托莉承认这里没记牢，但马上要求再来一次。",
+      "mood": "不服气"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "坐下玩点东西",
+      "detail": "牌局慢下来，凛凛花一边理牌一边说下次想带别的东西来，亚托莉记下这个提议。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "吃点东西收尾",
+      "detail": "分小点心时，亚托莉先问凛凛花饿不饿，自己拿了一块慢慢尝，没急着评价味道。",
+      "mood": "温和"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "吃点东西收尾",
+      "detail": "凛凛花边吃边说明天还想来，亚托莉把牌收拢好，说得看时间，但没拒绝。",
+      "mood": "不置可否"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "吃点东西收尾",
+      "detail": "送凛凛花到门口，亚托莉提醒她别又跑太快，自己靠在门边回想刚才那几轮哪里出了错。",
+      "mood": "平静而余兴"
+    }
+  ],
+  "source": {
+    "chapter": "b402.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "凛凛花明确说想找亚托莉玩。",
+      "原剧情中这次见面被阻止，并没有真的成行。"
+    ],
+    "character_hook": "凛凛花对亚托莉亲近、热情；亚托莉用模拟感情的方式温和回应。",
+    "adaptation": "保留凛凛花想与亚托莉玩的意愿，去掉禁见和危险情节，假设两人这天可以正常课后相处。",
+    "editor_note": "这是根据原作意愿补写的备选，不是已发生场景。只安排校园闲逛、聊感兴趣的东西等普通相处，不虚构原作指定了某个游戏。",
+    "evidence": [
+      {
+        "line": 8831,
+        "id": "vol1/b402.ks.scn/0/dialogue/90",
+        "speaker": "凛凛花",
+        "text": "那个呢，是去亚托铃那！"
+      },
+      {
+        "line": 8850,
+        "id": "vol1/b402.ks.scn/0/dialogue/109",
+        "speaker": "凛凛花",
+        "text": "哎，我想和亚托铃玩嘛"
+      },
+      {
+        "line": 8885,
+        "id": "vol1/b402.ks.scn/0/dialogue/144",
+        "speaker": "凛凛花",
+        "text": "喂——————————！！！！"
+      },
+      {
+        "line": 8887,
+        "id": "vol1/b402.ks.scn/0/dialogue/146",
+        "speaker": "凛凛花",
+        "text": "亚托铃————————！！！！！！"
+      },
+      {
+        "line": 8890,
+        "id": "vol1/b402.ks.scn/0/dialogue/149",
+        "speaker": "亚托莉",
+        "text": "怎么了凛凛花，这么慌慌张张的"
+      },
+      {
+        "line": 8891,
+        "id": "vol1/b402.ks.scn/0/dialogue/150",
+        "speaker": "凛凛花",
+        "text": "哈、哈，大事不好了亚托铃！"
+      },
+      {
+        "line": 8892,
+        "id": "vol1/b402.ks.scn/0/dialogue/151",
+        "speaker": "凛凛花",
+        "text": "学校来了个坏家伙！那家伙是……哈、哈……冲着你来的！"
+      }
+    ]
+  },
+  "review": {
+    "type": "model_editorial_review",
+    "issues": [],
+    "verdict": "pass",
+    "note": "场景衔接与生活化补足在改编边界内，未发现把原作情节偷换成事故、捏造关键设定或明显拖时长的问题。",
+    "revision_count": 0,
+    "history": [
+      {
+        "type": "json_object",
+        "issues": [],
+        "verdict": "pass",
+        "note": "场景衔接与生活化补足在改编边界内，未发现把原作情节偷换成事故、捏造关键设定或明显拖时长的问题。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "de4ad45f883bfb874624a5dd714a5b55ecb9b99bc66f3eb9020f7bd664dbfa2c",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "e8a59a782c5b51461efdbf5bfe2bfb72dae0ced66f6c75bc516a834b92fefc8d"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "id": "b205-04",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "公园长凳上的汉堡肉三明治",
+  "summary": "亚托莉带夏生去能望见海的公园，在长凳上吃她做的汉堡肉三明治便当，饭后喝茶看海、听风闲坐，度过一段自然的野餐午后。",
+  "suggested_time_of_day": [
+    "中午",
+    "下午"
+  ],
+  "scene": "能远望大海的公园小丘，长凳旁有游乐设施，海面延伸到水平线，风里带着潮气，饭后两人各自闲坐。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉已经做好汉堡肉三明治便当，用荷包装好放在带来的包里",
+    "她从水菜萌等料理部女生那里问到公园的位置和适合野餐的长凳，当作参谋建议",
+    "两人带了一壶茶，可以饭后喝",
+    "亚托莉目前最拿手的料理是汉堡肉，所以便当是三明治形式"
+  ],
+  "adaptation_notes": [
+    "原作中这段是走到公园、吃便当、喝茶的连续情节，后续坐在长凳上读书也在同一场景",
+    "把寻找地点、铺开便当、边吃边聊、饭后喝茶扩展为完整两小时野餐，保留长凳与海景",
+    "亚托莉提到参谋、实际是料理部女生们，这层关系在途中和吃饭时自然流露",
+    "芥末分量和口味反馈保留为吃饭时留意的细节，不写成固定事故或必须补救",
+    "夏生在饭后读儿童文学是原作内容，不转嫁给亚托莉；她饭后看海或玩水即可"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "走去公园",
+      "intent": "亚托莉凭着料理部女生的建议带路，一边确认方向一边得意，夏生跟着穿过商店街和住宅区。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "长凳上吃便当",
+      "intent": "亚托莉拿出荷包里的汉堡肉三明治，两人坐在长凳上开吃，她留意夏生的反应，也解释参谋是谁。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "饭后喝茶看海",
+      "intent": "吃完便当喝茶，海面延伸到水平线，亚托莉放松下来，随口聊起公园和料理部的事。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "长凳上闲坐",
+      "intent": "夏生翻着儿童文学，亚托莉在旁边看海或玩水，偶尔说笑，不急着离开。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "走去公园",
+      "detail": "亚托莉走在前面，稍微露出日记本的一角，说“我有一个参谋”，但暂时不说是谁。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "走去公园",
+      "detail": "穿过商店街时她放慢脚步核对路线，嘴上说“不会迷路的”，眼睛却往路标上瞟。",
+      "mood": "嘴硬但留心"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "走去公园",
+      "detail": "住宅区尽头出现公园的小丘，亚托莉指着前面说“就是那里”，夏生才发现自己从没来过。",
+      "mood": "发现新地方"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "长凳上吃便当",
+      "detail": "亚托莉从包里拿出荷包，在长凳上打开，里面是吐司夹的汉堡肉三明治。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "长凳上吃便当",
+      "detail": "她看夏生咬第一口，注意到他停了一下，凑近问“怎么了”，又往三明治里看。",
+      "mood": "紧张"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "长凳上吃便当",
+      "detail": "她掀开面包检查酱料的分量，小声说“好像搞错量了”，同时听夏生对味道的说法。",
+      "mood": "懊恼但肯听"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "饭后喝茶看海",
+      "detail": "两人端起茶，亚托莉一边喝一边望向海面，说从这里是第一次看见这么远的水平线。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "饭后喝茶看海",
+      "detail": "夏生问起参谋到底是谁，亚托莉才坦白是水菜萌她们料理部女生给的建议。",
+      "mood": "揭晓"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "饭后喝茶看海",
+      "detail": "茶还剩半杯，亚托莉把荷包折好，念叨着下次要试试别种三明治，又怕说太满先停了嘴。",
+      "mood": "半期待半谨慎"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "长凳上闲坐",
+      "detail": "夏生翻开凛凛花推荐的儿童文学，亚托莉在旁边安静了一会儿，偶尔探头看书页。",
+      "mood": "安静好奇"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "长凳上闲坐",
+      "detail": "风吹过来，亚托莉伸手试了试风，说“好凉”，没有别的事要做，只是坐着。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "长凳上闲坐",
+      "detail": "亚托莉看着远处海面，把空茶杯放下，说今天这样慢慢待着也不错，没有急着收拾。",
+      "mood": "满足"
+    }
+  ],
+  "source": {
+    "chapter": "b205.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉带夏生去公园，是因为有料理部女生们给的建议",
+      "便当是汉堡肉三明治",
+      "公园能远望大海",
+      "吃完便当后喝茶"
+    ],
+    "character_hook": "亚托莉得意地说“因为我有一个参谋”，并透露参谋是水菜萌等料理部女生。",
+    "adaptation": "可将寻找地点、铺开便当、边吃边聊、饭后喝茶扩展为两小时野餐，加入观察公园景色和闲聊。",
+    "editor_note": "重点是带上已有便当、走去公园、用餐与眺望；与制作便当模板分开。",
+    "evidence": [
+      {
+        "line": 5688,
+        "id": "vol1/b205.ks.scn/0/dialogue/175",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉带我来到的地方是公园。"
+      },
+      {
+        "line": 5690,
+        "id": "vol1/b205.ks.scn/0/dialogue/177",
+        "speaker": "夏生",
+        "text": "亏你知道这个地方啊"
+      },
+      {
+        "line": 5700,
+        "id": "vol1/b205.ks.scn/0/dialogue/187",
+        "speaker": "亚托莉",
+        "text": "来吃便当吧"
+      },
+      {
+        "line": 5702,
+        "id": "vol1/b205.ks.scn/0/dialogue/189",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们坐在长凳上，亚托莉从带着的包里拿出了包裹便当的荷包。"
+      },
+      {
+        "line": 5703,
+        "id": "vol1/b205.ks.scn/0/dialogue/190",
+        "speaker": "亚托莉",
+        "text": "请用"
+      },
+      {
+        "line": 5709,
+        "id": "vol1/b205.ks.scn/0/dialogue/196",
+        "speaker": "夏生",
+        "text": "我开动了。……咀嚼"
+      },
+      {
+        "line": 5719,
+        "id": "vol1/b205.ks.scn/0/dialogue/206",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我流着眼泪把嘴里塞满了汉堡肉三明治。"
+      },
+      {
+        "line": 5747,
+        "id": "vol1/b205.ks.scn/0/dialogue/234",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "吃完便当，喝杯带来的茶后，剩下的只有大把可以宽松度过的时间了。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留公园长凳汉堡肉三明治野餐，去掉芥末必定过量、夏生必定呛住、她必须补救。只留吃时留意芥末分量、愿意听口味反馈。不要编‘夏生先生的奇迹001号’菜名或第一次看海、原作伙伴全体帮策划等约会前情。看儿童文学的是夏生；亚托莉饭后看海或玩水即可。",
+    "user_approval": false,
+    "editorial_sha256": "c0439b90a368953a21ad0249bd0e489c374548d026e70b4afd1b6edb1a8d3601",
+    "content_sha256": "9f7ec2a4200627594e102e7743417c74d41d45cc70a5bf4e824fb4fbd82a285d"
+  }
+}

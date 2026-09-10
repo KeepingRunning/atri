@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "id": "b206-07",
+  "category": "休息",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "古典乐中的睡前准备",
+  "summary": "夜晚收音机播放古典乐，亚托莉整理床铺、换上南瓜裤、简单洗漱，然后在音乐中躺下休息。夏生在旁边做自己的事，两人偶尔说几句话，慢慢安静下来准备入睡。",
+  "suggested_time_of_day": [
+    "夜晚"
+  ],
+  "scene": "夜晚的房间，收音机放着古典音乐。亚托莉整理好床铺，换上南瓜裤，做完简单洗漱后躺下。夏生也在旁边准备就寝，两人在音乐中逐渐安静下来。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "房间里有收音机，能播放古典音乐。",
+    "亚托莉有一条从水菜萌那里拿到的南瓜裤。",
+    "夏生在场，已经准备就寝。",
+    "床铺和洗漱设施可正常使用。"
+  ],
+  "adaptation_notes": [
+    "原作中古典音乐响起代表就寝时间，亚托莉换上南瓜裤后上床，与夏生有同床互动。",
+    "本模板保留夜间收音机与准备休息的设定，但移除YES/NO枕头、同床依偎及恋爱亲密情节，改为各自安静休息。",
+    "不涉及失忆、性能故障或现实机制，仅为角色日常的睡前两小时。",
+    "南瓜裤作为原作衣着线索保留，不描写身体。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "整理床铺与睡前准备",
+      "intent": "亚托莉听到古典乐，开始整理床铺、换南瓜裤，做简单洗漱，动作不紧不慢。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 80,
+      "activity": "安静听音乐与短暂闲聊",
+      "intent": "亚托莉躺下后听古典乐，偶尔和夏生说一两句话，逐渐安静下来。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 120,
+      "activity": "在音乐中慢慢休息",
+      "intent": "亚托莉在古典乐中放松，呼吸变缓，准备入睡。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "整理床铺与睡前准备",
+      "detail": "亚托莉听到古典乐，先把被子抖开铺平，又把枕头摆正。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "整理床铺与睡前准备",
+      "detail": "她拿出南瓜裤换上，顺手把换下的衣物叠好放在一边。",
+      "mood": "有条理"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "整理床铺与睡前准备",
+      "detail": "亚托莉去洗漱，回来时把灯调暗了一点，又看了一眼床铺。",
+      "mood": "安静"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "安静听音乐与短暂闲聊",
+      "detail": "她爬上床躺好，听着古典乐，觉得这首曲子节奏很慢很舒服。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "安静听音乐与短暂闲聊",
+      "detail": "夏生也在旁边躺下，亚托莉随口说了一句今天的音乐不错。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "安静听音乐与短暂闲聊",
+      "detail": "音乐换了一首，亚托莉闭上眼睛，手指轻轻跟着节奏点了几下。",
+      "mood": "惬意"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "安静听音乐与短暂闲聊",
+      "detail": "她翻了个身，把被子拉到肩膀，觉得温度刚好。",
+      "mood": "舒适"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "安静听音乐与短暂闲聊",
+      "detail": "夏生没有多说话，亚托莉也不再开口，房间里只有音乐声。",
+      "mood": "安宁"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "在音乐中慢慢休息",
+      "detail": "亚托莉的呼吸慢慢变缓，意识开始模糊，但还听得见音乐。",
+      "mood": "困倦"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "在音乐中慢慢休息",
+      "detail": "她模模糊糊地想，明天也要好好做事，然后继续沉入睡眠。",
+      "mood": "安心"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "在音乐中慢慢休息",
+      "detail": "古典乐还在轻轻播放，亚托莉已经不再动弹，呼吸均匀。",
+      "mood": "沉睡"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "在音乐中慢慢休息",
+      "detail": "音乐渐弱，房间彻底安静下来，亚托莉安稳地睡着。",
+      "mood": "宁静"
+    }
+  ],
+  "source": {
+    "chapter": "b206.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "收音机播放古典音乐说明已到就寝时间。",
+      "亚托莉换上从水菜萌那里拿到的南瓜裤爬上床。",
+      "亚托莉拿着YES/NO枕头说“我无论何时都是YES”。",
+      "夏生最终抱住亚托莉，亚托莉说“久违的夏生先生的触感”。"
+    ],
+    "character_hook": "亚托莉用YES/NO枕头主动表达想被抱，被抱住后开心地说“久违的触感”，并抚摸夏生让他入睡。",
+    "adaptation": "把睡前准备做成两小时安静休息：整理床铺、换睡衣、调收音机古典音乐、放好枕头，互相道晚安后入睡。",
+    "editor_note": "保留夜间收音机与准备休息；不使用YES/NO枕头、同床或恋爱情节。休息可以连续几格。",
+    "evidence": [
+      {
+        "line": 6254,
+        "id": "vol1/b206.ks.scn/0/dialogue/414",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "收音机中播放着的是古典音乐。播放这个，说明已经到就寝时间了。"
+      },
+      {
+        "line": 6255,
+        "id": "vol1/b206.ks.scn/0/dialogue/415",
+        "speaker": "夏生",
+        "text": "（今天该怎么睡呢……）"
+      },
+      {
+        "line": 6276,
+        "id": "vol1/b206.ks.scn/0/dialogue/436",
+        "speaker": "亚托莉",
+        "text": "好了，写完啦。那么我也要准备睡觉了"
+      },
+      {
+        "line": 6277,
+        "id": "vol1/b206.ks.scn/0/dialogue/437",
+        "speaker": "亚托莉",
+        "text": "嘿咻，嘿咻……"
+      },
+      {
+        "line": 6278,
+        "id": "vol1/b206.ks.scn/0/dialogue/438",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉脱掉衣服，穿上从水菜萌那里拿到的南瓜裤，爬上床来。"
+      },
+      {
+        "line": 6279,
+        "id": "vol1/b206.ks.scn/0/dialogue/439",
+        "speaker": "亚托莉",
+        "text": "来，可以抱我了哦夏生先生"
+      },
+      {
+        "line": 6280,
+        "id": "vol1/b206.ks.scn/0/dialogue/440",
+        "speaker": "亚托莉",
+        "text": "我无论何时都是YES！"
+      },
+      {
+        "line": 6281,
+        "id": "vol1/b206.ks.scn/0/dialogue/441",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉把枕头放到胸前蹭了过来。"
+      },
+      {
+        "line": 6286,
+        "id": "vol1/b206.ks.scn/0/dialogue/446",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "屈服在纯粹欲望面前的我躺在了亚托莉身边，抱住了她。"
+      },
+      {
+        "line": 6287,
+        "id": "vol1/b206.ks.scn/0/dialogue/447",
+        "speaker": "亚托莉",
+        "text": "呣啾～～～～～～～～"
+      },
+      {
+        "line": 6292,
+        "id": "vol1/b206.ks.scn/0/dialogue/452",
+        "speaker": "亚托莉",
+        "text": "作为褒奖我来抚摸夏生先生，放心地睡吧"
+      },
+      {
+        "line": 6293,
+        "id": "vol1/b206.ks.scn/0/dialogue/453",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "和前几天出现了同样的状况，我紧张得没法睡着。"
+      },
+      {
+        "line": 6295,
+        "id": "vol1/b206.ks.scn/0/dialogue/455",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "还没来得及享受多长时间来自亚托莉难得的抚摸，我的意识便陷入了沉睡。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "去掉YES/NO枕头和亲密暗示。睡前整理换衣洗漱约30分钟足够，其余安静听古典音乐、短暂闲聊、躺下休息；听音乐和休息可持续，不必反复调音量摆枕头。保留南瓜裤是原作衣着线索，但不描写身体。",
+    "user_approval": false,
+    "editorial_sha256": "d0887a6e956152eb06457ca0f73df8ef67c0193309fbde13f06f8867dae75848",
+    "content_sha256": "5f66897ed96063c034bd575734856f78f299c61abc3fee1d9e2798dea295e96d"
+  }
+}

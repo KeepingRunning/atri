@@ -30,6 +30,14 @@ thinking = ""
 [context]
 recent_messages = 50
 
+[schedule]
+# 上海时间偶数整点，从本地日常库按时段随机选一份；不调用模型。
+# enabled 只控制白天日程注入；每天 00:00–08:00 固定睡觉，不回复任何消息。
+enabled = true
+timezone = "Asia/Shanghai"
+# 路径相对于配置文件目录。
+routines_dir = "resources/daily_routines"
+
 [reply]
 # willingness：规则评分后由模型判断是否接话；at_only：原先的仅 @ 回复。
 mode = "willingness"

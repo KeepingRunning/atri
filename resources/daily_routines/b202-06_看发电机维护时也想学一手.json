@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "id": "b202-06",
+  "category": "劳动",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "看发电机维护时也想学一手",
+  "summary": "亚托莉在休息时间旁观夏生和龙司维护水力发电机，想弄清运转情况，也惦记着让龙司教自己FRP加工；她帮忙递工具、记下改良点，并打算用自己的方式证明能学会。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "水坝旁的水力发电机小屋，夏生和龙司利用休息时间检查设备并讨论改进，亚托莉在旁边盯着看，偶尔递工具、插话。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "水力发电机已经安装并处于运行状态，夏生和龙司会定期维护。",
+    "亚托莉此前在旁观看过维护，对发电机和FRP加工有好奇心。",
+    "现场备有简易工具、记录本和常用材料，但维护和加工仍由夏生、龙司主导。",
+    "亚托莉没有正式学过FRP加工，目前只能旁观、提问和尝试帮些小忙。"
+  ],
+  "adaptation_notes": [
+    "原作中这只是休息时间的短暂维护，本模板将其扩展为两小时左右的连续劳动与旁观，保持她未被允许正式学习FRP加工的状态。",
+    "亚托莉的疑问和不服输来自原作对话，但没有预设她今天一定能学会或一定会失败，实际进展留给RP。",
+    "夏生和龙司的关系保持原样，亚托莉会吐槽他们配合默契，但不演绎身体接触或恋人式互动。",
+    "维护内容限定为原作提到的水坝阀门、网、铁丝网、漩涡、发电量等，不扩展到她独立完成专业维修。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "旁观检查与递工具",
+      "intent": "先看清夏生和龙司在检查什么，弄懂水坝阀门和网的状况，有能帮上的小忙就上前，不想只当摆设。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "追问改良与记录要点",
+      "intent": "对发电量、漩涡和教室角变圆之类的话题好奇，一边听一边把不懂的词记下来，也想让龙司说清FRP加工到底难在哪。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "被龙司挡回后自己核对",
+      "intent": "想学FRP加工却被拒绝，嘴上不服气，手边仍翻看记录和工具，试着找出自己能先掌握的部分，不硬碰危险操作。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收尾与下次再来的打算",
+      "intent": "维护告一段落，帮忙整理工具和本子，心里盘算下次休息时间还要来，至少把FRP加工的门道问出一点。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "旁观检查与递工具",
+      "detail": "站在发电机旁看夏生检查水坝阀门，注意到网上没有缠海藻，觉得这装置比想象中干净。",
+      "mood": "好奇又专注"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "旁观检查与递工具",
+      "detail": "龙司伸手要扳手，亚托莉先一步把工具递过去，嘴上说只是顺手，眼睛却盯着他拧的位置。",
+      "mood": "想被认可"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "旁观检查与递工具",
+      "detail": "听到夏生说铁丝网也能防垃圾堵塞，她蹲下来看了看网边，确认有没有被扯开的口子。",
+      "mood": "认真核对"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "旁观检查与递工具",
+      "detail": "龙司和夏生讨论运行平稳，亚托莉在旁边小声重复“平稳”，像在记一个新词。",
+      "mood": "默默学习"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "追问改良与记录要点",
+      "detail": "夏生提到漩涡和教室角，亚托莉立刻问角变圆和发电量有什么关系，手里的笔已经举起来。",
+      "mood": "求知欲强"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "追问改良与记录要点",
+      "detail": "她把夏生说的“利用海水进行小规模发电”记在本子上，字迹比平时慢，怕漏掉关键词。",
+      "mood": "小心谨慎"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "追问改良与记录要点",
+      "detail": "龙司说“这种细节也要记录么”，亚托莉马上接话：要记，不然下次怎么知道哪里改过。",
+      "mood": "理直气壮"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "被龙司挡回后自己核对",
+      "detail": "话题转到FRP加工，亚托莉要求龙司教她，被一句“才不教你”挡回来，她哼了一声开始翻工具旁边剩下的材料边角。",
+      "mood": "不服气"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "被龙司挡回后自己核对",
+      "detail": "她对照记录本上的词去认龙司手边的东西，分不清哪块是成品哪块是废料，但没开口乱碰。",
+      "mood": "有点挫败"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "被龙司挡回后自己核对",
+      "detail": "夏生继续和龙司调整网的位置，亚托莉退到旁边看，想找出自己刚才漏掉的步骤。",
+      "mood": "安静观察"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收尾与下次再来的打算",
+      "detail": "维护差不多结束，亚托莉把散落的工具收进箱子，顺便把自己的记录本压平。",
+      "mood": "踏实收尾"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾与下次再来的打算",
+      "detail": "她看了眼发电机，又看了眼龙司，心里决定下次休息时间再来，至少要把FRP加工的问题问出个开头。",
+      "mood": "暗暗较劲"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "旁观检查与递工具",
+        "from_minutes": [
+          0,
+          35
+        ],
+        "to_minutes": [
+          0,
+          40
+        ]
+      },
+      {
+        "activity": "追问改良与记录要点",
+        "from_minutes": [
+          35,
+          75
+        ],
+        "to_minutes": [
+          40,
+          70
+        ]
+      },
+      {
+        "activity": "被龙司挡回后自己核对",
+        "from_minutes": [
+          75,
+          105
+        ],
+        "to_minutes": [
+          70,
+          100
+        ]
+      },
+      {
+        "activity": "收尾与下次再来的打算",
+        "from_minutes": [
+          105,
+          120
+        ],
+        "to_minutes": [
+          100,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b202.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生与龙司在休息时间维护发电机。",
+      "亚托莉在旁观看并与龙司斗嘴。",
+      "她要求学习FRP加工，但龙司当时没有答应。"
+    ],
+    "character_hook": "亚托莉不服输、好奇心强，会盯着看并主动要求学习。",
+    "adaptation": "将休息时间的维护扩展为两小时劳动，亚托莉旁观并帮忙递工具、记录改进点。",
+    "editor_note": "不预设她已学会加工，也不让她承担专业维护。以旁观、询问和表达想学习组成日常。",
+    "evidence": [
+      {
+        "line": 4603,
+        "id": "vol1/b202.ks.scn/0/dialogue/305",
+        "speaker": "夏生",
+        "text": "多亏给水坝阀门设了网，能避免被海藻堵上啊"
+      },
+      {
+        "line": 4606,
+        "id": "vol1/b202.ks.scn/0/dialogue/308",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们偶尔会在休息时间，来这里维护发电机。"
+      },
+      {
+        "line": 4607,
+        "id": "vol1/b202.ks.scn/0/dialogue/309",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "顺便加上一点改良，给机器进行更新。"
+      },
+      {
+        "line": 4611,
+        "id": "vol1/b202.ks.scn/0/dialogue/313",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "所以我把这个想法记在本里，说了出来。"
+      },
+      {
+        "line": 4618,
+        "id": "vol1/b202.ks.scn/0/dialogue/320",
+        "speaker": "亚托莉",
+        "text": "盯……"
+      },
+      {
+        "line": 4619,
+        "id": "vol1/b202.ks.scn/0/dialogue/321",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉就在身边一脸不解地看着。"
+      },
+      {
+        "line": 4623,
+        "id": "vol1/b202.ks.scn/0/dialogue/325",
+        "speaker": "龙司",
+        "text": "怎么了萝卜子，是羡慕了吗？"
+      },
+      {
+        "line": 4624,
+        "id": "vol1/b202.ks.scn/0/dialogue/326",
+        "speaker": "亚托莉",
+        "text": "哼哒。谁会羡慕你啊。我可比你高性能多了"
+      },
+      {
+        "line": 4625,
+        "id": "vol1/b202.ks.scn/0/dialogue/327",
+        "speaker": "龙司",
+        "text": "然而FRP的加工是我更优秀呢"
+      },
+      {
+        "line": 4626,
+        "id": "vol1/b202.ks.scn/0/dialogue/328",
+        "speaker": "亚托莉",
+        "text": "火大！　把这个也教给我！很快就能熟练掌握！"
+      },
+      {
+        "line": 4627,
+        "id": "vol1/b202.ks.scn/0/dialogue/329",
+        "speaker": "龙司",
+        "text": "才不教你"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "改编边界执行得当：亚托莉仅旁观、递工具、记录和追问，未被允许正式学FRP加工；维护内容限定在原作水坝阀门、网、铁丝网、漩涡、发电量等话题内，未捏造关键材料或专业维修。时间分布以旁观、追问、收尾等不同关注点轮换，未出现同一小动作反复检查撑满两小时。角色身份与关系保持原样。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "改编边界执行得当：亚托莉仅旁观、递工具、记录和追问，未被允许正式学FRP加工；维护内容限定在原作水坝阀门、网、铁丝网、漩涡、发电量等话题内，未捏造关键材料或专业维修。时间分布以旁观、追问、收尾等不同关注点轮换，未出现同一小动作反复检查撑满两小时。角色身份与关系保持原样。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "2f2fcf167c398e1e1916bb9cf7c99a1b67732846694b854d5eea741a7b94719b",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "d7240ed49fad5683f8228c2e59c53b13879a9942f4178f352aee307f39aa52b1"
+  }
+}

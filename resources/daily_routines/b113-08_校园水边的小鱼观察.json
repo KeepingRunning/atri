@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "id": "b113-08",
+  "category": "玩耍",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "走廊浅水里的游鱼观察",
+  "summary": "亚托莉在二楼被海水淹没的走廊里脱鞋下水，和夏生、水菜萌一起慢慢走动，看鱼从脚边穿过，再回到干燥处歇息闲聊。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "淹没的学校二楼走廊，水浅浅覆盖地板，走廊变成一条小河，鱼在脚边游动，窗边有干燥的台阶可坐。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "二楼走廊被满潮涌入的海水浅浅淹没，形成走廊小河",
+    "水中有小鱼游动，水浅且安全，无潮汐危险",
+    "亚托莉可以脱鞋下水，也有干燥台阶供歇息",
+    "夏生和水菜萌同行，愿意陪她在浅水区走动观察"
+  ],
+  "adaptation_notes": [
+    "原作中走廊被水淹没、亚托莉脱鞋看鱼是直接依据，本模板把它扩展为两小时的观察玩耍",
+    "删除原背景里潮汐危险与不能玩的警告，只保留浅水游乐的自然互动",
+    "原作未描写长时间停留，走动、歇息和闲聊细节属于创作补足",
+    "不作捕鱼或引入原作没有的鱼缸等设定"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "脱鞋下水试深浅",
+      "intent": "亚托莉想自己先踏进走廊浅水，感受水温和脚下地面，同时留意水里有没有动静"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 80,
+      "activity": "沿走廊慢走看鱼",
+      "intent": "她顺着走廊水面慢慢移动，观察鱼从脚边穿过的方向，偶尔停下等它们靠近"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 110,
+      "activity": "干燥台阶歇脚",
+      "intent": "走到窗边台阶坐下让脚晾干，和水菜萌、夏生聊水里看到的东西"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾穿鞋回望",
+      "intent": "穿回鞋子，再回头看一眼走廊水面，整理自己刚才注意到的细节"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "脱鞋下水试深浅",
+      "detail": "在走廊入口蹲下脱鞋，先用脚尖碰一下水面，确认水不深才踩进去",
+      "mood": "好奇又谨慎"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "脱鞋下水试深浅",
+      "detail": "水没过脚背，她低头看自己的脚，注意到地板缝隙里藏着一小片绿藻",
+      "mood": "新鲜"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "脱鞋下水试深浅",
+      "detail": "安静站定几秒，想等水里的动静再明显一点，手指虚虚点向水面又收回",
+      "mood": "屏息等待"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "沿走廊慢走看鱼",
+      "detail": "眼睛跟着一条小鱼从脚边游过，脚不自觉地挪了半步让路",
+      "mood": "轻微兴奋"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "沿走廊慢走看鱼",
+      "detail": "发现几条鱼总贴着墙根走，她猜那边水更凉，想过去试一下",
+      "mood": "认真比较"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "沿走廊慢走看鱼",
+      "detail": "水花溅到裙摆，她低头看了一眼，没有退回去，继续慢慢往前走",
+      "mood": "不太在意"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "沿走廊慢走看鱼",
+      "detail": "停在一处墙角，看鱼绕着她的小腿打转，数到第三条时自己也笑了一下",
+      "mood": "开心"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "沿走廊慢走看鱼",
+      "detail": "抬手比了比鱼的大小，转头想跟水菜萌说，又先自己记下来",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "干燥台阶歇脚",
+      "detail": "坐到窗边干燥台阶上，把脚悬着晾，眼睛还盯着走廊里刚才鱼多的地方",
+      "mood": "意犹未尽"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "干燥台阶歇脚",
+      "detail": "水菜萌说起满潮时海水涌进来，她认真听，问了一句鱼是不是也跟着潮水进来",
+      "mood": "好奇追问"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "干燥台阶歇脚",
+      "detail": "跟夏生讲自己刚才看到的鱼花纹，讲得比划起来，说下次想带纸来画",
+      "mood": "兴致高"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾穿鞋回望",
+      "detail": "穿回鞋子站好，回头望走廊水面，确认刚才看到鱼的位置，才转身准备离开",
+      "mood": "满足"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "干燥台阶歇脚",
+        "from_minutes": [
+          80,
+          105
+        ],
+        "to_minutes": [
+          80,
+          110
+        ]
+      },
+      {
+        "activity": "收尾穿鞋回望",
+        "from_minutes": [
+          105,
+          120
+        ],
+        "to_minutes": [
+          110,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b113.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "二楼走廊被水淹没，形成小河（n2097）",
+      "亚托莉说‘啊，有鱼’并提前脱下鞋子，鱼从她双脚间游过（n2098-2099）",
+      "水菜萌解释满潮时海水涌入，这里是孩子们的游乐场（n2100）"
+    ],
+    "character_hook": "亚托莉对鱼感到好奇，主动脱鞋体验，展现她天真和喜欢自然的一面。",
+    "adaptation": "可展开为亚托莉在走廊浅水区与鱼互动、观察水生生物的两小时玩耍，需去除潮汐危险背景。",
+    "editor_note": "以散步、停下来观察游鱼、回到干燥处歇息扩展；没有捕鱼或原作自带鱼缸的设定。",
+    "evidence": [
+      {
+        "line": 2096,
+        "id": "vol1/b113.ks.scn/0/dialogue/299",
+        "speaker": "夏生",
+        "text": "……好厉害啊，完全看不出是学校"
+      },
+      {
+        "line": 2097,
+        "id": "vol1/b113.ks.scn/0/dialogue/300",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "二楼的地板被水淹没，走廊形成了一条小河。"
+      },
+      {
+        "line": 2098,
+        "id": "vol1/b113.ks.scn/0/dialogue/301",
+        "speaker": "亚托莉",
+        "text": "啊，有鱼"
+      },
+      {
+        "line": 2099,
+        "id": "vol1/b113.ks.scn/0/dialogue/302",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉提前脱下了鞋子，鱼从她的双脚之间游过。"
+      },
+      {
+        "line": 2100,
+        "id": "vol1/b113.ks.scn/0/dialogue/303",
+        "speaker": "水菜萌",
+        "text": "满潮时海水就会涌进来。这里是孩子们的游乐场。虽然我说了很危险，不能在这玩……"
+      },
+      {
+        "line": 2101,
+        "id": "vol1/b113.ks.scn/0/dialogue/304",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "刚才的下课时间，他们就是在这玩耍的吗。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "repetition",
+        "location": "30-80分钟（沿走廊慢走看鱼五个十分钟格）",
+        "detail": "五个连续十分钟格都在描写同一件事——沿着走廊慢慢走、盯着鱼从脚边游过。原作中这一互动是瞬间发生的偶遇，被拉成整整50分钟的“走路+看鱼”，没有场景变化或新关注点，属于把单一小动作撑满时长。"
+      },
+      {
+        "kind": "repetition",
+        "location": "0-30分钟（脱鞋下水试深浅三个十分钟格）",
+        "detail": "前30分钟仅为“脱鞋、脚尖试水、站定等鱼”，同样是单一动作反复检查式铺陈，缺乏进展，拖时长。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "核心设定（淹没走廊、脱鞋看鱼、水菜萌解释满潮）与证据一致，潮汐危险背景按要求去除，无身份错配或捏造设定。主要问题是两小时几乎全由“在水里走/站/看鱼”同一动作堆叠，建议压缩为主要观察段，加入干燥处闲聊、回望等自然留白。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "repetition",
+            "location": "30-80分钟（沿走廊慢走看鱼五个十分钟格）",
+            "detail": "五个连续十分钟格都在描写同一件事——沿着走廊慢慢走、盯着鱼从脚边游过。原作中这一互动是瞬间发生的偶遇，被拉成整整50分钟的“走路+看鱼”，没有场景变化或新关注点，属于把单一小动作撑满时长。"
+          },
+          {
+            "kind": "repetition",
+            "location": "0-30分钟（脱鞋下水试深浅三个十分钟格）",
+            "detail": "前30分钟仅为“脱鞋、脚尖试水、站定等鱼”，同样是单一动作反复检查式铺陈，缺乏进展，拖时长。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "核心设定（淹没走廊、脱鞋看鱼、水菜萌解释满潮）与证据一致，潮汐危险背景按要求去除，无身份错配或捏造设定。主要问题是两小时几乎全由“在水里走/站/看鱼”同一动作堆叠，建议压缩为主要观察段，加入干燥处闲聊、回望等自然留白。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "93f03a81ab53736a1d08a4c4430618532dec77e08f5f2bb668511b54ab6581b9",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "247888cc4186deb88ffbecd3f7aaf214a10adfe22f05781678f8ade1d9e842a4"
+  }
+}

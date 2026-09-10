@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "id": "b406-17",
+  "category": "生活",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": true,
+  "title": "替诗菜梳好睡乱的头发",
+  "summary": "亚托莉想起过去与诗菜相处的晨间：诗菜睡乱了头发，亚托莉顺手替她梳好。梳头只占十分钟左右，之后两人各自洗漱、吃顿普通早餐、闲歇一会儿，再慢慢做出门准备。",
+  "suggested_time_of_day": [
+    "清晨",
+    "上午"
+  ],
+  "scene": "虚构的过去晨间，诗菜的房间和相邻的洗漱、用餐空间。被子半掀，诗菜头发睡得翘起，亚托莉已经拿着梳子站在旁边。",
+  "participants": [
+    "亚托莉",
+    "诗菜"
+  ],
+  "preconditions": [
+    "诗菜刚睡醒，头发被压得翘起或打结，愿意让亚托莉顺手整理。",
+    "房间里有梳子和发带，洗漱和简单早餐的场所近在咫尺。",
+    "这是过去与诗菜相处的普通早上，没有急事要赶。",
+    "亚托莉想自己把梳头这件事做好，不太愿意立刻被接手。"
+  ],
+  "adaptation_notes": [
+    "原作只提到亚托莉给诗菜整理过睡乱的头发，本模板把这一句扩成两小时的晨间日常。",
+    "梳头只占开头约十分钟，其余用洗漱、普通早餐、闲歇和出门准备等相邻生活补足。",
+    "诗菜按过去相处时期的身份出现，不进入料理部时期，也不添加霸凌或亲子身世剧情。",
+    "亚托莉的自信与嘴硬来自原作性格，不写成每格必然失败或每次都要被称赞。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "梳头与起床洗漱",
+      "intent": "亚托莉先替诗菜把睡乱的头发梳顺，再各自去洗漱，顺手把被子拉开透气。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "普通早餐",
+      "intent": "两人坐到桌边吃顿简单的早餐，亚托莉聊起刚才那撮翘起来的头发，也听诗菜说点日常。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "各自闲歇",
+      "intent": "饭后不急着收，亚托莉翻翻手边的东西，诗菜也做自己的事，偶尔搭一两句话。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "出门准备",
+      "intent": "亚托莉确认发带没松、要带的东西放好，和诗菜一起慢慢往门口走。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "梳头与起床洗漱",
+      "detail": "亚托莉从发尾开始梳，遇到打结就停一下，眼睛往诗菜脸上瞟，确认有没有扯疼。",
+      "mood": "小心又专注"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "梳头与起床洗漱",
+      "detail": "梳顺后她把发带绕上去试松紧，退后半步看了看，嘴上有几分得意。",
+      "mood": "带点得意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "梳头与起床洗漱",
+      "detail": "两人先后去洗漱，亚托莉回来时顺手把被子拉开透气，枕头也摆正了。",
+      "mood": "顺手就做"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "普通早餐",
+      "detail": "早餐端上桌，亚托莉坐下先看了看诗菜的头发，确认那撮翘起来的已经服帖。",
+      "mood": "还在意成果"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "普通早餐",
+      "detail": "她边吃边问诗菜平时是不是都这样睡，提到自己梳的时候差点被那缕头发骗过去。",
+      "mood": "有点好奇"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "普通早餐",
+      "detail": "诗菜说点什么的时候，亚托莉放下筷子听，偶尔点头，没有急着接话。",
+      "mood": "自然放松"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "各自闲歇",
+      "detail": "碗盘先留在桌上，亚托莉翻起旁边一本册子，注意力被里面一页吸引住。",
+      "mood": "被内容吸引"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "各自闲歇",
+      "detail": "她看到不懂的地方，抬头问诗菜，又自己先猜了一遍答案。",
+      "mood": "好奇又嘴硬"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "各自闲歇",
+      "detail": "诗菜说自己的事，亚托莉听着，顺手把桌上的杯子挪了挪位置。",
+      "mood": "安静陪着"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "出门准备",
+      "detail": "亚托莉检查发带结有没有松，又把梳子收回抽屉，念着下次要先从哪一边开始。",
+      "mood": "认真复盘"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "出门准备",
+      "detail": "她把要带的东西放到门口，顺手抖了抖外套，确认没有落下的。",
+      "mood": "顺手帮忙"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "出门准备",
+      "detail": "两人在门口停了一下，亚托莉回头看房间里有没有忘关的灯，然后慢慢把门带上。",
+      "mood": "平静收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b406.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉明确说自己给诗菜整理过头发。",
+      "原因是诗菜经常把头发睡乱。"
+    ],
+    "character_hook": "被人照顾也舒服，但她自己同样愿意认真照顾别人。",
+    "adaptation": "这是过去回忆时期的场景；梳头只安排一小段，随后是普通晨间归置和外出准备的创作补充。不把诗菜带入现在的料理部时期，不添加霸凌或亲子身世剧情。",
+    "editor_note": "回查原文后补充的独立活动或明确愿望；依据与扩展边界见候选。",
+    "evidence": [
+      {
+        "line": 10859,
+        "id": "vol1/b406.ks.scn/0/dialogue/176",
+        "speaker": "亚托莉",
+        "text": "这样子好舒服呢……有些小痒痒，但又很放心"
+      },
+      {
+        "line": 10860,
+        "id": "vol1/b406.ks.scn/0/dialogue/177",
+        "speaker": "夏生",
+        "text": "妈妈过去经常像这样子，给我整理睡乱的头发"
+      },
+      {
+        "line": 10861,
+        "id": "vol1/b406.ks.scn/0/dialogue/178",
+        "speaker": "亚托莉",
+        "text": "诗菜主人……"
+      },
+      {
+        "line": 10862,
+        "id": "vol1/b406.ks.scn/0/dialogue/179",
+        "speaker": "夏生",
+        "text": "她曾经说过自己很喜欢摸人的头发。亚托莉有让她整理过吗？"
+      },
+      {
+        "line": 10863,
+        "id": "vol1/b406.ks.scn/0/dialogue/180",
+        "speaker": "亚托莉",
+        "text": "……我给她整理过。因为诗菜主人经常会把头发睡乱"
+      },
+      {
+        "line": 10864,
+        "id": "vol1/b406.ks.scn/0/dialogue/181",
+        "speaker": "夏生",
+        "text": "……不会妈妈是模仿亚托莉，给我整理的吧？"
+      },
+      {
+        "line": 10865,
+        "id": "vol1/b406.ks.scn/0/dialogue/182",
+        "speaker": "亚托莉",
+        "text": "有可能"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "这是过去与诗菜生活的回忆场景，不能让诗菜出现在现在料理部。梳睡乱头发10分钟左右，与起床洗漱共30分钟，余下可有普通早餐（不编菜名）、各自闲歇和出门准备。亚托莉替诗菜梳头的角色不变，不靠找梳子和反复检查发带撑两小时。",
+    "user_approval": false,
+    "editorial_sha256": "ceb5adba4a29b7e4b902ac60ba9cd508a9c527e1687a6bb144e9edb0540c4823",
+    "content_sha256": "46f7639cf9d30c06befce2be8e591c0368ee9d8644441a32b95b6f1038b44bea"
+  }
+}

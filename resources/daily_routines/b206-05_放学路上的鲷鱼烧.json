@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "id": "b206-05",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "鲷鱼烧与菠萝串",
+  "summary": "放学后和夏生顺路逛摊，先挑菠萝串和鲷鱼烧，边吃边比较甜味、给味道打分，再买日用品回家。吃点心只是散步的一小段，其余时间用来逛、走、收拾和歇息。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "放学后的商店街，摊位陆续亮起，亚托莉和夏生并肩走在回家路上，手里提着买好的东西。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "夏生答应给亚托莉买又甜又好吃的东西，菠萝串和鲷鱼烧都在可买范围内。",
+    "亚托莉吃过菠萝，有对甜味的记忆可作比较。",
+    "两人放学后顺路经过商店街摊位，时间允许慢慢逛。",
+    "回家前还要顺路买些日用品，购物是这次外出的主要目的。"
+  ],
+  "adaptation_notes": [
+    "原作中吃鲷鱼烧发生在放学路上的一小段，本模板把购物前后扩展成两小时。",
+    "不迁移原作中和好、交往等恋爱剧情，只保留买甜食、吃鲷鱼烧和比较菠萝甜味的事实。",
+    "亚托莉用星级评价味道、对甜食有兴趣来自原作对话，具体打分过程属于创作补足。",
+    "原作有菠萝串作为承诺选项，但没有描写当天是否真的买了菠萝串，模板中作为可挑选项处理。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "放学后逛摊",
+      "intent": "亚托莉想自己挑甜食，先看看摊子上有什么，菠萝串和鲷鱼烧都列入考虑。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "买鲷鱼烧和菠萝串",
+      "intent": "夏生答应买甜食，亚托莉边等边看摊主操作，想比较两种甜味。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "边走边吃点心",
+      "intent": "亚托莉尝鲷鱼烧和菠萝串，给味道打分，心里惦记日用品还没买。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "买日用品回家",
+      "intent": "解决完甜食，两人顺路买完日用品，慢慢走回住处。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "放学后逛摊",
+      "detail": "亚托莉跟夏生走进商店街，先扫了一圈摊位，目光停在卖鲷鱼烧和菠萝串的店前。",
+      "mood": "好奇又期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "放学后逛摊",
+      "detail": "她凑近看铁板上的鲷鱼烧，问夏生哪种算“又甜又好吃”，心里把菠萝串也列进候补。",
+      "mood": "认真挑选"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "放学后逛摊",
+      "detail": "摊主翻动鲷鱼烧，亚托莉盯着焦色部分，觉得自己大概能判断火候，但没伸手去碰。",
+      "mood": "按捺不住"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "买鲷鱼烧和菠萝串",
+      "detail": "夏生付钱买下鲷鱼烧和菠萝串，亚托莉接过纸袋，先闻了闻，又确认没拿错口味。",
+      "mood": "满足地核对"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "买鲷鱼烧和菠萝串",
+      "detail": "她小口咬下鲷鱼烧，眉头动了一下，觉得和菠萝的甜不一样，想把这点记下来。",
+      "mood": "边吃边比较"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "买鲷鱼烧和菠萝串",
+      "detail": "菠萝串也拿到手里，亚托莉左右看着两样甜食，犹豫该先给哪边打分。",
+      "mood": "有点纠结"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "边走边吃点心",
+      "detail": "两人沿路往回走，亚托莉嚼着鲷鱼烧说“两星”，又觉得这个分数需要再确认一次。",
+      "mood": "嘴硬但认真"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "边走边吃点心",
+      "detail": "她尝了菠萝串，发现甜味走向和鲷鱼烧不同，开始想哪种更符合“又甜又好吃”。",
+      "mood": "好奇对比"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "边走边吃点心",
+      "detail": "鲷鱼烧还剩一半，亚托莉放慢脚步，边吃边留意路边店铺，日用品清单还在脑子里。",
+      "mood": "放松但没忘事"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "买日用品回家",
+      "detail": "吃完点心，两人拐进日用品店，亚托莉主动去找清单上的东西，不想被当成只会吃。",
+      "mood": "想帮忙"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "买日用品回家",
+      "detail": "她拿起一样日用品看了看说明，有不懂的地方就问夏生，问完又自己核对一遍。",
+      "mood": "嘴上得意手上仔细"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "买日用品回家",
+      "detail": "东西买齐，两人慢慢走回住处，亚托莉还在回味鲷鱼烧的甜味，没再提打分的事。",
+      "mood": "平静满足"
+    }
+  ],
+  "source": {
+    "chapter": "b206.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生答应给亚托莉买甜食。",
+      "她在放学路上吃刚买的鲷鱼烧。",
+      "她会拿鲷鱼烧与菠萝的甜味作比较。"
+    ],
+    "character_hook": "亚托莉对甜食有明确兴趣，用“两星”评价鲷鱼烧，和菠萝比较甜味。",
+    "adaptation": "把放学购物扩展为两小时：逛摊子挑菠萝串和鲷鱼烧、比较甜味、边走边吃、给味道打分，再去买别的日用品。",
+    "editor_note": "原文有鲷鱼烧，不发明口味馅料。吃点心只是外出散步的一小段，不吃满两小时，也不搬恋爱和好剧情。",
+    "evidence": [
+      {
+        "line": 6069,
+        "id": "vol1/b206.ks.scn/0/dialogue/229",
+        "speaker": "亚托莉",
+        "text": "那能给我买又甜又好吃的东西吗？"
+      },
+      {
+        "line": 6070,
+        "id": "vol1/b206.ks.scn/0/dialogue/230",
+        "speaker": "夏生",
+        "text": "嗯，当然买。不管是菠萝串还是鲷鱼烧都给你买。回去的时候顺路去买吧"
+      },
+      {
+        "line": 6071,
+        "id": "vol1/b206.ks.scn/0/dialogue/231",
+        "speaker": "亚托莉",
+        "text": "……拿你没办法呀，原谅你了。等我社团活动结束"
+      },
+      {
+        "line": 6174,
+        "id": "vol1/b206.ks.scn/0/dialogue/334",
+        "speaker": "水菜萌",
+        "text": "拜拜，阿夏，小亚托莉"
+      },
+      {
+        "line": 6175,
+        "id": "vol1/b206.ks.scn/0/dialogue/335",
+        "speaker": "亚托莉",
+        "text": "哈呣哈呣……"
+      },
+      {
+        "line": 6176,
+        "id": "vol1/b206.ks.scn/0/dialogue/336",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉牵着我的手，一边走路一边吃着刚才给她买的鲷鱼烧。"
+      },
+      {
+        "line": 6177,
+        "id": "vol1/b206.ks.scn/0/dialogue/337",
+        "speaker": "亚托莉",
+        "text": "这个有着和菠萝完全不同的甜味……能够判断非常好吃。两星！"
+      },
+      {
+        "line": 6178,
+        "id": "vol1/b206.ks.scn/0/dialogue/338",
+        "speaker": "夏生",
+        "text": "你这是什么态度"
+      },
+      {
+        "line": 6209,
+        "id": "vol1/b206.ks.scn/0/dialogue/369",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "幸亏亚托莉在吃鲷鱼烧，没有说话。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "整体符合改编边界：保留买鲷鱼烧、比较菠萝甜味、星级评价等原有要素，未迁移和好或交往剧情，也未捏造口味馅料。时间分配较合理，没有把吃点心或单一动作拉满两小时，购物与回程衔接自然。逛摊挑菠萝串、买日用品等属于可接受的日常扩展。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "整体符合改编边界：保留买鲷鱼烧、比较菠萝甜味、星级评价等原有要素，未迁移和好或交往剧情，也未捏造口味馅料。时间分配较合理，没有把吃点心或单一动作拉满两小时，购物与回程衔接自然。逛摊挑菠萝串、买日用品等属于可接受的日常扩展。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "3865bae48189fd1b3f760e514ae279bd87d5e9a8ca6d24875fc69928c536ba2d",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "bed9e7984681fc308badab5e65f3abeda67925e3bb42a143d295322995dd065c"
+  }
+}

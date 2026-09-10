@@ -1,4 +1,6 @@
 import asyncio
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import json
 from pathlib import Path
 import tempfile
@@ -12,6 +14,10 @@ from atri_bot.types import Event, Receipt
 from atri_bot.willingness import ReplyConfig
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def daytime():
+    return datetime(2026, 9, 11, 12, 35, tzinfo=ZoneInfo("Asia/Shanghai"))
 
 
 def raw(mid=1, gid=1, text="你好", uid=2, self_id=99, mention=True):
@@ -38,7 +44,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
         self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1", "2"}), self_id="99",
                              reply=ReplyConfig(mode="at_only"))
         self.model = RecordingModel()
-        self.bot = Bot(self.config, self.model)
+        self.bot = Bot(self.config, self.model, now=daytime)
         self.sent = []
 
     async def asyncTearDown(self):
@@ -97,7 +103,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual((await self.bot.enqueue(event, self.send)).status, "duplicate")
         await first
         await self.bot.close()
-        self.bot = Bot(self.config, self.model)
+        self.bot = Bot(self.config, self.model, now=daytime)
         self.assertEqual((await self.bot.enqueue(event, self.send)).status, "duplicate")
         await self.submit(mid=2)
         self.assertTrue(any(row["role"] == "assistant" for row in self.model.prompts[-1]))

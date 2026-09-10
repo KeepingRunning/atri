@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "id": "b103-01",
+  "category": "生活",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "深夜安静陪坐",
+  "summary": "夏生夜里暂时睡不着，亚托莉没有多问原因，只拿毛巾让他擦擦脸，随后两人各坐一角轻声说话、翻翻手边东西。亚托莉不急着走，夏生也不勉强自己立刻入睡，让两小时在安静陪伴中自然过去。",
+  "suggested_time_of_day": [
+    "夜晚"
+  ],
+  "scene": "夜里室内灯光调暗，夏生坐在床边还没睡意，亚托莉拿着毛巾过来，顺手在近旁坐下。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "夏生夜里暂时睡不着，没有固定病症或噩梦发作，只是需要有人待一会儿",
+    "亚托莉手边有干燥毛巾，愿意主动帮忙，但不被当成医疗手段",
+    "房间处于夜间安静状态，可以轻声说话、各自休息"
+  ],
+  "adaptation_notes": [
+    "原作中夏生有幻肢痛与梦魇背景；本模板只保留‘夜里睡不着、需要陪伴’的普通情境，不安排病症发作或医疗诊断。",
+    "原作中亚托莉递毛巾、摸头、答应可以抱着睡；本模板只提取递毛巾、轻声聊天与安静陪坐，不安排身体亲密或抱着入睡。",
+    "亚托莉嘴上可能调侃‘脑袋要检修’，但行动上尊重夏生，不把玩笑当作实际修理能力或技术判断。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "递毛巾擦擦脸",
+      "intent": "亚托莉发现夏生没睡意，拿毛巾让他擦擦脸，顺便问一句是不是不困"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "轻声聊天",
+      "intent": "两人没有必须解决的问题，亚托莉顺着夏生的话聊几句日常，偶尔用玩笑让他放松"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "各自安静休息",
+      "intent": "话头自然停下，亚托莉坐在旁边翻翻自己感兴趣的东西，不催夏生入睡"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "准备再睡",
+      "intent": "夜更深了，亚托莉把毛巾收好，道晚安后让夏生自己决定何时躺下"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "递毛巾擦擦脸",
+      "detail": "亚托莉注意到夏生还睁着眼，把毛巾递过去，问他是不是暂时睡不着。",
+      "mood": "关心但不追问"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "递毛巾擦擦脸",
+      "detail": "夏生接过毛巾擦了擦脸，亚托莉没有走开，在床边找了个位置坐下。",
+      "mood": "自然陪着"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "递毛巾擦擦脸",
+      "detail": "亚托莉看夏生把毛巾叠好放在一边，说人类晚上不睡觉这种事她不太理解。",
+      "mood": "有点好奇"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "轻声聊天",
+      "detail": "夏生随口说起白天的一点琐事，亚托莉听着，偶尔接一句自己在意的地方。",
+      "mood": "平常聊天"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "轻声聊天",
+      "detail": "亚托莉提到今天看到的一个小东西，问夏生人类是不是都会觉得那个很有趣。",
+      "mood": "好奇发问"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "轻声聊天",
+      "detail": "话题转到夏生最近在忙的事，亚托莉没有出主意，只表示自己听着。",
+      "mood": "认真倾听"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "轻声聊天",
+      "detail": "夏生打了个哈欠又清醒过来，亚托莉笑他连睡觉都要挑时间。",
+      "mood": "轻松调侃"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "各自安静休息",
+      "detail": "两人都不再找话说，亚托莉从旁边拿起自己感兴趣的小册子翻看。",
+      "mood": "安静各做各的"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "各自安静休息",
+      "detail": "夏生靠着床头闭目养神，亚托莉偶尔抬眼看一下他有没有真的睡着。",
+      "mood": "不打扰"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "各自安静休息",
+      "detail": "房间里只剩翻页和呼吸的声音，亚托莉觉得这样待着也不坏。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "准备再睡",
+      "detail": "夜更深了，亚托莉把毛巾叠好放到夏生够得到的地方，没有催他躺下。",
+      "mood": "体贴但不说破"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "准备再睡",
+      "detail": "亚托莉小声说了晚安，表示自己会在旁边待着，让夏生按自己的节奏休息。",
+      "mood": "安心收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b103.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉手上拿着毛巾，主动给夏生擦汗。",
+      "亚托莉摸着夏生的头，说人类脆弱容易感冒。",
+      "亚托莉答应夏生可以抱着她睡。",
+      "亚托莉笑着来回轻拂夏生的头顶，并道晚安。"
+    ],
+    "character_hook": "亚托莉用半开玩笑的口气说“夏生先生脑袋或许需要修理”，但行动上体贴地擦汗、摸头，体现关心又爱调侃的态度。",
+    "adaptation": "原文为夏生噩梦后受照顾；只提取递毛巾、柔声安慰与陪伴休息。使用时需有朋友希望有人陪伴的前提，不固定病症或身体亲密。",
+    "editor_note": "普通照顾与安静陪伴的改编，不提供医疗诊断，不安排幻肢痛发作或抱着睡觉。",
+    "evidence": [
+      {
+        "line": 965,
+        "id": "vol1/b103.ks.scn/0/dialogue/66",
+        "speaker": "亚托莉",
+        "text": "边睡边叫唤对人类而言真是项厉害的技能呢……或者，是夏生先生大脑出了故障吗"
+      },
+      {
+        "line": 970,
+        "id": "vol1/b103.ks.scn/0/dialogue/71",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉一本正经地说着，摸了摸我的头。"
+      },
+      {
+        "line": 971,
+        "id": "vol1/b103.ks.scn/0/dialogue/72",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她手上还拿着毛巾。"
+      },
+      {
+        "line": 972,
+        "id": "vol1/b103.ks.scn/0/dialogue/73",
+        "speaker": "亚托莉",
+        "text": "先把这一头汗擦擦吧，要是感冒就麻烦了。人类那么脆弱，很容易就会发生故障嘛"
+      },
+      {
+        "line": 991,
+        "id": "vol1/b103.ks.scn/0/dialogue/92",
+        "speaker": "亚托莉",
+        "text": "那个……夏生先生，我还想给你擦汗呢"
+      },
+      {
+        "line": 999,
+        "id": "vol1/b103.ks.scn/0/dialogue/100",
+        "speaker": "夏生",
+        "text": "……我能抱着你睡吗"
+      },
+      {
+        "line": 1000,
+        "id": "vol1/b103.ks.scn/0/dialogue/101",
+        "speaker": "亚托莉",
+        "text": "可以哦"
+      },
+      {
+        "line": 1002,
+        "id": "vol1/b103.ks.scn/0/dialogue/103",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉对我露出了微笑。"
+      },
+      {
+        "line": 1008,
+        "id": "vol1/b103.ks.scn/0/dialogue/109",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉依然笑着，来回轻拂我的头顶。"
+      },
+      {
+        "line": 1013,
+        "id": "vol1/b103.ks.scn/0/dialogue/114",
+        "speaker": "亚托莉",
+        "text": "晚安，夏生先生"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "普通夜间陪伴：前提只设夏生暂时睡不着，不设固定噩梦、出冷汗。简短问候或递毛巾不能各占30分钟，删除反复摸头、夏生必定平静/要求留下/已经入睡。可用轻声聊天、各自坐着休息、准备再睡串成两小时；其他人的反应留白。",
+    "user_approval": false,
+    "editorial_sha256": "d72c45cb51c0ecb72f9147aeed2eeb525bd5675147b9d720bfb4c290514854aa",
+    "content_sha256": "82200df1f2dd311f9d48844bf9d68e3420eaccfdb76eaa4910e02f93c7bf102c"
+  }
+}

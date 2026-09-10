@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "id": "b111-03",
+  "category": "出行",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "乘船去旧校舍",
+  "summary": "亚托莉跟着凛凛花和夏生乘小船去旧校舍：看凛凛花操船，自己上船后伸手扶夏生，沿被淹的建筑慢慢看一眼，再靠岸进入里面。她只想帮上忙，不让别人觉得她做不到。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "旧校舍被水淹的二楼回廊断口旁，小船停在水面，凛凛花执桨带路，亚托莉和夏生准备上船进入校舍。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "凛凛花"
+  ],
+  "preconditions": [
+    "凛凛花有一艘能坐几个人的小船，并且熟悉旧校舍一带的水路。",
+    "这一带靠海的旧校舍地基下沉、部分被水淹没，可以从二楼回廊断裂处坐船进去。",
+    "亚托莉之前学过扶人上船和乘船时保持平衡的要领，但划船仍是由凛凛花来。"
+  ],
+  "adaptation_notes": [
+    "原作只写了凛凛花划船带两人到旧校舍并进入，两小时的水路出行和慢行观察属于创作扩展。",
+    "原作中亚托莉先上船后向夏生伸手，本模板保留这点，并把上船与扶人放在前一个阶段集中完成。",
+    "凛凛花始终是操船带路的人，亚托莉没有变成划船者；她只是在船上张望和帮忙扶人。",
+    "没有加入约会、身体亲密或命令束缚；夏生和凛凛花保持原作背景关系。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "上船前的准备",
+      "intent": "亚托莉想帮忙把小船稳住、问清从哪里上最安全；她嘴上说自己学过，眼睛仍盯着水线和船舷。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "先上船扶夏生",
+      "intent": "亚托莉先踏上船，再回身伸手把夏生接上来，想证明自己不会再出岔子；船上由凛凛花执桨。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "沿水路看校舍",
+      "intent": "小船慢慢经过淹没的窗户和栏杆，亚托莉看看水下的旧校舍，偶尔提醒前方有树干或低矮的断墙。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "靠岸进入校舍",
+      "intent": "船停在回廊断裂处，亚托莉先上岸再回身拉夏生，确认他站稳后一起走进建筑内部。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "上船前的准备",
+      "detail": "亚托莉蹲在岸边看小船，问凛凛花船底会不会碰到水下的旧栏杆。",
+      "mood": "好奇又认真"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "上船前的准备",
+      "detail": "她回忆扶人上船要先站稳再伸手，小声复述给自己听，桨留给凛凛花。",
+      "mood": "嘴硬但不放心"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "上船前的准备",
+      "detail": "夏生看了她一眼，她哼一声转过头，目光却还在船沿和水面的距离上。",
+      "mood": "不想被小看"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "先上船扶夏生",
+      "detail": "亚托莉先踏上船，船身晃了一下，她立刻分开脚稳住，再回身把手伸向夏生。",
+      "mood": "紧张又专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "先上船扶夏生",
+      "detail": "夏生搭上她的手跨进船里，她盯着他的脚步，直到他坐稳才收回手。",
+      "mood": "悄悄松一口气"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "先上船扶夏生",
+      "detail": "凛凛花开始划桨，亚托莉坐在船头，眼睛扫过水面下模糊的窗框和栏杆。",
+      "mood": "好奇水下的旧校舍"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "沿水路看校舍",
+      "detail": "经过一扇半淹没的窗户，亚托莉探身看里面，猜以前是教室还是走廊。",
+      "mood": "被水下的景象吸引"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "沿水路看校舍",
+      "detail": "她看到前方有倒下的树干，提醒凛凛花往左偏一点，又回头确认夏生没事。",
+      "mood": "警觉地留意障碍"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "沿水路看校舍",
+      "detail": "水线以上的墙面上还留着旧校牌，亚托莉念出模糊的字，问凛凛花这是不是以前上学的地方。",
+      "mood": "对旧校舍好奇"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "靠岸进入校舍",
+      "detail": "船靠向回廊断裂处，亚托莉先跳上湿滑的地面，再回身伸手等夏生跨过来。",
+      "mood": "想证明自己能扶稳"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "靠岸进入校舍",
+      "detail": "夏生上岸时船晃了一下，亚托莉抓紧他的手腕，等他站稳才松开。",
+      "mood": "认真不放手"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "靠岸进入校舍",
+      "detail": "她把船边的缆绳绕在断柱上，又回头看了一眼来时的水路，然后跟着夏生走进走廊。",
+      "mood": "安心地收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b111.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "凛凛花操船带路。",
+      "亚托莉先上船后向夏生伸手。",
+      "她说已经学习完毕，但原文不等于她亲自熟练划船。"
+    ],
+    "character_hook": "亚托莉积极帮忙、对自己的学习成果有信心，被夏生提起‘又想把我丢海里去吗’时仍坚持证明自己。",
+    "adaptation": "把乘船进出扩展成两小时的水路出行：准备小船、亚托莉练习扶夏生上下船、确认安全、在旧校舍周围慢慢划行观察被淹建筑，再靠岸进入。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 1246,
+        "id": "vol1/b111.ks.scn/0/dialogue/173",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她划着小船到了我们面前。"
+      },
+      {
+        "line": 1247,
+        "id": "vol1/b111.ks.scn/0/dialogue/174",
+        "speaker": "凛凛花",
+        "text": "我来咯，杀手！"
+      },
+      {
+        "line": 1267,
+        "id": "vol1/b111.ks.scn/0/dialogue/194",
+        "speaker": "夏生",
+        "text": "你是坐那艘船进去的吗"
+      },
+      {
+        "line": 1268,
+        "id": "vol1/b111.ks.scn/0/dialogue/195",
+        "speaker": "凛凛花",
+        "text": "没错！"
+      },
+      {
+        "line": 1269,
+        "id": "vol1/b111.ks.scn/0/dialogue/196",
+        "speaker": "夏生",
+        "text": "那能载我们进去吗"
+      },
+      {
+        "line": 1271,
+        "id": "vol1/b111.ks.scn/0/dialogue/198",
+        "speaker": "亚托莉",
+        "text": "啊，我来帮忙！"
+      },
+      {
+        "line": 1272,
+        "id": "vol1/b111.ks.scn/0/dialogue/199",
+        "speaker": "夏生",
+        "text": "不用，又想把我丢海里去吗"
+      },
+      {
+        "line": 1273,
+        "id": "vol1/b111.ks.scn/0/dialogue/200",
+        "speaker": "亚托莉",
+        "text": "我已经学习完毕了，没问题的"
+      },
+      {
+        "line": 1274,
+        "id": "vol1/b111.ks.scn/0/dialogue/201",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉先一步上船向我伸出了手，看来是真的有进步了……"
+      },
+      {
+        "line": 1283,
+        "id": "vol1/b111.ks.scn/0/dialogue/210",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "小船停靠在了某个地方，估计是以前的校舍二楼回廊断裂后形成的吧。"
+      },
+      {
+        "line": 1287,
+        "id": "vol1/b111.ks.scn/0/dialogue/214",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉拉着我下船，走进了建筑内部。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "标题明确坐船或乘船，凛凛花划船，亚托莉乘坐、张望和必要时扶夏生。删除‘别又丢我下去’等已移除事故的假前情。上船约10分钟，不拆成30分钟的踏步握手。之后沿水路看校舍、进入可到达的走廊、休息，不能暗示亚托莉负责划船。",
+    "user_approval": false,
+    "editorial_sha256": "103269a589227ca0b08a0cc2a521c945f3d4fdd1aff23d5991d7eb69f1ed9b61",
+    "content_sha256": "3aefa2595e0cffd2ede5f50d33a2142dfdea344d7aeccbf4f916739f1137eeb5"
+  }
+}

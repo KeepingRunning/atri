@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "id": "b112-06",
+  "category": "聚会",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": true,
+  "title": "陪水菜萌聊学校的事",
+  "summary": "亚托莉陪水菜萌边吃便当边聊学校与教学，倾听她讲上课和日常，偶尔摸头安慰却不预设情绪，饭后收拾、聊天再自然道别。",
+  "suggested_time_of_day": [
+    "中午",
+    "下午"
+  ],
+  "scene": "放学后的教室或校园一角，两人打开便当盒，从学校话题慢慢聊到各自的近况与日常安排。",
+  "participants": [
+    "亚托莉",
+    "水菜萌",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉与水菜萌是朋友，彼此信任，可以聊学校里的日常",
+    "亚托莉有一份便当或点心可以和水菜萌一起分享",
+    "夏生在场但不主导对话，偶尔被提到或引起小吵闹",
+    "水菜萌可能因为学校的事有些低落，但具体情绪留给实际情境"
+  ],
+  "adaptation_notes": [
+    "原作中水菜萌哭泣、亚托莉摸头安慰、耳边托付等情节作为情绪起点，此处扩展为两小时陪伴与倾听，不要求哭泣或托付必然发生。",
+    "只保留朋友间陪伴、聊天、一起吃便当的日常内容，不把废校主线当作主题展开。",
+    "亚托莉的摸头和“乖乖乖”根据原作事实保留，但尊重实际RP情境，不保证每格重复。",
+    "夏生仅作为原作伙伴在场，不把旁白中夏生的视角当作亚托莉的内心。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "打开便当聊学校",
+      "intent": "边吃边听水菜萌说学校与教学的事，注意她话里藏着的情绪"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "倾听近况与安慰",
+      "intent": "听到水菜萌的日常烦恼或低落，用自己的方式陪着她、轻轻安慰"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "小风波与帮忙",
+      "intent": "因便当引起一段小吵闹放松气氛，而后聊到照顾夏生或下次帮忙"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收拾与道别",
+      "intent": "整理便当盒和周围，聊几句余下的话题，自然准备道别"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "打开便当聊学校",
+      "detail": "亚托莉打开便当盒，问水菜萌今天学校有没有什么特别的事，自己先夹了一块。",
+      "mood": "好奇又轻松"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "打开便当聊学校",
+      "detail": "水菜萌说起上课和同学的事，亚托莉边听边点头，偶尔问一句课上的细节。",
+      "mood": "认真听着"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "打开便当聊学校",
+      "detail": "水菜萌提到老师离开后自己常一个人备课，亚托莉停下筷子，把便当盒往她那边推了推。",
+      "mood": "有点在意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "打开便当聊学校",
+      "detail": "亚托莉问代课是怎么安排的，水菜萌解释几句，亚托莉似懂非懂却先记下来。",
+      "mood": "想弄明白"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "倾听近况与安慰",
+      "detail": "水菜萌说一个人烦恼很难受，亚托莉没有打断，只是安静听着。",
+      "mood": "安静陪伴"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "倾听近况与安慰",
+      "detail": "看到水菜萌垂下眼睛，亚托莉伸出手轻轻摸她的头，说了句“乖乖乖”。",
+      "mood": "温柔又笨拙"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "倾听近况与安慰",
+      "detail": "亚托莉对水菜萌说“太好了，水菜萌”，水菜萌轻轻回一句“嗯，小亚托莉”。",
+      "mood": "微微松了口气"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "小风波与帮忙",
+      "detail": "夏生发现便当少了一份，亚托莉理直气壮说以为他们聊得起劲已经吃饱了。",
+      "mood": "有点得意又心虚"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "小风波与帮忙",
+      "detail": "水菜萌看着两人吵闹，轻轻笑起来，说感觉阿夏回到了以前那样。",
+      "mood": "被逗得轻松"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "小风波与帮忙",
+      "detail": "水菜萌在亚托莉耳边轻声说“阿夏其实是个好人，拜托你照顾他咯”，亚托莉郑重回答“交给我吧，尽管放心”。",
+      "mood": "认真接受托付"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收拾与道别",
+      "detail": "亚托莉合上便当盒，把筷子收好，问水菜萌回去前要不要再坐一会儿。",
+      "mood": "平静自然"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾与道别",
+      "detail": "水菜萌说太晚回去妈妈会担心，亚托莉点头，说下次再一起聊学校的事。",
+      "mood": "有点不舍"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "小风波与帮忙",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          100
+        ]
+      },
+      {
+        "activity": "收拾与道别",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          100,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b112.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉对水菜萌说“太好了，水菜萌”，水菜萌回应“嗯，真是太好了，小亚托莉”",
+      "亚托莉说“乖乖乖”，轻轻抚摸水菜萌的头加以安慰",
+      "水菜萌在亚托莉耳边轻声说“阿夏虽然不太好相处，但其实是个好人。拜托你照顾他咯，小亚托莉”",
+      "亚托莉回答“交给我吧，尽管放心”"
+    ],
+    "character_hook": "会像哄孩子一样说“乖乖乖”并摸头安慰，也会郑重接受朋友的托付。",
+    "adaptation": "把水菜萌哭泣作为情绪起点，扩展为两小时安慰、倾听、吃便当、聊日常；不把废校主线当作日常主题，只保留朋友间陪伴。",
+    "editor_note": "倾听与朋友相处，保留关心；不安排水菜萌必定哭、必定被安慰好，不转移为用户的治疗经历。",
+    "evidence": [
+      {
+        "line": 1715,
+        "id": "vol1/b112.ks.scn/0/dialogue/281",
+        "speaker": "亚托莉",
+        "text": "太好了，水菜萌"
+      },
+      {
+        "line": 1716,
+        "id": "vol1/b112.ks.scn/0/dialogue/282",
+        "speaker": "水菜萌",
+        "text": "嗯，真是太好了，小亚托莉"
+      },
+      {
+        "line": 1717,
+        "id": "vol1/b112.ks.scn/0/dialogue/283",
+        "speaker": "亚托莉",
+        "text": "乖乖乖"
+      },
+      {
+        "line": 1718,
+        "id": "vol1/b112.ks.scn/0/dialogue/284",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌嚎啕大哭，亚托莉轻轻抚摸她的头加以安慰。真是温馨的一幕。"
+      },
+      {
+        "line": 1719,
+        "id": "vol1/b112.ks.scn/0/dialogue/285",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我将水菜萌交给亚托莉照顾，继续开始吃饭……"
+      },
+      {
+        "line": 1720,
+        "id": "vol1/b112.ks.scn/0/dialogue/286",
+        "speaker": "夏生",
+        "text": "嗯？喂……你连我那份也吃了啊！"
+      },
+      {
+        "line": 1721,
+        "id": "vol1/b112.ks.scn/0/dialogue/287",
+        "speaker": "亚托莉",
+        "text": "嗯？看你们聊得起劲，还以为肯定已经吃饱了"
+      },
+      {
+        "line": 1723,
+        "id": "vol1/b112.ks.scn/0/dialogue/289",
+        "speaker": "亚托莉",
+        "text": "当然有用了，美味的饭菜＝快乐嘛"
+      },
+      {
+        "line": 1736,
+        "id": "vol1/b112.ks.scn/0/dialogue/302",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌看着吵闹的我们，终于停下了哭泣。"
+      },
+      {
+        "line": 1740,
+        "id": "vol1/b112.ks.scn/0/dialogue/306",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌在亚托莉耳边轻声说了几句。"
+      },
+      {
+        "line": 1741,
+        "id": "vol1/b112.ks.scn/0/dialogue/307",
+        "speaker": "水菜萌",
+        "text": "（……阿夏虽然不太好相处，但其实是个好人。拜托你照顾他咯，小亚托莉）"
+      },
+      {
+        "line": 1742,
+        "id": "vol1/b112.ks.scn/0/dialogue/308",
+        "speaker": "亚托莉",
+        "text": "交给我吧，尽管放心"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "核心是和水菜萌聊学校与教学，保持便当、对学校情况的好奇和愿意听她说话。删除必定红眼、哭泣、止哭、被托付照顾夏生等单次剧情；不预设别人一定烦恼或说具体台词。保留普通聚餐聊天、短歇和道别。",
+    "user_approval": false,
+    "editorial_sha256": "002e6a9c221987b0a561e660e1edbeda8a3e913f077abad2a168e3c93f74f8fa",
+    "content_sha256": "d3fbfbe339a9d0a185b639cef5883d3e5e04695f26a895995541d159f8ce6002"
+  }
+}

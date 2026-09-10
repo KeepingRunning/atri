@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 
 from .willingness import ReplyConfig
 from .logging_setup import LoggingConfig
+from .schedule import ScheduleConfig
 
 
 @dataclass
@@ -33,6 +34,7 @@ class Config:
     personal_info: str = "personal_info.txt"
     reply: ReplyConfig = field(default_factory=ReplyConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
+    schedule: ScheduleConfig = field(default_factory=ScheduleConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -64,6 +66,14 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [logging] configuration fields") from None
         conf.logging.validate()
+        try:
+            schedule = dict(raw.get("schedule", {}))
+            # The retired generator's model option has no effect on local selection.
+            schedule.pop("model", None)
+            conf.schedule = ScheduleConfig(**schedule)
+        except TypeError:
+            raise ValueError("Invalid [schedule] configuration fields") from None
+        conf.schedule.validate()
         for name in ("queue_size", "parallel", "action_timeout", "llm_timeout", "max_output_tokens", "recent_messages"):
             if getattr(conf, name) <= 0:
                 raise ValueError(f"{name} must be positive")

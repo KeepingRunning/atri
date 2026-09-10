@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "id": "b201-01",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "亚托莉的自习挑战",
+  "summary": "亚托莉与夏生、洋子、龙司一起参加学习会。她快速解完自己的题并举手报告，之后带着高性能的自信帮洋子看题，也留心龙司的质疑。中间有短暂休息和整理，最后收好笔记自然收尾。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "高中部教室改成的自习空间，桌上摊着题册和笔记，窗外是逐渐变柔和的日光。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "洋子",
+    "龙司"
+  ],
+  "preconditions": [
+    "亚托莉名义上是夏生的辅助机器人，但被允许参与高中部的自习课。",
+    "她学习方面优秀，尤其擅长理科，能独立解题。",
+    "教室或自习空间有桌椅、题册、笔记和黑板等虚构学习设施。",
+    "夏生、洋子、龙司在场，可以构成课堂或学习会的环境。"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉在高中部课上快速解题并举手说做好了，本模板将这一片段扩展为两小时学习会。",
+    "原作有洋子称赞、龙司说机器人擅长计算理所应当的台词，这里保留为背景对话和人物态度，但不预定后续冲突结果。",
+    "原作亚托莉被夏生确认解法正确，本模板不预先断言本次所有题目全对，只保留她想自己完成、乐意帮忙的倾向。",
+    "学习会、短暂休息和收尾属于两小时创作补足，不直接来自原作单一场景。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "独立解题与举手",
+      "intent": "亚托莉想按自己的节奏解完题，保持高性能的自信，也留意周围同学进度。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 60,
+      "activity": "短暂休息与交流",
+      "intent": "放下笔活动一下，和洋子、龙司聊几句题目或课堂，不急着进入下一项。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 100,
+      "activity": "帮洋子看题",
+      "intent": "亚托莉想帮忙解释思路，也借机确认自己有没有讲清楚。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "整理笔记与收尾",
+      "intent": "收拾题册笔记，回顾刚才的题，带着满足感结束自习。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "独立解题与举手",
+      "detail": "亚托莉翻开题册，先扫一遍题目，觉得不算难，想自己快点解出来。",
+      "mood": "自信"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "独立解题与举手",
+      "detail": "她在草稿纸上写算式，偶尔停笔核对条件，不想因为太快而漏看。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "独立解题与举手",
+      "detail": "解完最后一问，亚托莉检查了一遍，然后举手说：“夏生先生，我做好了。”",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "独立解题与举手",
+      "detail": "夏生来看解法时，洋子说好快，亚托莉忍不住哼了一声，自称高性能。",
+      "mood": "高兴"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "短暂休息与交流",
+      "detail": "亚托莉把笔放下，揉了揉手指，听洋子讲她卡住的地方，顺便瞄了一眼龙司的表情。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "短暂休息与交流",
+      "detail": "她喝口水，和洋子聊起刚才的题，发现对方不是不会算，而是被题意绕住了。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "帮洋子看题",
+      "detail": "亚托莉凑到洋子桌边，先读题，再问洋子第一步是怎么想的，没有直接报答案。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "帮洋子看题",
+      "detail": "她试着用更简单的说法解释条件之间的关系，偶尔翻回自己的笔记确认。",
+      "mood": "投入"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "帮洋子看题",
+      "detail": "洋子好像明白了一点，亚托莉有点得意，但还是提醒自己别讲太快。",
+      "mood": "克制得意"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "帮洋子看题",
+      "detail": "龙司说机器人擅长计算理所应当，亚托莉听见了，没急着反驳，只把笔尖点回题上。",
+      "mood": "不服气"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "整理笔记与收尾",
+      "detail": "亚托莉把自己的草稿和洋子的题册并排放，补上刚才解释时漏掉的一步。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理笔记与收尾",
+      "detail": "她合上题册，收好笔，觉得今天的学习会过得挺充实，也记住了洋子卡住的地方。",
+      "mood": "充实"
+    }
+  ],
+  "source": {
+    "chapter": "b201.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉在高中部课上解题，并且很快举手说做好了",
+      "亚托莉自称高性能，解题解法正确",
+      "亚托莉学习方面优秀，尤其擅长理科",
+      "亚托莉名义上是夏生的辅助机器人，但也参与上课"
+    ],
+    "character_hook": "被表扬时得意地说“我可是高性能的呢”，对学习和课堂有积极态度。",
+    "adaptation": "将课堂自习扩展为两小时的学习会：亚托莉做题、举手、帮同学看题，保持高性能机器人自信的语气。",
+    "editor_note": "原文亚托莉会快速解题；不用把她永久写成不会学习，也不预定这次题目一定全对。",
+    "evidence": [
+      {
+        "line": 4008,
+        "id": "vol1/b201.ks.scn/0/dialogue/83",
+        "speaker": "亚托莉",
+        "text": "夏生先生，我做好了"
+      },
+      {
+        "line": 4009,
+        "id": "vol1/b201.ks.scn/0/dialogue/84",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉解开了题，举起了手。"
+      },
+      {
+        "line": 4010,
+        "id": "vol1/b201.ks.scn/0/dialogue/85",
+        "speaker": "洋子",
+        "text": "亚托莉亲好快。真厉害啊"
+      },
+      {
+        "line": 4011,
+        "id": "vol1/b201.ks.scn/0/dialogue/86",
+        "speaker": "亚托莉",
+        "text": "哼 哼 哼，我可是高性能的呢"
+      },
+      {
+        "line": 4012,
+        "id": "vol1/b201.ks.scn/0/dialogue/87",
+        "speaker": "夏生",
+        "text": "我看看……没错。解法也没错"
+      },
+      {
+        "line": 4013,
+        "id": "vol1/b201.ks.scn/0/dialogue/88",
+        "speaker": "亚托莉",
+        "text": "因为我是高性能的呢！"
+      },
+      {
+        "line": 4017,
+        "id": "vol1/b201.ks.scn/0/dialogue/92",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "不过学习方面都很优秀，尤其擅长理科。会好好学习课业，是个很值得教的学生。"
+      }
+    ]
+  },
+  "review": {
+    "type": "model_editorial_review",
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时学习会节奏合理，核心行为（快速解题、举手、被洋子称赞、龙司质疑）均有原作依据；adaptation已声明不预定本次题目全对，输出也未断言，符合editor_note。没有把他人行为归给亚托莉或捏造设定。",
+    "revision_count": 0,
+    "history": [
+      {
+        "type": "json_object",
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时学习会节奏合理，核心行为（快速解题、举手、被洋子称赞、龙司质疑）均有原作依据；adaptation已声明不预定本次题目全对，输出也未断言，符合editor_note。没有把他人行为归给亚托莉或捏造设定。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "727b7e78e008c1d4975b17ac89c54cc0bebc718197f82a78f6e25e814c89050f",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "342d7c2cc6726edbb46778c9d5107489446fbeb69bf7d857739e7bbbcf1c3936"
+  }
+}

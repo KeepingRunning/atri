@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "id": "b204-04",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "保健课上琢磨喜欢",
+  "summary": "亚托莉在女生保健体育课上听凯瑟琳讲喜欢与恋爱的区别，举手提问并记笔记，尝试用LIKE和LOVE区分不同好感，课后仍觉得恋爱是个需要继续理解的概念。",
+  "suggested_time_of_day": [
+    "下午"
+  ],
+  "scene": "教室里只有女生和凯瑟琳老师，男生被安排到屋顶上，远处隐约传来欢呼。亚托莉坐在平时上课的位置，翻开笔记本准备记录。",
+  "participants": [
+    "亚托莉",
+    "凯瑟琳",
+    "水菜萌",
+    "洋子",
+    "凛凛花",
+    "美代"
+  ],
+  "preconditions": [
+    "学校开设保健体育课，男女分开授课，女生留在教室。",
+    "亚托莉此前没有仔细区分过喜欢、恋爱、吃醋这些概念。",
+    "凯瑟琳老师引导讨论，水菜萌和美代愿意发言解释。",
+    "亚托莉手边有笔记本，习惯把不懂的地方记下来。"
+  ],
+  "adaptation_notes": [
+    "原作中这堂课与告白背景相连，本模板移除恋爱实践与告白后续，只保留课堂讨论。",
+    "原作有暑假初体验、男朋友等话题，模板淡化身体细节，聚焦喜欢与恋爱的概念区分。",
+    "亚托莉‘学习完毕’、解析吃醋等具体表现来自原作对话，但本模板不安排新告白。",
+    "原作为短对话段，两小时的活动与休息由创作补足，不新增其他课程内容。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "听讲喜欢与恋爱",
+      "intent": "凯瑟琳讲解喜欢分很多种，亚托莉把不懂的地方先记下来，不急着插话。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "提问与讨论",
+      "intent": "亚托莉举手问被异性说喜欢是不是就有男朋友，得到答案后记下‘学习完毕’。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "琢磨吃醋的意思",
+      "intent": "老师解释吃醋后，亚托莉尝试按自己的方式解析，水菜萌和美代补充说明。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "课后与笔记整理",
+      "intent": "下课后亚托莉翻看笔记，仍觉得恋爱是个困难的概念，和同学聊了几句。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "听讲喜欢与恋爱",
+      "detail": "凯瑟琳刚宣布保健体育课开始，亚托莉把笔记本翻到新的一页，先写下‘喜欢’两个字。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "听讲喜欢与恋爱",
+      "detail": "洋子她们在议论暑假初体验，亚托莉没跟着起哄，只把听不太懂的话标了个问号。",
+      "mood": "稍微困惑"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "听讲喜欢与恋爱",
+      "detail": "老师说喜欢分很多种，亚托莉觉得这比单纯查词条要复杂，在LIKE旁边点了一个点。",
+      "mood": "在消化"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "听讲喜欢与恋爱",
+      "detail": "凯瑟琳讲到LIKE和LOVE，亚托莉在笔记本上把两个词分开两列，想留出空间写区别。",
+      "mood": "开始整理"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "提问与讨论",
+      "detail": "亚托莉举手问被异性说喜欢算不算有男朋友，问得比平时上课还快。",
+      "mood": "积极"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "提问与讨论",
+      "detail": "凯瑟琳说男朋友不是物品，是人与人的关系。亚托莉点头，小声说‘学习完毕’。",
+      "mood": "记下了"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "提问与讨论",
+      "detail": "凛凛花追问LIKE和LOVE到底哪里不一样，亚托莉也把视线转向美代，等她的解释。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "琢磨吃醋的意思",
+      "detail": "老师讲到吃醋，亚托莉低头在笔记本上画了两条线，想弄清是和什么对比。",
+      "mood": "在解析"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "琢磨吃醋的意思",
+      "detail": "亚托莉试着把吃醋归到LIKE还是LOVE里，发现归哪边好像都不太对。",
+      "mood": "卡住了"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "琢磨吃醋的意思",
+      "detail": "水菜萌用平常朋友间的例子补充，亚托莉一边听一边修正笔记上刚才画歪的线。",
+      "mood": "重新对照"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "课后与笔记整理",
+      "detail": "下课铃响，亚托莉把笔记本合上前又翻了一遍，确认LIKE和LOVE那栏没有写颠倒。",
+      "mood": "想核对"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "课后与笔记整理",
+      "detail": "亚托莉最后感叹恋爱真是个困难的概念，把笔记本收好，觉得今天这堂课比预想中信息量大。",
+      "mood": "感慨"
+    }
+  ],
+  "source": {
+    "chapter": "b204.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "凯瑟琳宣布下午上保健体育课，男女分开授课。",
+      "女生们留在教室，凯瑟琳讲解暑假初体验、男朋友等话题。",
+      "亚托莉提问‘被异性说喜欢就是有男朋友吗’，并说‘学习完毕’。",
+      "水菜萌解释‘喜欢’分LIKE和LOVE，亚托莉尝试解析‘吃醋’。",
+      "亚托莉最后感叹恋爱是个困难的概念。"
+    ],
+    "character_hook": "亚托莉认真听讲、积极提问、把恋爱当作知识来学习，会用‘学习完毕’来总结。",
+    "adaptation": "去除告白背景，将其作为两小时的课堂学习活动：亚托莉和其他女生一起听凯瑟琳讲解人际关系、喜欢与恋爱，参与讨论和记录。",
+    "editor_note": "只保留亚托莉对喜欢、友谊与好感概念的困惑和笔记，不安排性教育身体细节、告白或恋爱实践。",
+    "evidence": [
+      {
+        "line": 5238,
+        "id": "vol1/b204.ks.scn/0/dialogue/107",
+        "speaker": "凯瑟琳",
+        "text": "保健体育哦"
+      },
+      {
+        "line": 5268,
+        "id": "vol1/b204.ks.scn/0/dialogue/137",
+        "speaker": "凯瑟琳",
+        "text": "叫凯瑟琳老师。马上就到暑假了吧。说到暑假，就是夏天的体验"
+      },
+      {
+        "line": 5280,
+        "id": "vol1/b204.ks.scn/0/dialogue/149",
+        "speaker": "亚托莉",
+        "text": "请问！"
+      },
+      {
+        "line": 5282,
+        "id": "vol1/b204.ks.scn/0/dialogue/151",
+        "speaker": "亚托莉",
+        "text": "要是被异性说‘喜欢’的话，就是有男朋友的意思吗？"
+      },
+      {
+        "line": 5284,
+        "id": "vol1/b204.ks.scn/0/dialogue/153",
+        "speaker": "亚托莉",
+        "text": "……学习完毕"
+      },
+      {
+        "line": 5314,
+        "id": "vol1/b204.ks.scn/0/dialogue/183",
+        "speaker": "凯瑟琳",
+        "text": "嗯—，喜欢有很多种类。LIKE和LOVE！"
+      },
+      {
+        "line": 5333,
+        "id": "vol1/b204.ks.scn/0/dialogue/202",
+        "speaker": "亚托莉",
+        "text": "吃醋……我解析一下，请稍等"
+      },
+      {
+        "line": 5347,
+        "id": "vol1/b204.ks.scn/0/dialogue/216",
+        "speaker": "亚托莉",
+        "text": "原来如此……学习完毕"
+      },
+      {
+        "line": 5349,
+        "id": "vol1/b204.ks.scn/0/dialogue/218",
+        "speaker": "亚托莉",
+        "text": "恋爱……真是个困难的概念呢"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "仅做保健课堂对‘喜欢、恋爱、吃醋’概念的学习。删除已经被告白、对夏生和龙司吃醋等移除的关系前情；可对假设例子发问但不安排新告白。保持学生身份和不懂就认真问的性格。",
+    "user_approval": false,
+    "editorial_sha256": "fbcd956e9dcc64310722239c180ea1836f7e84860cc0ae172d2c4db2c49dd58b",
+    "content_sha256": "bf342fb2cfdd5f87e7d739c8da1a6e551a18a6c60763937579370cb166f0cd31"
+  }
+}

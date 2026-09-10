@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "id": "b201-03",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "水菜萌的汉堡肉便当",
+  "summary": "水菜萌拿出装满汉堡肉和煮菜的便当分给大家。亚托莉边吃边好奇调味，觉得西瓜也好吃，饭后想趁没忘记把味道和搭配写进日志本。",
+  "suggested_time_of_day": [
+    "中午",
+    "下午"
+  ],
+  "scene": "学校或合租屋的公共空间，桌上有水菜萌的便当盒、切好的西瓜和一台放着老曲子的收音机。亚托莉坐在桌边，手边摊开日志本。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌",
+    "凛凛花",
+    "龙司"
+  ],
+  "preconditions": [
+    "水菜萌做了汉堡肉与煮菜便当，并愿意分给大家",
+    "现场有西瓜可以切分",
+    "亚托莉有一本用来写日志和课堂笔记的笔记本",
+    "亚托莉最近在练习做菜，对别人的料理手法有兴趣"
+  ],
+  "adaptation_notes": [
+    "原作中便当品尝与日志记录是紧接着发生的小片段，本模板将两小时扩展为分餐、用餐、聊料理和写日志的连续日常。",
+    "水菜萌的料理部练习背景属于原作已有信息，扩展部分只用于对话素材，不改变角色关系。",
+    "亚托莉练习做菜与吃自己那份便当的行为来自原作，两小时内的具体对话与细节为创作补足。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "便当分餐与开吃",
+      "intent": "水菜萌拿出便当，大家分到汉堡肉和煮菜，亚托莉也拿到一份，对便当里的内容感到好奇。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "边吃边聊料理",
+      "intent": "亚托莉觉得汉堡肉和煮菜好吃，问水菜萌是怎么做的，想记下要点。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "吃西瓜与休息",
+      "intent": "龙司切西瓜分给大家，亚托莉觉得西瓜也好吃，收音机里的老曲子让气氛轻松下来。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "写日志与收尾",
+      "intent": "亚托莉趁着没忘记，把便当和西瓜的味道写进日志本，夏生想瞄一眼却被她遮住。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "便当分餐与开吃",
+      "detail": "水菜萌把便当盒打开，汉堡肉和煮菜摆得很整齐。亚托莉接过自己那份，先看了看配菜的样子。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "便当分餐与开吃",
+      "detail": "凛凛花也拿到便当，感叹汉堡肉看起来很好吃。亚托莉夹起一块煮菜，想确认是什么味道。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "便当分餐与开吃",
+      "detail": "亚托莉开始吃汉堡肉，觉得调味和自己练习时不太一样，心里琢磨里面加了什么。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "边吃边聊料理",
+      "detail": "亚托莉吃完自己那份，问水菜萌汉堡肉里是不是加了什么特别的东西。",
+      "mood": "兴致高"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "边吃边聊料理",
+      "detail": "水菜萌有点不好意思地说是料理部练习做的。亚托莉点头，觉得教科书般的做法也有值得学的地方。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "边吃边聊料理",
+      "detail": "龙司和凛凛花聊起便当分菜的事。亚托莉把最后一点煮菜吃完，想记住配菜的味道。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "吃西瓜与休息",
+      "detail": "龙司把西瓜放在桌上，水菜萌切好分给大家。亚托莉拿了一块，觉得凉凉的西瓜和汉堡肉很搭。",
+      "mood": "清爽"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "吃西瓜与休息",
+      "detail": "收音机里放着老曲子，龙司说这是二十世纪乐团的歌。亚托莉一边吃西瓜一边听，觉得有点怀念。",
+      "mood": "惬意"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "吃西瓜与休息",
+      "detail": "夏生吃完便当合掌说多谢款待。亚托莉也学着他的样子，小声说了句多谢款待。",
+      "mood": "自然"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "写日志与收尾",
+      "detail": "亚托莉拿出日志本摊在桌上，想把汉堡肉和西瓜的味道趁没忘记写下来。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "写日志与收尾",
+      "detail": "夏生问平常日志里都写什么，亚托莉用手遮住本子说不能看。她其实在记水菜萌的便当搭配。",
+      "mood": "有点得意"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "写日志与收尾",
+      "detail": "水菜萌和凛凛花开始收拾便当盒。亚托莉把日志本合上，打算下次做菜时试试能不能做出类似的味道。",
+      "mood": "跃跃欲试"
+    }
+  ],
+  "source": {
+    "chapter": "b201.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌做的便当里有教科书般的汉堡肉和煮菜",
+      "亚托莉连着夏生的份一起吃了",
+      "亚托莉觉得汉堡肉和西瓜都很好吃",
+      "夏生吃完后合掌说多谢款待"
+    ],
+    "character_hook": "亚托莉对好吃的东西表现出强烈兴趣，感叹好吃并要趁没忘记记录下来。",
+    "adaptation": "保留汉堡肉和煮菜便当，扩展为两小时的便当品尝与交流：分餐、评价味道、聊料理部练习。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 4194,
+        "id": "vol1/b201.ks.scn/0/dialogue/270",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌怯生生地拿出了便当盒。"
+      },
+      {
+        "line": 4195,
+        "id": "vol1/b201.ks.scn/0/dialogue/271",
+        "speaker": "水菜萌",
+        "text": "……这是我做的，可以的话请吃吧"
+      },
+      {
+        "line": 4196,
+        "id": "vol1/b201.ks.scn/0/dialogue/272",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "教科书般的汉堡肉，还有煮菜塞满了整个便当。"
+      },
+      {
+        "line": 4201,
+        "id": "vol1/b201.ks.scn/0/dialogue/277",
+        "speaker": "夏生",
+        "text": "谢谢你，水菜萌。帮大忙了"
+      },
+      {
+        "line": 4202,
+        "id": "vol1/b201.ks.scn/0/dialogue/278",
+        "speaker": "凛凛花",
+        "text": "真好啊……汉堡肉好好吃的样子"
+      },
+      {
+        "line": 4227,
+        "id": "vol1/b201.ks.scn/0/dialogue/303",
+        "speaker": "夏生",
+        "text": "多谢款待"
+      },
+      {
+        "line": 4228,
+        "id": "vol1/b201.ks.scn/0/dialogue/304",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我吃完水菜萌做的便当后，合掌说道。"
+      },
+      {
+        "line": 4229,
+        "id": "vol1/b201.ks.scn/0/dialogue/305",
+        "speaker": "亚托莉",
+        "text": "……还真好吃呢。不论是西瓜还是汉堡肉……得趁着没忘记好好记录下来"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留水菜萌做的汉堡肉便当、煮菜以及分西瓜的饭后时光。亚托莉吃自己的份，删除顺手把夏生那份也吃了却夏生又吃完便当的矛盾。她对口味好奇、想问做法，不提前定调扎实/火候刚刚好或新增与上次烹饪对比。",
+    "user_approval": false,
+    "editorial_sha256": "a9fa7515bbba2bc301c07df0c4ad587a34af7f0dd4ae14ef5b79ca7d88f3c93e",
+    "content_sha256": "86b0bf9b70928fbe3420a09a1faffdf7c8a504c3f5661c23c3fbc2ed9a21af9d"
+  }
+}

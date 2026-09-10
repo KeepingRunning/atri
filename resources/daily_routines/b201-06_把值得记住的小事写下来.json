@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "id": "b201-06",
+  "category": "记录",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "把值得记住的小事写下来",
+  "summary": "亚托莉在餐后打开日志本，整理当天课堂、料理部和聚餐里值得记住的小事，不让夏生偷看，写完收进衣服内侧口袋。",
+  "suggested_time_of_day": [
+    "傍晚",
+    "夜晚"
+  ],
+  "scene": "校舍附近安静的室内，收音机放着老曲子，桌上摊着用了一半的日志本，亚托莉刚吃完东西，准备把当天的大小事记下来。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉有一本已经使用将近一半页数的日志本，兼作课堂笔记与日常记录",
+    "当天已经发生过若干可记录的小事，如课堂内容、料理部活动或一起吃饭",
+    "所在房间有桌子可以摊开日志本，收音机播放着不会干扰写字的背景音乐",
+    "亚托莉的衣服内侧有一个可以收好日志本的口袋"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉是在吃完水菜萌做的便当后立刻打开日志本，这里把写日志扩展为约两小时的记录活动，并允许她先回想、翻看前页再动笔。",
+    "原作中日志内容只提到西瓜、汉堡肉和夏生闹别扭，现调整为确保当天确有类似课堂、料理部或聚餐等已发生的小事可供记录，不凭空添加原作没有的日志内容。",
+    "原作未写她如何保管日志本，这里保留‘写完收进衣服内侧口袋’这一原作已确认的动作，其余收纳细节属合理创作补足。",
+    "原作夏生想看日志、亚托莉害羞拒绝的互动保留为背景可能，不强化成命令或身体亲密，也不把拒绝写成失败或冲突。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "翻日志回想今天",
+      "intent": "亚托莉把日志本摊开，先翻看前面几页，理一理今天有哪些值得写下来的事。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "落笔写当天的事",
+      "intent": "围绕着课堂、料理部和吃饭时发生的小事动笔，尽量实事求是，不想漏掉有趣的细节。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "遮本子不给人看",
+      "intent": "夏生凑过来时用手遮住页面，嘴上坚持日记不可以偷看，心里其实有点害羞。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "收本子与闲聊收尾",
+      "intent": "把日志本合上收进衣服内侧口袋，和夏生随便聊几句，让写日志的余韵自然淡下来。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "翻日志回想今天",
+      "detail": "把日志本摊在桌上，翻到夹着课堂笔记的那一页，先看看前面写了什么。",
+      "mood": "专注又带点期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "翻日志回想今天",
+      "detail": "翻到今天要写的一页，先回想本次已有的经历，想从最值得留下的那件小事开始。",
+      "mood": "觉得有趣"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "翻日志回想今天",
+      "detail": "看看本子剩余的空白页，再把笔放到纸边，不急着一口气写满。",
+      "mood": "有点感慨"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "落笔写当天的事",
+      "detail": "先写下日期和天气，再想今天最该记住的是哪一件事。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "落笔写当天的事",
+      "detail": "写到自己在意的部分时停一停，斟酌怎样记才贴近实际，不把没有发生的反应添进去。",
+      "mood": "斟酌"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "落笔写当天的事",
+      "detail": "笔尖在纸上沙沙响，收音机里的老曲子正好放到副歌。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "落笔写当天的事",
+      "detail": "写到一半抬头看了眼夏生，又低头继续，不想被带跑思路。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "遮本子不给人看",
+      "detail": "感觉到夏生往这边看，立刻用手臂挡住本子，说偷看女生日记是不可以的。",
+      "mood": "害羞但坚决"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "遮本子不给人看",
+      "detail": "嘴上说没什么好看的，眼睛却还盯着刚写的那几行，确认字有没有写歪。",
+      "mood": "嘴硬"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "收本子与闲聊收尾",
+      "detail": "把日志本合上，想了想还是收进衣服内侧的口袋里。",
+      "mood": "安心"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收本子与闲聊收尾",
+      "detail": "跟夏生说今天先不给他看，以后也不一定会给看，但语气已经软下来。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收本子与闲聊收尾",
+      "detail": "听着收音机里换了一首曲子，觉得今天要记的事大概都记完了。",
+      "mood": "满足"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "遮本子不给人看",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          90
+        ]
+      },
+      {
+        "activity": "收本子与闲聊收尾",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          90,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b201.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉把日志本展开在桌上写日志",
+      "日志本已经使用将近一半页数",
+      "亚托莉不让夏生看日志，说偷看女生日记是不可以做的事情",
+      "亚托莉写完日志后把本子收进衣服内侧口袋"
+    ],
+    "character_hook": "亚托莉认为日志要实事求是写下当天发生的事，被要求看时会害羞但坚持不给看。",
+    "adaptation": "把写日志扩展为两小时的记录活动：整理当天课堂、料理部、聚餐等事，写日志并保管好。不添加原作没有的日志内容。",
+    "editor_note": "使用时应提供当天已经发生的小事；若没有，就整理已有日志或记录当前真实可得感想，不能复刻原文的西瓜晚餐或被夸奖。",
+    "evidence": [
+      {
+        "line": 4229,
+        "id": "vol1/b201.ks.scn/0/dialogue/305",
+        "speaker": "亚托莉",
+        "text": "……还真好吃呢。不论是西瓜还是汉堡肉……得趁着没忘记好好记录下来"
+      },
+      {
+        "line": 4230,
+        "id": "vol1/b201.ks.scn/0/dialogue/306",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "连着我的份一块都吃掉的亚托莉，把日志本展开桌上。"
+      },
+      {
+        "line": 4231,
+        "id": "vol1/b201.ks.scn/0/dialogue/307",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "之前买给她的笔记本因为还要记课堂笔记，所以已经使用了将近一半的页数了。"
+      },
+      {
+        "line": 4233,
+        "id": "vol1/b201.ks.scn/0/dialogue/309",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我打算瞄一眼，亚托莉用手遮住了。"
+      },
+      {
+        "line": 4234,
+        "id": "vol1/b201.ks.scn/0/dialogue/310",
+        "speaker": "亚托莉",
+        "text": "不可以看"
+      },
+      {
+        "line": 4237,
+        "id": "vol1/b201.ks.scn/0/dialogue/313",
+        "speaker": "亚托莉",
+        "text": "我认为偷看女生的日记，是不可以做的事情"
+      },
+      {
+        "line": 4240,
+        "id": "vol1/b201.ks.scn/0/dialogue/316",
+        "speaker": "亚托莉",
+        "text": "摆……摆出这幅表情也没有用。不给你看，很害羞的"
+      },
+      {
+        "line": 4245,
+        "id": "vol1/b201.ks.scn/0/dialogue/321",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉一边写日志，一边时不时偷瞄我。"
+      },
+      {
+        "line": 4246,
+        "id": "vol1/b201.ks.scn/0/dialogue/322",
+        "speaker": "亚托莉",
+        "text": "我说完不给看日志，夏生先生就闹别扭了"
+      },
+      {
+        "line": 4248,
+        "id": "vol1/b201.ks.scn/0/dialogue/324",
+        "speaker": "亚托莉",
+        "text": "日志就是要把当天发生的事情，实事求是地写出来"
+      },
+      {
+        "line": 4249,
+        "id": "vol1/b201.ks.scn/0/dialogue/325",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉写完日志后，把本子收进了衣服里。内侧似乎有一个口袋。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "revised",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "type": "assistant_editorial_revision",
+    "revision_count": 0,
+    "user_approval": false,
+    "content_sha256": "f43563c8dabe2072db6f378ea2dedb7f39bf1f92c5b38000e349c41b24827358"
+  }
+}

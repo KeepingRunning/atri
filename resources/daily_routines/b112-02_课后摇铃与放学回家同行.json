@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "b112-02",
+  "category": "出行",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "放学摇铃与同行回家",
+  "summary": "水菜萌摇手摇铃结束课后学习，亚托莉与夏生牵手走在回家路上。两小时覆盖放学整队、沿路散步聊天、对沿途事物好奇、慢慢走到家附近收尾。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "夕阳染红教室，水菜萌摇响手摇铃宣布下课。亚托莉拉着夏生的手走在回家路上，脚步抬得很高，呆毛随步子摇晃。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "水菜萌的手摇铃放在教室旁，可代替上下课铃声",
+    "亚托莉和夏生从学校出发一起走回家",
+    "课后学习刚结束，天色接近傍晚",
+    "路线是普通的回家道路，沿途有可看的街景"
+  ],
+  "adaptation_notes": [
+    "原作中放学同行只有短短几句，两小时步行与沿途停顿属于创作扩展",
+    "保留亚托莉牵手、抬高脚步、呆毛摇晃和对上学开心的特征",
+    "水菜萌只在下课摇铃与道别时出现，不强行让她全程同行",
+    "不把夏生旁白对牵手的感受直接安在亚托莉身上"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "下课铃与收拾",
+      "intent": "水菜萌摇铃宣布结束，亚托莉确认学习告一段落，慢慢整理手边东西准备出发"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 60,
+      "activity": "走上回家路",
+      "intent": "亚托莉拉着夏生的手沿路走，脚步抬高，聊今天学的内容和路上的事"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "沿途散步与歇脚",
+      "intent": "放慢速度看看街边风景，说说话，也自然安静一段，不急着到家"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "接近家门的收尾",
+      "intent": "走到家附近，聊明天还去不去上学，带着放学后的轻松感结束同行"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "下课铃与收拾",
+      "detail": "水菜萌向前几步摇响手摇铃，亚托莉抬头确认学习是不是结束了。",
+      "mood": "好奇又期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "下课铃与收拾",
+      "detail": "亚托莉把桌上的东西归拢好，眼睛已经往门口方向瞟。",
+      "mood": "有点坐不住"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "走上回家路",
+      "detail": "亚托莉拉住夏生的手走在旁边，试着把脚步抬得很高。",
+      "mood": "兴致勃勃"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "走上回家路",
+      "detail": "呆毛随步子晃来晃去，亚托莉说起今天学了一天就变聪明了。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "走上回家路",
+      "detail": "聊到理科还顺，文科有点头疼，亚托莉嘴上不认输但脚步慢了点。",
+      "mood": "嘴硬又认真"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "走上回家路",
+      "detail": "亚托莉问夏生明天也去上学吧，自己先点了点头。",
+      "mood": "开心"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "沿途散步与歇脚",
+      "detail": "路过一片被夕阳照亮的墙，亚托莉停下来看颜色。",
+      "mood": "被吸引"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "沿途散步与歇脚",
+      "detail": "继续走时说起路上看到的小店和招牌，亚托莉对字很有兴趣。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "沿途散步与歇脚",
+      "detail": "走了一段后自然安静下来，只剩脚步和远处的日常声音。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "接近家门的收尾",
+      "detail": "亚托莉重新提起明天上学的事，夏生说看心情，她认真记下。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "接近家门的收尾",
+      "detail": "快到家时亚托莉把今天的课回想了一遍，念叨着明天要继续学。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "接近家门的收尾",
+      "detail": "走到家门口，亚托莉松开了手又回头看了一眼来路。",
+      "mood": "轻松"
+    }
+  ],
+  "source": {
+    "chapter": "b112.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌摇响手摇铃代替上下课铃声",
+      "亚托莉拉着夏生的手走在他旁边，刻意将脚步抬得很高",
+      "亚托莉说“明天也去上学吧”",
+      "夏生回答“嗯，看心情吧”"
+    ],
+    "character_hook": "走路时情绪外露，呆毛随脚步摇晃，对上学和与人同行表现得开心又黏人。",
+    "adaptation": "把放学回家扩展为放学后一起走一段路、聊天、看沿途风景再慢慢回家的两小时出行，不依赖恋爱误会桥段。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 1436,
+        "id": "vol1/b112.ks.scn/0/dialogue/2",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌向前走了几步，摇响了放在旁边的手摇铃铛。"
+      },
+      {
+        "line": 1437,
+        "id": "vol1/b112.ks.scn/0/dialogue/3",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "看来是用这个代替上下课铃声吧。"
+      },
+      {
+        "line": 1438,
+        "id": "vol1/b112.ks.scn/0/dialogue/4",
+        "speaker": "水菜萌",
+        "text": "好啦，今天就到此为止"
+      },
+      {
+        "line": 1460,
+        "id": "vol1/b112.ks.scn/0/dialogue/26",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们走在回家的路上。"
+      },
+      {
+        "line": 1461,
+        "id": "vol1/b112.ks.scn/0/dialogue/27",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉拉着我的手走在我旁边，刻意将脚步抬得很高。"
+      },
+      {
+        "line": 1462,
+        "id": "vol1/b112.ks.scn/0/dialogue/28",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "每走一步，视野中的那根呆毛就会发出摇晃。"
+      },
+      {
+        "line": 1471,
+        "id": "vol1/b112.ks.scn/0/dialogue/37",
+        "speaker": "亚托莉",
+        "text": "明天也去上学吧"
+      },
+      {
+        "line": 1472,
+        "id": "vol1/b112.ks.scn/0/dialogue/38",
+        "speaker": "夏生",
+        "text": "嗯，看心情吧"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "删除‘亚托莉觉得牵着人回家的感觉不坏’，这是夏生旁白的感受，不能直接归给她。保留摇铃、收好课本、放学同行，对沿途事物好奇即可，不预先写同伴必定回应的台词。",
+    "user_approval": false,
+    "editorial_sha256": "9e879e7148eef1d4fc2352a0c69034a8970d45d3c232586f85a0622b1df9ae90",
+    "content_sha256": "d9305a83675b37c1072ddd877165ddc6955f2f90dab6df95f30dd81b672e0f49"
+  }
+}

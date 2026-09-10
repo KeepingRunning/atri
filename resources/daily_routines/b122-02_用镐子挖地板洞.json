@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "id": "b122-02",
+  "category": "劳动",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "亚托莉的挖洞劳作",
+  "summary": "亚托莉用镐子按夏生画的圆线挖穿二楼教室地板。夏生在旁监督测量，龙司先离场。中间休息核对尺寸，亚托莉想自己挖好且不愿与夏生分开。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "老旧校舍二楼教室，地板上画着圆圈，龙司刚放下镐子，亚托莉接过镐子准备动手。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "二楼教室地板已画好涡轮机安装用的圆圈",
+    "亚托莉拥有远超常人的臂力，可以挥动镐子",
+    "龙司因手磨出水泡先离开，后续只留亚托莉与夏生",
+    "现场有镐子、手套等劳动工具"
+  ],
+  "adaptation_notes": [
+    "原作中挖洞持续到太阳西沉，两小时版本截取一段连续的劳作与休息",
+    "龙司原作先试着挖但手起泡，这里让他出场后交给亚托莉",
+    "亚托莉自称战斗机器人，保持其自信口吻但避免每格重复",
+    "夏生监督测量是原作情节，休息时长与喝水等细节为创作补足"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "接过镐子开始挖",
+      "intent": "亚托莉想自己把地板挖好，暂时不想让夏生接手，眼睛还往画线的圆圈上瞟。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 60,
+      "activity": "中途休息核对尺寸",
+      "intent": "夏生蹲下来检查洞口是否超出圆线，亚托莉在旁边看着，也留心自己有没有挖偏。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 100,
+      "activity": "继续挖深拓宽",
+      "intent": "亚托莉挥镐的节奏稳下来，开始在意洞底的碎块和边缘是否整齐，夏生偶尔提醒慢一点。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收尾清理碎屑",
+      "intent": "亚托莉把大块碎屑捡到一边，夏生确认洞口大概可以放下涡轮机，两人准备回教室。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "接过镐子开始挖",
+      "detail": "亚托莉从龙司手里接过镐子，先掂了掂重量，又低头看地板上画的圆线，确认起点。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "接过镐子开始挖",
+      "detail": "第一镐敲下去，地板裂开的声音比预想干脆，亚托莉挑起眉毛看了看夏生。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "接过镐子开始挖",
+      "detail": "她沿着圆线边缘又敲了几下，碎块溅到旁边，龙司还在门口探头看。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "接过镐子开始挖",
+      "detail": "洞里积了些木屑和灰，亚托莉嫌碍事，用镐尖把它们拨到一边，速度没慢下来。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "中途休息核对尺寸",
+      "detail": "夏生叫停，蹲下来顺着圆线检查。亚托莉站在旁边，目光跟着他的手指走。",
+      "mood": "稍显紧张"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "中途休息核对尺寸",
+      "detail": "龙司说他先上楼看看，亚托莉应了一声，又回头盯着洞口，像在估算还差多少。",
+      "mood": "不愿停太久"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "继续挖深拓宽",
+      "detail": "重新开工后，亚托莉把圆线外的两小块凸起也削平，动作比刚才轻。",
+      "mood": "小心翼翼"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "继续挖深拓宽",
+      "detail": "洞渐渐有了深度，亚托莉把镐子换了个角度，敲出来的碎块堆在脚边。",
+      "mood": "平稳"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "继续挖深拓宽",
+      "detail": "夏生在旁边翻看草图，亚托莉瞥了一眼，挖的时候特意把底部的斜面也修了修。",
+      "mood": "在意尺寸"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "继续挖深拓宽",
+      "detail": "她停下来听夏生和楼上龙司喊话，确认洞的位置没有偏，又接着敲。",
+      "mood": "踏实"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收尾清理碎屑",
+      "detail": "亚托莉弯腰把大块碎屑捡到墙角，手套上沾了一层灰，她拍了两下。",
+      "mood": "想弄干净"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾清理碎屑",
+      "detail": "夏生蹲在洞口比了比，说差不多能放下。亚托莉把镐子靠在墙边，跟着他往教室走。",
+      "mood": "满足"
+    }
+  ],
+  "source": {
+    "chapter": "b122.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "龙司用镐子挖地板，手心起泡也进展缓慢",
+      "夏生在地板上画圆，要求亚托莉不能挖超出线外",
+      "亚托莉一镐就敲碎地板，自称战斗机器人",
+      "亚托莉在夏生监督下持续挖洞到太阳西沉",
+      "亚托莉希望待在夏生身边，不愿分开"
+    ],
+    "character_hook": "亚托莉对自身力量自信，爱自称战斗机器人，同时坚持机器人最优先事项是待在夏生身边。",
+    "adaptation": "将挖洞劳动安排成两小时的手工劳作时段：亚托莉用镐子凿洞，夏生在旁监督测量，中间休息核对尺寸。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 3186,
+        "id": "vol1/b122.ks.scn/0/dialogue/115",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "下到二楼之后，我就听到了硬物碰撞的声音。"
+      },
+      {
+        "line": 3189,
+        "id": "vol1/b122.ks.scn/0/dialogue/118",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "龙司撂下镐子，摘下了手套。"
+      },
+      {
+        "line": 3192,
+        "id": "vol1/b122.ks.scn/0/dialogue/121",
+        "speaker": "龙司",
+        "text": "本来以为总会有办法的，现在看来光是挖洞就要一个月"
+      },
+      {
+        "line": 3207,
+        "id": "vol1/b122.ks.scn/0/dialogue/136",
+        "speaker": "夏生",
+        "text": "用镐子在这挖个洞，只不过不能超出地板上画的线"
+      },
+      {
+        "line": 3208,
+        "id": "vol1/b122.ks.scn/0/dialogue/137",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我在地板上画了个圆，好让我设计的涡轮机严丝合缝地放进去。"
+      },
+      {
+        "line": 3210,
+        "id": "vol1/b122.ks.scn/0/dialogue/139",
+        "speaker": "亚托莉",
+        "text": "哼哼，轻轻松松啦♪"
+      },
+      {
+        "line": 3212,
+        "id": "vol1/b122.ks.scn/0/dialogue/141",
+        "speaker": "亚托莉",
+        "text": "我要上咯——"
+      },
+      {
+        "line": 3214,
+        "id": "vol1/b122.ks.scn/0/dialogue/143",
+        "speaker": "龙司",
+        "text": "喔……这么轻易就把地板敲碎了"
+      },
+      {
+        "line": 3215,
+        "id": "vol1/b122.ks.scn/0/dialogue/144",
+        "speaker": "亚托莉",
+        "text": "哼哼哼，这就是战斗机器人的实力"
+      },
+      {
+        "line": 3221,
+        "id": "vol1/b122.ks.scn/0/dialogue/150",
+        "speaker": "夏生",
+        "text": "亚托莉，麻烦你继续挖下去。我们就在楼上干活"
+      },
+      {
+        "line": 3236,
+        "id": "vol1/b122.ks.scn/0/dialogue/165",
+        "speaker": "亚托莉",
+        "text": "那我就回应夏生先生的要求，全力发挥我的超高性能！"
+      },
+      {
+        "line": 3237,
+        "id": "vol1/b122.ks.scn/0/dialogue/166",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉意气风发地挥舞起了镐子。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时劳作被拆分为挖、核尺寸、继续挖、清理四段并穿插休息与对话，未出现同一小动作撑满全段；镐子、圆线、龙司手伤离场、亚托莉自称战斗机器人与不愿分开等核心事实均与原文一致，未把他人行为归给亚托莉，也未新增故障或结局类设定。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时劳作被拆分为挖、核尺寸、继续挖、清理四段并穿插休息与对话，未出现同一小动作撑满全段；镐子、圆线、龙司手伤离场、亚托莉自称战斗机器人与不愿分开等核心事实均与原文一致，未把他人行为归给亚托莉，也未新增故障或结局类设定。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "3c3bd7c9300b393650616b82518cd3348c4d9298eb3ff9a674ddb16c07cf13d4",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "7d7a23821ddf4622da231072ff9382ec94333b51f4100ff65477e7074bbf7d7c"
+  }
+}

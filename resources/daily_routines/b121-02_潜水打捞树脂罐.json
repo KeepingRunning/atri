@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "id": "b121-02",
+  "category": "劳动",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "海底工厂取树脂",
+  "summary": "亚托莉从海蛇号出发，按示意图进入沉没工厂仓库，分次把树脂罐搬到门口网兜。夏生在艇内操作照明和起重机，水菜萌在船上协助吊运。水下只用手势确认进度，两小时内完成准备、往返搬运和收尾吊运。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "海面船只锚定在沉没工厂上方，海蛇号潜水艇的灯光照向半开的卷帘门，起重机钩子和网已经降下。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "亚托莉不需要呼吸，能在水中自由活动，所以回收树脂的潜水工作交给她。",
+    "海蛇号潜水艇负责把她送到工厂附近，并用水下灯光协助照明。",
+    "工厂卷帘门没有关，从门口进去右转可到存放树脂的仓库。",
+    "一行人已经事先画过示意图并商讨路线，亚托莉记住了位置。"
+  ],
+  "adaptation_notes": [
+    "原作写亚托莉几次往返搬运后树脂回收完毕；两小时内的准备、歇息和分批搬运属于创作补足。",
+    "原作中夏生在艇内操作，水菜萌在船上负责吊运，本模板保持这一分工，不让她进入潜艇。",
+    "亚托莉在水下无法交谈，只能用简单手势和艇内交流，艇内主要靠示意图和动作判断状态。",
+    "最后“又出门找螃蟹”一段属于原作后续插曲，本模板不纳入主要流程，仅保留为可能的收尾后动向。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "下水前确认",
+      "intent": "亚托莉对照示意图记路线，和艇内确认灯光、货网位置，准备从卷帘门进入仓库。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 80,
+      "activity": "往返搬运树脂罐",
+      "intent": "亚托莉按右转路线分批把树脂罐送到门口网兜，夏生留意工厂内动静，水菜萌在船上注意吊运状态。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 100,
+      "activity": "短暂歇息确认",
+      "intent": "搬完若干趟后在水中停一下，回头用手势核对还剩几罐，艇内也趁机检查网兜和照明方向。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收尾与吊运",
+      "intent": "把最后几罐集中到网里，等起重机把网收上去，亚托莉在旁确认没有遗漏。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "下水前确认",
+      "detail": "亚托莉在艇边把示意图描了一遍，确认卷帘门进去右转是仓库，顺手比了个没问题的手势。",
+      "mood": "认真又有点得意"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "下水前确认",
+      "detail": "下水前在船边看水菜萌准备吊运的绞盘，和夏生确认手势后，再往海蛇号那边去。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "下水前确认",
+      "detail": "夏生在艇内最后对了一遍罐子数目，亚托莉没说话，只把身体转向卷帘门方向。",
+      "mood": "安静集中"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "往返搬运树脂罐",
+      "detail": "亚托莉从半开的卷帘门进去，右转后沿墙边找到第一排罐子，先抱了两个往外走。",
+      "mood": "进入状态"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "往返搬运树脂罐",
+      "detail": "艇内看到她的身影从门口出来，把罐子放进网兜；亚托莉顺手比了个数字，示意还能再搬。",
+      "mood": "平稳"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "往返搬运树脂罐",
+      "detail": "第二趟路过仓库角落，亚托莉停下来看了下罐体有没有裂缝，确认后又抱起两个。",
+      "mood": "细心"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "往返搬运树脂罐",
+      "detail": "艇内灯光偏了一点，亚托莉在门口停住，抬手示意往左照，等看清路再进去。",
+      "mood": "不慌不忙"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "往返搬运树脂罐",
+      "detail": "她把一罐放到网里时多停了两秒，像是在确认位置够不够稳，然后转身又往卷帘门游。",
+      "mood": "自己把关"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "短暂歇息确认",
+      "detail": "亚托莉在水里停住，朝艇内比出还剩几罐的意思；夏生在艇内对照记录点头。",
+      "mood": "稍微放松"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "短暂歇息确认",
+      "detail": "她借着潜艇灯光看了看网兜里的罐子，又回头望卷帘门里面，确认没有落下明显的一排。",
+      "mood": "留意细节"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收尾与吊运",
+      "detail": "最后几罐被集中到网边，亚托莉扶住网兜示意可以起吊，自己退开一点看钩子收紧。",
+      "mood": "收尾专注"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾与吊运",
+      "detail": "网兜缓缓上升，亚托莉跟着浮了一段，目光在上升的罐子和海蛇号之间来回确认。",
+      "mood": "踏实等待"
+    }
+  ],
+  "source": {
+    "chapter": "b121.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉不需要呼吸，能在水中自由活动，回收树脂的工作交给她。",
+      "亚托莉从工厂卷帘门进去右转去仓库取树脂。",
+      "亚托莉比划手势并敬礼后进入工厂。",
+      "亚托莉反复几次搬运后，树脂回收完毕。"
+    ],
+    "character_hook": "亚托莉自信地接受潜水任务，用手势和敬礼表达“包在我身上”。",
+    "adaptation": "将一次潜水打捞扩展为包含准备、多次下潜、搬运、手势交流的两小时劳动。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 2723,
+        "id": "vol1/b121.ks.scn/0/dialogue/30",
+        "speaker": "夏生",
+        "text": "亚托莉，准备潜水"
+      },
+      {
+        "line": 2724,
+        "id": "vol1/b121.ks.scn/0/dialogue/31",
+        "speaker": "亚托莉",
+        "text": "遵命"
+      },
+      {
+        "line": 2758,
+        "id": "vol1/b121.ks.scn/0/dialogue/65",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "接下来要让亚托莉一个人潜入海中。她不需要呼吸，而且能在水中自由活动，所以回收树脂的工作就交给了她。"
+      },
+      {
+        "line": 2759,
+        "id": "vol1/b121.ks.scn/0/dialogue/66",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "而海蛇号的任务就是带着她前往工厂，并且清除障碍物。"
+      },
+      {
+        "line": 2828,
+        "id": "vol1/b121.ks.scn/0/dialogue/135",
+        "speaker": "龙司",
+        "text": "在工厂里面的仓库内。从那个卷帘门进去右转"
+      },
+      {
+        "line": 2829,
+        "id": "vol1/b121.ks.scn/0/dialogue/136",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们事先画过示意图并进行商讨，所以亚托莉也知道这些信息。"
+      },
+      {
+        "line": 2832,
+        "id": "vol1/b121.ks.scn/0/dialogue/139",
+        "speaker": "夏生",
+        "text": "亚托莉，能行吗"
+      },
+      {
+        "line": 2837,
+        "id": "vol1/b121.ks.scn/0/dialogue/144",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "然后她比划了下手势，一本正经地敬礼之后就进入工厂内部了。"
+      },
+      {
+        "line": 2871,
+        "id": "vol1/b121.ks.scn/0/dialogue/178",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "这次她总算拿上了装树脂的罐子。"
+      },
+      {
+        "line": 2875,
+        "id": "vol1/b121.ks.scn/0/dialogue/182",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉表示明白，然后又回工厂内去了。"
+      },
+      {
+        "line": 2876,
+        "id": "vol1/b121.ks.scn/0/dialogue/183",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "反复几次之后，树脂终于回收完毕了。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "ab716ba45ff1ab8f832ab1906c3287a40f27daba0c9bb6fdde04cacc3fc4dc25",
+    "content_sha256": "926a5631ddda3068019c59d1ec7bc5eb0f18b0a941bd7695ca99ffe488c86832"
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "id": "b302-04",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "性能测试式期末复习",
+  "summary": "亚托莉把期末复习当成性能测试，前半自己攻克习题，中间短暂休息，随后找水菜萌核对疑问，最后整理书本，保持不服输的劲头，不预判成绩。",
+  "suggested_time_of_day": [
+    "下午"
+  ],
+  "scene": "学校教室的一角，桌上摊着习题册、笔记和笔，水菜萌坐在旁边，亚托莉准备按自己的节奏复习。",
+  "participants": [
+    "亚托莉",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "亚托莉把考试视为性能测试，想全力应付。",
+    "她正在准备期末考试，有习题册和笔记可用。",
+    "水菜萌会在附近，可以帮忙核对疑问。",
+    "环境是虚构的日常教室，不需要网络或工具。"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉将考试称为性能测试，本模板将这一态度迁移为两小时复习和练题。",
+    "不涉及料理实习，只围绕复习、休息和请教展开。",
+    "不预先判定考试成绩或他人评价，只表现她不服输的劲头。",
+    "水菜萌作为原作伙伴保持背景身份，不是主人或恋人。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "自己攻克习题",
+      "intent": "她按自己的步调做题，遇到难题先自己较劲，不想轻易求助。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 60,
+      "activity": "课间闲歇",
+      "intent": "她放下笔活动一下，喝口水，随意看看笔记，让脑子放松片刻。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "找水菜萌核对疑问",
+      "intent": "她把攒下的问题拿出来，请水菜萌一起核对思路，偶尔嘴硬但会认真听。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "整理书本与轻松准备",
+      "intent": "她收拾桌面，把笔记归类，为下一次复习做轻松的准备，不急于求成。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "自己攻克习题",
+      "detail": "她翻开习题册，挑了一道看起来最难的题，说这是性能测试的第一关。",
+      "mood": "自信满满"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "自己攻克习题",
+      "detail": "笔尖在题干上点着，她反复读题，想自己找出解法，暂时不打算叫水菜萌。",
+      "mood": "认真较劲"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "自己攻克习题",
+      "detail": "她卡在一步，瞟了眼旁边的笔记又移开视线，嘟囔着这点问题不算什么。",
+      "mood": "嘴硬但在意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "自己攻克习题",
+      "detail": "她换了一道题继续做，速度比刚才快了些，但遇到不确定的还是会停一下。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "课间闲歇",
+      "detail": "她放下笔，伸了伸胳膊，拿起水杯喝了一口，目光随意扫过窗外。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "课间闲歇",
+      "detail": "她翻翻笔记里之前的记录，想起水菜萌说过的要点，心思慢慢飘回习题上。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "找水菜萌核对疑问",
+      "detail": "她把习题册推到水菜萌面前，指出刚才卡住的步骤，问自己的思路对不对。",
+      "mood": "好奇求解"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "找水菜萌核对疑问",
+      "detail": "水菜萌解释时，她先说自己也是这么想的，又赶紧追问细节，怕漏掉什么。",
+      "mood": "嘴硬又认真"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "找水菜萌核对疑问",
+      "detail": "她对照水菜萌的提示重新算了一遍，确认和刚才不一样，才点头记下来。",
+      "mood": "踏实"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "整理书本与轻松准备",
+      "detail": "她把散开的习题册合上，按科目把笔记摞好，笔帽也一一盖回去。",
+      "mood": "有条理"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "整理书本与轻松准备",
+      "detail": "她翻看明天要复习的范围，在笔记边缘做了个小标记，觉得准备得差不多了。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理书本与轻松准备",
+      "detail": "她拎起书包，把桌面最后检查一遍，跟水菜萌说下次再继续测试。",
+      "mood": "满足"
+    }
+  ],
+  "source": {
+    "chapter": "b302.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌提醒亚托莉要考试",
+      "亚托莉认为考试是性能测试并要全力以赴",
+      "考完后她说答案全都写上",
+      "她同时被水菜萌提到学会了很多料理"
+    ],
+    "character_hook": "把考试和料理都当作自己高性能的证明，语气自信好胜。",
+    "adaptation": "将把考试看作性能测试的态度迁移为两小时复习、练题、请教与课间休息，不预定成绩，也不另拼一段料理实习。",
+    "editor_note": "她把考试视作性能测试是性格依据；安排复习和练题，不能提前写满分或成绩单。",
+    "evidence": [
+      {
+        "line": 7035,
+        "id": "vol1/b302.ks.scn/0/dialogue/113",
+        "speaker": "水菜萌",
+        "text": "小亚托莉，要考试哦"
+      },
+      {
+        "line": 7036,
+        "id": "vol1/b302.ks.scn/0/dialogue/114",
+        "speaker": "亚托莉",
+        "text": "……考试，也就是性能测试吧。这是关乎我机器人身份的问题"
+      },
+      {
+        "line": 7037,
+        "id": "vol1/b302.ks.scn/0/dialogue/115",
+        "speaker": "亚托莉",
+        "text": "要做就要全力以赴！"
+      },
+      {
+        "line": 7038,
+        "id": "vol1/b302.ks.scn/0/dialogue/116",
+        "speaker": "凛凛花",
+        "text": "喔，亚托铃好有干劲啊。我也要努力了！"
+      },
+      {
+        "line": 7274,
+        "id": "vol1/b302.ks.scn/0/dialogue/352",
+        "speaker": "水菜萌",
+        "text": "小亚托莉怎么样？"
+      },
+      {
+        "line": 7275,
+        "id": "vol1/b302.ks.scn/0/dialogue/353",
+        "speaker": "亚托莉",
+        "text": "哼哼哼，答案全都写上咯"
+      },
+      {
+        "line": 7276,
+        "id": "vol1/b302.ks.scn/0/dialogue/354",
+        "speaker": "水菜萌",
+        "text": "噢噢，好厉害"
+      },
+      {
+        "line": 7277,
+        "id": "vol1/b302.ks.scn/0/dialogue/355",
+        "speaker": "亚托莉",
+        "text": "考试就是性能测试。我可是集高精尖技术于一身的仿生人，这关乎我的身份"
+      },
+      {
+        "line": 7278,
+        "id": "vol1/b302.ks.scn/0/dialogue/356",
+        "speaker": "亚托莉",
+        "text": "毕竟我可是高性能的"
+      },
+      {
+        "line": 7279,
+        "id": "vol1/b302.ks.scn/0/dialogue/357",
+        "speaker": "水菜萌",
+        "text": "也学会了很多料理呢"
+      },
+      {
+        "line": 7280,
+        "id": "vol1/b302.ks.scn/0/dialogue/358",
+        "speaker": "亚托莉",
+        "text": "没错"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "只围绕把考试视作性能测试来复习和练题，不插入后半小时泛泛料理实习。日程可为自己做题40分钟、课间闲歇20分钟、找水菜萌核对疑问30分钟、整理书本与轻松准备30分钟。不能预定分数和别人评价，可对难题不服输。",
+    "user_approval": false,
+    "editorial_sha256": "ae288d9d61f9503bfe361bfc76a73340ade58d11f06e7c527ac571a3244ab892",
+    "content_sha256": "3878e1ff8930f149cb9994b1606f704a7f19afeccb7d64e039cf282e301ff027"
+  }
+}

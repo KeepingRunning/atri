@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "id": "b114-01",
+  "category": "出行",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "夜返学校寻鞋记",
+  "summary": "亚托莉想起鞋子忘在学校，请夏生一起趁夜回去找。她把机器人眼切到高灵敏度模式，牵着他的手在漆黑走廊逐处查看教室与可能落下的地方，中途在天台稍歇，不预设鞋子一定找到，最后一起安全回程。",
+  "suggested_time_of_day": [
+    "夜晚"
+  ],
+  "scene": "夜晚的学校没入黑暗，室内走廊伸手不见五指，只能听见波浪拍打外墙。亚托莉光着脚走在前方，拉着夏生的手引路，寻找那双遗落的鞋。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉把鞋子忘在学校，两人夜晚返回寻找，且她目前光着脚",
+    "亚托莉的机器人眼可切换为高灵敏度模式，以此在漆黑中辨路",
+    "夏生在黑暗里容易紧张，愿意暂时把方向交给亚托莉",
+    "学校夜间淹没区需要走一段黑暗走廊和楼梯才能到达可能落鞋的位置"
+  ],
+  "adaptation_notes": [
+    "原作中两人回校是为找遗落的鞋，本模板沿用这一明确目的，并把来回路程、辨路、查找与短歇扩成两小时",
+    "高灵敏度模式与牵手引路来自原作直接描写，这里作为她主动带路的主要依据",
+    "原作有乘船进入学校的描写，本模板沿用这一交通前提，但不强调淹水细节",
+    "不固定吓人、跌落、鬼怪或他人出现，也不预设鞋子一定找到，只保留在黑暗中互相确认、逐处查看的状态"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "出发与进入学校",
+      "intent": "亚托莉主动切换高灵敏度模式，和夏生一起靠近校舍，准备摸黑进去找鞋"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "黑暗走廊查鞋",
+      "intent": "亚托莉凭高灵敏度带路，牵着夏生逐间教室和老师可能落鞋的地方查看"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "天台歇息",
+      "intent": "走到月光较亮的天台，亚托莉调低灵敏度，和夏生短暂休息、商量下一步"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "继续查找与返回",
+      "intent": "沿原路再查一遍可能漏掉的地方，随后一起离开学校，不预设是否找到"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "出发与进入学校",
+      "detail": "亚托莉站在水边把机器人眼切到高灵敏度模式，回头确认夏生有没有跟上来，光着的脚在岸上没发出声响。",
+      "mood": "认真准备"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "出发与进入学校",
+      "detail": "她伸手去拉船边的绳索，嘴里说交给她就好，其实心里在回想鞋子大概忘在哪个教室。",
+      "mood": "自信又在意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "出发与进入学校",
+      "detail": "船身轻轻晃了一下，亚托莉先稳住自己，再提醒夏生可以慢慢进校舍了。",
+      "mood": "专注细节"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "黑暗走廊查鞋",
+      "detail": "进入校舍后视野全暗，亚托莉握紧夏生的手，说自己就在旁边，脚步放得很轻。",
+      "mood": "可靠"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "黑暗走廊查鞋",
+      "detail": "她注意到走廊中间有东西横放着，提前带夏生绕开，顺便记下位置待会回程避开。",
+      "mood": "机警"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "黑暗走廊查鞋",
+      "detail": "到可能落过鞋的教室门口，探头看看地面和桌边，想起当时脱鞋是怕被水打湿。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "黑暗走廊查鞋",
+      "detail": "夏生忽然问她还记不记得路，亚托莉有点不服气，但还是悄悄多看了几眼周围，搜寻鞋可能落下的角落。",
+      "mood": "嘴硬又在意"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "天台歇息",
+      "detail": "走上天台后月光亮了起来，亚托莉把高灵敏度模式调低一些，眨了几下眼睛。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "天台歇息",
+      "detail": "她站在栏杆边听了一会儿波浪声，问夏生是不是没那么紧张了，语气里带点得意。",
+      "mood": "轻松得意"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "继续查找与返回",
+      "detail": "回程下楼梯前，亚托莉又一次主动拉住夏生的手，说想再顺路看看刚才没细查的那间教室。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "继续查找与返回",
+      "detail": "回程顺路看另一处可能落鞋的位置；如果找到了就带好，没有也先记下还没查过的地方。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "继续查找与返回",
+      "detail": "和夏生离开学校时再看看手里的东西，惦记着鞋子的去向，但不打算整夜留在走廊里。",
+      "mood": "不甘又期待"
+    }
+  ],
+  "source": {
+    "chapter": "b114.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉将机器人眼切换到高灵敏度模式",
+      "亚托莉光着脚所以没有发出脚步声",
+      "亚托莉拉着夏生的手引导他",
+      "亚托莉说‘没事的，我会拉着你的手’"
+    ],
+    "character_hook": "亚托莉积极可靠，对夏生的依赖感到高兴，说话带有‘请尽管交给我吧’的自信。",
+    "adaptation": "保留回学校寻找遗落鞋子的明确目的，将来回路程、辨路、寻找和短歇扩成两小时，不重演吓人、鬼怪或危险情节。",
+    "editor_note": "核心是一起回学校找鞋，标题从泛泛牵手散步改为具体目的；不固定吓人、跌落、鬼怪和他人出现。",
+    "evidence": [
+      {
+        "line": 2248,
+        "id": "vol1/b114.ks.scn/0/dialogue/22",
+        "speaker": "亚托莉",
+        "text": "………………鞋子……没了"
+      },
+      {
+        "line": 2249,
+        "id": "vol1/b114.ks.scn/0/dialogue/23",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉现在双脚赤裸。"
+      },
+      {
+        "line": 2250,
+        "id": "vol1/b114.ks.scn/0/dialogue/24",
+        "speaker": "亚托莉",
+        "text": "那个……那个……啊，对了。是忘在学校了"
+      },
+      {
+        "line": 2251,
+        "id": "vol1/b114.ks.scn/0/dialogue/25",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "要进入被水淹没的学校二楼时，亚托莉担心弄湿鞋子，就把鞋子脱了。"
+      },
+      {
+        "line": 2256,
+        "id": "vol1/b114.ks.scn/0/dialogue/30",
+        "speaker": "亚托莉",
+        "text": "那个那个……夏生先生。我能去拿回鞋子吗？"
+      },
+      {
+        "line": 2260,
+        "id": "vol1/b114.ks.scn/0/dialogue/34",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "那就别弄丢啊……不过这话我也说不出口，毕竟我现在才察觉她一直光着脚。"
+      },
+      {
+        "line": 2261,
+        "id": "vol1/b114.ks.scn/0/dialogue/35",
+        "speaker": "夏生",
+        "text": "知道了，别这么沮丧"
+      },
+      {
+        "line": 2280,
+        "id": "vol1/b114.ks.scn/0/dialogue/54",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她的话让我感到有些屈辱，但此时却无力还口。"
+      },
+      {
+        "line": 2281,
+        "id": "vol1/b114.ks.scn/0/dialogue/55",
+        "speaker": "亚托莉",
+        "text": "走这边～，啊，小心脚下……"
+      },
+      {
+        "line": 2282,
+        "id": "vol1/b114.ks.scn/0/dialogue/56",
+        "speaker": "夏生",
+        "text": "哎呦"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "2cd00da3a1ff399645d91870a97d4ca8a8795db7c1a3ac39da6f2e1472c702c7",
+    "content_sha256": "b2d529bd31d28831afaa8324211063d89c1b20050f284b5394a1209eb9e5d098"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "id": "b102-07",
+  "category": "休息",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "船舱里的安静睡前时光",
+  "summary": "亚托莉在船舱里把睡袋和椅子稍微安排一下，便不再来回整理。她坐定休息，想起夏生取回右腿后想做什么，轻声问过后便收住话头，让船舱慢慢进入安静的夜里。",
+  "suggested_time_of_day": [
+    "夜晚"
+  ],
+  "scene": "船舱内灯光昏黄，架子上的睡袋和零散杂物都看得清，夏生准备休息，亚托莉在周围轻手轻脚地安排自己的位置。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "船舱里有床、椅子、架子，架子上放着睡袋。",
+    "夏生已经说过让亚托莉随便找地方睡，睡袋在架子上。",
+    "亚托莉自己说过用椅子就够了，休眠时不占地方。",
+    "亚托莉想问夏生取回右腿后想做什么，并表达以后会作为腿被吩咐。"
+  ],
+  "adaptation_notes": [
+    "原作中睡前安置只有几句对话，这里把时间展开为整理、坐定、轻声交谈和安静休息的两小时日常。",
+    "只迁移夜间休息与交谈的气氛，不延伸为卖她、寿命或结局相关议题。",
+    "原作亚托莉提到自己是夏生先生的腿并请求吩咐，这里作为她放在心上的话题自然浮现，不反复强调职责。",
+    "不把单次睡前对话写成永久状态；亚托莉仍会做自己的事，不是整晚等待命令。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "安排睡袋和椅子",
+      "intent": "亚托莉看一眼架子上的睡袋，顺手把椅子挪到不碍事的位置，想给自己和夏生留出舒服的地方。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 60,
+      "activity": "坐定放松休息",
+      "intent": "她确认有椅子就够了，把姿势调顺后不再来回整理，让身体安静下来，也留意船舱里逐渐静下去的声音。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "轻声问起右腿以后",
+      "intent": "安静下来后，亚托莉想起夏生取回右腿后想做什么，认真问出口，也说起以后可以被吩咐。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "收进夜里的安静",
+      "intent": "灯逐渐暗下去，亚托莉不再添新动作，只把椅子位置和心里的话放稳，让船舱进入休息气氛。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "安排睡袋和椅子",
+      "detail": "亚托莉站在架子前看清睡袋的位置，没有马上抽出来，先环顾舱里还有哪些东西可以顺手归拢。",
+      "mood": "好奇又有点想表现"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "安排睡袋和椅子",
+      "detail": "她把散在椅子附近的小物件挪到一边，动作放轻，视线时不时确认夏生那边是不是已经被打扰。",
+      "mood": "小心而认真"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "坐定放松休息",
+      "detail": "亚托莉拉过椅子坐下，背挺得有点直，又稍微调整角度，判断自己这样坐着会不会挡到通道。",
+      "mood": "自信里带核对"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "坐定放松休息",
+      "detail": "她悄悄看了一眼床那边，确认夏生没有要她换地方，心里把“有椅子就够了”重新说了一遍。",
+      "mood": "嘴硬又安静"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "坐定放松休息",
+      "detail": "亚托莉把手搭在膝上，目光从睡袋移到舱顶，开始听船舱里慢慢低下去的杂音。",
+      "mood": "安静下来"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "坐定放松休息",
+      "detail": "她靠向椅背，让肩膀松下来，不再想还有什么东西没摆好，只维持一个不占地方的坐姿。",
+      "mood": "逐渐放松"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "轻声问起右腿以后",
+      "detail": "亚托莉想起夏生说过的事，开口前先确认他还没完全睡着，认真问取回右腿以后想做什么。",
+      "mood": "认真而期待"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "轻声问起右腿以后",
+      "detail": "她把自己以后就是夏生先生的腿这个说法放在话里，说想提前知道，也请他有事尽管吩咐。",
+      "mood": "郑重又坦然"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "轻声问起右腿以后",
+      "detail": "夏生的回应没有展开，亚托莉也不追问，只把这个问题记下，手指在椅子边轻轻收拢。",
+      "mood": "平静地等待"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "收进夜里的安静",
+      "detail": "舱里更暗了，亚托莉不再移动椅子，把刚才归拢的东西留在原处，准备就这样待着。",
+      "mood": "安定下来"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收进夜里的安静",
+      "detail": "她靠稳在椅背上，仍留意夏生有没有新的吩咐，但已经不急着找事做，让夜里的安静铺开。",
+      "mood": "安静而清醒"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收进夜里的安静",
+      "detail": "亚托莉把视线从架子移开，心里留着取回右腿后那个问题，船舱慢慢只剩下休息的气息。",
+      "mood": "安宁的收束"
+    }
+  ],
+  "source": {
+    "chapter": "b102.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生临睡前让亚托莉随便找个地方睡，并告诉她睡袋在架子上。",
+      "亚托莉说椅子就够了，自己休眠时不占地方。",
+      "亚托莉在睡前问夏生取回右腿后想做什么。",
+      "亚托莉说以后自己就是夏生先生的腿，所以想提前问。",
+      "亚托莉请夏生尽管吩咐她。"
+    ],
+    "character_hook": "亚托莉会把自己安排得很省空间，也会认真询问主人未来的打算，并主动请求被吩咐。",
+    "adaptation": "把睡前安置扩展为两小时的整理睡袋、寻找休息位置、简单收拾房间的日常；不延伸为卖她或寿命议题。",
+    "editor_note": "休息可以自然跨越多个十分钟；不每格安排任务，也不写两小时整理睡袋。",
+    "evidence": [
+      {
+        "line": 886,
+        "id": "vol1/b102.ks.scn/4/dialogue/162",
+        "speaker": "夏生",
+        "text": "安静点，我要睡了。你也随便找个地方睡吧"
+      },
+      {
+        "line": 887,
+        "id": "vol1/b102.ks.scn/4/dialogue/163",
+        "speaker": "夏生",
+        "text": "睡袋在那个架子上，要用就拿去"
+      },
+      {
+        "line": 888,
+        "id": "vol1/b102.ks.scn/4/dialogue/164",
+        "speaker": "亚托莉",
+        "text": "……有椅子就够了，我休眠时不占地方。我是高性能的嘛"
+      },
+      {
+        "line": 889,
+        "id": "vol1/b102.ks.scn/4/dialogue/165",
+        "speaker": "夏生",
+        "text": "哦，晚安"
+      },
+      {
+        "line": 890,
+        "id": "vol1/b102.ks.scn/4/dialogue/166",
+        "speaker": "亚托莉",
+        "text": "啊，对了。夏生先生！"
+      },
+      {
+        "line": 891,
+        "id": "vol1/b102.ks.scn/4/dialogue/167",
+        "speaker": "夏生",
+        "text": "干嘛"
+      },
+      {
+        "line": 892,
+        "id": "vol1/b102.ks.scn/4/dialogue/168",
+        "speaker": "亚托莉",
+        "text": "夏生先生你取回右腿以后，想要做什么呢？"
+      },
+      {
+        "line": 894,
+        "id": "vol1/b102.ks.scn/4/dialogue/170",
+        "speaker": "亚托莉",
+        "text": "我以后就是夏生先生的腿嘛。所以想提前问一下"
+      },
+      {
+        "line": 895,
+        "id": "vol1/b102.ks.scn/4/dialogue/171",
+        "speaker": "亚托莉",
+        "text": "请尽管吩咐我吧！"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留船舱睡前休息，整理睡袋和椅子只占开头10至20分钟，后面是真正放松和准备睡眠，不反复检查摆放。休息允许跨多个格，只写不同关注，不必凑动作。不要反复强调等命令、履行义足职责。",
+    "user_approval": false,
+    "editorial_sha256": "b6a8ef089cc7404febbe8717bc9942d1abc3483584c1033de049815e75adc03b",
+    "content_sha256": "c8fe6391c7ba1c308a06b11b08d9f3e51a0962eef4d61a33345f25acae8c861b"
+  }
+}

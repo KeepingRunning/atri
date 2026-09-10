@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "id": "b202-02",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "拎购物袋去买晚饭",
+  "summary": "亚托莉闹了点小情绪，还是拎着购物袋独自出门买晚饭。她沿商店街看食材，仍惦记着做汉堡肉，但最终按夏生要的简单家常菜买了现成晚饭食材，再回船室整理。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "小镇商店街与回船室的路上，亚托莉独自拎着购物袋，和熟悉她的店主们打招呼、挑晚饭食材。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉能独自拎购物袋去小镇买晚饭，镇上的居民认识她。",
+    "夏生希望晚饭越简单越好，倾向买现成的家常菜食材。",
+    "亚托莉知道汉堡肉的做法并想提议做，但本段夏生没有接受。",
+    "船室里有可以整理和存放食材的地方。"
+  ],
+  "adaptation_notes": [
+    "原作只写到亚托莉拎购物袋出门，采购过程与返回整理均为两小时内的虚构补足。",
+    "夏生拒绝让她做汉堡肉、要家常菜是原作事实，本模板不擅自改成她做成汉堡排。",
+    "镇上居民认识她、称她“学者老师家的孩子”来自原作旁白，作为背景而非新增剧情。",
+    "全程为独立日常，不涉及原作后期回忆或结局相关情节。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "出门与商店街挑选",
+      "intent": "带着被否掉菜单的小情绪出门，又在熟悉的街上看食材，边逛边想怎么把晚饭买得简单合意。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "采购与和店主打招呼",
+      "intent": "在几家店前比较现成菜和食材，被镇民认出来时自然回应，心里还惦记汉堡肉但手上按家常菜挑。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "拎袋返回船室",
+      "intent": "拎着购物袋走回船室，路上放空或看天色，让之前的小情绪慢慢散掉。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "回船室整理与歇息",
+      "intent": "把买回的食材拿出来放好，顺便扫一眼笔记确认还有什么能用，不急着下厨。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "出门与商店街挑选",
+      "detail": "拎起购物袋出门，表情还带着点“切”的余韵，脚步倒是很稳。",
+      "mood": "嘴上闹小情绪"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "出门与商店街挑选",
+      "detail": "走过商店街，先往常去的菜摊方向看，目光在现成小菜和生鲜之间来回。",
+      "mood": "好奇地打量"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "出门与商店街挑选",
+      "detail": "心里还想着汉堡肉，嘀咕夏生不懂搭配，但手上的购物袋仍是空的。",
+      "mood": "小小不服气"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "采购与和店主打招呼",
+      "detail": "在熟识的店前停下，被叫“学者老师家的孩子”时自然点头，顺手看当天有什么现成菜。",
+      "mood": "被认得而习惯"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "采购与和店主打招呼",
+      "detail": "问店主哪种家常菜省事，听完建议又自己核对一遍分量，没把汉堡肉说出口。",
+      "mood": "认真比较"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "采购与和店主打招呼",
+      "detail": "把挑好的食材放进购物袋，觉得这样确实简单，但又不甘心只买这些。",
+      "mood": "有点别扭"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "采购与和店主打招呼",
+      "detail": "在另一家店前又看了一眼汉堡肉用的肉馅，最后还是按说好的买了现成家常菜。",
+      "mood": "短暂动摇"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "拎袋返回船室",
+      "detail": "拎着购物袋往回走，袋子比来时沉了些，步子放慢了一点。",
+      "mood": "安静下来"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "拎袋返回船室",
+      "detail": "路上看天色和街边动静，之前闹的小情绪慢慢淡了，不再一路想着反驳。",
+      "mood": "渐渐平静"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "拎袋返回船室",
+      "detail": "快到船室时换了下拎袋的手，想着回去先放东西，不用急着解释买什么。",
+      "mood": "轻松一点"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "回船室整理与歇息",
+      "detail": "把购物袋里的食材一一拿出来，顺手扫一眼料理笔记附近，确认还有什么能用。",
+      "mood": "收拾得顺手"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "回船室整理与歇息",
+      "detail": "放好东西后靠着歇一会儿，想到晚饭虽然简单，但至少是按计划买回来了。",
+      "mood": "满意地收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b202.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉能独自拎购物袋去买晚饭。",
+      "镇上居民认识她。",
+      "她会询问想吃什么，但本段夏生未接受让她制作汉堡肉的提议。"
+    ],
+    "character_hook": "亚托莉会闹小情绪但还是乖乖出门，询问想吃什么并主动提议菜单。",
+    "adaptation": "以亚托莉独自去商店街采购晚饭食材为中心，可在两小时内完成选购、和店主打招呼、回船室整理食材。",
+    "editor_note": "与买汉堡排食材的模板区分，本条是买现成晚饭、看店铺和返回。",
+    "evidence": [
+      {
+        "line": 4689,
+        "id": "vol1/b202.ks.scn/0/dialogue/391",
+        "speaker": "亚托莉",
+        "text": "闲着也是闲着，我去买些东西"
+      },
+      {
+        "line": 4690,
+        "id": "vol1/b202.ks.scn/0/dialogue/392",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉摆出一副闹小情绪的表情。似乎因为我不理她，惹她不高兴了。"
+      },
+      {
+        "line": 4691,
+        "id": "vol1/b202.ks.scn/0/dialogue/393",
+        "speaker": "夏生",
+        "text": "好，拜托你了"
+      },
+      {
+        "line": 4692,
+        "id": "vol1/b202.ks.scn/0/dialogue/394",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "最近，一个人行动的危险程度降低了。"
+      },
+      {
+        "line": 4693,
+        "id": "vol1/b202.ks.scn/0/dialogue/395",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "小镇的人都记得她，称她是“学者老师家的孩子”。因为她是被称作学者老师的我的仿生人。"
+      },
+      {
+        "line": 4694,
+        "id": "vol1/b202.ks.scn/0/dialogue/396",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "所以，我让她独自出去买晚饭的频率提高了。"
+      },
+      {
+        "line": 4695,
+        "id": "vol1/b202.ks.scn/0/dialogue/397",
+        "speaker": "亚托莉",
+        "text": "想吃什么？啊，我来给你做汉堡肉吃怎么样"
+      },
+      {
+        "line": 4699,
+        "id": "vol1/b202.ks.scn/0/dialogue/401",
+        "speaker": "亚托莉",
+        "text": "切……我出门了"
+      },
+      {
+        "line": 4700,
+        "id": "vol1/b202.ks.scn/0/dialogue/402",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉拎着购物袋出门了。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "日常围绕独自采购、和店主打招呼、按夏生要求买现成家常菜而非做汉堡肉，符合改编边界；两小时分配在出门挑选、采购、返回和整理上，节奏合理，未出现把他人行为归给亚托莉、新增设定或提前断言味道成效等实质问题。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "日常围绕独自采购、和店主打招呼、按夏生要求买现成家常菜而非做汉堡肉，符合改编边界；两小时分配在出门挑选、采购、返回和整理上，节奏合理，未出现把他人行为归给亚托莉、新增设定或提前断言味道成效等实质问题。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "5b23f5115fdd3b316021396c01b94222866c06e536289c2a00170f38b744cc2b",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "3b111482f2b424922496db7f65ac2dbe9da481eb7ce9657d684f4e18a8b7389f"
+  }
+}

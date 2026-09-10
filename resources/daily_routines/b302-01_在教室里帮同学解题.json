@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "id": "b302-01",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "教室里的两小时复习会",
+  "summary": "亚托莉在期末考试前的教室里来回走动，和洋子等人一起复习，给同学们讲题、核对答案，中途也听听大家的问题，把这段复习会安排得认真又自然的日常。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "学校教室中，课桌按年级拼在一起，同学们各自摊开笔记和习题，亚托莉在桌间来回走动，帮大家看题和讲思路。",
+  "participants": [
+    "亚托莉",
+    "洋子",
+    "凛凛花",
+    "水菜萌",
+    "龙司"
+  ],
+  "preconditions": [
+    "期末考试前，教室被布置成按年级拼桌的自习环境",
+    "亚托莉目前是班内成绩最好的学生，愿意指导其他同学",
+    "同学们手边有复习题和笔记，可以向亚托莉提问",
+    "夏生暂时不在教室，亚托莉替他照看大家的学习"
+  ],
+  "adaptation_notes": [
+    "原作中只有一小段亚托莉在各桌之间指导、被洋子夸奖后得意回应，本模板把这节课扩展为两小时复习会",
+    "亚托莉替缺席的夏生指导同学，但夏生回到教室后自然加入，不把教室写成只有她一个人的教学现场",
+    "复习内容围绕考试前的题目和笔记展开，不新增原作没有的科目或竞赛活动",
+    "被夸奖时她仍会得意回应，但两小时里也有提问、核对和休息，不把每个格子都写成同样的模式"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "在桌间来回看题",
+      "intent": "亚托莉先看大家复习到哪，找出需要帮忙的题目，顺便确认每个人手边的材料够不够。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "给洋子等人讲题",
+      "intent": "她按自己的理解把思路讲清楚，会注意同学有没有听懂，也愿意换一种说法再说一遍。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "出小题互相检查",
+      "intent": "她挑几道有代表性的题让大家当场做，然后一起对答案，看看哪些地方还容易错。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收尾与轻松闲聊",
+      "intent": "复习节奏慢下来，大家整理笔记和卷子，亚托莉也听听同学们随便聊聊考试之外的事。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "在桌间来回看题",
+      "detail": "亚托莉从第一排开始慢慢走，看到有人对着习题停住笔，就凑过去看是什么地方卡住了。",
+      "mood": "好奇又认真"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "在桌间来回看题",
+      "detail": "洋子桌上摊着几道计算题，纸边折了角，亚托莉先记住她做到哪一题，没有马上开口。",
+      "mood": "留意观察"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "在桌间来回看题",
+      "detail": "凛凛花和水菜萌在讨论一道题，亚托莉站在旁边听了一会儿，确认她们的分歧在哪。",
+      "mood": "安静旁听"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "在桌间来回看题",
+      "detail": "龙司把椅子往后仰，说这种题对夏生来说不算什么，亚托莉瞄了一眼他的答案有没有写错。",
+      "mood": "有点在意"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "给洋子等人讲题",
+      "detail": "亚托莉拿起洋子的笔，把关键那一步圈出来，说这里要这样看，声音不大但很确定。",
+      "mood": "自信满满"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "给洋子等人讲题",
+      "detail": "洋子说原来如此，夸她很聪明，亚托莉得意地哼了一声，又马上低头确认洋子自己能不能重做一遍。",
+      "mood": "得意又嘴硬"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "给洋子等人讲题",
+      "detail": "水菜萌问了一道类似但条件不太一样的题，亚托莉想了一下，承认这题要换个角度想。",
+      "mood": "认真思考"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "出小题互相检查",
+      "detail": "亚托莉挑了两道题让大家限时做，自己在桌间慢慢走，看谁先写完，也看有没有人漏看条件。",
+      "mood": "专注监督"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "出小题互相检查",
+      "detail": "凛凛花举手说和课本上的例题不太一样，亚托莉把两边写法并排放在桌上对照。",
+      "mood": "乐意解释"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "出小题互相检查",
+      "detail": "大家互相看对方写的步骤，亚托莉也拿起龙司的草稿纸，指着一处说这里可以再检查。",
+      "mood": "平静核对"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收尾与轻松闲聊",
+      "detail": "复习告一段落，同学们开始收笔记和卷子，亚托莉把刚才用过的笔放回洋子桌上。",
+      "mood": "自然放松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾与轻松闲聊",
+      "detail": "有人聊起考试后想做什么，亚托莉坐在桌边听着，偶尔插一句，没再提讲题的事。",
+      "mood": "轻松随意"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "在桌间来回看题",
+        "from_minutes": [
+          0,
+          35
+        ],
+        "to_minutes": [
+          0,
+          40
+        ]
+      },
+      {
+        "activity": "给洋子等人讲题",
+        "from_minutes": [
+          35,
+          70
+        ],
+        "to_minutes": [
+          40,
+          70
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b302.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉在教室里来回指导同学学习",
+      "她给洋子讲解题目，洋子夸她聪明",
+      "亚托莉自称高性能",
+      "她因缺席的夏生不在而替他指导其他学生"
+    ],
+    "character_hook": "被夸奖时用“哼哼！我是高性能的嘛！”得意回应，既认真又孩子气。",
+    "adaptation": "把考试前的一节课扩展成两小时复习会：亚托莉轮流到各组桌边讲题、出小测、检查答案，中途接受同学提问。",
+    "editor_note": "本段明确亚托莉会给洋子等同学讲题，可保留教学角色；与夏生负责的发电、音乐课不能混淆。",
+    "evidence": [
+      {
+        "line": 7063,
+        "id": "vol1/b302.ks.scn/0/dialogue/141",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "回到教室后，大家正按年级将桌子拼到一起自习，复习着今早凯瑟琳宣布的期末考试。"
+      },
+      {
+        "line": 7064,
+        "id": "vol1/b302.ks.scn/0/dialogue/142",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉则在各桌之间来回忙活着。"
+      },
+      {
+        "line": 7065,
+        "id": "vol1/b302.ks.scn/0/dialogue/143",
+        "speaker": "亚托莉",
+        "text": "这里啊，是这样解的。听好了……"
+      },
+      {
+        "line": 7066,
+        "id": "vol1/b302.ks.scn/0/dialogue/144",
+        "speaker": "洋子",
+        "text": "哇，原来如此。亚托莉亲是个很聪明的机器人呢"
+      },
+      {
+        "line": 7067,
+        "id": "vol1/b302.ks.scn/0/dialogue/145",
+        "speaker": "亚托莉",
+        "text": "哼哼！我是高性能的嘛！"
+      },
+      {
+        "line": 7068,
+        "id": "vol1/b302.ks.scn/0/dialogue/146",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉现在是班内成绩最好的学生。因为我刚才不在，她就替我指导其他学生的学习吧。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "复习会结构合理，教学角色与“高性能”得意回应均在直接依据范围内，未出现结局、事故、能力故障或假历史，也没有把别人的行为归给亚托莉；整体动作分配符合普通自习节奏，未构成明显拖时长。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "复习会结构合理，教学角色与“高性能”得意回应均在直接依据范围内，未出现结局、事故、能力故障或假历史，也没有把别人的行为归给亚托莉；整体动作分配符合普通自习节奏，未构成明显拖时长。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "9450380e1fa814b31ac625239f33ac3e41501609b6da3de170f54fa0f85125cb",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "4d879e9826b87a52d0b5bcf2c26e0f1bba550528e3fd6f76145e7cd1bd50b8cf"
+  }
+}

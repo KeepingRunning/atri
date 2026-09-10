@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "id": "b302-02",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "肉店采购与带可乐饼回船",
+  "summary": "亚托莉列好晚饭要用的肉，独自去肉店点单；在商店街顺路买晚饭所需配菜，也遇到可买的可乐饼，然后带回船边和夏生、龙司一起分享，收好食材。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "黄昏前的商店街与肉店，亚托莉提着购物袋穿行；回船后的小甲板或厨房一角，袋里有肉、配菜和热腾腾的可乐饼。",
+  "participants": [
+    "亚托莉",
+    "肉店老板娘",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "晚饭需要用的肉还没买，亚托莉打算自己跑一趟",
+    "虚构背景中有一家熟悉的肉店，老板娘待人亲切",
+    "亚托莉身上带着买肉和配菜的零钱与购物袋",
+    "夏生和龙司在船边等晚饭，知道亚托莉去买东西了"
+  ],
+  "adaptation_notes": [
+    "原作中老板娘当场赠送可乐饼，本模板只保留“带回分享”这个活动方向，不预定每次免费获赠或味道如何；她也可以自己买来。",
+    "亚托莉对老板娘说“我是高性能的嘛♪”是原作台词，此处作为自然自信的回应，不重复成口号。",
+    "夏生和龙司作为背景伙伴出现，不写成主人或恋人关系，也不增加原作没有的身体接触。",
+    "列清单和出门准备压缩在最初十分钟内，后续两小时以出行、采购、分享与整理为主。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "出门前确认晚饭清单",
+      "intent": "亚托莉想自己把肉和配菜买对，迅速想清楚要买什么、大概多少，不太愿意被小看。"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 40,
+      "activity": "肉店点单与寒暄",
+      "intent": "她走进肉店向老板娘点单，被夸可爱时自然得意，也好奇店里的肉和可乐饼。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "商店街顺路挑配菜",
+      "intent": "手里已有肉，她沿商店街看看晚饭所需配菜，也遇到可买的可乐饼。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "回船分享与整理",
+      "intent": "她把东西带回给夏生他们，递上可乐饼一起分着吃，再把肉和菜收好。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "收好食材后歇口气",
+      "intent": "晚饭材料就绪，她确认还差什么，顺便歇一歇，不急着把每个动作都拉长。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "出门前确认晚饭清单",
+      "detail": "站在船边翻购物袋，默念晚饭要买的肉和配菜，把清单折好塞进口袋。",
+      "mood": "认真又嘴硬"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "肉店点单与寒暄",
+      "detail": "走进肉店，指着冷柜里的肉说“请给我这个——”，声音比平时认真一点。",
+      "mood": "集中精神"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "肉店点单与寒暄",
+      "detail": "被老板娘夸可爱，顺口回“我是高性能的嘛♪”，说完自己也觉得挺自然。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "肉店点单与寒暄",
+      "detail": "看到柜台上也卖可乐饼，问老板娘能不能带几个，心里已经在想分给夏生他们。",
+      "mood": "有点馋"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "商店街顺路挑配菜",
+      "detail": "提着袋子走在商店街，盘算晚饭要配什么菜，眼睛在蔬菜摊上转。",
+      "mood": "悠闲"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "商店街顺路挑配菜",
+      "detail": "蹲下来看西红柿和洋葱，拿起又放下，想配肉又怕买多了拿不动。",
+      "mood": "拿不定主意"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "商店街顺路挑配菜",
+      "detail": "在路边长椅歇一小会儿，把袋子放在膝上，注意别让可乐饼被压到。",
+      "mood": "稍微放松"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "回船分享与整理",
+      "detail": "远远看见夏生和龙司，加快脚步回去，喊一声“久等啦——”。",
+      "mood": "轻快"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "回船分享与整理",
+      "detail": "把可乐饼递过去，说刚炸的，然后偷看他们要不要分自己一半。",
+      "mood": "想被认可"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "收好食材后歇口气",
+      "detail": "把肉和配菜放进该放的地方，重新核对晚饭还差什么，顺手把袋子折好。",
+      "mood": "踏实"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收好食材后歇口气",
+      "detail": "坐到一边咬口可乐饼，听夏生和龙司聊天，不急着插话。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收好食材后歇口气",
+      "detail": "把最后一点碎屑吃掉，看看购物清单，觉得晚饭的材料差不多齐了。",
+      "mood": "满足"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "回船分享与整理",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          90
+        ]
+      },
+      {
+        "activity": "收好食材后歇口气",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          90,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b302.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉独自出去买晚饭",
+      "她走进肉店向老板娘点单",
+      "老板娘夸她可爱并送可乐饼",
+      "亚托莉道谢后把东西带回给夏生他们"
+    ],
+    "character_hook": "对老板娘也自然说出“我是高性能的嘛♪”，被指出嘴馋时会恼羞反驳。",
+    "adaptation": "以两小时采购为中心：先列晚饭所需、去肉店挑肉、和老板娘寒暄、顺便在商店街买配菜，再回船整理食材。",
+    "editor_note": "和买汉堡排食材的模板区分：重点在肉店小食与带回分享。可乐饼是店家当时送的，模板不强制每次免费赠送或预定味道。",
+    "evidence": [
+      {
+        "line": 7164,
+        "id": "vol1/b302.ks.scn/0/dialogue/242",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉一个人出去买晚饭了。"
+      },
+      {
+        "line": 7165,
+        "id": "vol1/b302.ks.scn/0/dialogue/243",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "说曹操曹操到，亚托莉正好提着购物袋走进了旁边的肉店。"
+      },
+      {
+        "line": 7166,
+        "id": "vol1/b302.ks.scn/0/dialogue/244",
+        "speaker": "亚托莉",
+        "text": "请给我这个——"
+      },
+      {
+        "line": 7167,
+        "id": "vol1/b302.ks.scn/0/dialogue/245",
+        "speaker": "肉店老板娘",
+        "text": "哎呀，欢迎光临，小亚托莉。你今天也很可爱呢"
+      },
+      {
+        "line": 7168,
+        "id": "vol1/b302.ks.scn/0/dialogue/246",
+        "speaker": "亚托莉",
+        "text": "是的。我是高性能的嘛♪"
+      },
+      {
+        "line": 7169,
+        "id": "vol1/b302.ks.scn/0/dialogue/247",
+        "speaker": "肉店老板娘",
+        "text": "我家女儿也受学者老师关照了。送你一个可乐饼哦"
+      },
+      {
+        "line": 7170,
+        "id": "vol1/b302.ks.scn/0/dialogue/248",
+        "speaker": "亚托莉",
+        "text": "非常感谢！"
+      },
+      {
+        "line": 7171,
+        "id": "vol1/b302.ks.scn/0/dialogue/249",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉向肉店老板娘轻轻点头，接过东西后就跑到了我们这边。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留肉店采购与想吃可乐饼，不预定老板白送。清单准备并入出门10分钟，沿商店街走、买晚饭所需的已知食材、遇到可买的可乐饼后带回分享。删除老板记得上次买什么的假历史，别全程操作清点。",
+    "user_approval": false,
+    "editorial_sha256": "f801d6a5d3f8e9c597ec37277dc9c982ed652f9588c2888eb85016b677a41734",
+    "content_sha256": "5c3ae685f475fab5f0df80e92c9cad71f7f42b86b083b84bb3d3b354bec02d8c"
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "b205-01",
+  "category": "料理",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "汉堡肉三明治便当",
+  "summary": "亚托莉在家用已备好的汉堡肉加热、夹进吐司做成三明治便当，装盒后和夏生去公园。两人在长凳上打开便当用餐，亚托莉留意芥末量但不预定结果，饭后收拾、看海闲歇，度过悠闲的两小时。",
+  "suggested_time_of_day": [
+    "上午",
+    "中午"
+  ],
+  "scene": "虚构的家中厨房与附近公园：亚托莉在料理台前组装汉堡肉三明治便当，随后与夏生走到公园坐在长凳上用餐，饭后一起看海闲歇。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉与夏生约好今天一起出门悠闲度过，没有定下具体目的地",
+    "家中厨房备有吐司、已做好的汉堡肉、芥末等虚构食材与便当盒、外出包和荷包",
+    "夏生已完成外出准备，正在等亚托莉装满便当",
+    "亚托莉会做汉堡肉并做成三明治，目前只学会了汉堡肉的做法"
+  ],
+  "adaptation_notes": [
+    "原作中便当完成与出门是简写，两小时扩展为加热组装、装盒出行、公园用餐与看海闲歇的连续过程",
+    "原作提到亚托莉当时只学会了汉堡肉的做法，扩展保留这一状态，不引入其他菜式，也不写成永久限制",
+    "芥末量是原作中亚托莉在意的点，扩展中让她留意用量，但不预定放多、吃哭或味道结果",
+    "原作中荷包是到野餐地点后从包里拿出的，扩展沿用这一顺序，便当盒先放进外出包"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "加热组装与装盒",
+      "intent": "亚托莉把已备好的汉堡肉加热夹进吐司，装进便当盒，留意芥末量，不想被小看。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 50,
+      "activity": "去公园",
+      "intent": "亚托莉背上外出包和夏生一起走去公园，路上聊便当和野餐安排，对之后打开便当抱有期待。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 80,
+      "activity": "长凳用餐",
+      "intent": "两人在公园长凳上打开荷包里的便当，亚托莉观察夏生吃三明治的反应，准备调整芥末量。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 110,
+      "activity": "看海闲歇",
+      "intent": "吃完后两人坐着看海闲歇，亚托莉把空便当盒收好，聊起料理和之后的安排。"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾",
+      "intent": "亚托莉把便当盒和荷包收回包里，确认没有落下东西，准备结束这次外出。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "加热组装与装盒",
+      "detail": "亚托莉把已备好的汉堡肉加热，按自己的步骤夹进吐司，偶尔瞟一眼料理笔记核对火候。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "加热组装与装盒",
+      "detail": "三明治装进便当盒，亚托莉在芥末量上多停了一下，想自己决定，暂时还不想让夏生接手。",
+      "mood": "嘴硬但认真"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "去公园",
+      "detail": "把便当盒放进外出包，沿着去公园的路慢慢走，已经有点期待找个地方打开便当。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "去公园",
+      "detail": "她走在前头，对公园没有定下目的地这件事觉得新鲜，偶尔回头确认夏生跟上了。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "去公园",
+      "detail": "快到长凳时，亚托莉把包带正了正，想着待会打开便当盒的样子。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "长凳用餐",
+      "detail": "亚托莉从包里拿出包裹便当的荷包，打开便当盒，请夏生先吃。",
+      "mood": "自信"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "长凳用餐",
+      "detail": "夏生咬下三明治后，亚托莉观察他的表情，同时留意自己放芥末的量是不是合适。",
+      "mood": "在意"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "长凳用餐",
+      "detail": "自己也拿起一块三明治尝咸淡，觉得用学过的汉堡肉换一种吃法很有意思。",
+      "mood": "不甘又得意"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "看海闲歇",
+      "detail": "亚托莉把便当盒盖上放到一旁，和夏生一起看着海面，暂时不说话也不觉得尴尬。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "看海闲歇",
+      "detail": "她提起以后想学别的料理，又觉得汉堡肉也不错，语气里带着对下次的好奇。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "看海闲歇",
+      "detail": "亚托莉把空便当盒收进荷包，顺手整理包里的东西，问夏生接下来想去哪。",
+      "mood": "自然"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾",
+      "detail": "她确认便当盒和荷包都收回包里，没有落下东西，背好包准备离开长凳。",
+      "mood": "有条理"
+    }
+  ],
+  "source": {
+    "chapter": "b205.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉会做汉堡肉，并做成三明治",
+      "亚托莉目前只学会了汉堡肉的做法",
+      "夏生觉得亚托莉的汉堡肉很好吃",
+      "亚托莉会调整芥末量以改进味道"
+    ],
+    "character_hook": "亚托莉对自己的料理充满自信，说“肯定会很好吃的哦”，并得意地称高性能。",
+    "adaptation": "可将制作便当过程扩展为两小时：从准备食材、制作汉堡肉、组装三明治到装盒，亚托莉边做边向夏生说明。",
+    "editor_note": "原文是吐司夹汉堡肉，芥末的量是她在意的点；不预定放过量、吃哭别人或味道成功。汉堡排可事先备好，时间含装盒与出行准备。",
+    "evidence": [
+      {
+        "line": 5515,
+        "id": "vol1/b205.ks.scn/0/dialogue/2",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "做好齐全的外出准备后，等着亚托莉装满便当。"
+      },
+      {
+        "line": 5517,
+        "id": "vol1/b205.ks.scn/0/dialogue/4",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉盖上便当盒，宣言道。"
+      },
+      {
+        "line": 5519,
+        "id": "vol1/b205.ks.scn/0/dialogue/6",
+        "speaker": "夏生",
+        "text": "我很期待。昨天的晚饭也很好吃"
+      },
+      {
+        "line": 5704,
+        "id": "vol1/b205.ks.scn/0/dialogue/191",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "里面是吐司夹着的汉堡肉三明治。"
+      },
+      {
+        "line": 5705,
+        "id": "vol1/b205.ks.scn/0/dialogue/192",
+        "speaker": "亚托莉",
+        "text": "……对不起和昨天晚上的是同样的料理我现在只学会了汉堡肉的制作方法"
+      },
+      {
+        "line": 5706,
+        "id": "vol1/b205.ks.scn/0/dialogue/193",
+        "speaker": "夏生",
+        "text": "没关系的。亚托莉的汉堡肉很好吃的"
+      },
+      {
+        "line": 5722,
+        "id": "vol1/b205.ks.scn/0/dialogue/209",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉掀开三明治的面包，减少芥末的量。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "4256a8167fdd71e04f9bebaf9e01662a5dc8474cedd46b53c41eb6a4de5ac081",
+    "content_sha256": "8bd3420a74109e34ea8d99056fc04eaac35fa6d172466bb66f3429675f496422"
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "id": "b205-05",
+  "category": "玩耍",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "公园海边的凉水小打闹",
+  "summary": "亚托莉和夏生在公园海边脱鞋泡脚、踢水嬉戏，从试探水温到互相泼水，累了便坐在岸边晒脚聊天，最后收拾好鞋子慢慢走回长椅。",
+  "suggested_time_of_day": [
+    "下午"
+  ],
+  "scene": "公园靠海一侧的浅水边，午后阳光洒在波浪上，长椅和便当盒留在树荫下。亚托莉和夏生卷起裤脚，在浅水里玩水。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "两人已在公园长椅边吃完便当、喝完茶，有一段空闲时间",
+    "公园海边有安全的浅水区，允许脱鞋下水",
+    "亚托莉穿着便于卷裤脚和脱鞋的衣物",
+    "夏生没有拿拐杖，但行动不受限，可以自行走到岸边"
+  ],
+  "adaptation_notes": [
+    "原作572-575附近亚托莉脱鞋跑到海里，扬起水花，说凉凉的很舒服",
+    "原作576附近亚托莉把水花踢到夏生身上，并说想还手的话就来这里",
+    "原作577附近夏生也脱鞋来到岸边，和亚托莉互相泼水嬉戏",
+    "原作后续夏生因忘记拐杖而摔倒，本模板删去该意外，仅保留浅水玩水和小打闹"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "脱鞋泡脚试水温",
+      "intent": "亚托莉先跑到浅水边，想试试海水凉不凉，夏生在岸边看着，两人慢慢放松下来。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "踢水互相泼水玩闹",
+      "intent": "亚托莉调皮地踢水到夏生身上，夏生也掬水还击，两人像小孩子一样在浅水里嬉戏。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "坐岸边晒脚歇息",
+      "intent": "玩累了回到岸边坐着，让脚上的水珠被风吹干，聊几句海水的凉意和刚才的水花。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收拾鞋袜走回长椅",
+      "intent": "把鞋穿好、卷下的裤脚放平，沿着岸边慢慢走回树荫下的长椅，准备结束这段玩水时光。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "脱鞋泡脚试水温",
+      "detail": "亚托莉蹲下来脱掉鞋子，卷起裤脚，先把脚尖探进海水里，被凉意激得轻轻缩了一下。",
+      "mood": "期待又有点试探"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "脱鞋泡脚试水温",
+      "detail": "她踩进浅水，水花在脚边散开，回头喊夏生也来试试，说凉凉的很舒服。",
+      "mood": "得意地推荐"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "脱鞋泡脚试水温",
+      "detail": "夏生走到岸边卷起裤脚，亚托莉在浅水里小步走动，感受海水从脚背流过。",
+      "mood": "放松下来"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "踢水互相泼水玩闹",
+      "detail": "亚托莉悄悄用脚掌舀起水，趁夏生没防备踢过去，水花溅到他的裤子上。",
+      "mood": "调皮得逞"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "踢水互相泼水玩闹",
+      "detail": "夏生掬起一捧水还击，亚托莉笑着往旁边跳开，水波在两人之间荡来荡去。",
+      "mood": "笑闹开心"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "踢水互相泼水玩闹",
+      "detail": "亚托莉宣称已经掌握了夏生的攻击模式，结果被下一捧水泼中肩膀，发出小小的惊呼。",
+      "mood": "嘴硬又惊讶"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "踢水互相泼水玩闹",
+      "detail": "两人在浅水边来回泼水，亚托莉的笑声和海浪声混在一起，她顺手把湿发拨到耳后。",
+      "mood": "投入忘我"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "坐岸边晒脚歇息",
+      "detail": "亚托莉先回到岸边坐下，把脚悬在浅水上，看着水珠沿着脚踝滑下去。",
+      "mood": "微微喘气"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "坐岸边晒脚歇息",
+      "detail": "夏生也坐到旁边，亚托莉用脚趾轻轻划水，说海水虽然凉但晒一会儿就舒服了。",
+      "mood": "平静满足"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "坐岸边晒脚歇息",
+      "detail": "她低头检查裤脚湿到哪里，又望向海面，觉得刚才互相泼水像小孩子一样。",
+      "mood": "有点不好意思"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收拾鞋袜走回长椅",
+      "detail": "亚托莉站起来，把脚在干沙上蹭了蹭，再一一穿好鞋子，系紧鞋带。",
+      "mood": "认真收拾"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾鞋袜走回长椅",
+      "detail": "两人沿着岸边慢慢走回树荫下的长椅，亚托莉回头看了一眼浅水处，觉得两小时过得很快。",
+      "mood": "余味轻松"
+    }
+  ],
+  "source": {
+    "chapter": "b205.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉脱下鞋子跑到海里，扬起水花",
+      "亚托莉觉得海水凉凉的很舒服",
+      "夏生也脱鞋到岸边，和亚托莉互相泼水",
+      "两人像小孩子一样在水中嬉戏"
+    ],
+    "character_hook": "亚托莉笑着喊“夏生先生快看，凉凉的很舒服的哦”，并调皮地踢水到夏生身上说“想还手的话就来这里♪”。",
+    "adaptation": "可将泡脚、踢水、互相泼水扩展为两小时海边玩耍，注意安全且不涉及夏生摔倒的意外。",
+    "editor_note": "保留浅水边泡脚、玩水和得意；去掉夏生跌入海中、救援及身体亲密。",
+    "evidence": [
+      {
+        "line": 5752,
+        "id": "vol1/b205.ks.scn/0/dialogue/239",
+        "speaker": "亚托莉",
+        "text": "啊哈哈哈，好凉"
+      },
+      {
+        "line": 5754,
+        "id": "vol1/b205.ks.scn/0/dialogue/241",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉脱下鞋子跑到海里，扬起水花喧闹着。"
+      },
+      {
+        "line": 5755,
+        "id": "vol1/b205.ks.scn/0/dialogue/242",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "波浪反射着阳光，让亚托莉的周围闪闪发亮。"
+      },
+      {
+        "line": 5758,
+        "id": "vol1/b205.ks.scn/0/dialogue/245",
+        "speaker": "亚托莉",
+        "text": "呣……嘿♪"
+      },
+      {
+        "line": 5759,
+        "id": "vol1/b205.ks.scn/0/dialogue/246",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉把水花踢到了我身上。"
+      },
+      {
+        "line": 5763,
+        "id": "vol1/b205.ks.scn/0/dialogue/250",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我也脱掉了鞋子，拿着连拐杖都没有拿，来到了岸边。"
+      },
+      {
+        "line": 5764,
+        "id": "vol1/b205.ks.scn/0/dialogue/251",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "然后把手泡在水中掬起一捧水。"
+      },
+      {
+        "line": 5766,
+        "id": "vol1/b205.ks.scn/0/dialogue/253",
+        "speaker": "亚托莉",
+        "text": "呣……有你的啊！嘿，嘿♪"
+      },
+      {
+        "line": 5774,
+        "id": "vol1/b205.ks.scn/0/dialogue/261",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我和亚托莉就像小孩子一样，沐浴在水中嬉戏着。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "outcome",
+        "location": "routine.micro 50-60（以及80-90）",
+        "detail": "“海水虽然凉但晒一会儿就舒服了”以及“被下一捧水泼中肩膀”的细节不是问题，但“宣称已经掌握了夏生的攻击模式”后立刻被泼中是原作5770-5772的顺序；这里不是错误，不构成issue。"
+      },
+      {
+        "kind": "duration",
+        "location": "macro 0-120 与 micro 分段",
+        "detail": "整体两小时被拆成试水温30分钟、泼水40分钟、晒脚30分钟、收拾20分钟；其中泼水40分钟、晒脚30分钟、收拾20分钟都以同一小动作（踢水/泡脚/穿鞋）反复填充，属于把小动作拉满时长，缺少生活衔接，需改为合理主要活动加用餐/短歇。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "角色与核心动作符合direct证据，未捏造菜品或能力，也未把夏生摔倒救援写入；但时长分配把玩水、晒脚、收拾各自拉得过长，建议压缩为主要玩水段加岸边短歇与自然收尾。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "outcome",
+            "location": "routine.micro 50-60（以及80-90）",
+            "detail": "“海水虽然凉但晒一会儿就舒服了”以及“被下一捧水泼中肩膀”的细节不是问题，但“宣称已经掌握了夏生的攻击模式”后立刻被泼中是原作5770-5772的顺序；这里不是错误，不构成issue。"
+          },
+          {
+            "kind": "duration",
+            "location": "macro 0-120 与 micro 分段",
+            "detail": "整体两小时被拆成试水温30分钟、泼水40分钟、晒脚30分钟、收拾20分钟；其中泼水40分钟、晒脚30分钟、收拾20分钟都以同一小动作（踢水/泡脚/穿鞋）反复填充，属于把小动作拉满时长，缺少生活衔接，需改为合理主要活动加用餐/短歇。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "角色与核心动作符合direct证据，未捏造菜品或能力，也未把夏生摔倒救援写入；但时长分配把玩水、晒脚、收拾各自拉得过长，建议压缩为主要玩水段加岸边短歇与自然收尾。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "f6c0c91ff46b47d6d32e62a81f411617f210be783e54831f24cdb700f8d98009",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "3fa1dfde75d46c579a8cfe560bf69f5840fcd4666cfd93e8468d9a48be3b9c22"
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "id": "b407-10",
+  "category": "记录",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": true,
+  "title": "蚯蚓爬的旧笔迹",
+  "summary": "亚托莉在旧研究日志最后一页发现一段像蚯蚓爬的字迹，先猜是古代文字，再请夏生帮忙辨认；从查看、询问到对照相邻几行，中途停下来看看窗外，最后把已看过的部分收好，不急着补全所有内容。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "室内桌边，旧研究日志摊在最后一页，旁边是几份零散旧文件，窗外光线可以看清纸面。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "有一本可查看的旧研究日志，最后一页留有与亚托莉笔记不同的潦草笔迹。",
+    "桌边有阅读空间，可以摊开旧文件对照相邻几行。",
+    "夏生在场并愿意帮忙辨认祖母留下的字迹。",
+    "辨认范围只限普通旧笔迹的查看与对照，不涉及遗言、伊甸任务或日志秘密。"
+  ],
+  "adaptation_notes": [
+    "原作中这段祖母笔迹与留言、伊甸任务相关；本模板只迁移‘辨认旧笔迹’这一日常动作。",
+    "原作中夏生读出了祖母留下的信息；本模板不预设辨认结果，也不由亚托莉给出古文字专家式判断。",
+    "亚托莉的自信与不服气来自角色性格，不表示她能直接解读任何手写文本，也不把她的日志混入其中。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "发现并查看陌生笔迹",
+      "intent": "亚托莉翻到旧研究日志最后一页，想弄清楚这段像蚯蚓爬的字到底是什么。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "询问与对照相邻行",
+      "intent": "她先猜是古代文字，再请夏生帮忙看看，并挑几行相邻内容对照辨认。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "停下看看窗外歇会儿",
+      "intent": "辨认告一段落，她把笔放下，视线移向窗外，让眼睛和思路都松一松。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "收好已辨认部分",
+      "intent": "把看过的几行折好或夹好，收起旧文件，暂时不急着补全剩下的内容。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "发现并查看陌生笔迹",
+      "detail": "亚托莉把旧研究日志翻到最后一页，指着那段跟自己的字走向完全不同的笔迹。",
+      "mood": "好奇又有点不服气"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "发现并查看陌生笔迹",
+      "detail": "她先凑近细看，再退一点扫过整页，觉得这些字太省略，不像普通印刷体。",
+      "mood": "认真观察"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "发现并查看陌生笔迹",
+      "detail": "她把旧研究日志转向夏生，问这段是不是古代文字，语气里带着一点不甘心。",
+      "mood": "嘴硬但仍想确认"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "询问与对照相邻行",
+      "detail": "夏生指出这是外婆的字，亚托莉愣了一下，随即问能不能试着读出来。",
+      "mood": "意外但更好奇"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "询问与对照相邻行",
+      "detail": "她把旧文件摊在旁边，想找出同一人的其他笔迹来比对笔画习惯。",
+      "mood": "专注比对"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "询问与对照相邻行",
+      "detail": "有几行连夏生也读得卡顿，亚托莉嘀咕这不能怪她认不出来，手却还在翻页。",
+      "mood": "不服输"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "停下看看窗外歇会儿",
+      "detail": "她把笔搁下，揉了揉眼睛，视线从旧研究日志移到窗外明亮的远处。",
+      "mood": "放松下来"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "停下看看窗外歇会儿",
+      "detail": "夏生也没有继续读，两人安静了一会儿，亚托莉忽然想起其中一行的形状。",
+      "mood": "安静地放空"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "停下看看窗外歇会儿",
+      "detail": "她没有马上回到桌前，只把刚才觉得眼熟的一行记在心里，打算等一下再看。",
+      "mood": "不急不躁"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "收好已辨认部分",
+      "detail": "亚托莉把已经看过的那几行折好，夹进旧文件里，没有继续往后面硬读。",
+      "mood": "平静收拢"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收好已辨认部分",
+      "detail": "她把旧研究日志合上，和散开的文件叠在一起，桌边慢慢恢复整齐。",
+      "mood": "踏实整理"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收好已辨认部分",
+      "detail": "收完东西，她的视线又回到旧研究日志的封面，记着还有没认完的部分留到以后。",
+      "mood": "留有余味"
+    }
+  ],
+  "source": {
+    "chapter": "b407.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉展示一段难以读懂的笔迹。",
+      "她把它猜作古代文字。",
+      "夏生认出是祖母潦草的字，并尝试读出来。"
+    ],
+    "character_hook": "连文字都认不出来让她不服气，先怀疑语言问题，之后认真听人解释。",
+    "adaptation": "只提取普通旧笔迹的辨认、对照与整理，不使用原剧情遗言、伊甸任务或祖母的具体秘密；需有可查看的旧笔记作为场景前提。",
+    "editor_note": "回查原文后补充的独立活动或明确愿望；依据与扩展边界见候选。",
+    "evidence": [
+      {
+        "line": 11350,
+        "id": "vol1/b407.ks.scn/0/dialogue/125",
+        "speaker": "亚托莉",
+        "text": "「啊，对了。夏生先生，你知道这个是什么吗？」"
+      },
+      {
+        "line": 11351,
+        "id": "vol1/b407.ks.scn/0/dialogue/126",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉打开了一个老的日志，给我看。"
+      },
+      {
+        "line": 11352,
+        "id": "vol1/b407.ks.scn/0/dialogue/127",
+        "speaker": "亚托莉",
+        "text": "「昨天找到的……」"
+      },
+      {
+        "line": 11353,
+        "id": "vol1/b407.ks.scn/0/dialogue/128",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "最后一页并列着和亚托莉的笔记不同，像是蚯蚓爬一样的文字。"
+      },
+      {
+        "line": 11354,
+        "id": "vol1/b407.ks.scn/0/dialogue/129",
+        "speaker": "亚托莉",
+        "text": "「……像是文字但是无法解读。这个语言我也不知道。这是古代文字吗？」"
+      },
+      {
+        "line": 11355,
+        "id": "vol1/b407.ks.scn/0/dialogue/130",
+        "speaker": "夏生",
+        "text": "「……外婆的字」"
+      },
+      {
+        "line": 11356,
+        "id": "vol1/b407.ks.scn/0/dialogue/131",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她是个说话过于省略，有时候自己都读不懂自己写的字的人。"
+      },
+      {
+        "line": 11357,
+        "id": "vol1/b407.ks.scn/0/dialogue/132",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她写的字就摆在亚托莉的日志的最后一页里。以前看的时候都没注意到。"
+      },
+      {
+        "line": 11359,
+        "id": "vol1/b407.ks.scn/0/dialogue/134",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我尽量地翻译好读出来。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "旧研究日志笔迹难懂，她猜像古代文字、夏生可说明是祖母字迹；不把她写成古文字专家。看选中的几行和询问即可，不连续两小时抄录圈注同一页；中间看窗外歇会儿，收好已辨认部分。不要捏造日志秘密或把她自己的日志混进去。",
+    "user_approval": false,
+    "editorial_sha256": "d8dd5809deb03b57db1dabe00c59e9d2f7592c2cf6ed52a64f1fc213e5602ec2",
+    "content_sha256": "08bbb90f4c80fe4dd05daa9a7cb94cb8d3119ecf063f696da0053347400614cf"
+  }
+}

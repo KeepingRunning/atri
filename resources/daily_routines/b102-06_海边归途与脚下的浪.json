@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "id": "b102-06",
+  "category": "出行",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "日落海堤归船路",
+  "summary": "亚托莉陪夏生沿傍晚海边公路走回停船的栈桥，保持留意潮水与脚下，扶助行走不便的夏生，途中歇一次看路况，最后把注意力放到船与栈桥间的安全衔接上。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "夕阳斜照的海边公路上只有亚托莉与夏生两人，一侧是退涨不定的海面，一侧是通往栈桥的返程路，天色正一点点暗下来。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "夏生行走不太稳，路面常被涌上来的海水打湿",
+    "亚托莉熟悉回船的方向，愿意在前带路",
+    "傍晚海边公路上暂时只有他们两个",
+    "终点是停放船只的栈桥"
+  ],
+  "adaptation_notes": [
+    "原作此段有大浪拍脚、险些跌倒、被亚托莉扶住与‘高性能’对话；模板淡化为日常同行，只保留留意潮水与扶助。",
+    "原作结尾亚托莉把夏生举起越上船；两小时日常不含托举与身体接触，只到听见‘怎么了？’并关注栈桥衔接处为止。",
+    "原作人物对话按背景伙伴处理，不安排恋爱承诺与义足竞争描写。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "沿岸起步",
+      "intent": "确认脚下与潮线，把回船方向定下来，亚托莉走在靠海一侧留意路面。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "中途缓行",
+      "intent": "约半程后停顿休息，看看海面与远处栈桥，顺手扶一把走在湿路上的夏生。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "栈桥接近",
+      "intent": "重新起步，路灯未亮前盯紧石板与栏杆，留意船只随水浮动的距离。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "船前停步",
+      "intent": "站上栈桥，注意力落到船与栈桥之间的空隙，听夏生说停下后问一句怎么了。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "沿岸起步",
+      "detail": "亚托莉先看看脚下被海水打湿的公路，再朝回船方向张望，确认路线。",
+      "mood": "认真起步"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "沿岸起步",
+      "detail": "走在外侧，注意到浪偶尔漫过路面，便稍稍放慢步子等夏生跟上。",
+      "mood": "留意潮水"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "沿岸起步",
+      "detail": "顺口说起这一带退潮时露出石阶、涨潮时会盖过路面，提醒别踩到湿滑处长苔的地方。",
+      "mood": "有点得意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "沿岸起步",
+      "detail": "余光扫到夏生走路不太稳，往他那边靠了靠，但没有直接伸手。",
+      "mood": "嘴上不说"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "中途缓行",
+      "detail": "在略高一点的干燥路沿停下，回头看看来路，也望望远处栈桥的位置。",
+      "mood": "稍作停顿"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "中途缓行",
+      "detail": "趁歇脚说刚才那几道浪其实不小，还比划了一下浪到路边时的高度。",
+      "mood": "语气平常"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "中途缓行",
+      "detail": "见夏生脚下有点飘，便扶住他的手臂让他站稳，顺便往内侧让了半步。",
+      "mood": "顺手帮忙"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "栈桥接近",
+      "detail": "重新起步后仍然靠海一侧，盯着石板缝和潮线，确认这一段比前面干。",
+      "mood": "继续留心"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "栈桥接近",
+      "detail": "路变窄时走得更慢，注意栏杆有没有缺口和松动的部分。",
+      "mood": "谨慎看路"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "栈桥接近",
+      "detail": "栈桥的轮廓清楚起来，水面上船的影子随着浪一起一伏，她多看了两眼。",
+      "mood": "心里有数"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "船前停步",
+      "detail": "站上栈桥后，注意到船与桥面之间那道随浪开合的空隙，先停下没急着往前。",
+      "mood": "留意衔接"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "船前停步",
+      "detail": "天色暗下来，脚边已看不太清，她听夏生停下便转头，问一句怎么了。",
+      "mood": "平静发问"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "中途缓行",
+        "from_minutes": [
+          40,
+          75
+        ],
+        "to_minutes": [
+          40,
+          70
+        ]
+      },
+      {
+        "activity": "栈桥接近",
+        "from_minutes": [
+          75,
+          105
+        ],
+        "to_minutes": [
+          70,
+          100
+        ]
+      },
+      {
+        "activity": "船前停步",
+        "from_minutes": [
+          105,
+          120
+        ],
+        "to_minutes": [
+          100,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b102.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夕阳下海边公路上只有夏生和亚托莉两人。",
+      "大浪拍向夏生脚下，他失去平衡，亚托莉扶住了他。",
+      "亚托莉得意地说还是自己比较高性能。",
+      "亚托莉说这里很危险，主动提出一起走。",
+      "亚托莉拉着夏生的手走上返程的路，之后在栈桥前停下。"
+    ],
+    "character_hook": "亚托莉会立刻扶住夏生，并得意地强调自己的性能，同时主动判断“这里很危险”并带路。",
+    "adaptation": "以“傍晚陪夏生走海边安全路段、辅助他行走”为日常，淡化浪打事故，只保留扶助与同行。",
+    "editor_note": "保留留意潮水与帮助伙伴行走；去掉险些跌倒、落水、义足竞争与恋爱承诺。",
+    "evidence": [
+      {
+        "line": 794,
+        "id": "vol1/b102.ks.scn/4/dialogue/70",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "夕阳下的海边公路上，只剩下我们两个。"
+      },
+      {
+        "line": 797,
+        "id": "vol1/b102.ks.scn/4/dialogue/73",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们沉默着站在路上时，一道大浪拍向我的脚下。"
+      },
+      {
+        "line": 798,
+        "id": "vol1/b102.ks.scn/4/dialogue/74",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我失去了平衡——"
+      },
+      {
+        "line": 799,
+        "id": "vol1/b102.ks.scn/4/dialogue/75",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "但亚托莉扶住了险些跌倒的我。"
+      },
+      {
+        "line": 800,
+        "id": "vol1/b102.ks.scn/4/dialogue/76",
+        "speaker": "亚托莉",
+        "text": "怎么样～，还是我比较高性能吧？"
+      },
+      {
+        "line": 802,
+        "id": "vol1/b102.ks.scn/4/dialogue/78",
+        "speaker": "亚托莉",
+        "text": "这里很危险。我们走吧，夏生先生"
+      },
+      {
+        "line": 803,
+        "id": "vol1/b102.ks.scn/4/dialogue/79",
+        "speaker": "夏生",
+        "text": "嗯，好"
+      },
+      {
+        "line": 804,
+        "id": "vol1/b102.ks.scn/4/dialogue/80",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉拉着我的手走上了返程的路。"
+      },
+      {
+        "line": 805,
+        "id": "vol1/b102.ks.scn/4/dialogue/81",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "回到船前，我在栈桥上停下了脚步。"
+      },
+      {
+        "line": 806,
+        "id": "vol1/b102.ks.scn/4/dialogue/82",
+        "speaker": "亚托莉",
+        "text": "怎么了？"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "other",
+        "location": "micro 20-30 / 50-60 / adaptation_notes",
+        "detail": "候选把“高性能”梗完全抹掉，但本段核心恰恰是亚托莉扶住夏生后得意宣称自己更高性能；adaptation只要求淡化浪打事故、去掉险些跌倒/落水/义足竞争，并不要求删除其角色标志性的炫耀语气。当前微格只让她平静讲解潮水与提示路滑，丢失了character_hook中“得意地强调自己的性能”这一受保护特征，使亚托莉退化成普通陪护者。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "整体时段分配（走回40min+歇脚+接近栈桥）符合日常出行节奏，没有拖时长或捏造菜品/设定；主要问题是把亚托莉的“高性能”得意口吻彻底删除，建议在扶助或提醒潮水时保留一句轻度自夸，以维持角色原本的语气特征。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "other",
+            "location": "micro 20-30 / 50-60 / adaptation_notes",
+            "detail": "候选把“高性能”梗完全抹掉，但本段核心恰恰是亚托莉扶住夏生后得意宣称自己更高性能；adaptation只要求淡化浪打事故、去掉险些跌倒/落水/义足竞争，并不要求删除其角色标志性的炫耀语气。当前微格只让她平静讲解潮水与提示路滑，丢失了character_hook中“得意地强调自己的性能”这一受保护特征，使亚托莉退化成普通陪护者。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "整体时段分配（走回40min+歇脚+接近栈桥）符合日常出行节奏，没有拖时长或捏造菜品/设定；主要问题是把亚托莉的“高性能”得意口吻彻底删除，建议在扶助或提醒潮水时保留一句轻度自夸，以维持角色原本的语气特征。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "b588297ae33e3aa7ed8b82e288497c50f241bba54795346dd3a073e7b39b1c6b",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "014c0ef90362cc6f82e833b9d2016dfdb85dc88edc2fd0b5dc3367e770353dc2"
+  }
+}

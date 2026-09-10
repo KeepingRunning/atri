@@ -12,7 +12,7 @@ from atri_bot.model import ModelError
 from atri_bot.storage import GroupLog, read_jsonl
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import GateDecision, ReplyAssessment, ReplyConfig, ReplyWillingness
-from test_bot import ROOT, raw
+from test_bot import ROOT, raw, daytime
 
 
 class GateTests(unittest.TestCase):
@@ -134,7 +134,7 @@ class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({'1', '2'}), self_id='99')
         self.model = JudgingModel()
-        self.bot = Bot(self.config, self.model)
+        self.bot = Bot(self.config, self.model, now=daytime)
         self.sent = []
 
     async def asyncTearDown(self):
@@ -206,7 +206,7 @@ class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
         await self.submit()
         await self.bot.close()
         self.config.reply.frequency = 0
-        self.bot = Bot(self.config, self.model)
+        self.bot = Bot(self.config, self.model, now=daytime)
         for gid, expected in ((2, 'ignored'), (1, 'sent')):
             data = raw(mid=2, gid=gid, mention=False, text='还有一个问题')
             data['message'].insert(0, {'type': 'reply', 'data': {'id': '501'}})

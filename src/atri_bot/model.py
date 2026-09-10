@@ -1,4 +1,6 @@
 import asyncio
+from contextlib import contextmanager
+from contextvars import ContextVar
 import json
 import logging
 import time
@@ -10,6 +12,28 @@ from .context import WILLINGNESS_OUTPUT_RULES
 from .logging_setup import preview
 
 log = logging.getLogger("atri.model")
+_request_allowed = ContextVar("atri_model_request_allowed", default=None)
+
+
+class ModelRequestBlocked(RuntimeError):
+    """The message is no longer eligible for a model request; do not retry or fall back."""
+
+
+@contextmanager
+def guard_model_requests(allowed):
+    # Task-local: concurrent groups and standalone API tests do not share this guard.
+    token = _request_allowed.set(allowed)
+    try:
+        yield
+    finally:
+        _request_allowed.reset(token)
+
+
+def check_request_allowed(purpose):
+    allowed = _request_allowed.get()
+    if allowed is not None and not allowed():
+        log.info("[模型请求拦截] 用途=%s 消息已因睡眠失效，不请求或重试", purpose)
+        raise ModelRequestBlocked("Message blocked by sleep policy")
 
 
 class ModelError(RuntimeError):
@@ -25,12 +49,15 @@ class ChatModel:
     def __init__(self, config, session):
         self.config, self.session = config, session
 
-    async def complete(self, messages, *, max_output_tokens=None, model=None, purpose="reply"):
+    async def complete(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False):
+        check_request_allowed(purpose)
         self.config.require_live()
         payload = {"model": model or self.config.model, "messages": messages,
                    self.config.output_limit_field: max_output_tokens or self.config.max_output_tokens}
         if self.config.thinking:
             payload["thinking"] = {"type": self.config.thinking}
+        if json_mode:
+            payload["response_format"] = {"type": "json_object"}
         started = time.perf_counter()
         log.info("[请求开始] 用途=%s 模型=%s 消息条数=%d 输出上限=%d 超时=%.1fs",
                  purpose, payload["model"], len(messages), payload[self.config.output_limit_field], self.config.llm_timeout)
@@ -39,6 +66,9 @@ class ChatModel:
                   sum(len(str(m.get("content", ""))) for m in messages), self.config.output_limit_field)
         if self.config.thinking:
             log.debug("[思考模式] 用途=%s thinking=%s", purpose, self.config.thinking)
+        # Check immediately before HTTP submission, including every judgment retry.
+        # Keep this outside error conversion: blocking is not a provider failure.
+        check_request_allowed(purpose)
         try:
             async with self.session.post(
                 self.config.base_url.rstrip("/") + "/chat/completions",
@@ -89,6 +119,7 @@ class ChatModel:
                 return assessment
             except ModelError as exc:
                 exc.attempts = attempt
+                check_request_allowed("willingness")
                 if attempt == 3:
                     log.error("[判断重试耗尽] 已尝试3次（首次+2次重试），错误=%s", exc.code)
                     raise

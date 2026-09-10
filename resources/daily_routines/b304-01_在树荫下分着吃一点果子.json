@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "id": "b304-01",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "树荫下分食无名果",
+  "summary": "亚托莉傍晚醒来，与夏生坐在树荫下分食他采回的无名果子。她想自己剥皮、自己动手，对摘果和果子的味道都好奇；两人慢慢吃完，收拾果皮后闲聊闲歇，以傍晚的安静收尾。",
+  "suggested_time_of_day": [
+    "傍晚"
+  ],
+  "scene": "太阳西沉时的树荫下，夏生带着采回的果子，亚托莉刚醒来，两人坐在树旁分食果子，度过一段自然安闲的傍晚时光。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "夏生已经采回一些无名果子，果子是虚构前提，不指定品种。",
+    "亚托莉刚醒来，能坐着说话和吃东西，但状态未必完全恢复。",
+    "场景在树荫下，附近有可以坐的平地或草坡。",
+    "有干净布或叶子可临时放果皮果核。"
+  ],
+  "adaptation_notes": [
+    "原作中夏生采回果子并剥皮、两人一起吃完，这里把过程扩展为两小时的普通分食、闲歇与收拾。",
+    "按修订要求去掉性能崩溃醒来、喂食和固定酸味评价；只保留亚托莉自己吃、对味道的直接反应由实际RP决定。",
+    "亚托莉对亲手摘果有兴趣来自原作她说“明天我去摘”，本模板保留这个倾向，但不假定她会辨认野果或真的去摘。",
+    "原作人物夏生以背景伙伴身份参与，不写成主人或恋人关系。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "醒后打量果子",
+      "intent": "亚托莉刚醒来，注意到夏生带回的果子，想弄清自己现在能帮上什么，不太愿被当成需要照顾的一方。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "树荫下分食果子",
+      "intent": "两人一起剥果子吃，亚托莉想自己动手，对果子的味道和夏生剥皮的动作都留意；酸不酸、好不好吃由实际入口决定。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "慢慢吃完与闲聊",
+      "intent": "果子吃到后半，聊到外面还有很多果子，亚托莉惦记着明天去摘的事，也顺口问摘果的地方远不远。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收拾果皮歇息",
+      "intent": "把果皮果核拢好，在树荫下再坐一会儿，让傍晚自然收尾，不急着安排下一件事。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "醒后打量果子",
+      "detail": "亚托莉慢慢回过神，看见夏生放在一旁的果子，先盯着看了一会儿。",
+      "mood": "刚醒，有点在意"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "醒后打量果子",
+      "detail": "她试着活动手指，觉得自己还没完全恢复，但不想一直干坐着。",
+      "mood": "不想被小看"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "醒后打量果子",
+      "detail": "夏生把果子递过来，亚托莉接过，想自己剥皮试试，眼睛往果子上打量。",
+      "mood": "好奇，想动手"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "树荫下分食果子",
+      "detail": "亚托莉自己剥果子，手指还不太灵便，但坚持先不让夏生帮忙。",
+      "mood": "嘴硬，认真"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "树荫下分食果子",
+      "detail": "她咬下第一口，对味道的直接反应还没定，只是慢慢嚼着，留意这是什么感觉。",
+      "mood": "认真品尝"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "树荫下分食果子",
+      "detail": "夏生也拿起一个吃，亚托莉一边吃一边看他剥皮的动作，心里默默记着。",
+      "mood": "观察，不太甘心"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "树荫下分食果子",
+      "detail": "她小声说自己明天也能去摘，但马上又觉得现在的状态还说不准，没有把话说满。",
+      "mood": "跃跃欲试又迟疑"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "慢慢吃完与闲聊",
+      "detail": "果子还剩几个，亚托莉放慢速度，问夏生外面长果子的地方远不远。",
+      "mood": "放松，好奇"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "慢慢吃完与闲聊",
+      "detail": "夏生说外边还有不少，亚托莉点头，说那明天也可以再吃这个。",
+      "mood": "自然，有点期待"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "慢慢吃完与闲聊",
+      "detail": "最后一点果子分完，亚托莉把果核放在叶子上，没再逞强说大话。",
+      "mood": "安静，满足"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收拾果皮歇息",
+      "detail": "她把果皮和果核拢到一起，想自己拿去丢掉，动作慢但做得认真。",
+      "mood": "踏实，肯做"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾果皮歇息",
+      "detail": "收拾完，亚托莉在树荫下坐回去，看着傍晚的天色，说明天的事明天再说。",
+      "mood": "平静，略带倦意"
+    }
+  ],
+  "source": {
+    "chapter": "b304.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生采回并剥开果子。",
+      "亚托莉品尝果子，原文未给果实品种。",
+      "亚托莉说自己之后也想去摘。"
+    ],
+    "character_hook": "亚托莉对果子酸味有直接反应，被酸到脸皱起来仍说好吃；对夏生采果和剥皮感到在意，认为是机器人职责被抢。",
+    "adaptation": "将岛上采果、剥果、喂食延伸到两小时，可加入一起找果子、洗净、慢慢品尝和收拾果皮。",
+    "editor_note": "不假定她亲自采摘过或能鉴别野果，不给果实编品种；去掉喂食、无力和自我贬低，普通分食与休息。",
+    "evidence": [
+      {
+        "line": 7731,
+        "id": "vol1/b304.ks.scn/0/dialogue/0",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "太阳西沉时分，亚托莉再次醒来。"
+      },
+      {
+        "line": 7754,
+        "id": "vol1/b304.ks.scn/0/dialogue/23",
+        "speaker": "夏生",
+        "text": "我采了果子回来，先吃饭吧"
+      },
+      {
+        "line": 7760,
+        "id": "vol1/b304.ks.scn/0/dialogue/29",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我剥开果皮，递到她嘴边。"
+      },
+      {
+        "line": 7761,
+        "id": "vol1/b304.ks.scn/0/dialogue/30",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉注视着眼前的果子。"
+      },
+      {
+        "line": 7771,
+        "id": "vol1/b304.ks.scn/0/dialogue/40",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉用嘴接住我手中的果子，被酸到脸都皱了起来。"
+      },
+      {
+        "line": 7772,
+        "id": "vol1/b304.ks.scn/0/dialogue/41",
+        "speaker": "亚托莉",
+        "text": "酸酸的真好吃……"
+      },
+      {
+        "line": 7792,
+        "id": "vol1/b304.ks.scn/0/dialogue/61",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉像小鸟乞食一样张开嘴，我将果子喂到她的口中。"
+      },
+      {
+        "line": 7794,
+        "id": "vol1/b304.ks.scn/0/dialogue/63",
+        "speaker": "亚托莉",
+        "text": "酸酸的真好吃……"
+      },
+      {
+        "line": 7797,
+        "id": "vol1/b304.ks.scn/0/dialogue/66",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "一本正经道歉的亚托莉也很可爱，我们就这样一起吃完了果子。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留树荫下分食夏生摘来的无名果子，不生造水果品种。去掉刚从性能崩溃醒来、喂食和固定酸味评价；普通接过果子自己吃允许。原作证明有这种果子，不代表本次必须相同味道，亚托莉可对亲手摘果有兴趣。",
+    "user_approval": false,
+    "editorial_sha256": "6e5059850e5b67055f728a451f64f31e30e0c65cf793b2311444a95053658ce4",
+    "content_sha256": "a978c1e4bea6ee682dd29c6b78303f05db909180fda7c8606a375c92ed4d0340"
+  }
+}

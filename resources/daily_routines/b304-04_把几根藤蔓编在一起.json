@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "id": "b304-04",
+  "category": "劳动",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "藤蔓编绳与拐杖捆扎",
+  "summary": "亚托莉和夏生把粗壮藤蔓缠成绳子并绑在拐杖上，作为手工编织练习。亚托莉对做法好奇，想自己来，也会核对结实程度和捆扎是否牢靠，中间短暂休息和收拾。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "岛上的树荫下，几根粗壮的蔓草和一根旧拐杖放在手边。亚托莉与夏生准备把藤蔓编成绳子，再试着捆到拐杖上。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "手边有粗壮结实的藤蔓或蔓草若干",
+    "有一根可用来练习捆扎的旧拐杖",
+    "夏生在场，愿意提出做法并帮忙核对",
+    "亚托莉愿意尝试手工劳动，但不想被完全代劳"
+  ],
+  "adaptation_notes": [
+    "原作中蔓草和拐杖是紧急逃生工具，本模板将采集、编织、捆扎过程改编为地面上的普通手工练习。",
+    "不复刻投掷拐杖、渡水逃生或绳子承重等情节，只围绕编绳和捆扎本身展开。",
+    "原作亚托莉先问‘这样要怎么浮起来’，再配合执行；这里保留她对做法好奇和配合的态度，不加入逃生压力。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "准备藤蔓与拐杖",
+      "intent": "亚托莉想自己上手挑选藤蔓，夏生在旁说明粗细和长度，她边听边比划，对能不能编成绳子半信半疑。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "把几根藤蔓缠成绳",
+      "intent": "亚托莉和夏生各拿几根藤蔓，尝试交叉缠绕和打结；亚托莉想自己完成一段，偶尔瞟一眼夏生的手法来核对。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "将绳子捆到拐杖上",
+      "intent": "把编好的藤绳绕在拐杖上并系紧；亚托莉在意捆得牢不牢，会拉扯两下试试，也会问夏生这样对不对。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收尾与歇息",
+      "intent": "解开练习用的捆扎，把藤蔓和拐杖归拢到一边；亚托莉对编绳有了点手感，随口聊刚才哪一步最费劲。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "准备藤蔓与拐杖",
+      "detail": "亚托莉蹲下来拨了拨几根蔓草，挑出看起来最粗的那根，抬头问夏生这根够不够长。",
+      "mood": "好奇，带点干劲"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "准备藤蔓与拐杖",
+      "detail": "夏生示范怎么把藤蔓表面的小刺和杂叶捋掉，亚托莉跟着做，手上动作比想象中慢一点。",
+      "mood": "认真，稍显笨拙"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "准备藤蔓与拐杖",
+      "detail": "亚托莉把拐杖横放在膝盖上比了比，不太确定绳子要留多长，转头看夏生怎么估量。",
+      "mood": "拿不准，但想自己判断"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "把几根藤蔓缠成绳",
+      "detail": "两人各拿几根藤蔓开始交叉缠绕，亚托莉缠了两圈发现松了，拆开重来，嘴里小声念着要缠紧一点。",
+      "mood": "不服输"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "把几根藤蔓缠成绳",
+      "detail": "夏生帮她按住一端，亚托莉腾出手来编另一段，眼睛盯着藤蔓走向，怕自己漏掉一根。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "把几根藤蔓缠成绳",
+      "detail": "编到一半，亚托莉停下来摸了摸接合处，觉得还不够结实，问夏生要不要再多绕一道。",
+      "mood": "将信将疑"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "把几根藤蔓缠成绳",
+      "detail": "藤绳初具形状，亚托莉试着拉了拉两端，脸上有点得意，但还是又检查了一遍交叉的位置。",
+      "mood": "小得意，不忘核对"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "将绳子捆到拐杖上",
+      "detail": "亚托莉把藤绳绕在拐杖顶端，夏生提醒留出打结的余量，她一边绕一边瞟绳子会不会滑。",
+      "mood": "谨慎"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "将绳子捆到拐杖上",
+      "detail": "打结时亚托莉想自己来，手指绕了几次才收紧，结打好后轻轻拽了拽拐杖上的绳圈。",
+      "mood": "想证明自己能行"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "将绳子捆到拐杖上",
+      "detail": "夏生指出一处缠绕有点斜，亚托莉凑近看了看，承认确实不太整齐，重新调整了两圈。",
+      "mood": "有点不好意思，但肯改"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收尾与歇息",
+      "detail": "练习告一段落，亚托莉把拐杖靠到树边，解开捆扎的藤绳，顺手把散落的蔓草拢成一堆。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾与歇息",
+      "detail": "亚托莉坐在旁边歇口气，回想刚才哪一步最花时间，说下次想试试编得更长一点。",
+      "mood": "平静，有点期待"
+    }
+  ],
+  "source": {
+    "chapter": "b304.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生提议用缠在树上的蔓草和拐杖",
+      "蔓草粗壮结实，几根缠在一起做成绳子",
+      "绳子被捆在拐杖上",
+      "亚托莉说‘我试试’并参与投掷"
+    ],
+    "character_hook": "亚托莉对夏生的方案先问‘这样要怎么浮起来’，得到‘按我说的做’后仍配合执行。",
+    "adaptation": "将采集蔓草、编织绳子、捆扎拐杖的过程扩展为两小时手工劳动，去除紧急逃生的危险压力。",
+    "editor_note": "由紧急逃生时两人一起缠蔓草改编成地面上的普通编绳练习；不复刻投掷拐杖、渡水逃生，也不许诺绳子承重。",
+    "evidence": [
+      {
+        "line": 8101,
+        "id": "vol1/b304.ks.scn/0/dialogue/370",
+        "speaker": "夏生",
+        "text": "就用缠在树上的蔓草吧，还有这根拐杖"
+      },
+      {
+        "line": 8103,
+        "id": "vol1/b304.ks.scn/0/dialogue/372",
+        "speaker": "夏生",
+        "text": "别问，按我说的做"
+      },
+      {
+        "line": 8104,
+        "id": "vol1/b304.ks.scn/0/dialogue/373",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "蔓草粗壮结实，我们用几根缠在一起做成绳子。"
+      },
+      {
+        "line": 8105,
+        "id": "vol1/b304.ks.scn/0/dialogue/374",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "然后将绳子捆在拐杖上。"
+      },
+      {
+        "line": 8106,
+        "id": "vol1/b304.ks.scn/0/dialogue/375",
+        "speaker": "夏生",
+        "text": "像掷标枪那样把拐杖丢到船前，能行吗？"
+      },
+      {
+        "line": 8107,
+        "id": "vol1/b304.ks.scn/0/dialogue/376",
+        "speaker": "亚托莉",
+        "text": "我试试"
+      }
+    ]
+  },
+  "review": {
+    "type": "model_editorial_review",
+    "issues": [],
+    "verdict": "pass",
+    "note": "改编边界明确：把紧急逃生改写为地面手工练习，未复刻投掷渡水、未许诺承重，也未引入机器人充电等生理设定；藤蔓挑选、缠绳、捆扎的时间分配基本合理，没有靠同一小动作反复检查撑满两小时，角色关注点在手工配合与试探结实的自然范围内，无实质性问题。",
+    "revision_count": 0,
+    "history": [
+      {
+        "type": "json_object",
+        "issues": [],
+        "verdict": "pass",
+        "note": "改编边界明确：把紧急逃生改写为地面手工练习，未复刻投掷渡水、未许诺承重，也未引入机器人充电等生理设定；藤蔓挑选、缠绳、捆扎的时间分配基本合理，没有靠同一小动作反复检查撑满两小时，角色关注点在手工配合与试探结实的自然范围内，无实质性问题。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "859b25a3086ef03c2f1a2eb36840ca567df4260d85d5363e2af11191d23d9db5",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "defb58a3f52eaecad1cc2fb968cd679c207d77e68c6279067b9cdb73a16e84b0"
+  }
+}

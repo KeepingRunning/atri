@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "id": "b114-05",
+  "category": "记录",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "夜晚写日志与安静共处",
+  "summary": "夜里亚托莉拿出笔记本写日志，夏生在一旁忙自己的事。她安静记下当天见闻，犯困时歇一会儿，后来注意到夏生还在写，忍不住问了一句，两人在宁静中各自书写。",
+  "suggested_time_of_day": [
+    "夜晚"
+  ],
+  "scene": "夜晚的房间里，夏生伏案写着东西，亚托莉坐在旁边翻开笔记本，一笔一笔写下今天的日志，房间只余纸笔声。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉手边有一本可以写日志的笔记本和一支笔",
+    "夏生在桌前忙自己的事情，注意力集中在手头资料上",
+    "房间环境安静，可供两人各自书写",
+    "亚托莉有写日志的习惯，愿意记下当天经历"
+  ],
+  "adaptation_notes": [
+    "原作中写日志场景只持续一小段对话，本模板将日志记录与安静共处扩展为约两小时。",
+    "原作中亚托莉犯困打哈欠、自言自语、注意到夏生未睡；扩展把这些反应分散在相邻时间格里，不新增身体机制或现实能力。",
+    "写日志、边写边自言自语、留意夏生属于原作已有行为，两小时内的歇息、补记、再记录是创作补足。",
+    "时间框定为普通夜晚，不延伸为通宵、一夜未睡或天亮收尾，也不预设笔记本是当天早上才买的。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 50,
+      "activity": "摊开笔记本写日志",
+      "intent": "趁夜里安静把今天的见闻记下来，也想看看这本本子写起来顺不顺手，偶尔念出正在写的句子。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 70,
+      "activity": "犯困时歇一歇",
+      "intent": "困意上来，先合上本子放空一会儿，不急着填满每一分钟，顺便注意到夏生那边还在写。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "补记与回头看",
+      "intent": "重新翻开本子，把刚才漏掉的细节补上，也琢磨夏生到底在写什么、要不要开口问。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "合上本子安静待着",
+      "intent": "日志写到收尾，没打算立刻走开，留在旁边安静待着，目光偶尔落到夏生那边。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "摊开笔记本写日志",
+      "detail": "翻开笔记本先写下日期，笔尖在纸面上试了试，觉得写得还算顺手，就开始记今天的事。",
+      "mood": "兴致不错"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "摊开笔记本写日志",
+      "detail": "一边写一边小声念出句子，写到某个词时停了一下，想了想换成自己更满意的说法。",
+      "mood": "认真回想"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "摊开笔记本写日志",
+      "detail": "抬头看了一眼夏生，他还在翻资料、写东西。亚托莉低头继续写自己的日志。",
+      "mood": "安静留意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "摊开笔记本写日志",
+      "detail": "写到今天觉得有意思的地方，笔速快了些，边写边在脑子里补下一句该怎么接。",
+      "mood": "有点投入"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "摊开笔记本写日志",
+      "detail": "翻页时纸角折了一下，停下来把它抚平，又看了看前后两页的排版是否整齐。",
+      "mood": "在意细节"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "犯困时歇一歇",
+      "detail": "打了一个哈欠，笔尖悬在半空，嘟囔着‘早上好’又赶紧摇头，把本子暂时合上。",
+      "mood": "犯困"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "犯困时歇一歇",
+      "detail": "靠在椅背上闭眼歇了一会儿，耳边还能听到夏生翻纸和写字的动静，没有立刻起身。",
+      "mood": "迷糊又安静"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "补记与回头看",
+      "detail": "重新翻开本子，往前翻了两页，在对白旁边添上一小行补充，觉得这样才算把事记全。",
+      "mood": "重新振作"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "补记与回头看",
+      "detail": "注意到夏生那边的纸越堆越多，心里冒出‘他还在写啊’的疑问，手上没有停下。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "补记与回头看",
+      "detail": "把最后一段今天的事写完，笔在句号上停了停，翻回扉页看了看自己写下的名字。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "合上本子安静待着",
+      "detail": "合上笔记本，犹豫要不要开口问夏生，最后还是先轻轻把本子放好，目光留在他那边。",
+      "mood": "犹豫"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "合上本子安静待着",
+      "detail": "看着夏生还在写，低声说了一句‘真是的’，没有走开，就在旁边安静待着。",
+      "mood": "无奈又安静"
+    }
+  ],
+  "source": {
+    "chapter": "b114.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉翻出今早买的笔记本开始写日志",
+      "房间内一片宁静，只剩下写字的声音",
+      "亚托莉写日志时打哈欠，说‘早上好……夏生先……’",
+      "亚托莉注意到夏生通宵未睡"
+    ],
+    "character_hook": "亚托莉有写日志的习惯，会边写边自言自语，早上犯困时处于低电压状态。",
+    "adaptation": "可扩展为每天固定时间的日志记录活动，亚托莉写下当天见闻，持续两小时。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 2515,
+        "id": "vol1/b114.ks.scn/0/dialogue/289",
+        "speaker": "亚托莉",
+        "text": "失落……我也去写日志吧"
+      },
+      {
+        "line": 2516,
+        "id": "vol1/b114.ks.scn/0/dialogue/290",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉翻出今早买的笔记本开始写日志。"
+      },
+      {
+        "line": 2517,
+        "id": "vol1/b114.ks.scn/0/dialogue/291",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "房间内一片宁静，只剩下我们写字的声音。"
+      },
+      {
+        "line": 2518,
+        "id": "vol1/b114.ks.scn/0/dialogue/292",
+        "speaker": "亚托莉",
+        "text": "唔……吧唧……早上……哈啊啊～～～……早上好……夏生先……"
+      },
+      {
+        "line": 2519,
+        "id": "vol1/b114.ks.scn/0/dialogue/293",
+        "speaker": "亚托莉",
+        "text": "……嗯？"
+      },
+      {
+        "line": 2521,
+        "id": "vol1/b114.ks.scn/0/dialogue/295",
+        "speaker": "亚托莉",
+        "text": "还……还在写……"
+      },
+      {
+        "line": 2522,
+        "id": "vol1/b114.ks.scn/0/dialogue/296",
+        "speaker": "亚托莉",
+        "text": "夏生先生，夏生先生。你该不会一宿没睡一直在写这个吧？"
+      },
+      {
+        "line": 2524,
+        "id": "vol1/b114.ks.scn/0/dialogue/298",
+        "speaker": "亚托莉",
+        "text": "你还问呢。我这个早上犯困的低电压都被你吓醒了"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "改成普通夜间写日志和各自休息，不能凭两小时写成一夜未睡、通宵、等天亮，不能预设今早才买本子。只记当前提供的经历，不新编今天帮忙的具体前情；允许安静写一段、歇会儿、补几句后合本，休息不需要忙碌动作填满。",
+    "user_approval": false,
+    "editorial_sha256": "b4aed933bfa1051d876daf9439daa8473bad9b014be7bb27d1a6ecb422576932",
+    "content_sha256": "7e0092433e54bbbeabb357b80a156cf418abd2b94b3e113e5622ff5d5609f993"
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "id": "b206-04",
+  "category": "料理",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "社团活动学土豆牛肉",
+  "summary": "亚托莉参加水菜萌的料理社团活动，学习土豆牛肉。从备料、炖煮到试味，想帮忙也想给夏生惊喜，不预设成品评价。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "学校料理教室，操作台摆着土豆、牛肉和炖锅，水菜萌示范指导，洋子偶尔探头催促。",
+  "participants": [
+    "亚托莉",
+    "水菜萌",
+    "洋子",
+    "夏生"
+  ],
+  "preconditions": [
+    "水菜萌邀请亚托莉参加虚构的学校料理社团活动，并建议再学一道新料理。",
+    "活动场地备有土豆、牛肉和炖煮锅具，这是背景设定而非现实设施。",
+    "亚托莉带着笔记，想帮忙水菜萌，也想给夏生一个惊喜。",
+    "夏生不在料理教室内，只在活动结束后的回家场景出现。"
+  ],
+  "adaptation_notes": [
+    "原作中土豆牛肉是社团活动当天制作、晚饭时端出的料理；本模板只迁移该活动到两小时虚构日常，不重演晚饭后的对话。",
+    "原文未列出完整配方和调味比例，本模板不新增具体克数与调味教程，只保留土豆、牛肉、炖煮这些原作支持的关键。",
+    "水菜萌、洋子、夏生均保持原作身份：水菜萌是邀请与指导者，洋子是催促的部员，夏生是后来出现的人。",
+    "亚托莉对‘家的味道’的理解以好奇和待确认的方式出现，不预设夏生一定没吃过，也不把她写成谁的母亲。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "备料与听水菜萌讲解",
+      "intent": "把土豆、牛肉和炖煮步骤弄清楚，想帮上水菜萌的忙。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "下锅炖煮与照看火候",
+      "intent": "在水菜萌提示下处理食材顺序，关注锅里状态，偶尔被洋子催。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "炖煮间隙休息与听聊天",
+      "intent": "让亚托莉去一边歇着听社团聊天，偶尔看锅，不一直守着。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "试味收尾与打包带走",
+      "intent": "尝咸淡、记下还没把握的地方，把做好的土豆牛肉收好准备回家。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "备料与听水菜萌讲解",
+      "detail": "亚托莉把土豆和牛肉摆到台面上，先确认水菜萌说的顺序，自己默记一遍。",
+      "mood": "认真又跃跃欲试"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "备料与听水菜萌讲解",
+      "detail": "水菜萌示范切块，亚托莉照做，切完一块就悄悄比对大小是否差太多。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "备料与听水菜萌讲解",
+      "detail": "洋子探头说部长别光说话，亚托莉应了一声，手上继续切，没被催促影响。",
+      "mood": "没被干扰"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "备料与听水菜萌讲解",
+      "detail": "亚托莉问水菜萌炖煮时先放什么，把回答记在方方正正的小笔记里。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "下锅炖煮与照看火候",
+      "detail": "牛肉下锅后亚托莉盯着锅底，想确认火候是不是跟水菜萌说的一样。",
+      "mood": "有点紧张"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "下锅炖煮与照看火候",
+      "detail": "水菜萌提醒别一直翻动，亚托莉收回筷子，改成隔一会儿看一眼。",
+      "mood": "按捺住手痒"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "下锅炖煮与照看火候",
+      "detail": "锅里开始有炖菜的气味，亚托莉凑近闻了闻，觉得这个味道很让人在意。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "炖煮间隙休息与听聊天",
+      "detail": "水菜萌让亚托莉去一边歇会儿，亚托莉就坐在旁边听社团成员聊学校的事。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "炖煮间隙休息与听聊天",
+      "detail": "亚托莉听了好一会儿聊天，又起身去整理用过的器具，顺便往锅里瞟一眼。",
+      "mood": "闲不下来"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "炖煮间隙休息与听聊天",
+      "detail": "洋子问亚托莉土豆牛肉是不是家的味道，亚托莉说等成品出来再判断。",
+      "mood": "谨慎"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "试味收尾与打包带走",
+      "detail": "水菜萌让亚托莉尝一下咸淡，亚托莉认真尝了一小口，记下自己觉得还需要留意的地方。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "试味收尾与打包带走",
+      "detail": "亚托莉把成品装好，跟水菜萌道谢，说下次还想来帮忙，然后出门找夏生。",
+      "mood": "收尾踏实"
+    }
+  ],
+  "source": {
+    "chapter": "b206.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水菜萌建议亚托莉再学一个新料理让夏生开心。",
+      "亚托莉说自己也老受人帮助，想帮助水菜萌。",
+      "社团活动当天做的是土豆牛肉，亚托莉称其为家的味道BEST1。",
+      "晚饭时亚托莉端出土豆牛肉，夏生第一次吃并觉得好吃。"
+    ],
+    "character_hook": "亚托莉把料理当作帮助他人的方式，认真学做土豆牛肉，端菜时骄傲地说“刻在日本人的DNA中的家的味道”。",
+    "adaptation": "围绕从备料到炖煮土豆牛肉的两小时社团活动展开，加入水菜萌指导、洋子催促、亚托莉记笔记，不把夏生第一次吃当作唯一目的。",
+    "editor_note": "菜名确为土豆牛肉，不擅改成土豆炖猪肉。原文未列完整配方，不新增详细调味比例；保留她对“家的味道”的好奇，不让她扮演用户母亲。",
+    "evidence": [
+      {
+        "line": 6138,
+        "id": "vol1/b206.ks.scn/0/dialogue/298",
+        "speaker": "水菜萌",
+        "text": "那这次就再学一个新的料理，让阿夏开心吧"
+      },
+      {
+        "line": 6139,
+        "id": "vol1/b206.ks.scn/0/dialogue/299",
+        "speaker": "亚托莉",
+        "text": "唉，虽然我也很想……"
+      },
+      {
+        "line": 6141,
+        "id": "vol1/b206.ks.scn/0/dialogue/301",
+        "speaker": "亚托莉",
+        "text": "我明明是个辅助人类的机器人，却老是受人帮助，实在是有些难为情"
+      },
+      {
+        "line": 6142,
+        "id": "vol1/b206.ks.scn/0/dialogue/302",
+        "speaker": "亚托莉",
+        "text": "我也想帮助水菜萌"
+      },
+      {
+        "line": 6162,
+        "id": "vol1/b206.ks.scn/0/dialogue/322",
+        "speaker": "洋子",
+        "text": "喂——部长。别光说话了手赶快动起来"
+      },
+      {
+        "line": 6163,
+        "id": "vol1/b206.ks.scn/0/dialogue/323",
+        "speaker": "水菜萌",
+        "text": "好嘞，那今天就做这个吧"
+      },
+      {
+        "line": 6164,
+        "id": "vol1/b206.ks.scn/0/dialogue/324",
+        "speaker": "亚托莉",
+        "text": "……土豆牛肉。家的味道BEST１呢。我会加油的"
+      },
+      {
+        "line": 6169,
+        "id": "vol1/b206.ks.scn/0/dialogue/329",
+        "speaker": "水菜萌",
+        "text": "哼哼，期待一下今天的饭菜吧，阿夏"
+      },
+      {
+        "line": 6170,
+        "id": "vol1/b206.ks.scn/0/dialogue/330",
+        "speaker": "夏生",
+        "text": "怎么？　是学会新的菜了？"
+      },
+      {
+        "line": 6171,
+        "id": "vol1/b206.ks.scn/0/dialogue/331",
+        "speaker": "亚托莉",
+        "text": "这是秘密。会让夏生先生大吃一惊的"
+      },
+      {
+        "line": 6210,
+        "id": "vol1/b206.ks.scn/0/dialogue/370",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "来到夜晚，亚托莉的新菜单隆重登场。"
+      },
+      {
+        "line": 6211,
+        "id": "vol1/b206.ks.scn/0/dialogue/371",
+        "speaker": "亚托莉",
+        "text": "土豆牛肉！"
+      },
+      {
+        "line": 6213,
+        "id": "vol1/b206.ks.scn/0/dialogue/373",
+        "speaker": "亚托莉",
+        "text": "哼哼哼～，怎么样？这个刻在日本人的DNA中的家的味道"
+      },
+      {
+        "line": 6227,
+        "id": "vol1/b206.ks.scn/0/dialogue/387",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我向着冒着热气的土豆牛肉伸出筷子。"
+      },
+      {
+        "line": 6228,
+        "id": "vol1/b206.ks.scn/0/dialogue/388",
+        "speaker": "夏生",
+        "text": "……嗯，好吃。炖菜吃起来会让人很舒心呢"
+      },
+      {
+        "line": 6232,
+        "id": "vol1/b206.ks.scn/0/dialogue/392",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉并不是我老妈，不过土豆牛肉很好吃。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留土豆牛肉与‘家的味道’好奇。洋子原文催的是料理部部长，不是三次嫌亚托莉慢；删除她必定催促、老师必定笑答等NPC台词。炖煮间隙让亚托莉去一边歇着听社团聊天、整理用过的器具，偶尔看锅；别五格都守锅。食材只明确土豆和牛肉，不扩完整配方，成品味道未定。",
+    "user_approval": false,
+    "editorial_sha256": "a0cd5e82946a30d579bc6da5c0be8b74f8f25dc46c876a56ead43d58a97df0fc",
+    "content_sha256": "65c0e3086494107be853a60ce702a0f096e05e8f4cc7d65ff802992ddce059af"
+  }
+}

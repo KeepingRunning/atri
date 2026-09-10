@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "id": "b203-03",
+  "category": "生活",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "打捞后洗漱晚餐休息",
+  "summary": "打捞结束的傍晚，亚托莉去淋浴，换好干爽衣服后和大家一起吃简单的船上晚餐。饭后龙司听收音机，凛凛花读夏生的藏书，亚托莉在舱内安静地歇息，偶尔被信号杂音吸引。",
+  "suggested_time_of_day": [
+    "傍晚",
+    "夜晚"
+  ],
+  "scene": "停在海面上的打捞船船舱内，灯光昏黄，空间不大。淋浴间、简易餐桌和休息座位离得很近，窗外是暗下来的海面。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司",
+    "凛凛花"
+  ],
+  "preconditions": [
+    "当天打捞作业已经结束，船停稳在海上等待天亮",
+    "船上有简单的淋浴设施和晚餐食材",
+    "龙司带着能收听节目的收音机，信号不太好",
+    "夏生随身带了几本学校图书馆没有的藏书",
+    "亚托莉已经吃过或见过简单的船上餐食，不需要从零学习"
+  ],
+  "adaptation_notes": [
+    "原作中只提到亚托莉去淋浴、早早吃完晚饭、龙司听收音机、凛凛花读书和夏生闲着，这里把分散的片段扩写成两小时的生活流。",
+    "淋浴不单独占用完整时段，仅作为更衣整理阶段的前半，不描写身体细节。",
+    "收音机和读书保持为龙司和凛凛花的自然活动，亚托莉只是舱内歇息时偶尔受到声音影响，不把它变成她的固定兴趣。",
+    "晚饭内容没有具体菜名，因此只写简单船上餐食和收拾过程，不虚构从未学过的料理。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "淋浴与换衣",
+      "intent": "打捞结束身上沾了海水，亚托莉先按夏生说的去冲澡，换上干爽衣服。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 50,
+      "activity": "简单晚餐与收拾",
+      "intent": "大家聚在一起吃早早准备好的船上晚饭，亚托莉帮着摆碗筷，吃完后收拾干净。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 90,
+      "activity": "各自歇息与杂音",
+      "intent": "龙司听收音机，凛凛花读书，亚托莉在舱内安静歇脚，偶尔被收音机噪音或旁人话题吸引。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "闲坐与夜晚收尾",
+      "intent": "夜色更沉，大家各自打发无聊时光，亚托莉也放松下来，等待天亮再继续。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "淋浴与换衣",
+      "detail": "亚托莉应了一声，踩着啪嗒啪嗒的脚步走向淋浴间，把换洗衣物搭在门边。",
+      "mood": "顺从、轻快"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "淋浴与换衣",
+      "detail": "水声停下后，亚托莉换好干爽衣服，顺手把湿毛巾挂到通风处。",
+      "mood": "清爽、平静"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "简单晚餐与收拾",
+      "detail": "晚饭已经摆好，亚托莉帮忙分碗筷，好奇地看了看今晚的配菜。",
+      "mood": "好奇、帮忙"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "简单晚餐与收拾",
+      "detail": "大家吃得很快，亚托莉也安静用餐，偶尔听龙司和凛凛花聊打捞的事。",
+      "mood": "放松、参与"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "简单晚餐与收拾",
+      "detail": "吃完后亚托莉把碗盘收拢，用抹布擦了桌子，问夏生有没有需要洗的东西。",
+      "mood": "认真、利落"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "各自歇息与杂音",
+      "detail": "龙司打开收音机，信号不好满是杂音，亚托莉偏头听了一会儿听不清的节目。",
+      "mood": "好奇、困惑"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "各自歇息与杂音",
+      "detail": "凛凛花翻开夏生的藏书读起来，亚托莉不去打扰，自己靠着舱壁放松。",
+      "mood": "安静、不打扰"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "各自歇息与杂音",
+      "detail": "舱内只剩收音机的滋滋声和翻书声，亚托莉开始回想今天的打捞经过。",
+      "mood": "放空、回想"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "各自歇息与杂音",
+      "detail": "想起船外还能看海，亚托莉往舱门边走去，收音机节目继续留给龙司听。",
+      "mood": "随意、想帮忙"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "闲坐与夜晚收尾",
+      "detail": "在船边找个位置歇着，听浪拍过船身，暂时不急着回到舱内说话。",
+      "mood": "留意、沉静"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "闲坐与夜晚收尾",
+      "detail": "看看手边换下的衣物有没有放妥，再把注意力还给夜里的海面，不翻凛凛花正在读的书。",
+      "mood": "细心、有条理"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "闲坐与夜晚收尾",
+      "detail": "夜色更深时准备回舱休息，让这段打捞后的空闲慢慢收尾。",
+      "mood": "安宁、准备休息"
+    }
+  ],
+  "source": {
+    "chapter": "b203.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生叫亚托莉去冲个澡，亚托莉答应并去淋浴",
+      "早早吃完晚饭后每个人随性打发无聊时光",
+      "龙司听收音机节目，凛凛花读夏生的藏书"
+    ],
+    "character_hook": "亚托莉顺从日常安排，会‘踩着啪嗒啪嗒的脚步’去淋浴，之后和大家一起度过安静的船上夜晚。",
+    "adaptation": "将冲澡、晚饭和放松串成两小时船上生活。龙司听广播、凛凛花读书仍是他们各自的活动，亚托莉偶尔听见环境声音或自己去船边歇息。",
+    "editor_note": "原文明示她去淋浴；只写洗漱、换干爽衣物、吃饭和放松，不描写身体细节，不把凛凛花读书或龙司收音机节目当她的固定兴趣。",
+    "evidence": [
+      {
+        "line": 4970,
+        "id": "vol1/b203.ks.scn/0/dialogue/265",
+        "speaker": "龙司",
+        "text": "吃饭吧。肚子饿了"
+      },
+      {
+        "line": 4971,
+        "id": "vol1/b203.ks.scn/0/dialogue/266",
+        "speaker": "夏生",
+        "text": "亚托莉，你去冲个澡吧"
+      },
+      {
+        "line": 4972,
+        "id": "vol1/b203.ks.scn/0/dialogue/267",
+        "speaker": "亚托莉",
+        "text": "好"
+      },
+      {
+        "line": 4973,
+        "id": "vol1/b203.ks.scn/0/dialogue/268",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉踩着啪嗒啪嗒的脚步，淋浴去了。"
+      },
+      {
+        "line": 4974,
+        "id": "vol1/b203.ks.scn/0/dialogue/269",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "早早吃完晚饭，每个人随性地打发着各自的无聊时光。"
+      },
+      {
+        "line": 4975,
+        "id": "vol1/b203.ks.scn/0/dialogue/270",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "龙司听起了每周期待不已的收音机节目。不过因为信号不太好，噪音很大。"
+      },
+      {
+        "line": 4976,
+        "id": "vol1/b203.ks.scn/0/dialogue/271",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "凛凛花开心地读起了我为数不多、学校的图书馆中没有的藏书。"
+      },
+      {
+        "line": 4977,
+        "id": "vol1/b203.ks.scn/0/dialogue/272",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "而我，闲得发慌。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "revised",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "type": "assistant_editorial_revision",
+    "revision_count": 0,
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "2bebd10acb358d2d09435d0753982657b8abf2739ff7620e35fc75055b14b4e0"
+  }
+}

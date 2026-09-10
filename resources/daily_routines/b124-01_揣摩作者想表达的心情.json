@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "id": "b124-01",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "揣摩作者心情的语文自习",
+  "summary": "亚托莉和夏生一起进行语文自习，围绕揣摩作者思想感情展开。她先自己读课文、记下疑问，再听夏生讲解，中间穿插提问和短暂休息，最后整理笔记、轻松收尾。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "教室里只有亚托莉和夏生，桌上摊着一篇语文课文和笔记本，凯瑟琳偶尔经过，水菜萌和凛凛花在远处小声讨论。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "凯瑟琳",
+    "水菜萌",
+    "凛凛花"
+  ],
+  "preconditions": [
+    "亚托莉和夏生有语文自习的安排，需要揣摩作者思想感情",
+    "手边有一篇合适的语文课文和笔记本",
+    "亚托莉作为机器人对理解人类情感感到为难，但愿意一起学习",
+    "凯瑟琳可能在附近，水菜萌和凛凛花可以作为同学背景出现"
+  ],
+  "adaptation_notes": [
+    "原作中只有简短对话提到上语文课、揣摩作者思想感情，并显示亚托莉的为难和夏生的鼓励。",
+    "本模板将课堂对话扩展为两小时自习，补充了读课文、记笔记、提问、休息和整理笔记等日常环节，不改变原作人物身份和关系。",
+    "原作没有给出具体课文和标准答案，因此日程中不预设正确结论或好结果，只写她尝试理解和记下疑问。",
+    "凯瑟琳、水菜萌、凛凛花只作为背景或短暂出现，不主导活动。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "自己读课文",
+      "intent": "亚托莉想先自己试着理解，遇到不懂的地方就记下来，不太愿意一开始就依赖夏生。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 80,
+      "activity": "听讲解与提问",
+      "intent": "夏生讲解如何揣摩作者心情，亚托莉边听边对照自己的笔记，有疑问就提出来。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 100,
+      "activity": "短暂休息",
+      "intent": "两人放下课文休息一会儿，亚托莉可能看看窗外或和水菜萌简单说话。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "整理笔记收尾",
+      "intent": "亚托莉把刚才的疑问和想法整理到笔记本上，对没完全懂的地方保持好奇。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "自己读课文",
+      "detail": "亚托莉翻开课文，先自己默读一遍，在不懂的句子旁边做一个小记号。",
+      "mood": "有点不服气"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "自己读课文",
+      "detail": "她读到描写心情的段落，停下来想了一会儿，在笔记上写下“这里不明白”。",
+      "mood": "认真琢磨"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "自己读课文",
+      "detail": "亚托莉小声嘟囔“我是机器人怎么会明白啊”，但还是继续往下看。",
+      "mood": "为难但没放弃"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "自己读课文",
+      "detail": "她把读到的内容和自己能理解的部分对照，在旁边补了一句简单的想法。",
+      "mood": "稍微投入"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "听讲解与提问",
+      "detail": "夏生开始讲解，亚托莉把笔记本挪近，注意听他怎么说作者的心情。",
+      "mood": "半信半疑"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "听讲解与提问",
+      "detail": "她指着刚才标记的句子问夏生，为什么这里能看出作者在难过。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "听讲解与提问",
+      "detail": "亚托莉试着用自己的话复述一遍理解，说错了就重新对照课文。",
+      "mood": "有点较真"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "听讲解与提问",
+      "detail": "她忽然想到机器人和人类情感的不同，把这个疑问也写在笔记边上。",
+      "mood": "若有所思"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "短暂休息",
+      "detail": "亚托莉合上课文，伸了伸胳膊，目光转向窗外，暂时放空。",
+      "mood": "松一口气"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "短暂休息",
+      "detail": "水菜萌路过问进展，亚托莉说还在想，没有说自己已经懂了。",
+      "mood": "不肯认输"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "整理笔记收尾",
+      "detail": "亚托莉回到座位，把休息前冒出的想法补进笔记本，顺手画了个小箭头。",
+      "mood": "踏实了一点"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理笔记收尾",
+      "detail": "她合上笔记本，承认有些地方还是没完全懂，但打算下次再接着想。",
+      "mood": "平静收尾"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "自己读课文",
+        "from_minutes": [
+          0,
+          35
+        ],
+        "to_minutes": [
+          0,
+          40
+        ]
+      },
+      {
+        "activity": "听讲解与提问",
+        "from_minutes": [
+          35,
+          75
+        ],
+        "to_minutes": [
+          40,
+          80
+        ]
+      },
+      {
+        "activity": "短暂休息",
+        "from_minutes": [
+          75,
+          95
+        ],
+        "to_minutes": [
+          80,
+          100
+        ]
+      },
+      {
+        "activity": "整理笔记收尾",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          100,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b124.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉问夏生今天上什么课。",
+      "夏生说上亚托莉不擅长的语文，要揣测作者思想感情。",
+      "亚托莉呜呜说自己是机器人怎么会明白。",
+      "夏生说努力了解不明白的问题才叫学习。",
+      "凯瑟琳老师摇铃进教室，水菜萌喊起立口令，亚托莉也一起问好。"
+    ],
+    "character_hook": "亚托莉对不懂的语文感到为难，会直接抱怨“我是机器人怎么会明白”，但也乖乖参与课堂。",
+    "adaptation": "将课堂学习扩展为两小时的自习或辅导：选一篇语文课文，亚托莉尝试理解作者情感并记笔记，夏生讲解，中间穿插问答。",
+    "editor_note": "原文只明确语文课与理解作者感情，没有具体短篇名称和故事剧情；不能编好题目的标准答案。",
+    "evidence": [
+      {
+        "line": 3833,
+        "id": "vol1/b124.ks.scn/0/dialogue/21",
+        "speaker": "亚托莉",
+        "text": "夏生先生，今天上什么课？"
+      },
+      {
+        "line": 3834,
+        "id": "vol1/b124.ks.scn/0/dialogue/22",
+        "speaker": "夏生",
+        "text": "上你不擅长的语文。要揣测作者的思想感情咯"
+      },
+      {
+        "line": 3835,
+        "id": "vol1/b124.ks.scn/0/dialogue/23",
+        "speaker": "亚托莉",
+        "text": "呜呜……我是机器人怎么会明白啊"
+      },
+      {
+        "line": 3836,
+        "id": "vol1/b124.ks.scn/0/dialogue/24",
+        "speaker": "夏生",
+        "text": "努力了解不明白的问题，这才叫学习"
+      },
+      {
+        "line": 3885,
+        "id": "vol1/b124.ks.scn/0/dialogue/73",
+        "speaker": "凯瑟琳",
+        "text": "好了，同学们。到上课时间了，坐回位置上"
+      },
+      {
+        "line": 3886,
+        "id": "vol1/b124.ks.scn/0/dialogue/74",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "凯瑟琳老师摇着上课铃走进教室。"
+      },
+      {
+        "line": 3887,
+        "id": "vol1/b124.ks.scn/0/dialogue/75",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "身为班长的水菜萌喊出了起立口令。"
+      },
+      {
+        "line": 3888,
+        "id": "vol1/b124.ks.scn/0/dialogue/76",
+        "speaker": "水菜萌",
+        "text": "起立，敬礼。老师早上好"
+      },
+      {
+        "line": 3889,
+        "id": "vol1/b124.ks.scn/0/dialogue/77",
+        "speaker": "凛凛花",
+        "text": "早上好"
+      },
+      {
+        "line": 3890,
+        "id": "vol1/b124.ks.scn/0/dialogue/78",
+        "speaker": "亚托莉",
+        "text": "早上好"
+      },
+      {
+        "line": 3891,
+        "id": "vol1/b124.ks.scn/0/dialogue/79",
+        "speaker": "凯瑟琳",
+        "text": "嗯，早上好。呃，同学们……都到了啊。学生少就是轻松"
+      }
+    ]
+  },
+  "review": {
+    "type": "model_editorial_review",
+    "issues": [],
+    "verdict": "pass",
+    "note": "该候选严格围绕语文自习展开，亚托莉对理解人类情感表示为难、夏生讲解、其他学生背景出现，均不超出原作与改编边界；四十分钟默读略长，但整体为课堂中的分阶段关注点而非同一动作反复，不构成明显拖时长。未发现身份错置、捏造关键设定或提前断言结果等问题。",
+    "revision_count": 0,
+    "history": [
+      {
+        "type": "json_object",
+        "issues": [],
+        "verdict": "pass",
+        "note": "该候选严格围绕语文自习展开，亚托莉对理解人类情感表示为难、夏生讲解、其他学生背景出现，均不超出原作与改编边界；四十分钟默读略长，但整体为课堂中的分阶段关注点而非同一动作反复，不构成明显拖时长。未发现身份错置、捏造关键设定或提前断言结果等问题。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "6ee2a4e3e7f89daf2994cc2be5d2221c5e5032a99c266e1c5136dea39bd99c51",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "c3839c44a0645d66a01cc5789b75f2c1331228faf2e257175127563bddf98cde"
+  }
+}

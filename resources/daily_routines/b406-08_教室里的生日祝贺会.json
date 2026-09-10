@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "id": "b406-08",
+  "category": "聚会",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "教室里的生日祝贺会",
+  "summary": "亚托莉被朋友们带到布置好的教室参加生日派对，起初不懂庆祝含义，见到螃蟹后兴致高涨，又主动邀请旁边的凯瑟琳一起坐，在分享点心、聊天和道谢中度过两小时热闹聚会。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "放学后的教室里，桌椅被推到两边，桌上摆着煮螃蟹的锅、点心和饮料，纸片与爆竹碎屑还落在地面，大家陆陆续续围坐下来。",
+  "participants": [
+    "亚托莉",
+    "水菜萌",
+    "凛凛花",
+    "融",
+    "美代",
+    "龙司",
+    "洋子",
+    "凯瑟琳",
+    "夏生"
+  ],
+  "preconditions": [
+    "水菜萌等人提前策划了教室里的惊喜生日派对，并准备了煮螃蟹和点心",
+    "亚托莉被夏生带到教室时不知道大家在等自己",
+    "教室里有炉灶、锅、桌椅和能布置聚会的空间",
+    "凯瑟琳在附近独处，被亚托莉邀请加入派对"
+  ],
+  "adaptation_notes": [
+    "原作是生日惊喜会的高潮片段；这里按两小时补足布置收尾、开场、用餐、聊天和送别",
+    "生日设定沿用派对庆祝，不绑定具体日期、临终送别或结局剧情",
+    "亚托莉邀请凯瑟琳参加来自原作直率邀请的描写，扩展为聚会中的自然招待环节",
+    "原作中的螃蟹与点心作为主要食物事实，不额外新增无关菜色"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "惊喜开场与道谢",
+      "intent": "亚托莉被灯亮和爆竹惊到，听到朋友们说生日快乐，先问生日是什么，再鞠躬道谢。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 60,
+      "activity": "开锅吃螃蟹与点心",
+      "intent": "锅重新生火煮螃蟹，亚托莉兴奋得叫夏生快看，大家趁热围坐分食，点心饮料也摆开。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "邀请凯瑟琳一起坐",
+      "intent": "亚托莉发现凯瑟琳独自在旁，直球问她要不要一起庆祝，再把她带回热闹的桌边。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 110,
+      "activity": "聊天与分享点心",
+      "intent": "大家边收拾碗筷边聊天，亚托莉在意自己有没有招待好客人，偶尔插话分享点心。"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理与告别",
+      "intent": "聚会进入尾声，亚托莉帮忙收拢纸片和餐具，向陆续离开的伙伴鞠躬道别。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "惊喜开场与道谢",
+      "detail": "灯突然亮起，爆竹纸片落在她头上，亚托莉眨着眼环顾一圈，发现熟悉的人都在。",
+      "mood": "愣住又好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "惊喜开场与道谢",
+      "detail": "她直直问‘生日是什么’，听龙司和美代解释后，低头认真鞠躬说谢谢。",
+      "mood": "认真稍带困惑"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "开锅吃螃蟹与点心",
+      "detail": "水菜萌揭开锅盖，亚托莉一眼看到螃蟹，立刻转头喊夏生快看，眼睛发亮。",
+      "mood": "兴奋高涨"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "开锅吃螃蟹与点心",
+      "detail": "她坐在桌边等螃蟹熟，顺手把点心盘推向旁边的融和凛凛花，自己先拿了一块。",
+      "mood": "期待又大方"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "开锅吃螃蟹与点心",
+      "detail": "螃蟹端上来，亚托莉一边剥壳一边和龙司斗嘴，说唯独不想被笨蛋龙司教怎么吃。",
+      "mood": "得意嘴硬"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "开锅吃螃蟹与点心",
+      "detail": "热腾腾的蟹肉入口，她安静了一小会儿，又好奇打量别人碗里的点心种类。",
+      "mood": "满足又分心"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "邀请凯瑟琳一起坐",
+      "detail": "她注意到凯瑟琳在角落一个人喝乌龙茶，端着饮料走过去，直直问要不要一起庆祝。",
+      "mood": "直率在意"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "邀请凯瑟琳一起坐",
+      "detail": "凯瑟琳别开脸说不想扫兴，亚托莉拉住她的手往教室走，说和大家在一起有趣。",
+      "mood": "热情固执"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "邀请凯瑟琳一起坐",
+      "detail": "凯瑟琳被拉回来后，亚托莉把她安排在洋子和美代旁边，自己回到坐位继续吃。",
+      "mood": "满足安心"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "聊天与分享点心",
+      "detail": "有人聊起刚才的惊喜布置，亚托莉一边听一边把剩下的点心分成几份递出去。",
+      "mood": "放松亲近"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "聊天与分享点心",
+      "detail": "她帮忙把空盘收拢，听凛凛花和水菜萌说话，偶尔插一句自己刚才被吓到的感觉。",
+      "mood": "温和自然"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理与告别",
+      "detail": "大家陆续起身，亚托莉把桌上的纸片拢到一处，向离开的每个人鞠躬，说今天谢谢你们。",
+      "mood": "温和不舍"
+    }
+  ],
+  "source": {
+    "chapter": "b406.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "朋友们在教室为亚托莉办生日派对。",
+      "亚托莉最初不懂生日为何值得庆祝。",
+      "她听到螃蟹非常兴奋，也主动邀请凯瑟琳进来。"
+    ],
+    "character_hook": "亚托莉会直球提问‘生日是什么’，被大家祝贺后鞠躬道谢，并主动拉人加入派对。",
+    "adaptation": "把生日派对扩展为两小时的聚会：布置教室、点灯、迎接客人、吃点心、聊天、玩游戏，亚托莉负责招待和参与互动。",
+    "editor_note": "这是偶尔的特殊日常，有朋友决定庆祝的前提；不固定日期或假生日，不把生日和临终送别绑定。可把邀请凯瑟琳参加的直率作为性格线索。",
+    "evidence": [
+      {
+        "line": 10897,
+        "id": "vol1/b406.ks.scn/0/dialogue/214",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "突然间，教室的灯被点亮，爆竹响起。"
+      },
+      {
+        "line": 10904,
+        "id": "vol1/b406.ks.scn/0/dialogue/221",
+        "speaker": "亚托莉",
+        "text": "谁叫我是高性能的呢！　嗯哼！"
+      },
+      {
+        "line": 10905,
+        "id": "vol1/b406.ks.scn/0/dialogue/222",
+        "speaker": "夏生",
+        "text": "……啊啊，是这回事。都忘记了"
+      },
+      {
+        "line": 10910,
+        "id": "vol1/b406.ks.scn/0/dialogue/227",
+        "speaker": "亚托莉",
+        "text": "‘生日’是什么？"
+      },
+      {
+        "line": 10919,
+        "id": "vol1/b406.ks.scn/0/dialogue/236",
+        "speaker": "亚托莉",
+        "text": "不过，‘生日聚会’么……就算说是和我出生的日子相近，到底要庆祝什么呢？"
+      },
+      {
+        "line": 10921,
+        "id": "vol1/b406.ks.scn/0/dialogue/238",
+        "speaker": "美代",
+        "text": "大家一起庆祝朋友的生日呢"
+      },
+      {
+        "line": 10924,
+        "id": "vol1/b406.ks.scn/0/dialogue/241",
+        "speaker": "夏生",
+        "text": "就是你活在我们身边，这里的大家非常开心的意思"
+      },
+      {
+        "line": 10926,
+        "id": "vol1/b406.ks.scn/0/dialogue/243",
+        "speaker": "亚托莉",
+        "text": "呣……唯独不想被笨蛋龙司这么说！"
+      },
+      {
+        "line": 10927,
+        "id": "vol1/b406.ks.scn/0/dialogue/244",
+        "speaker": "亚托莉",
+        "text": "……但是，该怎么高兴呢，我也是新手"
+      },
+      {
+        "line": 10934,
+        "id": "vol1/b406.ks.scn/0/dialogue/251",
+        "speaker": "亚托莉",
+        "text": "螃蟹！！！！！！"
+      },
+      {
+        "line": 10998,
+        "id": "vol1/b406.ks.scn/0/dialogue/315",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "黏过来的亚托莉，抛出了直球提问。"
+      },
+      {
+        "line": 11000,
+        "id": "vol1/b406.ks.scn/0/dialogue/317",
+        "speaker": "凯瑟琳",
+        "text": "别用这种眼神看我。我只是不想给派对扫兴！"
+      },
+      {
+        "line": 11004,
+        "id": "vol1/b406.ks.scn/0/dialogue/321",
+        "speaker": "亚托莉",
+        "text": "一起去那里吧。和大家在一起又热闹又有趣♪"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留伙伴为亚托莉庆祝、螃蟹和点心、邀请旁边伙伴一起坐的意图；不预定凯瑟琳离席又被拉回，不发明猜谜第一题答不出。去掉必定说出的NPC台词，改为想向伙伴道谢、被生日概念弄糊涂一点、又惦记螃蟹的关注。",
+    "user_approval": false,
+    "editorial_sha256": "5f0e94bddbc20a0b7714ff9ee09710601c188929574870163e3de3ddbbcf0fe3",
+    "content_sha256": "cab2a93808d86cb6945898ae680246eea6a0ba94d67d7a4d79f7326b8e40e93b"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "id": "b406-12",
+  "category": "休息",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "派对前各自小睡",
+  "summary": "晚上派对前还有空闲，夏生提议先休息一会儿。亚托莉嘴上说不困、要看着，结果两人各自小睡。醒来后擦擦脸、收拾收拾，等天色暗下来就去派对。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "室内或船边安静的休息处，午后光线还很亮，远处能隐约听到准备派对的声音。两人决定在日落前先睡一会儿。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "晚上有派对，但离日落还有约两小时空闲",
+    "有一处能各自躺下的安静地方",
+    "亚托莉陪夏生休息，嘴上说不想睡",
+    "没有必须立刻完成的任务"
+  ],
+  "adaptation_notes": [
+    "原作是膝枕午睡，模板完全去除膝枕、口水滴到对方脸上和摸脸等亲密与固定喜剧结果，改为相邻各自小睡。",
+    "原作中聚会前有空、两人都睡着、后来被叫醒等普通部分作为背景保留，不迁移膝枕与互动细节。",
+    "两小时加入休息前的闲坐和醒来后的整理、等待，让睡眠与派对准备之间的过渡更自然。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "休息前准备与闲坐",
+      "intent": "亚托莉帮忙弄好休息处，嘴上不承认自己也困，眼睛却开始发沉。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 90,
+      "activity": "各自小睡",
+      "intent": "两人先后睡着，休息处安静下来，中间没有固定插曲。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 110,
+      "activity": "醒来整理",
+      "intent": "亚托莉被叫醒后迷迷糊糊，擦脸、理头发，慢慢清醒。"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "等天黑去派对",
+      "intent": "天色变暗，两人确认时间，准备出发去派对。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "休息前准备与闲坐",
+      "detail": "亚托莉把靠垫拍松，说自己来就好，眼睛却先往窗外瞟了一眼天色。",
+      "mood": "嘴硬但顺从"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "休息前准备与闲坐",
+      "detail": "夏生躺下后，亚托莉在旁边坐下，说完全不困，只是陪一会儿。",
+      "mood": "自信满满"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "各自小睡",
+      "detail": "亚托莉还睁着眼，听着旁边渐渐平稳的呼吸，自己也慢慢安静下来。",
+      "mood": "逐渐放松"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "各自小睡",
+      "detail": "亚托莉的眼皮开始打架，头轻轻点了一下，又立刻坐直。",
+      "mood": "困意上涌"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "各自小睡",
+      "detail": "亚托莉靠到一旁，呼吸变得又轻又匀，已经睡着了。",
+      "mood": "睡得很沉"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "各自小睡",
+      "detail": "休息处只有很轻的呼吸声，午后光线慢慢移动。",
+      "mood": "安静"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "各自小睡",
+      "detail": "亚托莉翻了个身，手指动了动，没有醒。",
+      "mood": "熟睡"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "各自小睡",
+      "detail": "远处隐约有准备派对的声音，但休息处里仍然很安静。",
+      "mood": "平稳"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "各自小睡",
+      "detail": "窗外的光线开始变暗，亚托莉还在睡，嘴角有点湿。",
+      "mood": "睡得很熟"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "醒来整理",
+      "detail": "被叫醒后，亚托莉迷迷糊糊应了一声，慢慢坐起来揉眼睛。",
+      "mood": "迷糊"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "醒来整理",
+      "detail": "亚托莉发现自己嘴角有点湿，赶紧擦了擦，又顺手理了理头发。",
+      "mood": "有点窘迫"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "等天黑去派对",
+      "detail": "天色明显暗了，亚托莉看了看外面，说既然要去就好好准备吧。",
+      "mood": "平静接受"
+    }
+  ],
+  "source": {
+    "chapter": "b406.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生说‘派对晚上才到。到日落还有点时间，来午睡吧。用膝枕的’。",
+      "亚托莉说想看夏生的睡脸所以不睡觉，但后来睡着了。",
+      "夏生被水滴醒，发现是亚托莉的口水。",
+      "外面开始变暗后，夏生叫亚托莉起床。"
+    ],
+    "character_hook": "亚托莉嘴上说不睡，结果睡得很熟还流口水，醒来迷迷糊糊摸夏生的脸。",
+    "adaptation": "只取聚会前有空余时间、两人各自午睡的普通部分。去除膝枕、滴口水到对方脸上的插曲和其他亲密动作，用休息前后准备扩成两小时。",
+    "editor_note": "原文两人午睡；模板去掉膝枕与亲密接触，保留等聚会前的空闲、小睡与醒来准备。休息不用拆成十二个动作。",
+    "evidence": [
+      {
+        "line": 10799,
+        "id": "vol1/b406.ks.scn/0/dialogue/116",
+        "speaker": "夏生",
+        "text": "派对晚上才到。到日落还有点时间，来午睡吧"
+      },
+      {
+        "line": 10800,
+        "id": "vol1/b406.ks.scn/0/dialogue/117",
+        "speaker": "夏生",
+        "text": "用膝枕的"
+      },
+      {
+        "line": 10813,
+        "id": "vol1/b406.ks.scn/0/dialogue/130",
+        "speaker": "夏生",
+        "text": "亚托莉也疲劳了吧。困了的话就去睡吧"
+      },
+      {
+        "line": 10814,
+        "id": "vol1/b406.ks.scn/0/dialogue/131",
+        "speaker": "亚托莉",
+        "text": "完全没事的。我想看夏生先生的睡脸，所以不睡觉"
+      },
+      {
+        "line": 10815,
+        "id": "vol1/b406.ks.scn/0/dialogue/132",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "滴答……"
+      },
+      {
+        "line": 10816,
+        "id": "vol1/b406.ks.scn/0/dialogue/133",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水滴低落额头，我睡醒了。"
+      },
+      {
+        "line": 10820,
+        "id": "vol1/b406.ks.scn/0/dialogue/137",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "滴答……"
+      },
+      {
+        "line": 10821,
+        "id": "vol1/b406.ks.scn/0/dialogue/138",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "落下来的并不是眼泪。"
+      },
+      {
+        "line": 10822,
+        "id": "vol1/b406.ks.scn/0/dialogue/139",
+        "speaker": "夏生",
+        "text": "口水啊"
+      },
+      {
+        "line": 10823,
+        "id": "vol1/b406.ks.scn/0/dialogue/140",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "外面开始变暗了。"
+      },
+      {
+        "line": 10824,
+        "id": "vol1/b406.ks.scn/0/dialogue/141",
+        "speaker": "夏生",
+        "text": "亚托莉，起床了。到时间了"
+      },
+      {
+        "line": 10825,
+        "id": "vol1/b406.ks.scn/0/dialogue/142",
+        "speaker": "亚托莉",
+        "text": "…………嗯啊？"
+      },
+      {
+        "line": 10827,
+        "id": "vol1/b406.ks.scn/0/dialogue/144",
+        "speaker": "夏生",
+        "text": "别来回来去摸我脸。喂，口水流下来了"
+      },
+      {
+        "line": 10828,
+        "id": "vol1/b406.ks.scn/0/dialogue/145",
+        "speaker": "亚托莉",
+        "text": "吸溜溜…………哈"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "明确去掉膝枕、滴口水到夏生脸上、摸脸等亲密与固定喜剧结果。改相邻各自小睡：开头20分钟准备与闲坐，中间70分钟休息，最后30分钟醒来整理去聚会。睡眠可连续，不用十二个操作。不保证夏生被叫醒的反应。",
+    "user_approval": false,
+    "editorial_sha256": "537d44ed33124c69ac5cc72e7e2fa817deed9cc8fb59d7b3e4d1e024f9be63b8",
+    "content_sha256": "3f796b4458fbb1358bea3534e2c5bca978e4f52f0c35d6adf64a17eb9434dd78"
+  }
+}

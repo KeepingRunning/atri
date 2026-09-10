@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "id": "b121-01",
+  "category": "出行",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "乘船出海解缆与观察",
+  "summary": "亚托莉爽快回应夏生指令解开栈桥缆绳，随船出海。航行中她关注海面透明度与海底建筑，帮忙对照旧地图，期待龙司找到目标。",
+  "suggested_time_of_day": [
+    "上午",
+    "中午"
+  ],
+  "scene": "栈桥边的小船与平静海面，船上带着旧城镇地图和便当，亚托莉站在甲板附近，夏生准备开船，龙司和水菜萌、凛凛花及孩子们在船上。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司",
+    "水菜萌",
+    "凛凛花",
+    "孩子们"
+  ],
+  "preconditions": [
+    "虚构场景中有可供出航的小船与栈桥，缆绳系在栈桥上。",
+    "船上有城镇以前的地图，可用于对照海底建筑位置。",
+    "同行者有夏生、龙司、水菜萌、凛凛花和孩子们，各自承担开船、观察或照看等角色。",
+    "当天海面透明度较好，适合从甲板上观察水下情况。"
+  ],
+  "adaptation_notes": [
+    "原作中解缆、出航、对照地图与观察海底建筑是简短连续片段，本模板将其扩展为约两小时的日常航行。",
+    "原作未详细描写出航前准备与航行中的休息，本模板补足整理、等候和闲谈等相邻生活。",
+    "同行者如龙司、水菜萌、凛凛花和孩子们在原作同一场景出现，此处保持身份与参与方式。",
+    "不把单次航行写成常态性能故障或灾难，也不添加约会、身体亲密或命令束缚。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "上船与解缆准备",
+      "intent": "确认大家都上船，亚托莉等待夏生指令，准备解开栈桥缆绳。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "解缆出航",
+      "intent": "亚托莉执行解绳，船驶离岸边，她留意缆绳和栈桥的松开情况。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "对照旧地图航行",
+      "intent": "大家一边看城镇以前的地图一边行驶，亚托莉帮忙辨认方位与目标附近。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "观察海面与海底建筑",
+      "intent": "船停在目标附近，亚托莉和龙司等人观察透明度良好的海面，寻找四角屋顶建筑。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "上船与解缆准备",
+      "detail": "亚托莉在栈桥边确认大家都上了船，目光落在系船的绳结上，等夏生开口。",
+      "mood": "认真待命"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "上船与解缆准备",
+      "detail": "凛凛花把郊游气氛带得热闹，亚托莉一边听一边检查缆绳有没有缠住栈桥边缘。",
+      "mood": "轻松留意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "上船与解缆准备",
+      "detail": "夏生说都上船了要出发，亚托莉点头，手已经放在绳结附近准备动。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "解缆出航",
+      "detail": "听到夏生说解绳子，亚托莉爽快应了声好，把系在栈桥上的绳子解开。",
+      "mood": "干脆利落"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "解缆出航",
+      "detail": "船开始驶离岸边，亚托莉收起缆绳，回头看了一眼逐渐远去的栈桥。",
+      "mood": "微微好奇"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "解缆出航",
+      "detail": "海风比岸边大，亚托莉在甲板附近站稳，注意不让缆绳绊到别人。",
+      "mood": "小心专注"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "对照旧地图航行",
+      "detail": "水菜萌展开城镇以前的地图，亚托莉凑过去看，对海湾形状和现在不一样感到好奇。",
+      "mood": "好奇对比"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "对照旧地图航行",
+      "detail": "龙司说应该就在这附近，亚托莉一边看地图一边朝海面张望，想帮忙找到对应位置。",
+      "mood": "积极帮忙"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "对照旧地图航行",
+      "detail": "孩子们在船上有些坐不住，亚托莉提醒别靠船舷太近，自己仍留意地图上的标记。",
+      "mood": "认真照看"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "观察海面与海底建筑",
+      "detail": "夏生把船停稳，亚托莉站在甲板上往下看，今天海水透明度不错，能隐约看到下面。",
+      "mood": "专注观察"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "观察海面与海底建筑",
+      "detail": "龙司大声说找到了四角屋顶的建筑，亚托莉顺着方向看，波浪下面确实有模糊的轮廓。",
+      "mood": "有点兴奋"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "观察海面与海底建筑",
+      "detail": "船停在目标附近，亚托莉把地图收好，和大家一起望着海面下那座建筑，等下一步安排。",
+      "mood": "期待平静"
+    }
+  ],
+  "source": {
+    "chapter": "b121.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生让亚托莉解绳子，亚托莉答应并执行。",
+      "亚托莉把系在栈桥上的绳子解开。",
+      "大家一边看城镇以前的地图一边在海上行驶。",
+      "亚托莉站在甲板上或随船观察大海。"
+    ],
+    "character_hook": "亚托莉对夏生的指令爽快回应“好——”，并认真执行解缆任务。",
+    "adaptation": "将出海打捞前的航行与观察扩展为包含准备、解缆、航行、观察海面的两小时日常。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 2706,
+        "id": "vol1/b121.ks.scn/0/dialogue/13",
+        "speaker": "夏生",
+        "text": "都上船了吧，要出发咯。亚托莉，解绳子"
+      },
+      {
+        "line": 2707,
+        "id": "vol1/b121.ks.scn/0/dialogue/14",
+        "speaker": "亚托莉",
+        "text": "好——"
+      },
+      {
+        "line": 2708,
+        "id": "vol1/b121.ks.scn/0/dialogue/15",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉把系在栈桥上的绳子解开。"
+      },
+      {
+        "line": 2709,
+        "id": "vol1/b121.ks.scn/0/dialogue/16",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我开船出航，驶离了岸边。"
+      },
+      {
+        "line": 2710,
+        "id": "vol1/b121.ks.scn/0/dialogue/17",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们一边看着城镇以前的地图，一边在海上行驶。"
+      },
+      {
+        "line": 2711,
+        "id": "vol1/b121.ks.scn/0/dialogue/18",
+        "speaker": "龙司",
+        "text": "应该就在这附近……"
+      },
+      {
+        "line": 2712,
+        "id": "vol1/b121.ks.scn/0/dialogue/19",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "海水的透明度会根据日期变化出现很大的不同，今天的情况相当不错。"
+      },
+      {
+        "line": 2716,
+        "id": "vol1/b121.ks.scn/0/dialogue/23",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我停下船，跟着看了一眼。"
+      },
+      {
+        "line": 2717,
+        "id": "vol1/b121.ks.scn/0/dialogue/24",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "波浪起伏的海面下能模模糊糊地看到硕大的四角屋顶。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "解缆、出航、对照旧地图、观察海面与四角屋顶建筑均与原文吻合，开场“好——”和凛凛花的郊游气氛保留得当；两小时扩展以航行、看地图、观察海面为主，未见把别人行为归给亚托莉或捏造关键设定。海面透明度好、便当等待属于原作已有或合理生活延展，整体可接受。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "解缆、出航、对照旧地图、观察海面与四角屋顶建筑均与原文吻合，开场“好——”和凛凛花的郊游气氛保留得当；两小时扩展以航行、看地图、观察海面为主，未见把别人行为归给亚托莉或捏造关键设定。海面透明度好、便当等待属于原作已有或合理生活延展，整体可接受。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "ceb12eefdda06d8e23de43b5c54169819e0fb9f6d0b7b83cf482a6b8fe4d03bf",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "02b67be9493a485a7bc9bdd83b45eb0cd2c513e32e30925a9d1a364c63dd8e45"
+  }
+}

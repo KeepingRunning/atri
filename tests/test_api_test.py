@@ -55,9 +55,9 @@ class ApiTestTests(unittest.IsolatedAsyncioTestCase):
         await self.server.close()
         self.tmp.cleanup()
 
-    async def cli(self):
+    async def cli(self, command='test-api', *extra):
         process = await asyncio.create_subprocess_exec(
-            sys.executable, '-m', 'atri_bot.cli', '--config', str(self.path), 'test-api',
+            sys.executable, '-m', 'atri_bot.cli', '--config', str(self.path), command, *extra,
             stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
         try:
             stdout, stderr = await asyncio.wait_for(process.communicate(), 10)
@@ -66,6 +66,32 @@ class ApiTestTests(unittest.IsolatedAsyncioTestCase):
                 process.kill()
                 await process.wait()
         return process.returncode, stdout.decode(), stderr.decode()
+
+    async def test_schedule_cli_is_local_without_credentials_or_production_state(self):
+        from test_schedule import routine
+        library = self.root / 'routines'
+        library.mkdir()
+        (library / 'sample.json').write_text(json.dumps(routine('local', ['傍晚'])))
+        self.path.write_text('[schedule]\nroutines_dir="routines"\n'
+                             '[logging]\nlevel="ERROR"\nfile=""\ncolor="never"\n')
+        code, stdout, stderr = await self.cli('test-schedule', '--at', '2026-09-11T18:35:00+08:00')
+        self.assertEqual(code, 0, stderr)
+        self.assertEqual(self.requests, [])
+        self.assertIn('local-关注点11', stdout)
+        background = stdout.split('当前聊天使用的背景：')[1]
+        self.assertIn('local-关注点03', background)
+        self.assertNotIn('local-关注点04', background)
+        self.assertFalse(self.config.data.exists())
+
+    async def test_schedule_cli_midnight_is_sleep_even_when_disabled(self):
+        self.path.write_text('[schedule]\nenabled=false\n'
+                             '[logging]\nlevel="ERROR"\nfile=""\ncolor="never"\n')
+        code, stdout, stderr = await self.cli('test-schedule', '--at', '2026-09-11T00:00:00')
+        self.assertEqual(code, 0, stderr)
+        self.assertIn('睡眠时段：不回复任何消息', stdout)
+        self.assertIn('睡觉', stdout)
+        self.assertEqual(self.requests, [])
+        self.assertFalse(self.config.data.exists())
 
     async def test_cli_runs_real_client_and_context_without_qq_or_chat_storage(self):
         code, stdout, stderr = await self.cli()

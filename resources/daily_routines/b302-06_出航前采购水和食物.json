@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "id": "b302-06",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "出航前的水粮采购与搬运",
+  "summary": "亚托莉与夏生、龙司分头在商店街采购食物和水，自己挑了几样不易压坏的东西，再和同伴把物资搬上船，最后在船边清点并歇脚，只由夏生或龙司处理汽油。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "商店街与停船处之间，三人边走边看采购来的食物和水，把袋子箱子搬上船，最后在船边核对数量并稍作休息。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "亚托莉与夏生、龙司一起去商店街，为出航采购食物、水和汽油",
+    "亚托莉想自己挑选和搬运一部分物资，不只是旁观",
+    "商店街能买到食物、水等日常物资",
+    "船停在附近，有可堆放物资的甲板或舱内空间"
+  ],
+  "adaptation_notes": [
+    "原作片段只提到三人买回食物、水、汽油并堆上船，两小时日常扩展了挑选、搬运和歇息过程。",
+    "不赋予亚托莉处理汽油、燃油、驾驶或包办船舶专业准备的能力，这部分交给夏生或龙司。",
+    "夏生和龙司作为原作伙伴参与，身份保持原样，不写成主人或恋人关系。",
+    "采购清单与具体挑选方式为创作补足，不与原作台词冲突。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "分头挑选食物和水",
+      "intent": "亚托莉想自己选一些方便带、不易压坏的食物和水，不想只跟着走。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "搬食物和水上船",
+      "intent": "三人把食物和水从商店街搬回船上，亚托莉坚持拿一部分，注意别把东西放错地方。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "看夏生龙司处理汽油",
+      "intent": "亚托莉不碰汽油，只关注自己负责的食物和水有没有放稳，顺便问一句船上的安排。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "清点水粮并歇脚",
+      "intent": "亚托莉对照买来的东西清点食物和水，靠在船边歇口气，想想出航还要带什么。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "分头挑选食物和水",
+      "detail": "亚托莉在货架前看瓶装水，比较哪种包装好拎，心里盘算搬上船会不会太沉。",
+      "mood": "好奇、想自己挑"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "分头挑选食物和水",
+      "detail": "她拿起一包饼干翻看保质期，遇到不懂的标签就转头问夏生，但没让对方替自己决定。",
+      "mood": "好学、嘴硬"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "分头挑选食物和水",
+      "detail": "龙司推来装食物的筐，亚托莉数了数人数对应的分量，又往里添了两瓶水。",
+      "mood": "认真、计较数量"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "搬食物和水上船",
+      "detail": "亚托莉抱起一箱水往船边走，脚步放稳，眼睛盯着前面的路，不让人替她拿。",
+      "mood": "努力、不服输"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "搬食物和水上船",
+      "detail": "夏生要帮她拎食物袋，她说自己可以，但转身时还是让龙司帮忙扶了一下袋子底。",
+      "mood": "嘴硬、实际"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "搬食物和水上船",
+      "detail": "她把食物按容易拿的顺序码在船边，觉得这样出航时不用翻箱倒柜。",
+      "mood": "有条理"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "搬食物和水上船",
+      "detail": "最后几瓶水亚托莉跑了两趟，额头上有点汗，但看到东西都堆好又觉得值得。",
+      "mood": "有点累、满足"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "看夏生龙司处理汽油",
+      "detail": "亚托莉站开一点看夏生和龙司搬汽油，自己只负责把食物挪开，不凑上去碰油桶。",
+      "mood": "谨慎、守本分"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "看夏生龙司处理汽油",
+      "detail": "她问龙司汽油要放哪儿，听说是专门的位置就点点头，又回头确认自己的水没挡住路。",
+      "mood": "好奇、注意安全"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "看夏生龙司处理汽油",
+      "detail": "夏生让她别碰油桶，她嘴上说知道，还是多看了两眼确认食物和水都在稳当的地方。",
+      "mood": "嘴硬、细心"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "清点水粮并歇脚",
+      "detail": "亚托莉对照买来的东西逐样点食物和水，发现少了一包饼干，想着一会儿再去找找。",
+      "mood": "认真、在意细节"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "清点水粮并歇脚",
+      "detail": "清点得差不多，她靠在船边歇口气，心里想着出航前再确认一次水和食物够不够。",
+      "mood": "放松、期待"
+    }
+  ],
+  "source": {
+    "chapter": "b302.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "三人去商店街买回食物、水、汽油",
+      "他们把东西堆到船上",
+      "随后马上做出发准备"
+    ],
+    "character_hook": "亚托莉参与集体采购与搬运，不因是仿生人而旁观。",
+    "adaptation": "把采购扩成两小时日常：列清单、分头买食物和水、搬运上船、核对物资数量。",
+    "editor_note": "原文是众人采购出航物资；不赋予亚托莉独自处理燃油、驾驶或包办航海计划的能力。",
+    "evidence": [
+      {
+        "line": 7298,
+        "id": "vol1/b302.ks.scn/0/dialogue/376",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们去商店街买回了食物、水、汽油。"
+      },
+      {
+        "line": 7299,
+        "id": "vol1/b302.ks.scn/0/dialogue/377",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "把东西堆到船上，我们马上开始做出发的准备。"
+      },
+      {
+        "line": 7300,
+        "id": "vol1/b302.ks.scn/0/dialogue/378",
+        "speaker": "龙司",
+        "text": "为什么这么着急？明天开始就是悠闲的暑假了啊"
+      },
+      {
+        "line": 7301,
+        "id": "vol1/b302.ks.scn/0/dialogue/379",
+        "speaker": "夏生",
+        "text": "因为没时间了"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "亚托莉负责买水与食物、搬这类物资，不让她拿汽油、操作燃油或决定船舶专业准备。航行与燃油交给夏生或龙司。清单只是小部分，更多是店里挑适合带的东西、来回走动与装好之后歇一会儿。",
+    "user_approval": false,
+    "editorial_sha256": "19e6665195be99fd27c29991626223ee2d64c5b5836c182e459098a60c01a2ef",
+    "content_sha256": "38a0361bce79c6d03a6b4a18714df219ed0a3199f3c2a14d7bbca8bd17ab2b76"
+  }
+}

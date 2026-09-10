@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "id": "b206-03",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "游泳圈划水课",
+  "summary": "亚托莉在海边游泳课中因浮不起来被编入小学部，向凛凛花借来游泳圈，套上后一起划水练习；两小时覆盖岸上热身、浅水适应、游泳圈划水与短暂歇息收尾。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "海边划定的浅水区域，小学部分开上课，岸边有准备体操和放东西的地方。",
+  "participants": [
+    "亚托莉",
+    "凛凛花"
+  ],
+  "preconditions": [
+    "学校在海边划定的区域进行游泳课，按小学部、初中部、高中部分开上课。",
+    "亚托莉能潜水但不擅长浮水游泳，被编入不会游泳的小学部队列。",
+    "凛凛花把游泳圈带到了海边，但在课上被说不能用，于是借给亚托莉。",
+    "亚托莉已经换好泳衣，并知道要先做热身体操。"
+  ],
+  "adaptation_notes": [
+    "原作中游泳课场景包含吃醋扔人的冲突，本模板去掉该冲突，只保留游泳课与游泳圈划水练习。",
+    "原作证据止于亚托莉和凛凛花一起开始划水游，两小时后续为创作补足的热身、适应、休息与整理。",
+    "不写亚托莉已经能轻松自由泳或取下浮具挑战深水，她仍处在借助游泳圈练习浮水和划水的阶段。",
+    "原文范围是排球网围的海域，不添加浮标训练线等原作未提及的设施。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "岸上热身与下水准备",
+      "intent": "跟着做热身体操，同时确认游泳圈和下水位置"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "浅水适应与套圈",
+      "intent": "在浅水里试浮，借助游泳圈找到能浮起来的感觉"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "和凛凛花一起划水",
+      "intent": "以游泳圈为支撑，和凛凛花同步划水前进"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "岸边歇息与整理",
+      "intent": "上岸歇一会儿，收拾游泳圈和随身物品"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "岸上热身与下水准备",
+      "detail": "跟着小学部队列活动手腕脚腕，眼睛却往浅水区瞟，惦记着待会儿怎么浮起来。",
+      "mood": "好奇又有点紧张"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "岸上热身与下水准备",
+      "detail": "听凯瑟琳说明下水范围和不能乱跑，自己默默把集合位置记下来。",
+      "mood": "认真听讲"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "岸上热身与下水准备",
+      "detail": "凛凛花把游泳圈递过来，亚托莉接住后翻来覆去看了一圈，想弄清它怎么帮人浮起来。",
+      "mood": "有点新奇"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "浅水适应与套圈",
+      "detail": "先在浅水里走了几步，水到腰附近时停下来，试着让脚离地。",
+      "mood": "小心试探"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "浅水适应与套圈",
+      "detail": "把游泳圈套在腰上，稍微一浮就高兴起来，又赶快低头确认圈的位置稳不稳。",
+      "mood": "稍微安心"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "浅水适应与套圈",
+      "detail": "试着只靠游泳圈托着身体漂一漂，发现不能像潜水时那样直接沉下去，有点不习惯。",
+      "mood": "有点困惑"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "和凛凛花一起划水",
+      "detail": "和凛凛花并排，学她用手一下一下地划，注意力放在保持身体不歪。",
+      "mood": "专注练习"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "和凛凛花一起划水",
+      "detail": "划着划着偏了方向，自己笑着调整回来，不想被看成完全不会。",
+      "mood": "嘴硬又好笑"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "和凛凛花一起划水",
+      "detail": "凛凛花说可以一起往前面那截划，亚托莉点头跟上，偶尔偷看对方的速度。",
+      "mood": "不想落后"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "岸边歇息与整理",
+      "detail": "上岸坐在放东西的地方，把游泳圈上的水抹掉，觉得有点累了但没说想休息。",
+      "mood": "累但满足"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "岸边歇息与整理",
+      "detail": "和凛凛花聊刚才划水的方向，回想自己哪里手忙脚乱，下次想再试得顺一点。",
+      "mood": "轻松回想"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "岸边歇息与整理",
+      "detail": "把游泳圈还给凛凛花，顺手检查自己换下来的东西有没有收齐，准备回课堂队列。",
+      "mood": "平静收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b206.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "学校在海边划定的区域进行游泳课。",
+      "亚托莉能潜水但并不擅长浮水游泳。",
+      "凛凛花借给她游泳圈，并和她一起划水。"
+    ],
+    "character_hook": "亚托莉对潜水说明很自信，但发现不会游泳后不安求助；得到游泳圈后立刻高兴地说“感觉不错哦凛凛花”。",
+    "adaptation": "把海中游泳课的两小时日常聚焦在热身、套游泳圈、划水练习和与凛凛花互相打气，去掉吃醋扔人的冲突。",
+    "editor_note": "不能写她已经能轻松自由泳、取下浮具挑战深水；水中活动、短休和课后整理搭配成两小时。",
+    "evidence": [
+      {
+        "line": 5914,
+        "id": "vol1/b206.ks.scn/0/dialogue/74",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "没错，因为没有泳池，所以要在海里游泳。"
+      },
+      {
+        "line": 5954,
+        "id": "vol1/b206.ks.scn/0/dialogue/114",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "于是，游泳课开始了。"
+      },
+      {
+        "line": 5955,
+        "id": "vol1/b206.ks.scn/0/dialogue/115",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "小学部，初中部，高中部分开上课。"
+      },
+      {
+        "line": 5956,
+        "id": "vol1/b206.ks.scn/0/dialogue/116",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "不会游泳的加进小学部的队列中。"
+      },
+      {
+        "line": 5957,
+        "id": "vol1/b206.ks.scn/0/dialogue/117",
+        "speaker": "亚托莉",
+        "text": "呣～～，不会游泳。应该说浮不起来"
+      },
+      {
+        "line": 5958,
+        "id": "vol1/b206.ks.scn/0/dialogue/118",
+        "speaker": "凛凛花",
+        "text": "亚托铃，这个借给你"
+      },
+      {
+        "line": 5959,
+        "id": "vol1/b206.ks.scn/0/dialogue/119",
+        "speaker": "亚托莉",
+        "text": "这个是什么"
+      },
+      {
+        "line": 5960,
+        "id": "vol1/b206.ks.scn/0/dialogue/120",
+        "speaker": "凛凛花",
+        "text": "我把游泳圈带过来了，不过被说不能在课上用了"
+      },
+      {
+        "line": 5961,
+        "id": "vol1/b206.ks.scn/0/dialogue/121",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉把游泳圈套在了腰上。"
+      },
+      {
+        "line": 5962,
+        "id": "vol1/b206.ks.scn/0/dialogue/122",
+        "speaker": "亚托莉",
+        "text": "喔喔，能稍微浮起来一点了。感觉不错哦凛凛花"
+      },
+      {
+        "line": 5963,
+        "id": "vol1/b206.ks.scn/0/dialogue/123",
+        "speaker": "凛凛花",
+        "text": "那就好。和我一起划水游吧！"
+      },
+      {
+        "line": 5964,
+        "id": "vol1/b206.ks.scn/0/dialogue/124",
+        "speaker": "亚托莉",
+        "text": "好的！"
+      },
+      {
+        "line": 5965,
+        "id": "vol1/b206.ks.scn/0/dialogue/125",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉和凛凛花一起开始划水游了起来。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "亚托莉能潜水但不会游泳，本课借游泳圈划水。删除‘潜水时的呼吸方式’：原作潜水不需要憋气，不能编人类潜水呼吸法。按凛凛花示范手划和靠圈浮起，不预定独立学会游泳。原文范围是排球网围的海域，不生造浮标训练线。",
+    "user_approval": false,
+    "editorial_sha256": "5ec0475e1d40a6008bb07acc488fb68e38d3dcf456c30a57c66b0f088ea0aa5d",
+    "content_sha256": "913e1f1027dcef3d49e1664077babdd3449c7f63f6d9753ec00942c45be282f5"
+  }
+}

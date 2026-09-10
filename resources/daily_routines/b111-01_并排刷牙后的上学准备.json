@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "id": "b111-01",
+  "category": "生活",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "并排刷牙后的上学准备",
+  "summary": "亚托莉早上和夏生并排刷牙，内侧刷不干净时请他帮忙，之后漱口并整理仪容，准备与夏生一起出门去学校；两小时覆盖刷牙、穿戴、简单用餐和出门前的闲歇。",
+  "suggested_time_of_day": [
+    "清晨",
+    "上午"
+  ],
+  "scene": "夏生家洗手台前与屋内：两人并排刷牙，亚托莉把被帮忙刷牙说成主人的维护职责；随后各自整理，准备动身去学校。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉与夏生同住在夏生外婆家，早晨共用洗手台",
+    "亚托莉不需要吃饭，但会做刷牙这类日常行为",
+    "当天有去学校或外出见水菜萌的安排",
+    "亚托莉的牙刷、杯子、毛巾等洗漱用品放在洗手台边"
+  ],
+  "adaptation_notes": [
+    "原作的刷牙场景为极短日常片段，本模板将两小时扩展为刷牙、穿戴、简单早餐和出门前准备的连续晨间流程。",
+    "原作中夏生帮亚托莉刷内侧是已发生的具体事件，本模板保留该互动作为两小时开头的核心，不把它扩展为每日必然练习。",
+    "刷牙只占前约二十分钟，其余时间用于整理、等待、简单用餐和出门，不将刷牙拉长为全部日程。",
+    "亚托莉对自身能力有自信又可能误解，本模板忠实表现她嘴硬、愿帮忙、对不懂的事好奇，不写成永久笨拙或每次必然失败。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "并排刷牙与帮忙",
+      "intent": "亚托莉自己刷内侧不顺手，请夏生帮忙，嘴上仍坚持这是主人的维护职责。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 50,
+      "activity": "漱口整理与穿戴",
+      "intent": "亚托莉漱口、擦脸、换好外出衣物，留意自己有没有遗漏什么。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 90,
+      "activity": "简单早餐与闲歇",
+      "intent": "夏生吃早餐，亚托莉在旁边好奇地看或搭把手收拾，然后各自休息一下。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "出门前准备",
+      "intent": "两人确认要带的东西和去学校的路线，亚托莉好奇上学具体要做什么。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "并排刷牙与帮忙",
+      "detail": "亚托莉和夏生并排站在洗手台前，她刷得认真，但内侧总感觉没到位，眼神往夏生那边瞟。",
+      "mood": "专注又有点犹豫"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "并排刷牙与帮忙",
+      "detail": "亚托莉含着牙刷请夏生帮忙刷里面，被接过牙刷后张大嘴，觉得这样被维护是理所当然。",
+      "mood": "坦然带点得意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "漱口整理与穿戴",
+      "detail": "亚托莉接过杯子漱口，把水吐掉后擦了擦嘴角，顺手把自己的牙刷放回杯子里。",
+      "mood": "清爽利落"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "漱口整理与穿戴",
+      "detail": "她对着镜子理了理翘起的头发，又检查衣领有没有翻好，不想出门时显得邋遢。",
+      "mood": "在意形象"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "漱口整理与穿戴",
+      "detail": "亚托莉换好外出衣服，把要穿的外套搭在手臂上，看向夏生那边是否也准备好了。",
+      "mood": "准备就绪"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "简单早餐与闲歇",
+      "detail": "夏生开始吃早餐，亚托莉不需要吃，但坐在旁边好奇地看着面包和盘子怎么摆。",
+      "mood": "好奇旁观"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "简单早餐与闲歇",
+      "detail": "她帮夏生把用过的餐具收拢到水池边，动作利落，觉得自己也能帮上忙。",
+      "mood": "积极帮忙"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "简单早餐与闲歇",
+      "detail": "亚托莉靠在椅背上放空一小会儿，视线落在窗外，没有特别要忙的事。",
+      "mood": "安静放松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "简单早餐与闲歇",
+      "detail": "她想起学校的事，转头问夏生那里是不是有很多人，去的话要注意什么。",
+      "mood": "好奇提问"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "出门前准备",
+      "detail": "亚托莉检查自己的小包，确认该带的东西都在，嘴里念着有没有漏掉什么。",
+      "mood": "认真核对"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "出门前准备",
+      "detail": "她和夏生确认去学校的路线，对路上会经过什么地方显出兴趣。",
+      "mood": "期待外出"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "出门前准备",
+      "detail": "两人走到门口，亚托莉回头看了一眼屋里，确认没有忘记关灯或带钥匙。",
+      "mood": "稳妥收尾"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "漱口整理与穿戴",
+        "from_minutes": [
+          20,
+          45
+        ],
+        "to_minutes": [
+          20,
+          50
+        ]
+      },
+      {
+        "activity": "简单早餐与闲歇",
+        "from_minutes": [
+          45,
+          90
+        ],
+        "to_minutes": [
+          50,
+          90
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b111.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉和夏生一起刷牙，夏生注意到她也在刷牙（1091）",
+      "亚托莉说自己里面刷不干净，请夏生帮她刷（1108）",
+      "夏生接过牙刷替亚托莉刷了内侧（1110-1114）",
+      "亚托莉认为给自己的机器人做维护是主人的职责（1119）",
+      "亚托莉不需要吃饭，但会做刷牙这类行为（1095, 1123）"
+    ],
+    "character_hook": "亚托莉把被主人维护说成理所当然，语气自信又带点得意；被夏生吐槽后不退缩。",
+    "adaptation": "刷牙是原作短日常，两小时扩展包括随后准备上学和短暂休息；不写维修、充电或身体亲密。",
+    "editor_note": "保留刷牙与晨间准备的明确原作依据，刷牙只占短段，剩余用于穿戴、早餐和出门；不把刷牙扩为两小时。",
+    "evidence": [
+      {
+        "line": 1073,
+        "id": "vol1/b111.ks.scn/0/dialogue/0",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "刷刷刷刷刷刷……"
+      },
+      {
+        "line": 1074,
+        "id": "vol1/b111.ks.scn/0/dialogue/1",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "早晨，我一边刷牙一边心不在焉地思索着。"
+      },
+      {
+        "line": 1088,
+        "id": "vol1/b111.ks.scn/0/dialogue/15",
+        "speaker": "亚托莉",
+        "text": "刷刷刷刷刷刷"
+      },
+      {
+        "line": 1091,
+        "id": "vol1/b111.ks.scn/0/dialogue/18",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "那份遗产现在正跟我一起刷牙。"
+      },
+      {
+        "line": 1106,
+        "id": "vol1/b111.ks.scn/0/dialogue/33",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉嘴里含着牙刷抬头看向我。"
+      },
+      {
+        "line": 1108,
+        "id": "vol1/b111.ks.scn/0/dialogue/35",
+        "speaker": "亚托莉",
+        "text": "里面刷不干净……能帮我刷吗？"
+      },
+      {
+        "line": 1110,
+        "id": "vol1/b111.ks.scn/0/dialogue/37",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我接过她手上的牙刷。"
+      },
+      {
+        "line": 1114,
+        "id": "vol1/b111.ks.scn/0/dialogue/41",
+        "speaker": "夏生",
+        "text": "……好了，漱口吧"
+      },
+      {
+        "line": 1115,
+        "id": "vol1/b111.ks.scn/0/dialogue/42",
+        "speaker": "亚托莉",
+        "text": "哗啦哗啦哗啦……呸"
+      },
+      {
+        "line": 1119,
+        "id": "vol1/b111.ks.scn/0/dialogue/46",
+        "speaker": "亚托莉",
+        "text": "？给自己的机器人做维护工作，可是主人的职责哦"
+      },
+      {
+        "line": 1120,
+        "id": "vol1/b111.ks.scn/0/dialogue/47",
+        "speaker": "夏生",
+        "text": "呃……确实是。但是为什么从你嘴里说出来，听了就感觉好火大"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "duration",
+        "location": "micro 110-120",
+        "detail": "出门前准备被拆成三个十分钟格，其中110-120的“回头确认没忘关灯或带钥匙”实质是同一类出门前反复检查，被拉长成十分钟，属于小动作撑时长。建议压缩为一次简短确认并合并到上一格。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "整体沿用刷牙核心与晨间流程，未出现身份/设定/结局类硬伤；主要问题是最后出门前检查被重复拉长，压缩即可。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "duration",
+            "location": "micro 110-120",
+            "detail": "出门前准备被拆成三个十分钟格，其中110-120的“回头确认没忘关灯或带钥匙”实质是同一类出门前反复检查，被拉长成十分钟，属于小动作撑时长。建议压缩为一次简短确认并合并到上一格。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "整体沿用刷牙核心与晨间流程，未出现身份/设定/结局类硬伤；主要问题是最后出门前检查被重复拉长，压缩即可。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "ff62743b0f91178de80d70f89e4a85acbe7a9442b9b2b626ebd0bd9f43d4d849",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "e3a239f3d16a4252b1dcb5968b72e32180480634e8125ea010e1de430a295b3f"
+  }
+}

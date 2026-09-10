@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "id": "b404-03",
+  "category": "生活",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": true,
+  "title": "换上凉鞋去镇上散步",
+  "summary": "亚托莉想起之前买的那双凉鞋，决定折回船里换下旧学生鞋，再和夏生一起走到镇上随便逛逛。路上她留意脚下与街景，把这次外出当作一段轻松的小小远足。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "从学校到船边，再从船边沿坡道走向镇上的一小段路。亚托莉折返换鞋，夏生在船外等候，之后两人并肩慢慢散步。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉有一双之前收到的凉鞋，放在船里，还没有穿过几次",
+    "她脚上原先穿的是一双已经破破烂烂的学生鞋",
+    "夏生愿意在船外等她，之后一起出门走走",
+    "虚构场景中的校园与船停泊处之间步行可达"
+  ],
+  "adaptation_notes": [
+    "原作中换鞋发生在约会前，本模板移除了恋爱前提，改为普通的外出准备与短途散步",
+    "凯瑟琳的道歉与前一天校内事件不在本模板中出现",
+    "原作是直接换上凉鞋出发，两小时扩展补足了路上的等候、散步与歇脚等日常片段"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "折回船里换凉鞋",
+      "intent": "忽然觉得这趟出门不该再穿那双破学生鞋，想回船里换上凉鞋，又不想让夏生跟进来看到自己磨蹭。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "与夏生会合出发",
+      "intent": "穿好凉鞋出来和夏生碰头，被注意到换了鞋，嘴上轻描淡写心里有点高兴，一起朝镇上走。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "沿坡道慢慢散步",
+      "intent": "留意凉鞋踩在石板路上的感觉，也看路边铺子和来往的人，有一搭没一搭和夏生说话。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "歇脚后继续逛",
+      "intent": "在路旁坐一会儿，核对凉鞋有没有磨脚的地方，再起身把剩下的一小段路走完。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "折回船里换凉鞋",
+      "detail": "刚走出没多远就停住，低头看自己那双旧学生鞋，忽然说想先回船里一趟。",
+      "mood": "临时起意"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "折回船里换凉鞋",
+      "detail": "让夏生在船外等着，自己快步进去，翻出之前收好的凉鞋，把旧鞋换下来。",
+      "mood": "争分夺秒"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "折回船里换凉鞋",
+      "detail": "扣好鞋带后站起来走了两步，确认大小合适，又对着水面看了看脚上的样子。",
+      "mood": "认真端详"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "与夏生会合出发",
+      "detail": "从船里出来，步子比平时轻一点，见夏生看自己脚下，就问怎么了。",
+      "mood": "表面平静"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "与夏生会合出发",
+      "detail": "听夏生说凉鞋可爱，嘴角翘起来，道了谢，说难得出门还是想穿这双。",
+      "mood": "有点高兴"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "与夏生会合出发",
+      "detail": "主动走在前面半步，又回头确认夏生跟上了没有，两人一起拐上去镇上的路。",
+      "mood": "轻快"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "沿坡道慢慢散步",
+      "detail": "注意凉鞋踩在石板路上和旧学生鞋不一样，步子放慢了些，试着习惯。",
+      "mood": "好奇脚下"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "沿坡道慢慢散步",
+      "detail": "路过一家铺子，停下来看了看门口摆的东西，和夏生随口聊起镇上最近的变化。",
+      "mood": "东张西望"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "沿坡道慢慢散步",
+      "detail": "上坡时脚步没刚才那么轻，偷偷瞄了一眼鞋后跟，担心会不会磨脚。",
+      "mood": "暗自留意"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "歇脚后继续逛",
+      "detail": "在路旁的长凳坐下，把脚伸出来看了看，确认没红印才放下心。",
+      "mood": "松一口气"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "歇脚后继续逛",
+      "detail": "坐着和夏生说刚才哪段路好走、哪段路有点硌脚，又聊到接下来去哪里。",
+      "mood": "随口闲聊"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "歇脚后继续逛",
+      "detail": "站起来把凉鞋重新踩稳，说歇够了，继续往镇上热闹的那头走。",
+      "mood": "意犹未尽"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "沿坡道慢慢散步",
+        "from_minutes": [
+          60,
+          95
+        ],
+        "to_minutes": [
+          60,
+          90
+        ]
+      },
+      {
+        "activity": "歇脚后继续逛",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          90,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b404.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉突然停下，请夏生先让她回趟船里。",
+      "她将破破烂烂的学生鞋换下，换上之前给她买的凉鞋。",
+      "她说难得约会，所以还是想穿上凉鞋。"
+    ],
+    "character_hook": "亚托莉为约会特意换鞋，被夸可爱后开心道谢，并主动牵住夏生的手出发。",
+    "adaptation": "去除凯瑟琳道歉和学校事件的背景，保留亚托莉回船换凉鞋、与夏生会合、手牵手去镇上散步的两小时日常。",
+    "editor_note": "从约会前换鞋移出恋爱前提，变成普通外出准备与短途出门；不是与群友的约会。",
+    "evidence": [
+      {
+        "line": 10046,
+        "id": "vol1/b404.ks.scn/0/dialogue/388",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "虽然亚托莉跑出教室想去逛逛，却又突然看向脚处停了下来。"
+      },
+      {
+        "line": 10047,
+        "id": "vol1/b404.ks.scn/0/dialogue/389",
+        "speaker": "亚托莉",
+        "text": "……能先回趟船里吗？"
+      },
+      {
+        "line": 10079,
+        "id": "vol1/b404.ks.scn/0/dialogue/421",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉将之前破破烂烂的学生鞋换下，换上了之前给她买的凉鞋。"
+      },
+      {
+        "line": 10085,
+        "id": "vol1/b404.ks.scn/0/dialogue/427",
+        "speaker": "夏生",
+        "text": "这凉鞋真可爱。挺适合你哦"
+      },
+      {
+        "line": 10086,
+        "id": "vol1/b404.ks.scn/0/dialogue/428",
+        "speaker": "亚托莉",
+        "text": "嘿嘿……谢谢"
+      },
+      {
+        "line": 10087,
+        "id": "vol1/b404.ks.scn/0/dialogue/429",
+        "speaker": "亚托莉",
+        "text": "难得约会，所以还是想穿上……"
+      },
+      {
+        "line": 10101,
+        "id": "vol1/b404.ks.scn/0/dialogue/443",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉如同期待远足的小学生一般情绪高涨，与我手牵手。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "duration",
+        "location": "macro 90-120 / micro 90-100",
+        "detail": "原文中换鞋后即手牵手去镇上，并未把关注点放在检查凉鞋是否磨脚、看有没有红印上。90-100的“核对有没有磨脚”被扩写为长达十分钟的主要活动，等于用一个重复检查的小动作撑时长，且偏离了该段日常“轻松散步、东张西望”的核心。"
+      },
+      {
+        "kind": "duration",
+        "location": "micro 80-90",
+        "detail": "同类问题：把“担心磨脚”作为一个完整十分钟格的主要关注点，与前后“看街景、聊天”重复度过高，应合并或简化为散步中的一瞥，不宜单独撑满十分钟。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "换鞋、被夸、牵手出发等核心均有direct依据，改编边界内的日常补足整体可接受。主要问题是90-100分钟把“检查凉鞋有没有磨脚”写成整整十分钟的核对活动，拖时长且偏离轻松散步的核心；建议简化这一动作，把时间留给街景闲聊或留白。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "duration",
+            "location": "macro 90-120 / micro 90-100",
+            "detail": "原文中换鞋后即手牵手去镇上，并未把关注点放在检查凉鞋是否磨脚、看有没有红印上。90-100的“核对有没有磨脚”被扩写为长达十分钟的主要活动，等于用一个重复检查的小动作撑时长，且偏离了该段日常“轻松散步、东张西望”的核心。"
+          },
+          {
+            "kind": "duration",
+            "location": "micro 80-90",
+            "detail": "同类问题：把“担心磨脚”作为一个完整十分钟格的主要关注点，与前后“看街景、聊天”重复度过高，应合并或简化为散步中的一瞥，不宜单独撑满十分钟。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "换鞋、被夸、牵手出发等核心均有direct依据，改编边界内的日常补足整体可接受。主要问题是90-100分钟把“检查凉鞋有没有磨脚”写成整整十分钟的核对活动，拖时长且偏离轻松散步的核心；建议简化这一动作，把时间留给街景闲聊或留白。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "0f1f7b166d448a84c94ea7e0c126c3b00b66ef56b9f444ba2b2e5fc57ddbcfec",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "992028161dc763b6181f720b7f61b9cd13873e52e0899c05d3e52d8b02ffd87b"
+  }
+}

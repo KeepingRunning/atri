@@ -1,0 +1,46 @@
+{
+  "files": 116,
+  "slots": 1392,
+  "categories": {
+    "购物": 12,
+    "出行": 13,
+    "休息": 6,
+    "生活": 9,
+    "学习": 22,
+    "用餐": 9,
+    "聚会": 5,
+    "记录": 6,
+    "玩耍": 7,
+    "劳动": 11,
+    "音乐": 8,
+    "观察": 1,
+    "料理": 7
+  },
+  "corpus_records": 12184,
+  "corpus_chapters": 35,
+  "extracted_candidates": 223,
+  "manual_candidates": 5,
+  "selection": {
+    "exclude": 59,
+    "keep": 116,
+    "duplicate": 53
+  },
+  "deleted_after_publication": [],
+  "editorial_status": {
+    "pass": 27,
+    "revise": 27,
+    "revised": 62
+  },
+  "source_sha256": "558b97404022c7c0bacc226b9864d368a67f07d48a48eba7160453b548d1882a",
+  "checks": [
+    "120 minutes",
+    "12 contiguous slots",
+    "macro ownership",
+    "exact source excerpts and chapter",
+    "unique IDs and micro schedules",
+    "every source chapter accounted for",
+    "explicit selection for every candidate",
+    "selected source metadata preserved",
+    "all kept candidates published or explicitly deleted after publication"
+  ]
+}

@@ -13,7 +13,7 @@ from atri_bot.config import Config
 from atri_bot.logging_setup import LoggingConfig, ModuleFormatter, configure_logging, current_log_context, log_context, preview
 from atri_bot.onebot import Peer
 from atri_bot.types import Event, Receipt
-from test_bot import ROOT, raw
+from test_bot import ROOT, raw, daytime
 from test_willingness import JudgingModel
 
 
@@ -154,7 +154,7 @@ class TraceTests(unittest.IsolatedAsyncioTestCase):
             logging.getLogger('atri.plugins.weather').info('插件处理 %s/%s', trace['group_id'], trace['message_id'])
             return '完成'
         model.complete = complete
-        bot = Bot(config, model)
+        bot = Bot(config, model, now=daytime)
         async def send(gid, parts):
             return Receipt('sent', '500')
         try:
@@ -199,7 +199,7 @@ class TraceTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_filter_and_dedup_reasons_are_visible(self):
         config = Config(ROOT, self.capture.root / 'chat', groups=frozenset({'1'}), self_id='99')
-        bot = Bot(config, JudgingModel())
+        bot = Bot(config, JudgingModel(), now=daytime)
         async def forbidden_send(gid, parts):
             self.fail('Filtered messages must not send')
         try:

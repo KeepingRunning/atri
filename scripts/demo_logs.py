@@ -1,6 +1,8 @@
 """用本地模拟模型和 OneBot 展示日志，不读取真实配置或连接 QQ。"""
 import argparse
 import asyncio
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import json
 import logging
 from pathlib import Path
@@ -43,7 +45,9 @@ async def demo(color):
                                       'usage': {'prompt_tokens': 180, 'completion_tokens': 24, 'total_tokens': 204}})
 
         async with aiohttp.ClientSession() as session:
-            bot = Bot(config, ChatModel(config, session))
+            # 演示固定在白天，避免真实夜间的睡眠规则屏蔽演示消息。
+            bot = Bot(config, ChatModel(config, session),
+                      now=lambda: datetime(2026, 9, 11, 12, 35, tzinfo=ZoneInfo("Asia/Shanghai")))
             app = create_app(config, bot)
             app.router.add_post('/v1/chat/completions', provider)
             runner = web.AppRunner(app, access_log=None)

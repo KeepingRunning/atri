@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "id": "b111-05",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "借来的课本与自学时间",
+  "summary": "亚托莉向龙司借来三年级课本，想自己逐页读例题、试解并核对答案；夏生在旁看着，偶尔被拉来确认。两小时里包含翻书自学、短暂休息和把龙司也拖进学习。",
+  "suggested_time_of_day": [
+    "下午"
+  ],
+  "scene": "教室一角，亚托莉把龙司的教科书摊在桌上，旁边堆着草稿纸；龙司一脸不痛快地坐在斜对面，夏生靠着桌边偶尔瞥过来。",
+  "participants": [
+    "亚托莉",
+    "龙司",
+    "夏生"
+  ],
+  "preconditions": [
+    "龙司的三年级教科书在教室中，且亚托莉已向他开口借用",
+    "亚托莉有草稿纸和笔，可以在旁边写试解过程",
+    "夏生在场，愿意在亚托莉卡住时帮忙确认答案",
+    "水菜萌已招呼过大家坐回座位，不会立刻中断这段自学时间"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉是擅自翻开龙司的教科书，本模板改为先开口借用，保留她直率好奇的行动方式。",
+    "原作只呈现翻书和嘴硬回应，两小时扩展为逐页读例题、试解、核对、休息与把龙司拉进学习。",
+    "龙司的凶相和不爽反应保持原样，但他不会真的动手或升级成冲突，只作为背景伙伴的日常反应。",
+    "所有活动都发生在虚构教室背景内，不涉及现实操作或对外工具能力。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "翻书找例题",
+      "intent": "亚托莉好奇三年级课本的例题，想自己先读一遍，不急着找夏生帮忙。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "逐题试解写草稿",
+      "intent": "她边读边在草稿纸上写自己的解法，卡住时先哼一声再重看，偶尔瞟向夏生。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "核对答案与短歇",
+      "intent": "拿自己的试解跟课本或夏生确认，顺便把龙司扯进一道题的讨论。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "整理笔记收尾",
+      "intent": "把借来的书合上还给龙司，在草稿纸上留下几道题的问号，打算之后再想。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "翻书找例题",
+      "detail": "亚托莉从龙司手里接过课本，先翻目录，想找有没有看起来有意思的例题。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "翻书找例题",
+      "detail": "她停在一页画着图的题目前，读出题目，顺手把草稿纸拉到面前。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "翻书找例题",
+      "detail": "龙司在旁边嘟囔了一句，她没抬头，只把书往自己这边挪了挪。",
+      "mood": "不在意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "逐题试解写草稿",
+      "detail": "亚托莉开始写第一道题的步骤，写到一半笔停住，盯着自己写的数字重新读题。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "逐题试解写草稿",
+      "detail": "她翻回前面一页对照公式，嘴里小声念着，草稿纸上多出几行被划掉的算式。",
+      "mood": "较劲"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "逐题试解写草稿",
+      "detail": "夏生从旁边经过，她抬眼看了一眼又低头继续，暂时还不想叫人来帮忙。",
+      "mood": "嘴硬"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "逐题试解写草稿",
+      "detail": "换到第二道题时她速度放慢，注意到题目里有个之前没见过的符号，先用铅笔圈起来。",
+      "mood": "留意"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "核对答案与短歇",
+      "detail": "亚托莉终于把草稿纸转向夏生，问他第一道题的结果对不对，眼睛还盯着自己的步骤。",
+      "mood": "等确认"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "核对答案与短歇",
+      "detail": "得到反馈后她靠回椅背歇了一会儿，顺手把龙司的课本推回他那边，又想起还有一题没弄完。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "整理笔记收尾",
+      "detail": "她向龙司确认能不能把剩下那道题也看一眼，龙司啧了一声但没把书收走。",
+      "mood": "得逞"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "整理笔记收尾",
+      "detail": "亚托莉把草稿纸上几道带问号的题折了个角，打算之后接着想，不急着现在全部弄懂。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "整理笔记收尾",
+      "detail": "她把课本合上还给龙司，说下次有看不懂的还来借，龙司一脸麻烦地接过去。",
+      "mood": "轻松"
+    }
+  ],
+  "source": {
+    "chapter": "b111.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉说‘这就叫学习吧。让我看看’，翻开龙司的教科书（1356-1357）",
+      "龙司说‘别乱看别人东西’，亚托莉不在意（1359-1361）",
+      "亚托莉看书时发出‘嗯……’的思考声（1358）",
+      "龙司一脸凶相，亚托莉却半点都不在意（1361）",
+      "夏生看到龙司被亚托莉耍得团团转，觉得有趣（1364-1365）"
+    ],
+    "character_hook": "亚托莉对书本内容好奇且行动力强，不怕龙司的凶相，会用轻松反问问得对方无言。",
+    "adaptation": "把翻书自学扩展成两小时：亚托莉借来或拿起三年级课本，逐页读例题、尝试解题、向夏生或水菜萌确认答案，也顺便把龙司拉进学习。",
+    "editor_note": "原作擅自拿龙司课本体现直率；模板先确认可借用，不把自己当作该书主人。",
+    "evidence": [
+      {
+        "line": 1356,
+        "id": "vol1/b111.ks.scn/0/dialogue/283",
+        "speaker": "亚托莉",
+        "text": "噢噢，这就叫学习吧。让我看看"
+      },
+      {
+        "line": 1357,
+        "id": "vol1/b111.ks.scn/0/dialogue/284",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉擅自翻开龙司的教科书开始学习。"
+      },
+      {
+        "line": 1358,
+        "id": "vol1/b111.ks.scn/0/dialogue/285",
+        "speaker": "亚托莉",
+        "text": "嗯……"
+      },
+      {
+        "line": 1359,
+        "id": "vol1/b111.ks.scn/0/dialogue/286",
+        "speaker": "龙司",
+        "text": "别乱看别人东西"
+      },
+      {
+        "line": 1360,
+        "id": "vol1/b111.ks.scn/0/dialogue/287",
+        "speaker": "亚托莉",
+        "text": "有什么关系嘛，反正你都不看吧？"
+      },
+      {
+        "line": 1361,
+        "id": "vol1/b111.ks.scn/0/dialogue/288",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "龙司一脸凶相，亚托莉却是半点都不在意。"
+      },
+      {
+        "line": 1362,
+        "id": "vol1/b111.ks.scn/0/dialogue/289",
+        "speaker": "龙司",
+        "text": "……啧"
+      },
+      {
+        "line": 1364,
+        "id": "vol1/b111.ks.scn/0/dialogue/291",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我不小心笑出了声。"
+      },
+      {
+        "line": 1365,
+        "id": "vol1/b111.ks.scn/0/dialogue/292",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "那个满脸凶恶的男生被亚托莉耍得团团转，实在有趣。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "duration",
+        "location": "70-90分钟",
+        "detail": "80分钟处描写把课本推回龙司那边后又想起还有一题，但90-100分钟又向龙司确认能不能把剩下那道题也看一眼，同一本课本在同一小时内推来推去又借回，属于为填满时间而反复的小动作循环，且与‘还书’收尾逻辑矛盾。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "整体框架合理：借用而非擅自拿书的改编符合editor_note，角色分工与情绪贴合，未来评价未提前断言。主要问题是中段课本归还又借回的循环，建议改为短歇后直接继续看题，把‘归还’集中在最后收尾。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "duration",
+            "location": "70-90分钟",
+            "detail": "80分钟处描写把课本推回龙司那边后又想起还有一题，但90-100分钟又向龙司确认能不能把剩下那道题也看一眼，同一本课本在同一小时内推来推去又借回，属于为填满时间而反复的小动作循环，且与‘还书’收尾逻辑矛盾。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "整体框架合理：借用而非擅自拿书的改编符合editor_note，角色分工与情绪贴合，未来评价未提前断言。主要问题是中段课本归还又借回的循环，建议改为短歇后直接继续看题，把‘归还’集中在最后收尾。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "7a3e1cfdae07c446ce7def2119b8341743daf88564cef66ebb2af7ae0985c7f1",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "262c7b2dadc2b9b816125c7bcc8f4d29b749dd4e7075f25681ee7d9e8a482c99"
+  }
+}

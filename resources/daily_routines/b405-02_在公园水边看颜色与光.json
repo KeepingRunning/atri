@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "id": "b405-02",
+  "category": "玩耍",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "水边看光的两小时",
+  "summary": "亚托莉在公园水边脱鞋泡脚、踢水花，观察水色与光影，聊自己能看到的红外线紫外线，尝试切换感知模式，在休息与周边散步中延续对颜色和光的好奇。",
+  "suggested_time_of_day": [
+    "下午"
+  ],
+  "scene": "穿过商店街后抵达的公园水边，远处有带小孩的家庭在玩，近处是浅浅的海潮和阳光下的水花。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "公园靠水，有浅滩可供脱鞋泡脚",
+    "天气晴朗，阳光能照出水花的亮点",
+    "亚托莉可以切换模式看到红外线和紫外线",
+    "夏生作为同行者在附近休息或聊天"
+  ],
+  "adaptation_notes": [
+    "原作场景来自商店街之后的公园散步片段，这里只把水边泡脚、踢水花和聊色彩的部分扩成两小时日常",
+    "原作中亚托莉关于“我有心”的感慨来自当时对话语境，本模板不把这句话当成必然结论或结局",
+    "原作提到母亲和悲伤的部分已去除，改编为单纯观察光影和颜色的日常活动",
+    "不复制原作中的心结解开或获得人类之心的结果，只保留感官好奇和自然对话"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "水边脱鞋试水",
+      "intent": "亚托莉想先自己把脚浸到水里，感受凉意，顺便观察水面附近的光线变化。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "踢水花看颜色",
+      "intent": "踢起波浪观察水花在阳光下闪亮的模样，注意水色随角度和深浅的变化。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "切换感知聊光",
+      "intent": "尝试切换能看到红外线紫外线的模式，与夏生聊人类看不到的光和眼前的颜色。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "岸边歇脚收尾",
+      "intent": "从水里出来在岸边坐一会儿，擦干脚穿回凉鞋，看看公园远处的颜色再慢慢准备离开。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "水边脱鞋试水",
+      "detail": "亚托莉在水边找了个不碍事的位置，弯腰解开凉鞋搭扣，先伸一只脚试试水温。",
+      "mood": "好奇又放松"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "水边脱鞋试水",
+      "detail": "两只脚都浸进浅水里，她轻轻晃了晃脚趾，看水面的波纹从脚边一圈圈散开。",
+      "mood": "凉凉的舒服"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "水边脱鞋试水",
+      "detail": "她低头盯着水底的石子和沙粒，发现颜色比刚才在岸上看时深一些，也碎一些。",
+      "mood": "专注观察"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "踢水花看颜色",
+      "detail": "亚托莉啪地踢起一小片水花，视线跟着溅起的水珠走，看它们在阳光里亮一下又落回去。",
+      "mood": "有点得意"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "踢水花看颜色",
+      "detail": "她换了个角度再踢，发现水花在背光时没那么亮，就歪头琢磨了一会儿光线方向。",
+      "mood": "认真比较"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "踢水花看颜色",
+      "detail": "水面上漂着一小片树叶，她轻轻用脚拨开，看叶片下面水色和周围有没有不同。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "踢水花看颜色",
+      "detail": "踢得有些累了，她放慢动作，只让脚在水里慢慢划动，看细碎的光点聚散。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "切换感知聊光",
+      "detail": "亚托莉试着切换模式，说水花里能看到一些人类看不到的亮线和暗带，但描述起来有点费劲。",
+      "mood": "努力解释"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "切换感知聊光",
+      "detail": "她抬头看天空和云，又看岸边的草和花，说每个东西的颜色都比刚才更热闹了。",
+      "mood": "感叹"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "岸边歇脚收尾",
+      "detail": "她从水里走出来，在岸边石阶上坐下，拿手帕擦了擦脚，回头看了一眼刚才踢水的地方。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "岸边歇脚收尾",
+      "detail": "穿回凉鞋时她顺便看了看鞋底沾的沙粒，把它们在台阶上轻轻磕掉。",
+      "mood": "日常随意"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "岸边歇脚收尾",
+      "detail": "坐在岸边远看公园里玩耍的小孩和在长椅上休息的人，对夏生说这里的颜色还是很多。",
+      "mood": "慢悠悠"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "切换感知聊光",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          90
+        ]
+      },
+      {
+        "activity": "岸边歇脚收尾",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          90,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b405.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉在公园水边脱下凉鞋，把脚泡在海潮里。",
+      "她用脚踢起波浪，观察水花在阳光下闪闪发亮。",
+      "亚托莉感叹水会发出很多颜色的光，世界是五彩斑斓的。",
+      "她提到自己能看到红外线和紫外线等人类看不到的光线。"
+    ],
+    "character_hook": "亚托莉对自然景色充满好奇和感动，用诗意的语言描述水、天空、花草和建筑的颜色。",
+    "adaptation": "去除后续关于母亲和悲伤的对话，仅保留在公园水边泡脚、踢水花、观察光影和聊天的两小时。",
+    "editor_note": "从原作观水花、天空、花提取感官好奇，与b205-05互相泼水的玩耍不同；不复制解开心结或必然获得人类之心。",
+    "evidence": [
+      {
+        "line": 10221,
+        "id": "vol1/b405.ks.scn/0/dialogue/117",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "穿过商店街，我们来到了公园。"
+      },
+      {
+        "line": 10226,
+        "id": "vol1/b405.ks.scn/0/dialogue/122",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉走在水边。"
+      },
+      {
+        "line": 10227,
+        "id": "vol1/b405.ks.scn/0/dialogue/123",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "脱下凉鞋，把脚浸泡在海潮中。"
+      },
+      {
+        "line": 10228,
+        "id": "vol1/b405.ks.scn/0/dialogue/124",
+        "speaker": "亚托莉",
+        "text": "嘿嘿，凉凉的真舒服"
+      },
+      {
+        "line": 10229,
+        "id": "vol1/b405.ks.scn/0/dialogue/125",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉啪地踢起了波浪。"
+      },
+      {
+        "line": 10230,
+        "id": "vol1/b405.ks.scn/0/dialogue/126",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "溅出的水花，在阳光照射下变得闪闪发亮。"
+      },
+      {
+        "line": 10231,
+        "id": "vol1/b405.ks.scn/0/dialogue/127",
+        "speaker": "亚托莉",
+        "text": "水这东西，会发出很多颜色的光呢"
+      },
+      {
+        "line": 10232,
+        "id": "vol1/b405.ks.scn/0/dialogue/128",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉踢起波浪，观察着水花的样子。"
+      },
+      {
+        "line": 10233,
+        "id": "vol1/b405.ks.scn/0/dialogue/129",
+        "speaker": "亚托莉",
+        "text": "不光是水，天空也好云也好，草也好花也好，还是人们住着的建筑也好……"
+      },
+      {
+        "line": 10234,
+        "id": "vol1/b405.ks.scn/0/dialogue/130",
+        "speaker": "亚托莉",
+        "text": "真是个五彩斑斓的世界呢"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时结构以泡脚、踢水花、切换感知、岸边收尾为主线，节奏合理，无重复小动作拖满时长；未把原作他人行为归给亚托莉，未新增关键菜品或生理故障设定，未提前断言结局或心结解开。红外线紫外线切换属原作明确能力，夏生作为同行者只在收尾处自然带出，符合adaptation边界。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时结构以泡脚、踢水花、切换感知、岸边收尾为主线，节奏合理，无重复小动作拖满时长；未把原作他人行为归给亚托莉，未新增关键菜品或生理故障设定，未提前断言结局或心结解开。红外线紫外线切换属原作明确能力，夏生作为同行者只在收尾处自然带出，符合adaptation边界。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "13acb9be844064f013282376fd15247ad87c61626b9e20dfbad240f5734dfebd",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "3be4cf84c07e4c84b6cf530c0ef6693047706cb80470d59407e568ae3f08d16e"
+  }
+}

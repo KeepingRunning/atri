@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "id": "b303-03",
+  "category": "劳动",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "海蛇号电缆标记",
+  "summary": "亚托莉随夏生驾驶海蛇号下潜，在海底找到断裂电缆后，用随带绳索把电缆系在铅锤上做浮标标记。她先用手势与夏生配合，解开救生索独自作业，完成后返回潜艇外框架上浮，与龙司在海面简短交接。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "海蛇号潜艇在海底缓缓推进，龙司留在水面船的通讯另一端。亚托莉系着救生索贴在艇外，用感知器留意海底，带去的绳索和铅锤等着在水下派上用场。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "亚托莉能通过感知器在海底发现电缆，但无法扫描定位所有电缆，仍需逐段搜索。",
+    "夏生驾驶海蛇号潜艇，龙司留在水面船上保持通讯并负责投放铅锤和浮标。",
+    "亚托莉系着可自行解开的救生索，随行带着绳索和做标记用的铅锤。",
+    "此次为可重复的定期打捞任务，不涉及伊甸现身危机或带电维修。"
+  ],
+  "adaptation_notes": [
+    "原作该情节位于伊甸主线中，本模板将海底作业抽为可重复的定期打捞任务。",
+    "保留亚托莉海底观察、手势配合、解索游向电缆、用绳索系铅锤等关键动作，去除伊甸现身危机。",
+    "水下与水面通讯通过龙司转达，不安排亚托莉或夏生在海底直接听到龙司喊话。",
+    "不预先断言找到了断点或任务必然成功，也不教实际带电维修。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "下潜准备与潜入",
+      "intent": "确认救生索与携带的绳索铅锤就位，亚托莉随海蛇号下潜，开始留意海底地形与电缆痕迹。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "搜索海底电缆",
+      "intent": "亚托莉用感知器在海床附近逐段搜索，与夏生用手势交换方向，不把感知器当成万能扫描。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "系绳标记电缆",
+      "intent": "解开救生索独自游向电缆，用绳索把电缆与铅锤系牢，确认标记方式能随铅锤上浮。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "返回与海面交接",
+      "intent": "确认标记后沿原路返回海蛇号外框架上浮，与夏生、龙司简短交流打捞位置和下次注意点。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "下潜准备与潜入",
+      "detail": "亚托莉让夏生再看一眼救生索的系结，自己检查随行的绳索和铅锤有没有挂稳。",
+      "mood": "认真期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "下潜准备与潜入",
+      "detail": "她贴在海蛇号外框架上，目光扫过舷窗外的水色变化，确认深度在慢慢增加。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "下潜准备与潜入",
+      "detail": "夏生朝她打手势，她比了个明白的回应，又偏头看向将要搜索的海底方向。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "搜索海底电缆",
+      "detail": "亚托莉开启感知器，在沙脊与碎石之间分辨电缆可能经过的线路，没有急着下结论。",
+      "mood": "仔细"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "搜索海底电缆",
+      "detail": "她游过一处疑似铺设痕迹，停下来用手势朝夏生比出方位，让他调整潜艇朝向。",
+      "mood": "有点得意"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "搜索海底电缆",
+      "detail": "海蛇号朝她所指的方向推进，亚托莉在前方带路，不时回头确认潜艇有没有跟上。",
+      "mood": "配合默契"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "系绳标记电缆",
+      "detail": "亚托莉解开救生索，独自游向断裂的电缆，伸手触及缆身，看清顶端确实已经断开。",
+      "mood": "沉住气"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "系绳标记电缆",
+      "detail": "她取出带去的绳索，把电缆和铅锤靠在一起，尝试绕出不会轻易松脱的结。",
+      "mood": "手上核对"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "系绳标记电缆",
+      "detail": "结打好后她轻轻拉了拉，确认电缆不会从铅锤上滑走，又朝夏生比了个完成的手势。",
+      "mood": "踏实"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "返回与海面交接",
+      "detail": "亚托莉沿原路游回海蛇号，抓住外框架，回头看了一眼浮标绳子延伸的方向。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "返回与海面交接",
+      "detail": "上浮途中靠着海蛇号外框架，等回到水面再和龙司交流标记情况，水下仍按约定手势示意。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "返回与海面交接",
+      "detail": "回到水面后收好随行绳具，把看到的电缆位置说清楚，接下来先歇一会儿。",
+      "mood": "安静回味"
+    }
+  ],
+  "source": {
+    "chapter": "b303.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉能通过感知器发现海底电缆。",
+      "亚托莉用手势向夏生表示明白。",
+      "亚托莉解开救生索独自游向电缆。",
+      "亚托莉用带去的绳索把海底电缆和铅锤系在一起。"
+    ],
+    "character_hook": "对能被夏生需要感到开心，强调自己是高性能的。",
+    "adaptation": "将海底作业从伊甸主线中抽出，设定为定期打捞任务，亚托莉负责水下搜索、系绳、标记，夏生驾驶潜艇配合，可重复进行。",
+    "editor_note": "保留海底观察、与同伴手势配合、绳索标记；去掉伊甸现身危机，不教实际带电维修或自动断言找到了断点。",
+    "evidence": [
+      {
+        "line": 7419,
+        "id": "vol1/b303.ks.scn/0/dialogue/48",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "下潜片刻后就看到了海底。"
+      },
+      {
+        "line": 7420,
+        "id": "vol1/b303.ks.scn/0/dialogue/49",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我朝亚托莉打了个信号。"
+      },
+      {
+        "line": 7421,
+        "id": "vol1/b303.ks.scn/0/dialogue/50",
+        "speaker": "夏生",
+        "text": "找到那个就告诉我"
+      },
+      {
+        "line": 7422,
+        "id": "vol1/b303.ks.scn/0/dialogue/51",
+        "speaker": "亚托莉",
+        "text": "……"
+      },
+      {
+        "line": 7423,
+        "id": "vol1/b303.ks.scn/0/dialogue/52",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉比划了个手势表示明白。"
+      },
+      {
+        "line": 7424,
+        "id": "vol1/b303.ks.scn/0/dialogue/53",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "在海底探索了一阵后，她发现了我们的目标。"
+      },
+      {
+        "line": 7426,
+        "id": "vol1/b303.ks.scn/0/dialogue/55",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我开着潜水艇朝她所指的方向前进，发现了海底铺设的电缆。"
+      },
+      {
+        "line": 7440,
+        "id": "vol1/b303.ks.scn/0/dialogue/69",
+        "speaker": "夏生",
+        "text": "亚托莉，把海底电缆系在铅锤上"
+      },
+      {
+        "line": 7441,
+        "id": "vol1/b303.ks.scn/0/dialogue/70",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "她用带去的绳索把海底电缆和铅锤系在一起。"
+      },
+      {
+        "line": 7442,
+        "id": "vol1/b303.ks.scn/0/dialogue/71",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "这样一来就不用担心电缆飘走，拉起铅锤时也可以把电缆一起拉上来。"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "76640bdce0f0c215b65b3f5dbf4c9a6e9fcbbf608cd50fad7363e3d6f1de0c7b",
+    "content_sha256": "5e9a36b830e9d1115502f3aa6d2cb21d4bebb23cb729835cf36e97316f7e2d67"
+  }
+}

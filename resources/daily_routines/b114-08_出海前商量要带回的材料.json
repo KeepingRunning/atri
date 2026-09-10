@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "id": "b114-08",
+  "category": "出行",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "出海前商量取材料",
+  "summary": "亚托莉在船尾围观露出水面的海蛇号，参与夏生向龙司说明乘潜水艇去海底工厂取材料的计划，并一起检查出航前的准备是否齐全。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "船尾码头边，白色大船只有顶部露出水面随波轻晃。亚托莉、夏生和龙司围着海蛇号，核对下潜取材料的路线与分工。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "海蛇号潜水艇停靠在船尾，顶部露出水面",
+    "据龙司所知，旧工厂沉在海底，FRP材料可能还在里面",
+    "夏生已提出乘海蛇号去海底工厂取材料的方案",
+    "亚托莉参与出行前准备，但不负责驾驶潜水艇"
+  ],
+  "adaptation_notes": [
+    "原作中三人只在船尾短暂谈到海蛇号与潜水艇方案，本模板把这段扩展成两小时的准备与讨论。",
+    "原作的对话止于夏生介绍海蛇号，扩展部分补充检查装备、确认材料清单等日常准备，不改变已发生的事实。",
+    "亚托莉在对话中信任夏生的办法，本模板沿用这一点，但不虚构她驾驶潜艇或参与专业潜水操作。",
+    "龙司对海蛇号感到惊讶，扩展中保留他的参与，让他继续负责说明材料信息。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "船尾看海蛇号",
+      "intent": "亚托莉第一次近距离看到潜水艇，边看边听夏生说明用途，想知道它怎么下潜、能不能装下材料。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 80,
+      "activity": "确认材料与分工",
+      "intent": "夏生和龙司核对海底工厂的位置、需要的FRP材料，亚托莉帮忙把要带回的东西逐条记下来。"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 110,
+      "activity": "检查出航准备",
+      "intent": "三人分头清点潜水装备和装载空间，亚托莉对自己负责的部分想先做完再让别人接手。"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "出发前短暂歇息",
+      "intent": "准备告一段落，亚托莉靠在船栏边再看一眼海蛇号，等夏生确认出发安排。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "船尾看海蛇号",
+      "detail": "亚托莉盯着只有顶部露出水面的白色大船，觉得它藏在水下的部分比看上去大得多。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "船尾看海蛇号",
+      "detail": "听夏生说出“潜水艇海蛇号”的名字，她跟着念了一遍，问龙司是不是第一次见。",
+      "mood": "兴致高"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "船尾看海蛇号",
+      "detail": "龙司还在惊讶潜水艇的事，亚托莉已经顺着夏生的话想下去海底工厂要带什么回来。",
+      "mood": "积极"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "船尾看海蛇号",
+      "detail": "她绕到船尾另一侧，想看清海蛇号的入口在哪，嘴上说这点观察不算什么。",
+      "mood": "嘴硬"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "确认材料与分工",
+      "detail": "龙司提到FRP材料和沉在海底的旧工厂，亚托莉把关键词记在手边的纸上。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "确认材料与分工",
+      "detail": "夏生说明下潜路线，亚托莉听得很专心，遇到不确定的词就停下来问清楚。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "确认材料与分工",
+      "detail": "她把要带回的材料按用途分成几类，写完后朝夏生那边看了一眼，等确认。",
+      "mood": "谨慎"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "确认材料与分工",
+      "detail": "龙司补充供应商那边可能还有旧记录，亚托莉把这条也加上，不想漏掉任何一条。",
+      "mood": "细致"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "检查出航准备",
+      "detail": "亚托莉主动去清点甲板上的潜水装备，想自己先确认数量再让别人帮忙。",
+      "mood": "主动"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "检查出航准备",
+      "detail": "她发现清单和实际摆放对不上，没有急着下结论，又从头核对了一遍。",
+      "mood": "不服输"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "检查出航准备",
+      "detail": "夏生过来接手检查时，亚托莉先把自己记下的疑点说清楚，再让出位置。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "出发前短暂歇息",
+      "detail": "准备告一段落，她靠在船栏边再看一眼海蛇号，等夏生确认出发时间。",
+      "mood": "平静期待"
+    }
+  ],
+  "source": {
+    "chapter": "b114.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "船尾连着白色大船，只有顶部露出水面",
+      "夏生介绍‘潜水艇海蛇号’",
+      "亚托莉说‘夏生先生就有办法。对吧？’",
+      "计划乘潜水艇去海底工厂取材料"
+    ],
+    "character_hook": "亚托莉对夏生的能力充满信任，积极推动计划。",
+    "adaptation": "可改为亚托莉和夏生一起检查潜水艇、准备潜水装备，持续两小时。",
+    "editor_note": "她提出海蛇号可以去海底取材料；讨论目标和配合，不虚构她驾驶潜艇。",
+    "evidence": [
+      {
+        "line": 2683,
+        "id": "vol1/b114.ks.scn/0/dialogue/457",
+        "speaker": "亚托莉",
+        "text": "就在海底的话，那我们去拿就行了吧？"
+      },
+      {
+        "line": 2684,
+        "id": "vol1/b114.ks.scn/0/dialogue/458",
+        "speaker": "龙司",
+        "text": "这怎么去，游过去吗？"
+      },
+      {
+        "line": 2685,
+        "id": "vol1/b114.ks.scn/0/dialogue/459",
+        "speaker": "亚托莉",
+        "text": "夏生先生就有办法。对吧？"
+      },
+      {
+        "line": 2686,
+        "id": "vol1/b114.ks.scn/0/dialogue/460",
+        "speaker": "夏生",
+        "text": "是啊"
+      },
+      {
+        "line": 2687,
+        "id": "vol1/b114.ks.scn/0/dialogue/461",
+        "speaker": "夏生",
+        "text": "跟我来"
+      },
+      {
+        "line": 2688,
+        "id": "vol1/b114.ks.scn/0/dialogue/462",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "船尾连着另一条白色大船，只有顶部露出水面随波摇摆。"
+      },
+      {
+        "line": 2689,
+        "id": "vol1/b114.ks.scn/0/dialogue/463",
+        "speaker": "龙司",
+        "text": "刚才进来的时候我就很好奇……那是什么东西啊"
+      },
+      {
+        "line": 2690,
+        "id": "vol1/b114.ks.scn/0/dialogue/464",
+        "speaker": "夏生",
+        "text": "潜水艇海蛇号"
+      },
+      {
+        "line": 2691,
+        "id": "vol1/b114.ks.scn/0/dialogue/465",
+        "speaker": "龙司",
+        "text": "潜水艇……！？"
+      },
+      {
+        "line": 2692,
+        "id": "vol1/b114.ks.scn/0/dialogue/466",
+        "speaker": "夏生",
+        "text": "就乘这艘船去海底的工厂取材料吧"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "duration",
+        "location": "macro 80-110 / micro 80-110",
+        "detail": "检查出航准备被安排成整整30分钟的清点装备，且 micro 中反复写“核对数量、对不上又从头核对”，靠前后重复登记与复查撑时长；应改成合理的主要准备活动加短歇，避免同一小动作拉满半小时。"
+      },
+      {
+        "kind": "source",
+        "location": "micro 90-100",
+        "detail": "“清单和实际摆放对不上，没有急着下结论，又从头核对了一遍”属于为亚托莉捏造清点误差与反复复查的情节，原作未提供此类对不上号或她处理疑点的依据，也不是普通备料的必要衔接。"
+      },
+      {
+        "kind": "repetition",
+        "location": "micro 全部00-120",
+        "detail": "十二个十分钟格几乎被“看船、记关键词、分类材料、核对装备、再核对”等操作步骤占满，角色的关注与留白偏少，读起来更像流程清点而非原作的对话氛围；建议简化操作细节，突出亚托莉推着夏生拿主意、信任夏生办法这一原始 hook。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "核心方向（船尾看海蛇号、商量取材料、亚托莉信任夏生并推动计划）符合原作与 editor_note，未虚构她驾驶潜艇；主要问题是中段靠反复清点/核对撑时长并加入清单对不上的无依据情节，压缩为一次合理准备与短暂收尾即可。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "duration",
+            "location": "macro 80-110 / micro 80-110",
+            "detail": "检查出航准备被安排成整整30分钟的清点装备，且 micro 中反复写“核对数量、对不上又从头核对”，靠前后重复登记与复查撑时长；应改成合理的主要准备活动加短歇，避免同一小动作拉满半小时。"
+          },
+          {
+            "kind": "source",
+            "location": "micro 90-100",
+            "detail": "“清单和实际摆放对不上，没有急着下结论，又从头核对了一遍”属于为亚托莉捏造清点误差与反复复查的情节，原作未提供此类对不上号或她处理疑点的依据，也不是普通备料的必要衔接。"
+          },
+          {
+            "kind": "repetition",
+            "location": "micro 全部00-120",
+            "detail": "十二个十分钟格几乎被“看船、记关键词、分类材料、核对装备、再核对”等操作步骤占满，角色的关注与留白偏少，读起来更像流程清点而非原作的对话氛围；建议简化操作细节，突出亚托莉推着夏生拿主意、信任夏生办法这一原始 hook。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "核心方向（船尾看海蛇号、商量取材料、亚托莉信任夏生并推动计划）符合原作与 editor_note，未虚构她驾驶潜艇；主要问题是中段靠反复清点/核对撑时长并加入清单对不上的无依据情节，压缩为一次合理准备与短暂收尾即可。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "647469c8fdd0c809273e70f8dc254dba671ffbd08b6a32cde5f40b6024dd8668",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "e71001de64b6673c5d9654a9a6bf485225422c38b34518a14988f042ad020a14"
+  }
+}

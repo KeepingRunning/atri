@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "id": "b121-04",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "海边螃蟹聚餐",
+  "summary": "亚托莉参与螃蟹的煮好与分餐，围着桌子开心吃蟹，与水菜萌、凛凛花和孩子们聊天，作为两小时用餐自然收尾。",
+  "suggested_time_of_day": [
+    "中午",
+    "下午"
+  ],
+  "scene": "海边郊游收尾时，水菜萌把煮好的一锅通红螃蟹端到桌上分给大家，亚托莉与同伴围桌吃蟹聊天。",
+  "participants": [
+    "亚托莉",
+    "水菜萌",
+    "凛凛花",
+    "孩子们",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "亚托莉已经帮忙捞到并搬运过螃蟹，此刻螃蟹已由水菜萌煮好。",
+    "有围桌分餐的桌子、小炉灶锅和盛放螃蟹的盘子。",
+    "有盐等简单调味，不额外添加螃蟹以外的菜色。",
+    "凛凛花、孩子们、夏生、龙司在场共享这顿郊游收尾餐。"
+  ],
+  "adaptation_notes": [
+    "原作中螃蟹由水菜萌煮好并分发，亚托莉是享用者，不是煮蟹的厨师。",
+    "原作只呈现围桌吃螃蟹与简短对话，两小时扩展用于补足等待分蟹、慢慢用餐、闲聊和收拾歇息。",
+    "亚托莉对螃蟹的热情来自原作“螃蟹～螃蟹～”和“啊呜啊呜”的描写，不额外编造她的烹饪能力。",
+    "本模板不涉及约会、身体亲密、命令或灾难，仅保留海边聚餐的安全日常氛围。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "等蟹上桌",
+      "intent": "水菜萌把煮好的螃蟹端来分给孩子们，亚托莉高兴地期待自己那一份。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "围桌吃蟹",
+      "intent": "亚托莉津津有味地吃螃蟹，和凛凛花、孩子们一起应和，也留意别人怎么剥。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "边吃边聊",
+      "intent": "吃蟹节奏慢下来，聊郊游和海边的事，亚托莉对螃蟹本身还有好奇。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收尾闲歇",
+      "intent": "大家陆续吃完，亚托莉帮忙挪盘子或擦手，把这顿收尾餐慢慢结束。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "等蟹上桌",
+      "detail": "水菜萌刚说“煮好啦”，亚托莉已经凑到桌边，盯着锅里变红的螃蟹挪不开眼睛。",
+      "mood": "兴奋"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "等蟹上桌",
+      "detail": "孩子们吵着要吃螃蟹，亚托莉跟着小声念“螃蟹～螃蟹～”，又觉得自己不该太急。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "等蟹上桌",
+      "detail": "水菜萌把螃蟹分到各人盘里，亚托莉接过自己那份时认真说了谢谢。",
+      "mood": "开心"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "围桌吃蟹",
+      "detail": "亚托莉先闻了闻螃蟹，再试探着掰蟹脚，发现壳比想象中硬，便更用力去对付它。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "围桌吃蟹",
+      "detail": "第一口蟹肉吃下去后，亚托莉发出“啊呜啊呜”的声音，说真好吃，又赶紧去够下一块。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "围桌吃蟹",
+      "detail": "凛凛花也在吃螃蟹，亚托莉看她的剥法比自己利落，就悄悄跟着学了一下。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "围桌吃蟹",
+      "detail": "孩子说好烫，亚托莉也发现自己太急，吹了吹蟹肉才再送进嘴里。",
+      "mood": "稍显嘴硬"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "边吃边聊",
+      "detail": "螃蟹只剩壳堆在盘里，亚托莉和水菜萌聊起刚才大家在海边的样子。",
+      "mood": "轻松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "边吃边聊",
+      "detail": "亚托莉问螃蟹为什么煮了会变红，又自己补充说可能是加热的关系，说完仍有点不确定。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "边吃边聊",
+      "detail": "孩子们说自己吃了几只，亚托莉也想数，但蟹壳和盘子混在一起，她数到一半就放弃了。",
+      "mood": "好笑"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收尾闲歇",
+      "detail": "亚托莉帮忙把空盘挪到一边，手上沾了蟹味，她闻了闻，觉得这味道还挺新鲜。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收尾闲歇",
+      "detail": "大家陆续吃完，亚托莉坐在桌边听水菜萌和凛凛花说话，觉得这顿螃蟹作为郊游收尾正好。",
+      "mood": "回味"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "边吃边聊",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          100
+        ]
+      },
+      {
+        "activity": "收尾闲歇",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          100,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b121.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉参与海底搬运并对螃蟹非常兴奋。",
+      "螃蟹由水菜萌煮好并分给大家。",
+      "亚托莉与同伴围桌吃螃蟹。"
+    ],
+    "character_hook": "亚托莉高兴地重复“螃蟹～螃蟹～”，吃的时候发出“啊呜啊呜”的声音，对食物充满热情。",
+    "adaptation": "将一次螃蟹聚餐扩展为包含煮蟹、分蟹、围桌享用和聊天的两小时用餐。",
+    "editor_note": "亚托莉不是煮螃蟹的厨师，采用期待与用餐角色。",
+    "evidence": [
+      {
+        "line": 2951,
+        "id": "vol1/b121.ks.scn/0/dialogue/258",
+        "speaker": "水菜萌",
+        "text": "煮好啦～～～"
+      },
+      {
+        "line": 2952,
+        "id": "vol1/b121.ks.scn/0/dialogue/259",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌抬过来的桌子上放着小炉灶，现在正煮着一锅佳肴。"
+      },
+      {
+        "line": 2953,
+        "id": "vol1/b121.ks.scn/0/dialogue/260",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "锅里是已经煮到通红的螃蟹。"
+      },
+      {
+        "line": 2954,
+        "id": "vol1/b121.ks.scn/0/dialogue/261",
+        "speaker": "亚托莉",
+        "text": "螃蟹～螃蟹～"
+      },
+      {
+        "line": 2958,
+        "id": "vol1/b121.ks.scn/0/dialogue/265",
+        "speaker": "水菜萌",
+        "text": "好好好，有很多螃蟹的"
+      },
+      {
+        "line": 2959,
+        "id": "vol1/b121.ks.scn/0/dialogue/266",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌将螃蟹分给饥肠辘辘的孩子们和某个机器人。"
+      },
+      {
+        "line": 2961,
+        "id": "vol1/b121.ks.scn/0/dialogue/268",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们围着桌子吃起螃蟹，这作为郊游的收尾或许正合适。"
+      },
+      {
+        "line": 2962,
+        "id": "vol1/b121.ks.scn/0/dialogue/269",
+        "speaker": "亚托莉",
+        "text": "啊呜啊呜……真好吃～～"
+      }
+    ]
+  },
+  "review": {
+    "type": "model_editorial_review",
+    "verdict": "revise",
+    "issues": [
+      {
+        "kind": "outcome",
+        "location": "micro 40-50",
+        "detail": "“第一口蟹肉吃下去后……说真好吃”把亚托莉的味道评价写成了已发生的客观结论；原作此处是螃蟹聚餐中她说‘啊呜啊呜……真好吃～～’，属于当下满足反应，但候选把‘真好吃’作为第一口之后的既定结果，易成为提前断言。应改为她期待/雀跃地准备品尝或正在品尝，避免把评价写成已确证的好吃。"
+      }
+    ],
+    "note": "整体符合边界，未把煮蟹归给亚托莉，也无事故/亲密/能力故障/假历史。其余做菜、分餐、吃饭聊天和收尾属于合理生活延展；但个别微格把对味道的评价写成已发生结论，建议软化。",
+    "revision_count": 0,
+    "history": [
+      {
+        "type": "json_object",
+        "verdict": "revise",
+        "issues": [
+          {
+            "kind": "outcome",
+            "location": "micro 40-50",
+            "detail": "“第一口蟹肉吃下去后……说真好吃”把亚托莉的味道评价写成了已发生的客观结论；原作此处是螃蟹聚餐中她说‘啊呜啊呜……真好吃～～’，属于当下满足反应，但候选把‘真好吃’作为第一口之后的既定结果，易成为提前断言。应改为她期待/雀跃地准备品尝或正在品尝，避免把评价写成已确证的好吃。"
+          }
+        ],
+        "note": "整体符合边界，未把煮蟹归给亚托莉，也无事故/亲密/能力故障/假历史。其余做菜、分餐、吃饭聊天和收尾属于合理生活延展；但个别微格把对味道的评价写成已发生结论，建议软化。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "0626df5b762fe106de01b8c0a2fe57bfbefbe1253b7aee5b9354b77fcc8dd800",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "bb77c7af70552c807e7b5f2fe63134e0c00cb2cad852136661629a8ce1df8dcd"
+  }
+}

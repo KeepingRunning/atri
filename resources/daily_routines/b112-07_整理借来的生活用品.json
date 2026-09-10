@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "id": "b112-07",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "借来睡衣的整理日",
+  "summary": "夏生为同居向水菜萌借生活用品，亚托莉从列清单、等待到接收折叠睡衣，回家试穿并打算道谢。两小时覆盖准备、交接与归置。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "放学后的镇上小路与家中，夏生向水菜萌借来亚托莉的睡衣，亚托莉接收后好奇试穿并想着道谢。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "夏生和亚托莉开始同居生活，需要准备日用品。",
+    "水菜萌答应帮忙借生活用品，并选了适合亚托莉的布制品。",
+    "亚托莉对生活用品和衣物没有排斥，愿意试穿。",
+    "原作中借来的是睡衣，不是购买。"
+  ],
+  "adaptation_notes": [
+    "原作借生活用品发生在放学后，此处扩展为两小时日常：清点、等待、接收、回家试穿与归置。",
+    "原作水菜萌带来折叠好的衣物，亚托莉接收后表示要道谢；本模板只扩展接收与准备致谢，不描写内衣身体细节。",
+    "借取而非购买，因此按领取与归置处理，不写购物结账。",
+    "亚托莉的自信与好奇体现在核对清单和试穿准备中，不当作性能故障或笨拙必然失败。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "清点缺少的日用品",
+      "intent": "亚托莉想自己弄清还缺什么，对借来的东西既好奇又不想被小看。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "路上说明与等待交接",
+      "intent": "夏生向水菜萌说明需求，亚托莉在旁边听，偶尔插话确认自己能不能用。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "接收折叠好的布制品",
+      "intent": "水菜萌把选好的睡衣交给亚托莉，亚托莉接过并想着之后道谢。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "回家试穿与归置",
+      "intent": "亚托莉试穿睡衣、照看合不合身，同时把借来的东西收好，准备向水菜萌道谢。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "清点缺少的日用品",
+      "detail": "亚托莉看着夏生列的清单，先自己念一遍，遇到不认识的词就歪头想意思。",
+      "mood": "认真又好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "清点缺少的日用品",
+      "detail": "她注意到清单上有睡衣，问夏生是不是要借，眼睛仍往纸上瞟。",
+      "mood": "想弄明白"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "清点缺少的日用品",
+      "detail": "亚托莉想自己把借的东西记下来，暂时不让夏生帮忙写，嘴里小声复述。",
+      "mood": "不想被小看"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "路上说明与等待交接",
+      "detail": "走在去碰面的路上，亚托莉步子抬得高，问水菜萌会带什么样的过来。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "路上说明与等待交接",
+      "detail": "夏生和水菜萌说话时，亚托莉在旁边听，偶尔点头，心里记下道谢的时机。",
+      "mood": "安静听着"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "路上说明与等待交接",
+      "detail": "等水菜萌从包里拿东西，亚托莉好奇地看过去，但没伸手去碰。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "接收折叠好的布制品",
+      "detail": "水菜萌把折叠整齐的睡衣递过来，亚托莉接过，先小心地摸了下布料。",
+      "mood": "小心接过"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "接收折叠好的布制品",
+      "detail": "她听水菜萌说选了适合她的，低头看了看，想着合不合身。",
+      "mood": "有点在意"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "接收折叠好的布制品",
+      "detail": "亚托莉把睡衣抱好，对水菜萌说要道谢，但话到嘴边先认真点了个头。",
+      "mood": "郑重"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "回家试穿与归置",
+      "detail": "到家后亚托莉展开睡衣看了看，确认正反面，准备试穿。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "回家试穿与归置",
+      "detail": "试穿时她转了下身看衣摆长度，问夏生这样算不算合适。",
+      "mood": "不太确定"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "回家试穿与归置",
+      "detail": "亚托莉把借来的东西折好收在一旁，心里想着明天或下次见到水菜萌要好好道谢。",
+      "mood": "踏实"
+    }
+  ],
+  "source": {
+    "chapter": "b112.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生向水菜萌借生活用品。",
+      "水菜萌带来折叠好的衣物。",
+      "亚托莉接收试穿后表示要道谢。"
+    ],
+    "character_hook": "亚托莉对生活用品和衣物没有排斥，会接受安排并好奇试穿。",
+    "adaptation": "把借生活用品扩展为两小时：清点缺少的日用品、说明需求、接收水菜萌带来的物品、回家试穿整理；原文是借而不是买卖，因此按“购物/领取”类日常处理。",
+    "editor_note": "原作借取由夏生发起，亚托莉接收衣物并打算道谢；只扩展接收、归置、准备致谢，不描写内衣身体。",
+    "evidence": [
+      {
+        "line": 1456,
+        "id": "vol1/b112.ks.scn/0/dialogue/22",
+        "speaker": "夏生",
+        "text": "啊，对了，水菜萌。我想找你帮个忙"
+      },
+      {
+        "line": 1457,
+        "id": "vol1/b112.ks.scn/0/dialogue/23",
+        "speaker": "水菜萌",
+        "text": "帮忙？"
+      },
+      {
+        "line": 1458,
+        "id": "vol1/b112.ks.scn/0/dialogue/24",
+        "speaker": "夏生",
+        "text": "其实吧……"
+      },
+      {
+        "line": 1459,
+        "id": "vol1/b112.ks.scn/0/dialogue/25",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "因为今后要和亚托莉一起生活，我就向水菜萌借了样生活必须品。"
+      },
+      {
+        "line": 1749,
+        "id": "vol1/b112.ks.scn/0/dialogue/315",
+        "speaker": "水菜萌",
+        "text": "啊，对了对了。给你，这是你要的东西"
+      },
+      {
+        "line": 1750,
+        "id": "vol1/b112.ks.scn/0/dialogue/316",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "水菜萌从包里拿出一块折叠整齐的布制品。"
+      },
+      {
+        "line": 1751,
+        "id": "vol1/b112.ks.scn/0/dialogue/317",
+        "speaker": "水菜萌",
+        "text": "我选了件适合小亚托莉的"
+      },
+      {
+        "line": 1752,
+        "id": "vol1/b112.ks.scn/0/dialogue/318",
+        "speaker": "夏生",
+        "text": "抱歉，麻烦你了"
+      },
+      {
+        "line": 1773,
+        "id": "vol1/b112.ks.scn/0/dialogue/339",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "这就是我们同居生活中必不可少的东西。"
+      },
+      {
+        "line": 1774,
+        "id": "vol1/b112.ks.scn/0/dialogue/340",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我在放学后向水菜萌要来的，就是亚托莉的睡衣！"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "source",
+        "location": "candidate.adaptation 及 routine.scene/summary 多次出现“睡衣”",
+        "detail": "原作直到结尾才由夏生揭晓借来的布制品是睡衣，亚托莉当场还误认成内衣；本候选在开场的适应说明、场景和概要中就写明是睡衣，把原作刻意保留的揭晓点提前泄露，改变了这一日常的核心趣味。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "整体两小时节奏合理，属于可接受的日常生活延展；唯一实质问题是便利地把揭晓前的睡衣说成已知信息，建议在核心与场景描述中改为“生活用品/折叠布制品”，只在结尾回家试穿处再揭示具体物品。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "source",
+            "location": "candidate.adaptation 及 routine.scene/summary 多次出现“睡衣”",
+            "detail": "原作直到结尾才由夏生揭晓借来的布制品是睡衣，亚托莉当场还误认成内衣；本候选在开场的适应说明、场景和概要中就写明是睡衣，把原作刻意保留的揭晓点提前泄露，改变了这一日常的核心趣味。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "整体两小时节奏合理，属于可接受的日常生活延展；唯一实质问题是便利地把揭晓前的睡衣说成已知信息，建议在核心与场景描述中改为“生活用品/折叠布制品”，只在结尾回家试穿处再揭示具体物品。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "6ff6fce79edc48848004280a2effb7b0c15bf18c2c2693cb98977da894c450ef",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "6327fcf712c17e8f0c6ec077e04857d473a314fe159a4c2541e554f60ccc7ecd"
+  }
+}

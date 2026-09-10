@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "id": "b304-09",
+  "category": "出行",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": true,
+  "title": "亚托莉亲手摘果计划",
+  "summary": "以明确意愿为基础，安排亚托莉在可食用果树旁亲手采摘果子，从准备、寻找合适果枝到休息与收尾，把被照顾的小事接过来，同时留意酸甜与树上的选择。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "小岛果树旁，亚托莉打算自己摘果子，夏生在旁边不主动接手，只在她问到时给一句必要提醒。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "已确认同种果树果实可食用，且伸手可及，不需要攀高。",
+    "亚托莉处于精神正常、愿意自己尝试的状态。",
+    "夏生在场但不主动代劳，作为背景伙伴提供有限答复。",
+    "有可盛放果子的容器或手边替代物。"
+  ],
+  "adaptation_notes": [
+    "原作中采果者是夏生，亚托莉只说之后想自己去摘；本模板把这一明确意愿扩展为实际两小时活动。",
+    "不编造她具备鉴别未知野果的能力，所有可食用前提来自已确认的同种果树。",
+    "不把采摘写成必然成功或必然失败，结果留待实际情境。",
+    "夏生保持原作身份与伙伴关系，不写成命令或过度保护式互动。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "出门与找果树",
+      "intent": "亚托莉想自己走到果树旁，先看清结实的位置和伸手够得到的枝条。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "亲手采摘",
+      "intent": "她把能摘的小事接过来，按自己的判断选果子，也会留意颜色和软硬。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "休息与尝味",
+      "intent": "摘得差不多后坐下来歇一歇，剥一颗尝尝，心里记下酸还是甜。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "收拾与返回",
+      "intent": "把果子装好，带走果皮等零碎，确认没有遗漏，再沿着来路回去。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "出门与找果树",
+      "detail": "亚托莉检查要带的小容器，又瞟了一眼夏生，像在说这次不用他动手。",
+      "mood": "认真又有点得意"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "出门与找果树",
+      "detail": "她沿着熟悉的小路走，途中停下来辨认方向，确认是上次带回果子的那几棵树。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "出门与找果树",
+      "detail": "站在果树前，她先抬头找低处结实、看起来和确认过的一样的小果子。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "亲手采摘",
+      "detail": "亚托莉伸手去够第一颗，动作不快，手指轻轻试了试果柄是否牢固。",
+      "mood": "小心"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "亲手采摘",
+      "detail": "她把摘下的果子放进容器，又回头看枝头，想再挑一颗大小合适的。",
+      "mood": "有干劲"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "亲手采摘",
+      "detail": "有颗果子长得高一点，她踮脚试了试，够不到便收回手，转向旁边的矮枝。",
+      "mood": "不勉强"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "亲手采摘",
+      "detail": "容器里渐渐有了几颗，她低头数了数，觉得差不多够今天吃了。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "休息与尝味",
+      "detail": "亚托莉在树旁坐下，挑了一颗自己摘的，慢慢剥开果皮。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "休息与尝味",
+      "detail": "咬下去后她皱了下眉，没说好不好，只把酸甜的感觉记下来，又看了看手里的果子。",
+      "mood": "认真品味"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "休息与尝味",
+      "detail": "她把果皮收在一起，随口问夏生要不要也尝一颗，语气像在展示自己的成果。",
+      "mood": "小小炫耀"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "收拾与返回",
+      "detail": "亚托莉把容器盖好，检查周围有没有落下的果皮或果核，不想留下痕迹。",
+      "mood": "仔细"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "收拾与返回",
+      "detail": "沿着原路返回时，她走得不快，心里想着明天也许还能再来摘几颗。",
+      "mood": "平静期待"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "休息与尝味",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          100
+        ]
+      },
+      {
+        "activity": "收拾与返回",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          100,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b304.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "原场景采果者是夏生。",
+      "果子未给出具体品种。",
+      "亚托莉明确说之后想自己去摘。"
+    ],
+    "character_hook": "不想一直被照顾，想把能做的小事接过来，又会认真留意酸甜。",
+    "adaptation": "这是按明确意愿扩展，不是原作已执行记录。前提是精神正常、已有确认可食用的同种果树、果实伸手可及；不编鉴毒能力、攀高冒险或吃东西恢复能量，采摘结果未知。",
+    "editor_note": "回查原文后补充的独立活动或明确愿望；依据与扩展边界见候选。",
+    "evidence": [
+      {
+        "line": 7754,
+        "id": "vol1/b304.ks.scn/0/dialogue/23",
+        "speaker": "夏生",
+        "text": "我采了果子回来，先吃饭吧"
+      },
+      {
+        "line": 7758,
+        "id": "vol1/b304.ks.scn/0/dialogue/27",
+        "speaker": "亚托莉",
+        "text": "反正我也不能摄取营养"
+      },
+      {
+        "line": 7759,
+        "id": "vol1/b304.ks.scn/0/dialogue/28",
+        "speaker": "夏生",
+        "text": "好吃就是高兴，不是吗？吃吧"
+      },
+      {
+        "line": 7762,
+        "id": "vol1/b304.ks.scn/0/dialogue/31",
+        "speaker": "亚托莉",
+        "text": "……夏生先生不靠帮助，只靠一条腿去采了果子吗？"
+      },
+      {
+        "line": 7764,
+        "id": "vol1/b304.ks.scn/0/dialogue/33",
+        "speaker": "亚托莉",
+        "text": "然后，现在还帮我剥开了果皮"
+      },
+      {
+        "line": 7771,
+        "id": "vol1/b304.ks.scn/0/dialogue/40",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉用嘴接住我手中的果子，被酸到脸都皱了起来。"
+      },
+      {
+        "line": 7772,
+        "id": "vol1/b304.ks.scn/0/dialogue/41",
+        "speaker": "亚托莉",
+        "text": "酸酸的真好吃……"
+      },
+      {
+        "line": 7773,
+        "id": "vol1/b304.ks.scn/0/dialogue/42",
+        "speaker": "夏生",
+        "text": "外边还长着好多果子，明天也吃这个吧"
+      },
+      {
+        "line": 7774,
+        "id": "vol1/b304.ks.scn/0/dialogue/43",
+        "speaker": "亚托莉",
+        "text": "我会快点恢复的，明天我去摘"
+      }
+    ]
+  },
+  "review": {
+    "issues": [
+      {
+        "kind": "duration",
+        "location": "micro 30-70",
+        "detail": "“亲手采摘”连续四个十分钟格都在围绕伸手够果子、放容器、转向矮枝、低头数数，整体靠同一采摘小动作反复延续至40分钟，略显拖时长；建议压缩为采摘为主、穿插走动/观察/与夏生的短交流，避免同一动作撑满。"
+      }
+    ],
+    "verdict": "revise",
+    "note": "整体符合候选边界与角色关系，但采摘阶段节奏偏平，建议把40分钟采摘改成合理主要活动加短歇与自然留白。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [
+          {
+            "kind": "duration",
+            "location": "micro 30-70",
+            "detail": "“亲手采摘”连续四个十分钟格都在围绕伸手够果子、放容器、转向矮枝、低头数数，整体靠同一采摘小动作反复延续至40分钟，略显拖时长；建议压缩为采摘为主、穿插走动/观察/与夏生的短交流，避免同一动作撑满。"
+          }
+        ],
+        "verdict": "revise",
+        "note": "整体符合候选边界与角色关系，但采摘阶段节奏偏平，建议把40分钟采摘改成合理主要活动加短歇与自然留白。"
+      }
+    ],
+    "user_approval": false,
+    "advisory_only": true,
+    "content_sha256": "1bfa706ba47008252243c34ce31914a713eaab3705226c267b951a08e0dc0294",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "8d7dc0caf2fd3397b85c84d919b7d8f51accfbd3b038440f753d5460deff5b0e"
+  }
+}

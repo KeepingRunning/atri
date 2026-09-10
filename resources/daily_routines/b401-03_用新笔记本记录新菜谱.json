@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "id": "b401-03",
+  "category": "记录",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "新笔记本上的社团菜谱",
+  "summary": "亚托莉带着新买的笔记本参加水菜萌的社团活动，记下一道新菜谱的要点；回船后把步骤整理成能用的笔记，关注没听清的地方，留待下次确认。",
+  "suggested_time_of_day": [
+    "下午"
+  ],
+  "scene": "放学后，亚托莉从学校社团活动回到船上，在船舱里翻开刚买的笔记本，准备把今天水菜萌示范的菜谱认真记下来。",
+  "participants": [
+    "亚托莉",
+    "水菜萌"
+  ],
+  "preconditions": [
+    "亚托莉已买好一本和之前同款的实用笔记本",
+    "学校社团活动照常，水菜萌是社团部长",
+    "社团今天示范了一道新菜，亚托莉在活动中做了简要笔记",
+    "船上厨房和常用调料可用，方便日后试做"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉买笔记本、去社团活动、认为能获得有用知识是直接依据",
+    "两小时从社团活动延续到回船整理记录，属于创作补足的时间扩展",
+    "移除学校禁令与记忆缺失等剧情压力，只保留记菜谱的日常目的",
+    "夏生不在本次场景中；社团活动沿用原作中的水菜萌作为部长"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "社团活动收尾",
+      "intent": "把水菜萌示范的菜谱要点再确认一遍，不想漏掉有用的细节。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "离校与路上整理",
+      "intent": "边走边在脑中过一遍步骤，考虑新笔记本要从哪里开始写。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 100,
+      "activity": "船舱里记菜谱",
+      "intent": "用新笔记本条理清楚地抄下食材和火候，对不懂的地方做标记。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "翻看与歇息",
+      "intent": "把刚记的页面读一遍，顺便想下次社团活动还能问什么。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "社团活动收尾",
+      "detail": "把笔记本翻开到空白页，回想水菜萌刚才讲的食材比例，手指点在页边犹豫先写什么。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "社团活动收尾",
+      "detail": "水菜萌提到火候时，亚托莉多问了一句“中火大概多久”，觉得这种细节最实用。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "社团活动收尾",
+      "detail": "收拾东西准备离开，把新笔记本放进包里前又确认了一遍没有折角。",
+      "mood": "满意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "离校与路上整理",
+      "detail": "走在路上还在默念刚才的步骤顺序，怕自己回船后只记得大概。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "离校与路上整理",
+      "detail": "想到笔记本是特意为新菜谱买的，觉得不写满一点就对不起这份准备。",
+      "mood": "干劲"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "离校与路上整理",
+      "detail": "路过商店街时瞥了一眼，但没停步，打算先回去把记录完成。",
+      "mood": "心无旁骛"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "船舱里记菜谱",
+      "detail": "在首页写下菜名和日期，字迹比平时刻意工整，想让这本笔记看起来像样。",
+      "mood": "郑重"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "船舱里记菜谱",
+      "detail": "写到调料时不太确定社团用的是哪种，先空出一行，打算下次问清楚。",
+      "mood": "谨慎"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "船舱里记菜谱",
+      "detail": "对水菜萌示范时的一个动作有印象，但还是翻回随手记的那页核对了一遍。",
+      "mood": "不放心"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "船舱里记菜谱",
+      "detail": "把步骤按顺序编号，又补了一句自己的理解，觉得这样以后做起来更快。",
+      "mood": "有条理"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "翻看与歇息",
+      "detail": "从头读了一遍刚记的内容，看到空行处停了一下，想着怎么补上才完整。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "翻看与歇息",
+      "detail": "合上笔记本，觉得今天确实获得了有用的知识，开始期待下次社团活动。",
+      "mood": "满足"
+    }
+  ],
+  "source": {
+    "chapter": "b401.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生让亚托莉“去记点新菜谱吧”，亚托莉回答“好的”。",
+      "亚托莉说没笔记本的话记不了新菜谱，所以先买了笔记本。",
+      "亚托莉参加社团活动是为了“获得有用的知识”，且说“能获得有用的知识”。"
+    ],
+    "character_hook": "亚托莉对记录菜谱这件事很认真，认为社团活动能获得有用知识，并愿意为此准备专用笔记本。",
+    "adaptation": "去除学校禁令和记忆缺失，将“记新菜谱”扩为两小时：从社团活动中学到一道菜，回到船上或家中用新笔记本仔细记录步骤和要点。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 8243,
+        "id": "vol1/b401.ks.scn/0/dialogue/91",
+        "speaker": "夏生",
+        "text": "但是你这之后不是有社团活动吗"
+      },
+      {
+        "line": 8246,
+        "id": "vol1/b401.ks.scn/0/dialogue/94",
+        "speaker": "夏生",
+        "text": "去记点新菜谱吧"
+      },
+      {
+        "line": 8247,
+        "id": "vol1/b401.ks.scn/0/dialogue/95",
+        "speaker": "亚托莉",
+        "text": "好的"
+      },
+      {
+        "line": 8252,
+        "id": "vol1/b401.ks.scn/0/dialogue/100",
+        "speaker": "亚托莉",
+        "text": "没笔记本的话，记不了新菜谱……"
+      },
+      {
+        "line": 8253,
+        "id": "vol1/b401.ks.scn/0/dialogue/101",
+        "speaker": "夏生",
+        "text": "也是，毕竟记录都留在伊甸了。去学校之前先一起去买吧"
+      },
+      {
+        "line": 8335,
+        "id": "vol1/b401.ks.scn/0/dialogue/183",
+        "speaker": "亚托莉",
+        "text": "如你所见非常完美！"
+      },
+      {
+        "line": 8336,
+        "id": "vol1/b401.ks.scn/0/dialogue/184",
+        "speaker": "亚托莉",
+        "text": "找到了本实用性与经济性兼具的笔记本。我的眼光绝不会错！"
+      },
+      {
+        "line": 8347,
+        "id": "vol1/b401.ks.scn/0/dialogue/195",
+        "speaker": "亚托莉",
+        "text": "非常抱歉，毕竟休息了一段时间，再不去会被水菜萌部长骂的"
+      },
+      {
+        "line": 8562,
+        "id": "vol1/b401.ks.scn/0/dialogue/410",
+        "speaker": "亚托莉",
+        "text": "明天还能去社团活动吗"
+      },
+      {
+        "line": 8564,
+        "id": "vol1/b401.ks.scn/0/dialogue/412",
+        "speaker": "亚托莉",
+        "text": "是的。因为能获得有用的知识"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留新本子记料理部教过的菜谱，具体笔记正文以本次已有学习材料为前提，不生造‘先炒香再加液体’配方。社团收尾、回程、记录和短歇自然分配，记录关注她想把有用知识留下，不十二格核对同一行。",
+    "user_approval": false,
+    "editorial_sha256": "71a0d309616096cffc8af273a3c5b570604a2199656657965f94138947cf1c70",
+    "content_sha256": "afb5430c6d392c98ce297415eb606ef968722f6cb67c38d16f8ed1b101f7f841"
+  }
+}

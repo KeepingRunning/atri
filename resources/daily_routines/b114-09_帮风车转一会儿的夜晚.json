@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "id": "b114-09",
+  "category": "劳动",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "无风夜转风车与晚餐",
+  "summary": "亚托莉在无风夜晚被夏生请求帮忙转风车，短暂尝试后灯亮起。她惦记着夏生还没吃饭，催他先吃晚餐并休息；之后两人各自写日志，亚托莉自然歇息。",
+  "suggested_time_of_day": [
+    "夜晚"
+  ],
+  "scene": "夜色中的小屋因无风而停电，夏生请亚托莉帮忙转动风车。她吃惊但仍照做，灯短暂亮起。随后她催夏生吃饭休息，两人在灯下各写日志。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "小屋靠小型风车发电，风车设在外侧可手动触及的位置",
+    "今晚几乎没有风，风力发电暂时停止，屋内没电",
+    "夏生仍在桌前专注做事，忘了吃饭",
+    "有一本可供亚托莉写日志的笔记本"
+  ],
+  "adaptation_notes": [
+    "原作中手动转风车是夏生请求后的短时应急行为；本模板只保留一个10分钟格作为短时尝试，不扩展为持续发电或轮换照看",
+    "亚托莉并未主动提出帮忙，而是吃惊后照做；后续安排保留她催夏生吃饭休息的倾向",
+    "夏生提到的水力设想只作为闲聊背景，不展开成新设备或维护职责",
+    "为凑满两小时加入吃饭、休息和写日志等相邻日常，这些属于创作补足；不保证试转结果"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "无风夜里惦记晚饭",
+      "intent": "电灯暗着，也没忘记夏生答应的吃饭。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "短时帮忙转风车",
+      "intent": "听到请求后试着帮一下，看看装置表现。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "吃饭与催人休息",
+      "intent": "更在意夏生别忙得忘记吃和睡。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "歇一会儿",
+      "intent": "自己也坐下来，不一直守着风车。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "安静记录与收尾",
+      "intent": "只记本次发生的小事，然后准备休息。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "无风夜里惦记晚饭",
+      "detail": "无风的夜里屋子暗下来，亚托莉看看风车，又转头惦记着还没吃的晚饭。",
+      "mood": "意外"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "无风夜里惦记晚饭",
+      "detail": "走到桌边想提醒夏生先停一停；他忙起来连答应弄吃的都容易忘，她对此有点不满。",
+      "mood": "半信半疑"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "短时帮忙转风车",
+      "detail": "听到帮忙转风车的请求时吃了一惊，还是过去试着拨动，留意灯的反应，帮一小会儿就回来。",
+      "mood": "留心观察"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "吃饭与催人休息",
+      "detail": "亚托莉想起夏生还没吃饭，催他别又坐回桌前，自己去把饭菜端过来。",
+      "mood": "认真催饭"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "吃饭与催人休息",
+      "detail": "两人简单吃着，亚托莉筷子搁在碗边，偶尔看一眼窗外风车有没有自己转。",
+      "mood": "不紧不慢"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "吃饭与催人休息",
+      "detail": "饭快吃完，亚托莉没再抱怨菜凉，只提醒夏生吃完歇一会儿，别再立刻干活。",
+      "mood": "认真提醒"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "歇一会儿",
+      "detail": "吃过之后坐下来歇着，听见夏生又在想研究的事，想提醒他别把休息也省掉。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "歇一会儿",
+      "detail": "靠在椅背上听窗外动静，已经离开风车，暂时不找新的活来做。",
+      "mood": "放松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "歇一会儿",
+      "detail": "想起刚才用手转风车的请求，仍觉得有点出乎意料；也可以先把这件事放下，安静待着。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "安静记录与收尾",
+      "detail": "亚托莉翻出笔记本，说今晚写日志之前要先把‘没电’和‘转风车’记清楚。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "安静记录与收尾",
+      "detail": "只把本次已经发生的事情记进日志。光线不方便写时就先收好纸笔，留到合适的时候。",
+      "mood": "安宁"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "安静记录与收尾",
+      "detail": "笔尖沙沙响，亚托莉打了个小小的哈欠，表示自己也要休息；夏生仍没停。",
+      "mood": "困倦"
+    }
+  ],
+  "source": {
+    "chapter": "b114.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉说‘啊，没电了’",
+      "夏生说‘因为今晚没有风啊’",
+      "夏生请求‘你能出去帮我转风车吗’",
+      "亚托莉用手转动风车，灯亮了"
+    ],
+    "character_hook": "亚托莉虽然抱怨‘用手转吗！？’但还是照做，体现对夏生的配合。",
+    "adaptation": "保留无风时夏生请求亚托莉短时转风车、亚托莉催他吃饭休息的线索。手转仅短段，之后衔接用餐和各自休息，不设常态人力发电或维护职责。",
+    "editor_note": "原文是夏生请求她转风车，亚托莉吃惊后照做；不能误写原文主动提出。两小时模板只留短时协助，搭配惦记晚饭、催人休息与各自写日志。",
+    "evidence": [
+      {
+        "line": 2492,
+        "id": "vol1/b114.ks.scn/0/dialogue/266",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我从学校回来后就一直坐在桌前忙碌。"
+      },
+      {
+        "line": 2495,
+        "id": "vol1/b114.ks.scn/0/dialogue/269",
+        "speaker": "夏生",
+        "text": "……"
+      },
+      {
+        "line": 2498,
+        "id": "vol1/b114.ks.scn/0/dialogue/272",
+        "speaker": "亚托莉",
+        "text": "啊，没电了"
+      },
+      {
+        "line": 2500,
+        "id": "vol1/b114.ks.scn/0/dialogue/274",
+        "speaker": "夏生",
+        "text": "……因为今晚没有风啊"
+      },
+      {
+        "line": 2505,
+        "id": "vol1/b114.ks.scn/0/dialogue/279",
+        "speaker": "夏生",
+        "text": "你能出去帮我转风车吗"
+      },
+      {
+        "line": 2506,
+        "id": "vol1/b114.ks.scn/0/dialogue/280",
+        "speaker": "亚托莉",
+        "text": "用手转吗！？"
+      },
+      {
+        "line": 2507,
+        "id": "vol1/b114.ks.scn/0/dialogue/281",
+        "speaker": "亚托莉",
+        "text": "我、我知道了……我的手能够到吗"
+      },
+      {
+        "line": 2508,
+        "id": "vol1/b114.ks.scn/0/dialogue/282",
+        "speaker": "亚托莉",
+        "text": "啊，亮了"
+      },
+      {
+        "line": 2509,
+        "id": "vol1/b114.ks.scn/0/dialogue/283",
+        "speaker": "夏生",
+        "text": "……"
+      },
+      {
+        "line": 2510,
+        "id": "vol1/b114.ks.scn/0/dialogue/284",
+        "speaker": "亚托莉",
+        "text": "啊，还继续啊！？"
+      },
+      {
+        "line": 2511,
+        "id": "vol1/b114.ks.scn/0/dialogue/285",
+        "speaker": "夏生",
+        "text": "考虑到发电效率，果然还是要用水力……"
+      },
+      {
+        "line": 2515,
+        "id": "vol1/b114.ks.scn/0/dialogue/289",
+        "speaker": "亚托莉",
+        "text": "失落……我也去写日志吧"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "83d29440f85ea1082e956facf7e3c5135bc469350538e9eb5fdf6e0b3f4ebc0f",
+    "content_sha256": "5c0cfcbd49cf0b57d95986d60d95076464091c37f2ed281d76e7b8cfd5a88ff4"
+  }
+}

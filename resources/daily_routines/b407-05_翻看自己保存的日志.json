@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "id": "b407-05",
+  "category": "记录",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "亚托莉翻看打捞日志",
+  "summary": "亚托莉在岛边翻开从海底打捞那天起记录的日志，边读边笑、生气、害羞；她按自己的节奏决定哪些页面可以给夏生看，读累了就合上本子看海休息，不预设托付或捡回等结局前情。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "安静的小岛边，亚托莉坐在夏生旁边，膝上放着自己的日志，海风把书页吹得微微翻动。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉有一本从海底打捞那天起记录日常的笔记本，内容涉及打捞后与夏生相处的事情。",
+    "这本日志此刻就在她手边，可以翻开阅读；不追究是何时、从何处拿回来的。",
+    "夏生在场，愿意陪她坐一会儿，但不催她分享。",
+    "只阅读已有记录，不新增未写过的往事或翻找更衣处等前情。"
+  ],
+  "adaptation_notes": [
+    "原作中读日志发生在接近告别与托付的语境；本模板去掉遗忘和结局压力，仅保留两人在岛边一起翻看打捞后日常记录的活动。",
+    "原作里亚托莉读着读着会笑、生气、害羞；这里扩展成两小时里自然出现的翻页、停顿、吐槽和闲歇，不照搬结局托付。",
+    "亚托莉的日志与祖母的研究日志是两回事，本模板只围绕她自己的记录，不混入研究笔记。",
+    "不预写任何具体日志条目，也不预设她一定把日志交给夏生保管；交托只作为可能出现的自然收束由实际RP决定。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "翻开打捞那天的页",
+      "intent": "亚托莉想看看从海底打捞上来那天自己写了什么，同时有点不确定要不要当场读出声。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "边读边笑边生气",
+      "intent": "读到相处日常时反应丰富，偶尔吐槽夏生，也对自己的记录感到得意。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "挑几页决定给不给看",
+      "intent": "她想分享其中一些片段，又会在某些地方害羞地挡一下页面，由她自己决定哪些可以给夏生看。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "合上本子看海休息",
+      "intent": "读累了就合上日志，聊几句内容或安静地看海，自然结束这段阅读。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "翻开打捞那天的页",
+      "detail": "亚托莉把日志平放在膝上，先确认封面和书页有没有被海风弄潮，再慢慢翻到打捞那天开头的位置。",
+      "mood": "好奇带点小心"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "翻开打捞那天的页",
+      "detail": "翻看已经写下的几页，遇到自己在意的记载就多停一会儿，读的内容以这本已有的日志为准。",
+      "mood": "安静回想"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "翻开打捞那天的页",
+      "detail": "夏生问要不要一起看，她把本子往自己怀里收了收，说先自己确认一下，但也没说不行。",
+      "mood": "嘴硬但没拒绝"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "边读边笑边生气",
+      "detail": "读到某段记录时她噗呲笑出来，又马上抿住嘴，假装只是翻页的声音。",
+      "mood": "忍不住笑"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "边读边笑边生气",
+      "detail": "如果某页写着自己得意的小事，会想多看两眼；没有也不硬找，顺着现有记录往后读。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "边读边笑边生气",
+      "detail": "看到记录里夏生做的某件事，她皱起眉小声嘟囔了一句，又继续往后翻。",
+      "mood": "有点气鼓鼓"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "挑几页决定给不给看",
+      "detail": "她把本子转过去给夏生看一页，手指点在某行字上，斜眼看他，等他反应。",
+      "mood": "试探"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "挑几页决定给不给看",
+      "detail": "夏生凑近看时她又把本子抽回来，说这段不许细看，脸有点热。",
+      "mood": "害羞"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "挑几页决定给不给看",
+      "detail": "她又挑了一段读给夏生听，语气比刚才轻，读完后把本子合上一会儿。",
+      "mood": "放松下来"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "合上本子看海休息",
+      "detail": "读久了有点静下来，她把日志合上放在膝盖上，看着岛边的方向发呆。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "合上本子看海休息",
+      "detail": "夏生问她读到什么好笑的，她只挑一句说，剩下的含糊过去。",
+      "mood": "有点回避"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "合上本子看海休息",
+      "detail": "她重新翻开最后一页看了看，确认后面还有空白，像是在想以后要不要继续写，然后安静地望向海面。",
+      "mood": "认真而松弛"
+    }
+  ],
+  "source": {
+    "chapter": "b407.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉接过自己的日志并翻页。",
+      "日志记着打捞后相处的事情。",
+      "她阅读时会笑、生气或害羞。"
+    ],
+    "character_hook": "亚托莉对自己日志里的事件会有丰富反应：得意、害羞、吐槽夏生好色，也会认真把重要记忆交托出去。",
+    "adaptation": "去掉遗忘与告别压力，只保留两人一起读日志、回顾打捞后日常记录、互相吐槽的两小时阅读记录活动。",
+    "editor_note": "不混淆她自己的日志与祖母的研究日志。不照搬结局托付；用时提供可读旧记录或只安排阅读关注，不编共享往事。",
+    "evidence": [
+      {
+        "line": 11549,
+        "id": "vol1/b407.ks.scn/0/dialogue/324",
+        "speaker": "夏生",
+        "text": "「忘记了么。你的日志」"
+      },
+      {
+        "line": 11551,
+        "id": "vol1/b407.ks.scn/0/dialogue/326",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉落在岛里的日志掉在了这里。"
+      },
+      {
+        "line": 11553,
+        "id": "vol1/b407.ks.scn/0/dialogue/328",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "接过来后，亚托莉翻开了页。"
+      },
+      {
+        "line": 11554,
+        "id": "vol1/b407.ks.scn/0/dialogue/329",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "上面记录着从海底打捞上来那一天开始发生的事情。"
+      },
+      {
+        "line": 11555,
+        "id": "vol1/b407.ks.scn/0/dialogue/330",
+        "speaker": "亚托莉",
+        "text": "「嘿……还发生了这种事情了呢……」"
+      },
+      {
+        "line": 11556,
+        "id": "vol1/b407.ks.scn/0/dialogue/331",
+        "speaker": "亚托莉",
+        "text": "「呣……我的高性能，毫无遗憾地施展出来了……」"
+      },
+      {
+        "line": 11557,
+        "id": "vol1/b407.ks.scn/0/dialogue/332",
+        "speaker": "亚托莉",
+        "text": "「……呣，夏生先生……果然好色……」"
+      },
+      {
+        "line": 11558,
+        "id": "vol1/b407.ks.scn/0/dialogue/333",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "读着日志，亚托莉时而噗呲地笑着，时而生起气来，变得害羞起来。"
+      },
+      {
+        "line": 11559,
+        "id": "vol1/b407.ks.scn/0/dialogue/334",
+        "speaker": "亚托莉",
+        "text": "「嘿嘿，这样啊……」"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "assistant_editorial_revision",
+    "note": "已结合原文和改编边界修正具体内容；时间与来源另经程序校验，仍待用户挑选。",
+    "user_approval": false,
+    "editorial_sha256": "4cbefb6f5ede9821283f0da4d1b2ce8a56f6bee601648c0f285c2583e6c7faf4",
+    "content_sha256": "f9e37e0e3751d355814bbd9dff3c0d8d599feadeec64462e184d7e434d1bed15"
+  }
+}

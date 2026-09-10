@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from datetime import timedelta
+from unittest.mock import patch
 
 import aiohttp
 from aiohttp import web
@@ -15,7 +17,7 @@ from atri_bot.onebot import create_app
 from atri_bot.types import Event, Receipt
 from atri_bot.storage import read_jsonl
 from atri_bot.willingness import ReplyConfig
-from test_bot import ROOT, raw
+from test_bot import ROOT, raw, daytime
 
 
 class TransportTests(unittest.IsolatedAsyncioTestCase):
@@ -25,9 +27,12 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.responses = []
         self.response = {"choices": [{"message": {"content": "模型回复"}}]}
         self.status = 200
+        self.on_request = None
         async def provider(request):
             self.assertEqual(request.headers.get("Authorization"), "Bearer test-api-key")
             self.requests.append(await request.json())
+            if self.on_request is not None:
+                self.on_request()
             response = self.responses.pop(0) if self.responses else self.response
             return web.json_response(response, status=self.status)
         app = web.Application()
@@ -39,7 +44,7 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
                              token="test-token", api_key="test-api-key", model="test-model",
                              base_url=str(self.provider.make_url('/v1')), action_timeout=.2,
                              reply=ReplyConfig(mode="at_only"))
-        self.bot = Bot(self.config, ChatModel(self.config, self.session))
+        self.bot = Bot(self.config, ChatModel(self.config, self.session), now=daytime)
         self.client = TestClient(TestServer(create_app(self.config, self.bot)))
         await self.client.start_server()
         self.headers = {"Authorization": "Bearer test-token", "X-Self-ID": "99"}
@@ -71,6 +76,85 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.bot.group('1').last_receipts['99:1:2']['status'], 'sent')
         self.assertEqual(len([r for r in self.bot.group('1').history if r.get('role') == 'assistant']), 1)
         await ws.close()
+
+    async def test_local_schedule_is_attached_to_real_reply_flow_without_schedule_http(self):
+        self.assertEqual(self.requests, [])
+        plan = self.bot.schedule.current_plan()
+        ws = await self.client.ws_connect(self.config.ws_path, headers=self.headers)
+        await ws.send_json(raw(text='在干嘛？'))
+        action = await asyncio.wait_for(ws.receive_json(), 1)
+        self.assertEqual([r['model'] for r in self.requests], ['test-model'])
+        self.assertNotIn('response_format', self.requests[0])
+        prompt = self.requests[0]['messages'][0]['content']
+        self.assertIn(plan['macro']['title'], prompt)
+        self.assertEqual(json.loads(prompt.split('【当前十分钟小日程】\n')[1]), plan['micro'][3])
+        self.assertIn(self.config.read_personal_info(), prompt)
+        await ws.send_json({'echo': action['echo'], 'status': 'ok', 'retcode': 0, 'data': {'message_id': 900}})
+        await asyncio.wait_for(self.bot.queues['1'].join(), 1)
+        self.assertEqual(self.bot.group('1').last_receipts['99:1:1']['status'], 'sent')
+        task = self.bot.schedule.task
+        await self.client.close()
+        self.assertTrue(task.done())
+
+    async def test_real_websocket_sleep_event_is_recorded_without_model_then_wakes(self):
+        now = daytime().replace(hour=7, minute=59)
+        self.bot.schedule.now = lambda: now
+        ws = await self.client.ws_connect(self.config.ws_path, headers=self.headers)
+        await ws.send_json(raw(text='睡觉时的 @'))
+        async with asyncio.timeout(1):
+            while '1' not in self.bot.groups or '99:1:1' not in self.bot.group('1').seen:
+                await asyncio.sleep(.001)
+        self.assertEqual(self.requests, [])
+        self.assertFalse(self.bot.queues)
+        now = now.replace(hour=8, minute=0)
+        await ws.send_json(raw(mid=2, text='起床后的新消息'))
+        action = await asyncio.wait_for(ws.receive_json(), 1)
+        self.assertEqual(len(self.requests), 1)
+        self.assertIn('起床后的新消息', self.requests[0]['messages'][-1]['content'])
+        await ws.send_json({'echo': action['echo'], 'status': 'ok', 'retcode': 0, 'data': {'message_id': 901}})
+        await asyncio.wait_for(self.bot.queues['1'].join(), 1)
+        self.assertEqual(self.bot.group('1').last_receipts['99:1:2']['status'], 'sent')
+        await ws.close()
+
+    async def test_judgment_failure_after_midnight_stops_http_retries_and_rule_fallback(self):
+        self.config.reply.mode = 'willingness'
+        now = daytime().replace(hour=23, minute=59, second=59)
+        midnight = (now + timedelta(seconds=1)).replace(microsecond=0)
+        self.bot.schedule.now = lambda: now
+        def cross_midnight():
+            nonlocal now
+            now = midnight
+        self.on_request = cross_midnight
+        async def forbidden_sender(gid, parts):
+            self.fail('No midnight reply may be sent')
+        for mid, status, content in ((1, 200, '不合法JSON'), (2, 503, '服务不可用')):
+            now = midnight - timedelta(seconds=1)
+            self.status = status
+            self.response = {'choices': [{'message': {'content': content}}]}
+            result = await self.bot.enqueue(Event.parse(raw(mid=mid)), forbidden_sender)
+            self.assertEqual((result.status, result.reason), ('ignored', 'sleeping'))
+            self.assertEqual(len(self.requests), mid)  # First attempt only; no retry HTTP.
+        rows = list(read_jsonl(self.bot.group('1').path))
+        self.assertFalse(any(r.get('stage') == 'fallback' for r in rows))
+
+    async def test_context_build_crossing_midnight_never_submits_reply_http(self):
+        now = daytime().replace(hour=23, minute=59, second=59)
+        self.bot.schedule.now = lambda: now
+        original = self.bot.schedule.context
+        def cross_midnight():
+            nonlocal now
+            result = original()
+            now += timedelta(seconds=1)
+            return result
+        async def forbidden_sender(gid, parts):
+            self.fail('No midnight reply may be sent')
+        with patch.object(self.bot.schedule, 'context', side_effect=cross_midnight):
+            result = await self.bot.enqueue(Event.parse(raw()), forbidden_sender)
+        self.assertEqual(result.reason, 'sleeping')
+        self.assertEqual(self.requests, [])
+        # The request guard is scoped to bot processing, not manual API diagnostics.
+        self.assertEqual(await self.bot.model.complete([{'role': 'user', 'content': 'test'}]), '模型回复')
+        self.assertEqual(len(self.requests), 1)
 
     async def test_auth_identity_and_duplicate_connection(self):
         for headers, status in (({}, 401), ({**self.headers, 'X-Self-ID': '98'}, 403),

@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "id": "b124-04",
+  "category": "聚会",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": false,
+  "title": "放学后打捞作战会议",
+  "summary": "龙司放学后召集打捞作战会议，凛凛花兴奋加入，亚托莉好奇能潜水的自己能否帮上忙。大家摊开地图讨论打捞线索与分工，她主动问要搬什么、想去现场，夏生在旁协助梳理，会议在整理与闲聊中收尾。",
+  "suggested_time_of_day": [
+    "下午",
+    "傍晚"
+  ],
+  "scene": "放学后的夏生房间，桌上摊开一张旧地图和一份待讨论的打捞线索。龙司、凛凛花、夏生围在一起，亚托莉凑近看地图，对水下作业的部分格外在意。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司",
+    "凛凛花"
+  ],
+  "preconditions": [
+    "龙司提议放学后开作战会议，已有一份待讨论的打捞线索",
+    "凛凛花表示要参加并已确认前来",
+    "亚托莉具备潜水能力且此前参与过水下活动",
+    "夏生房间有可以摊开地图的桌面和椅子"
+  ],
+  "adaptation_notes": [
+    "原作中龙司只一句定下放学后开作战会议，两小时放学后准备、讨论与收尾属创作扩展",
+    "亚托莉的会议参与、提问和想帮忙的反应为创作补足，原作仅见她作为在场者出现",
+    "凛凛花的零花钱动机来自原作，会议中具体发言内容属扩展",
+    "不把亚托莉写成全程专业记录员，也不设定她从未见过海底"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "集合与摊开线索",
+      "intent": "大家陆续到齐，亚托莉帮忙清桌面，听龙司说明打捞线索的来历，目光落在水下部分。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "讨论目标与分工",
+      "intent": "围绕打捞线索地点和人员分工交换意见，亚托莉问要搬什么、水下要注意什么，也想加入现场。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 90,
+      "activity": "休息与闲聊",
+      "intent": "讨论告一段落，大家放松喝水，凛凛花翻看旧物，亚托莉还在想刚才提到的水下难点。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "核对记录与收尾",
+      "intent": "亚托莉对照地图核对讨论要点，龙司确认下次碰头时间，大家收拾桌面后散去。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "集合与摊开线索",
+      "detail": "亚托莉把桌上散落的纸笔归到一边，腾出能摊开地图的地方，顺手压住卷起的边角。",
+      "mood": "认真准备"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "集合与摊开线索",
+      "detail": "龙司在地图上圈出被水淹没的旧街区，亚托莉凑近看，手指顺着水线比了比。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "集合与摊开线索",
+      "detail": "凛凛花挤进来问零花钱怎么算，亚托莉往旁边挪了挪，把椅子让出一半。",
+      "mood": "略有兴致"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "讨论目标与分工",
+      "detail": "夏生接过线索说先确认位置，亚托莉问那片水域有多深，听到数字后点了点头。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "讨论目标与分工",
+      "detail": "龙司提到可能需要下水搬东西，亚托莉立刻说自己去过水下，想先知道要搬什么。",
+      "mood": "想帮忙"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "讨论目标与分工",
+      "detail": "凛凛花举手要负责找工具，亚托莉在旁补充还得算上防水袋和绳索，说完自己先记下来。",
+      "mood": "积极"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "讨论目标与分工",
+      "detail": "龙司说到水下能见度是难点，亚托莉皱眉回忆之前水下活动的感觉，没有急着接话。",
+      "mood": "认真思考"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "休息与闲聊",
+      "detail": "龙司去倒水，亚托莉放下笔活动手指，眼睛还留在刚才圈出的水下位置。",
+      "mood": "稍作放松"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "休息与闲聊",
+      "detail": "凛凛花翻着旧照片问海底能不能看清，亚托莉凭自己下水的经验说要看水况，没把话说满。",
+      "mood": "坦然"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "核对记录与收尾",
+      "detail": "亚托莉把地图上的几个标记和刚才记的要点对了一遍，发现有一处地名写偏，悄悄改回来。",
+      "mood": "自我核对"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "核对记录与收尾",
+      "detail": "龙司确认下次碰头时间，亚托莉跟着念了一遍，又追问集合时要不要先把装备列出来。",
+      "mood": "谨慎"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "核对记录与收尾",
+      "detail": "大家把地图折好，亚托莉合上本子，顺手把桌上的橡皮屑拢进手心，等散场。",
+      "mood": "平静收尾"
+    }
+  ],
+  "source": {
+    "chapter": "b124.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "凛凛花问要做什么并要算她一个。",
+      "龙司说会给她零花钱，凛凛花一定要去。",
+      "龙司决定放学后开作战会议。",
+      "凛凛花喊作战会议。"
+    ],
+    "character_hook": "亚托莉作为夏生的支援者会参与会议，可能对打捞计划好奇或提出意见。",
+    "adaptation": "改编为两小时的作战会议准备与进行：在教室或夏生房间，大家摊开地图、讨论打捞目标，亚托莉帮忙记录或提供信息。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 3871,
+        "id": "vol1/b124.ks.scn/0/dialogue/59",
+        "speaker": "凛凛花",
+        "text": "什么什么？小龙你们要做什么？算我一个！"
+      },
+      {
+        "line": 3872,
+        "id": "vol1/b124.ks.scn/0/dialogue/60",
+        "speaker": "龙司",
+        "text": "喔，你也来帮忙吧。会给你零花钱的"
+      },
+      {
+        "line": 3873,
+        "id": "vol1/b124.ks.scn/0/dialogue/61",
+        "speaker": "凛凛花",
+        "text": "零花钱！我一定要去！"
+      },
+      {
+        "line": 3883,
+        "id": "vol1/b124.ks.scn/0/dialogue/71",
+        "speaker": "龙司",
+        "text": "好，决定了。放学后开作战会议"
+      },
+      {
+        "line": 3884,
+        "id": "vol1/b124.ks.scn/0/dialogue/72",
+        "speaker": "凛凛花",
+        "text": "作战会议！"
+      },
+      {
+        "line": 3885,
+        "id": "vol1/b124.ks.scn/0/dialogue/73",
+        "speaker": "凯瑟琳",
+        "text": "好了，同学们。到上课时间了，坐回位置上"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "这是原作提议后的想象会议，要写清adjacent扩写。亚托莉能潜水且已参与水下活动，删除‘没见过海底’和把不会游泳等同不会潜水的错误。她听打捞目标、问需要搬什么、表达想帮忙即可，不当全程专业记录员。不编已接到相册委托，前提有一份待讨论的打捞线索。",
+    "user_approval": false,
+    "editorial_sha256": "a5ff6491ff2f9394887888bee2d46dd576f11579adf6e47e6ab8a372e14202b5",
+    "content_sha256": "4d0e47f8009224d7d9c81c7ba8f88706e89b09a57462a037074a1498c2a496f1"
+  }
+}

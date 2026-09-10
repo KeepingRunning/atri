@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "id": "b303-07",
+  "category": "用餐",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "夜航船上分水菜萌便当",
+  "summary": "龙司喊饿，三人停船抛锚在海上过夜，围坐分享水菜萌准备的便当。亚托莉高兴应声跟进舱，帮忙摆开餐盒，边吃边聊航行见闻，饭后简单收拾，余下时间在舱外吹风看海。",
+  "suggested_time_of_day": [
+    "傍晚",
+    "夜晚"
+  ],
+  "scene": "停泊在平静海面上的小船上，船舱里亮着灯，三人围坐分吃水菜萌给的便当。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "龙司"
+  ],
+  "preconditions": [
+    "船上带有一份水菜萌准备的便当，内容原作文本未细写",
+    "船已停船抛锚，准备就地过夜",
+    "舱内可围坐用餐，天气平静",
+    "亚托莉对吃饭这件事情绪明显"
+  ],
+  "adaptation_notes": [
+    "原作只有龙司提出吃便当、夏生停船、亚托莉应声跟去这几句，本模板把用餐扩展成两小时的完整夜晚船上聚餐。",
+    "原作为冲突前的短暂日常，本模板移除倒计时与灾难语境，只保留停船吃便当的活动本身。",
+    "便当内容原作文本未细写，本模板不虚构具体菜名，只保留容器与分享动作。",
+    "餐后看海、闲聊航行见闻属于两小时补足的日常扩展。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 20,
+      "activity": "停船与摆开便当",
+      "intent": "亚托莉听到开饭高兴应声，跟进舱帮忙把便当盒摆到中间。"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 50,
+      "activity": "分吃便当聊航行",
+      "intent": "三人边吃边分菜，亚托莉在意水菜萌放了什么，也想聊今天的海面。"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 70,
+      "activity": "饭后收拾与闲坐",
+      "intent": "把空盒叠好，听龙司和夏生随口聊夜宿安排。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 120,
+      "activity": "舱外吹风等天黑",
+      "intent": "亚托莉靠舱口看海上暮色，对夜里的船摇有点好奇。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "停船与摆开便当",
+      "detail": "听到龙司喊饿，亚托莉应了声跟去舱里，顺手把便当盒从包里拿出来。",
+      "mood": "高兴"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "停船与摆开便当",
+      "detail": "夏生还在收锚，她把盒盖一个个掀开摆在中间，好奇数了数有几层。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "分吃便当聊航行",
+      "detail": "她先看了看别人怎么夹，再伸手拿自己那份，留意着别把菜全夹走。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "分吃便当聊航行",
+      "detail": "龙司吃得很快，她有点不甘示弱，边嚼边往盒里看还有多少。",
+      "mood": "嘴硬"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "分吃便当聊航行",
+      "detail": "夏生说起白天风向变了，她接话回忆船身倾斜的角度，其实没记准。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "饭后收拾与闲坐",
+      "detail": "把空盒按大小叠好，盖子擦了一遍，她觉得这样收着才顺眼。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "饭后收拾与闲坐",
+      "detail": "听龙司说今晚就睡船上，她插了句问夜里会不会再起浪。",
+      "mood": "关心"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "舱外吹风等天黑",
+      "detail": "她坐到舱口，看天色一点点暗下去，海面比白天安静。",
+      "mood": "平静"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "舱外吹风等天黑",
+      "detail": "船轻轻晃，她伸手扶了下舱沿，觉得这种摇晃和白天不一样。",
+      "mood": "新鲜"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "舱外吹风等天黑",
+      "detail": "龙司说起以前出海遇到的事，她听着，偶尔向海面瞥一眼。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "舱外吹风等天黑",
+      "detail": "风有点凉，她缩了缩，还是没马上起身回舱。",
+      "mood": "留恋"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "舱外吹风等天黑",
+      "detail": "夏生喊她进舱前，她还回头望了眼远处的水面，才慢慢起身。",
+      "mood": "平静"
+    }
+  ],
+  "source": {
+    "chapter": "b303.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "龙司提出吃水菜萌给的便当。",
+      "夏生停船抛锚准备过夜。",
+      "亚托莉回应好的♪并高兴地跟去吃饭。"
+    ],
+    "character_hook": "听到吃饭会高兴地回应，表情变得生动。",
+    "adaptation": "将便当用餐扩展为两小时的船上聚餐，包括摆盘、分享食物、聊天等，可设定为定期出海时的惯例。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 7533,
+        "id": "vol1/b303.ks.scn/0/dialogue/162",
+        "speaker": "龙司",
+        "text": "我饿了，开饭吧。就吃水菜萌给的便当"
+      },
+      {
+        "line": 7534,
+        "id": "vol1/b303.ks.scn/0/dialogue/163",
+        "speaker": "夏生",
+        "text": "……好，马上去"
+      },
+      {
+        "line": 7535,
+        "id": "vol1/b303.ks.scn/0/dialogue/164",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我动手停船抛锚。"
+      },
+      {
+        "line": 7536,
+        "id": "vol1/b303.ks.scn/0/dialogue/165",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "看来今晚要在这过夜了。"
+      },
+      {
+        "line": 7537,
+        "id": "vol1/b303.ks.scn/0/dialogue/166",
+        "speaker": "夏生",
+        "text": "走吧，亚托莉"
+      },
+      {
+        "line": 7538,
+        "id": "vol1/b303.ks.scn/0/dialogue/167",
+        "speaker": "亚托莉",
+        "text": "好的♪"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "保留船上水菜萌做的便当，别新增饭团、玉子烧等未有证据的具体菜名。用餐约30分钟，其余船上等待、看海、闲聊航行见闻与简单收拾。不要让每一格都夹菜摆碗叠盒。",
+    "user_approval": false,
+    "editorial_sha256": "668324dd46e535f32f55cb224819a6e012a5828013bf90c41832dba9a1542694",
+    "content_sha256": "40d0a7312050753a2751816a9e4779a33aba8e8e5e9a1af9eb7d948914a198a9"
+  }
+}

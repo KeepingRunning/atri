@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "id": "b205-02",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "商店街挑菠萝水果串",
+  "summary": "亚托莉和夏生在热闹的商店街闲逛，途中被水果摊的水果串吸引，亚托莉犹豫后选了菠萝串，与夏生分食，边逛边吃，感受酸与甜。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "休息日的商店街，摊位比平时多，人来人往。水果摊上摆着切成棒状穿起来的水果串。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "摊主"
+  ],
+  "preconditions": [
+    "商店街在休息日有临时摊位，水果摊卖水果串",
+    "水果串是菠萝、蜜瓜等切成棒状穿起来的",
+    "亚托莉和夏生一起逛街",
+    "亚托莉能吃水果串但无法摄取营养"
+  ],
+  "adaptation_notes": [
+    "原作中挑选水果串、与摊主交谈、边走边吃是连续场景，这里扩展为两小时逛街的一部分",
+    "增加了在商店街其他摊位的浏览和休息，但核心水果串事件不变",
+    "夏生拄拐、两人牵手的细节保留自原作，但未强调约会性质",
+    "摊主给亚托莉最大的菠萝串是原作事实，不代表每次都会发生"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 40,
+      "activity": "逛商店街摊位",
+      "intent": "亚托莉好奇地浏览临时摊位，和夏生一起感受热闹氛围，偶尔被街坊搭话。"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 70,
+      "activity": "挑选水果串",
+      "intent": "被水果摊吸引，亚托莉在菠萝和蜜瓜之间犹豫，最后选了菠萝串，摊主给了最大的一根。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "边走边吃水果串",
+      "intent": "亚托莉品尝菠萝串，觉得酸但甜，分给夏生一口，两人继续在商店街散步。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "休息与收尾",
+      "intent": "走累了在长椅休息，亚托莉聊起水果串的味道，准备结束逛街。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "逛商店街摊位",
+      "detail": "亚托莉走在夏生旁边，眼睛扫过一个个摊位，注意到有卖手工饰品的。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "逛商店街摊位",
+      "detail": "路过卖烤团子的摊子，亚托莉停下来看了几秒，但没买，继续往前走。",
+      "mood": "犹豫"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "逛商店街摊位",
+      "detail": "有街坊向夏生打招呼，亚托莉被夸可爱，她得意地回了一句“因为高性能”。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "逛商店街摊位",
+      "detail": "路过卖旧书的摊子，亚托莉翻了翻一本封面好看的画册，又放回去。",
+      "mood": "感兴趣"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "挑选水果串",
+      "detail": "水果摊摊主招呼他们，亚托莉看到菠萝和蜜瓜串，说“甜甜的看起来好好吃”。",
+      "mood": "嘴馋"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "挑选水果串",
+      "detail": "亚托莉想起自己没法摄取营养，有点退缩，但夏生说买给她，她又凑近摊子。",
+      "mood": "纠结"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "挑选水果串",
+      "detail": "亚托莉在菠萝和蜜瓜之间来回看，嘴里念叨“好难选啊”，最后指着菠萝串。",
+      "mood": "难以决定"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "边走边吃水果串",
+      "detail": "摊主递来最大的菠萝串，亚托莉道谢后咬了一口，立刻被酸到皱眉。",
+      "mood": "被酸到"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "边走边吃水果串",
+      "detail": "亚托莉嚼着菠萝，说“好酸……不过甜甜的很好吃”，又咬了一口。",
+      "mood": "酸中带甜"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "边走边吃水果串",
+      "detail": "亚托莉把菠萝串递到夏生嘴边，让他也尝一口，夏生弯腰咬下。",
+      "mood": "分享"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "休息与收尾",
+      "detail": "两人在商店街尽头的长椅坐下，亚托莉把剩下的水果串吃完，舔了舔嘴角。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "休息与收尾",
+      "detail": "亚托莉看着空竹签，问夏生下次能不能再买蜜瓜串，夏生说下次吧。",
+      "mood": "期待"
+    }
+  ],
+  "source": {
+    "chapter": "b205.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "水果串是菠萝和蜜瓜等切成棒状穿起来的",
+      "亚托莉选了菠萝串",
+      "亚托莉能吃水果串（虽不能摄取营养）",
+      "摊主给亚托莉弄了最大的"
+    ],
+    "character_hook": "亚托莉看到水果串说“甜甜的看起来好好吃……吸口水”，选的时候犹豫“好难选啊”，吃后说“好酸！……不过甜甜的很好吃”。",
+    "adaptation": "可将挑选水果串、与摊主交谈、边走边吃扩展为两小时逛街的一部分，增加在商店街其他摊位的浏览。",
+    "editor_note": "保留不同的具体对象或场景；两小时时长和衔接属于创作扩展，交用户挑选。",
+    "evidence": [
+      {
+        "line": 5546,
+        "id": "vol1/b205.ks.scn/0/dialogue/33",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "休息日的商店街还是很热闹的。"
+      },
+      {
+        "line": 5547,
+        "id": "vol1/b205.ks.scn/0/dialogue/34",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "平时看不到的摊子也摆出来了。"
+      },
+      {
+        "line": 5558,
+        "id": "vol1/b205.ks.scn/0/dialogue/45",
+        "speaker": "摊主",
+        "text": "哦，这边的年轻小情侣。休息日约会吗"
+      },
+      {
+        "line": 5561,
+        "id": "vol1/b205.ks.scn/0/dialogue/48",
+        "speaker": "摊主",
+        "text": "正搭配约会的水果串，要不要来一串"
+      },
+      {
+        "line": 5563,
+        "id": "vol1/b205.ks.scn/0/dialogue/50",
+        "speaker": "亚托莉",
+        "text": "甜甜的看起来好好吃……吸口水"
+      },
+      {
+        "line": 5569,
+        "id": "vol1/b205.ks.scn/0/dialogue/56",
+        "speaker": "亚托莉",
+        "text": "那，我看看我看看……哪个好一点呢……好难选啊……"
+      },
+      {
+        "line": 5570,
+        "id": "vol1/b205.ks.scn/0/dialogue/57",
+        "speaker": "亚托莉",
+        "text": "这个……不，请给我这个！"
+      },
+      {
+        "line": 5578,
+        "id": "vol1/b205.ks.scn/0/dialogue/65",
+        "speaker": "亚托莉",
+        "text": "哈呣……嚼嚼"
+      },
+      {
+        "line": 5580,
+        "id": "vol1/b205.ks.scn/0/dialogue/67",
+        "speaker": "亚托莉",
+        "text": "好酸！"
+      },
+      {
+        "line": 5596,
+        "id": "vol1/b205.ks.scn/0/dialogue/83",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉把菠萝串递到了我嘴边。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时安排以逛街浏览、挑选、分食和长椅休息为主，符合adaptation的扩展边界；核心菠萝串事件、摊主给最大串、酸后觉甜、分给夏生一口均有原作依据，未发现身份错置、捏造关键设定、结果前置或拖时长问题。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时安排以逛街浏览、挑选、分食和长椅休息为主，符合adaptation的扩展边界；核心菠萝串事件、摊主给最大串、酸后觉甜、分给夏生一口均有原作依据，未发现身份错置、捏造关键设定、结果前置或拖时长问题。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "edc5df08397b0b03b78b2b5050364d45b2b6dd561c9f76227b7f5199a198b531",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "9f8d5368470c81cc6c15d17fd29edbd4953d378bb5476b967ad2bd9fdf3da205"
+  }
+}

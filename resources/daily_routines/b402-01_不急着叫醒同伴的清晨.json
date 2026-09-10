@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "id": "b402-01",
+  "category": "休息",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "不急着叫醒同伴的清晨",
+  "summary": "亚托莉先醒来，见夏生还在熟睡，便决定不急着叫醒他。她轻手轻脚整理自己的东西、翻看已有日志、在窗边发呆休息，偶尔留意夏生的动静，安静陪到两小时结束。",
+  "suggested_time_of_day": [
+    "清晨",
+    "上午"
+  ],
+  "scene": "清晨的卧室兼工作室，窗帘透进柔和的光，夏生裹着被子睡得正沉，桌上散着一些资料，亚托莉在床边和书桌之间安静活动。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "亚托莉比夏生先醒来，精神尚可，动作比平时放轻",
+    "夏生还在熟睡，没有要醒来的迹象",
+    "房间里有亚托莉自己的记录本和笔，也有她平时整理的少量杂物",
+    "窗外天已经亮了，室内光线足够看清东西"
+  ],
+  "adaptation_notes": [
+    "原作中亚托莉醒来后身体沉重、机能停止前行动不便，本模板已删除，只保留‘先醒来观察夏生’这一轻量日常。",
+    "原作中亚托莉因存储器空缺而想不起早餐做法，本模板改为翻看已有日志、在空白页随手记事，不把日志空白当作每天状态。",
+    "原作夏生快中午才醒，本模板扩展为两小时内她安静整理、翻笔记、窗边发呆，不急着叫醒他。",
+    "夏生作为原作伙伴出现，保持主人身份，不将他替换成用户或恋人。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "确认与决定",
+      "intent": "亚托莉醒来后先确认夏生还在睡，结合他昨晚熬夜调查的资料判断他需要继续睡，决定不叫醒他。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 60,
+      "activity": "轻声整理房间",
+      "intent": "亚托莉放轻动作收拾桌边散乱的资料，把水杯拿远一点，避免吵醒夏生。"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 90,
+      "activity": "翻看笔记与窗边歇息",
+      "intent": "亚托莉想确认今天要做的事，翻看自己的记录本，在空白页写下零散备忘，偶尔望向窗外休息。"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 120,
+      "activity": "安静陪到快醒",
+      "intent": "亚托莉注意到夏生翻身，把水杯放在他伸手可及的地方，自己坐在床边继续安静等。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "确认与决定",
+      "detail": "亚托莉醒来时先侧头看向旁边的夏生，确认他还在呼吸、没有要醒的样子。",
+      "mood": "缓慢而安静"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "确认与决定",
+      "detail": "她注意到桌上摊开的资料和夏生眼下的淡影，推测他昨晚又熬到很晚。",
+      "mood": "判断中带着在意"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "确认与决定",
+      "detail": "亚托莉在心里列出‘叫他’和‘不叫他’的理由，最后选择让他继续睡。",
+      "mood": "认真而体贴"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "轻声整理房间",
+      "detail": "她慢慢坐起身，先把自己的被角叠好，避免床铺发出太多声响。",
+      "mood": "小心翼翼"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "轻声整理房间",
+      "detail": "她把桌上散开的调查资料按页码拢到一起，发现有几张写满了夏生的字。",
+      "mood": "好奇又克制"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "轻声整理房间",
+      "detail": "亚托莉把水杯移到桌角，顺手擦掉杯底留下的水圈，动作尽量放轻。",
+      "mood": "专注不打扰"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "翻看笔记与窗边歇息",
+      "detail": "她拿起自己的记录本翻看，想确认今天该做什么，发现大部分还是空白页。",
+      "mood": "略微困惑"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "翻看笔记与窗边歇息",
+      "detail": "亚托莉在空白页上写下‘夏生在睡觉’和‘资料要收好’，字迹比平时更慢。",
+      "mood": "认真记录"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "翻看笔记与窗边歇息",
+      "detail": "她走到窗边把窗帘拉拢一些，让光不直射夏生的脸，然后靠着窗台歇了一会儿。",
+      "mood": "安静放松"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "安静陪到快醒",
+      "detail": "床上传来翻身的声音，亚托莉转头去看，确认夏生只是换了个姿势，没有醒来。",
+      "mood": "留意着动静"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "安静陪到快醒",
+      "detail": "她把水杯重新放到夏生伸手能拿到的地方，自己坐回床边翻记录本。",
+      "mood": "平静守护"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "安静陪到快醒",
+      "detail": "夏生的呼吸变浅了一些，亚托莉合上本子，安静等他自然醒过来。",
+      "mood": "耐心等待"
+    }
+  ],
+  "source": {
+    "chapter": "b402.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "亚托莉醒来后身体沉重，但仍先看向旁边的夏生。",
+      "亚托莉确认夏生昨晚熬夜调查资料，推测他睡眠不足。",
+      "亚托莉判断夏生应该继续睡觉，放弃叫醒他。"
+    ],
+    "character_hook": "亚托莉以观察和逻辑判断来关心夏生，说话像在报告状态，语气平静但带体贴。",
+    "adaptation": "可将醒来后的观察、确认呼吸、整理被褥、安静陪伴等行为扩展为两小时的清晨看护日常。",
+    "editor_note": "普通轻声整理、准备早晨、让朋友多休息一会儿；不复制亚托莉当时故障、痉挛等情节，不整窗盯睡脸。",
+    "evidence": [
+      {
+        "line": 8743,
+        "id": "vol1/b402.ks.scn/0/dialogue/2",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉醒了过来。"
+      },
+      {
+        "line": 8746,
+        "id": "vol1/b402.ks.scn/0/dialogue/5",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉向在旁边睡着的夏生看去。"
+      },
+      {
+        "line": 8752,
+        "id": "vol1/b402.ks.scn/0/dialogue/11",
+        "speaker": "亚托莉",
+        "text": "夏生先生还在睡觉"
+      },
+      {
+        "line": 8753,
+        "id": "vol1/b402.ks.scn/0/dialogue/12",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "四处张望。"
+      },
+      {
+        "line": 8772,
+        "id": "vol1/b402.ks.scn/0/dialogue/31",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉放弃了叫醒夏生。"
+      },
+      {
+        "line": 8773,
+        "id": "vol1/b402.ks.scn/0/dialogue/32",
+        "speaker": "亚托莉",
+        "text": "对夏生先生来说安眠可以说是难得的平静。既然昨晚也通宵了的话，能够推测并没有进行多少睡眠"
+      },
+      {
+        "line": 8774,
+        "id": "vol1/b402.ks.scn/0/dialogue/33",
+        "speaker": "亚托莉",
+        "text": "夏生先生应该睡觉"
+      }
+    ]
+  },
+  "review": {
+    "verdict": "revised",
+    "issues": [],
+    "type": "source_guided_revision",
+    "note": "原作后期条件不能成为每天的状态：删除亚托莉身体沉重、日志大片空白、反应变慢或需要確認夏生还活着。前提只是同伴还想多睡一会儿。她轻声整理自己东西、翻已有日志、窗边发呆、不急叫醒别人；不要凭桌上资料断言他昨晚通宵。",
+    "user_approval": false,
+    "editorial_sha256": "cda0eaee141b3c2ec043d0f43f43ffb23b48f6ed29eb289ece0fa5c0d2e5d47e",
+    "content_sha256": "8f012106045fb0964a938fe25f3148d2616109108d410dd86304e07f963cb8be"
+  }
+}

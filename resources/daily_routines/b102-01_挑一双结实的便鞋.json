@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "id": "b102-01",
+  "category": "购物",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "direct",
+  "source_contains_spoilers": false,
+  "title": "商店街挑一双结实便鞋",
+  "summary": "夏生带亚托莉到旧商店街的鞋店，让她在廉价童鞋架上挑一双喜欢的鞋。亚托莉认真比较结实、好看与性价比，最后由夏生选了一双茶色革制便鞋；她试穿合脚后穿着走一段路，沿街逛了小段并短暂休息。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "旧商店街小巷里的鞋店前，廉价童鞋架摆满各式童鞋，亚托莉光着脚揪着夏生的衣角，认真看向货架。",
+  "participants": [
+    "亚托莉",
+    "夏生"
+  ],
+  "preconditions": [
+    "夏生带亚托莉来到旧商店街中的一家鞋店",
+    "店里有摆放廉价童鞋的架子，亚托莉的尺码大致合适",
+    "亚托莉目前光着脚，夏生打算替她挑一双日常穿的便鞋",
+    "虚构前提：鞋店内备有擦脚毛巾，店员可以帮客人清理脚部"
+  ],
+  "adaptation_notes": [
+    "原作中这段是夏生带亚托莉进鞋店、让她选鞋、最后由夏生挑茶色革制便鞋的短场景。",
+    "两小时版本扩展为逛商店街、进店比较、试穿、沿街走一小段和歇脚，不涉及买卖亚托莉的交易。",
+    "不预设店主送礼或固定购买结果，是否买下、是否合脚仍由实际RP决定。",
+    "凯瑟琳未在本模板中作为主要参与者出现，避免把原作同场景的催促台词强行扩写。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "走进商店街找鞋店",
+      "intent": "夏生带亚托莉穿过旧商店街，亚托莉光着脚、揪着衣角，好奇打量两边小店。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "在鞋架前比较挑选",
+      "intent": "亚托莉面对廉价童鞋架，认真权衡结实、好看与性价比，暂时不想被小看。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "试穿与擦脚",
+      "intent": "店员帮亚托莉擦净脚，她试穿夏生取下的茶色革制便鞋，留意尺寸是否合适。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "沿街走一段并歇脚",
+      "intent": "亚托莉穿着新鞋在商店街走一小段，抬脚感受鞋底，在路边短歇后自然收尾。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "走进商店街找鞋店",
+      "detail": "亚托莉光着脚跟在夏生身旁，揪住他的衣角，目光扫过旧商店街两侧的小招牌。",
+      "mood": "好奇又有点不安"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "走进商店街找鞋店",
+      "detail": "巷口比主街安静，亚托莉留意到地面有碎屑和积水，走得比平时更小心。",
+      "mood": "谨慎"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "走进商店街找鞋店",
+      "detail": "夏生在一家小鞋店前停下，亚托莉抬头看招牌，还没弄清他为什么来这里。",
+      "mood": "疑惑"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "在鞋架前比较挑选",
+      "detail": "亚托莉看到架子上摆着廉价童鞋，夏生说只能选这架上的，她先默默浏览一遍。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "在鞋架前比较挑选",
+      "detail": "她伸手碰了碰几双鞋面，心里把结实、好看和价格来回比较，迟迟没有开口。",
+      "mood": "左右为难"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "在鞋架前比较挑选",
+      "detail": "亚托莉小声念着判断标准，觉得只挑好看或只挑便宜都不太对，眉头微微皱起。",
+      "mood": "认真过头"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "在鞋架前比较挑选",
+      "detail": "她拿起一双又放回去，目光还在架子上来回移动，没注意到夏生已经伸手取鞋。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "试穿与擦脚",
+      "detail": "夏生取下一双茶色革制便鞋，亚托莉看着鞋面，嘴上说还要再比一比，眼睛却没移开。",
+      "mood": "嘴硬又在意"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "试穿与擦脚",
+      "detail": "店员用毛巾帮亚托莉擦干净脚，她有些不习惯被照顾，脚趾轻轻缩了一下。",
+      "mood": "别扭"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "试穿与擦脚",
+      "detail": "亚托莉把脚伸进便鞋，发现尺寸正合适，低头看了好几眼才慢慢站起来。",
+      "mood": "惊喜"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "沿街走一段并歇脚",
+      "detail": "她穿着新鞋在店门口走了几步，故意把脚步抬高，像是在确认鞋底跟不跟脚。",
+      "mood": "得意"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "沿街走一段并歇脚",
+      "detail": "亚托莉沿商店街走了小半段，在路边台阶旁停下，低头又看了看脚上的鞋。",
+      "mood": "满足"
+    }
+  ],
+  "normalization": {
+    "method": "macro_times_aligned_to_existing_micro_groups",
+    "changes": [
+      {
+        "activity": "试穿与擦脚",
+        "from_minutes": [
+          70,
+          95
+        ],
+        "to_minutes": [
+          70,
+          100
+        ]
+      },
+      {
+        "activity": "沿街走一段并歇脚",
+        "from_minutes": [
+          95,
+          120
+        ],
+        "to_minutes": [
+          100,
+          120
+        ]
+      }
+    ],
+    "note": "只将大阶段边界对齐已有十分钟格，原始文字与微格未改写。"
+  },
+  "source": {
+    "chapter": "b102.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "夏生带亚托莉走进旧商店街中的一家鞋店。",
+      "亚托莉光着脚，夏生让她从廉价童鞋架子里选一双。",
+      "亚托莉因判断标准多而难以决定，提到结实、好看、性价比等。",
+      "夏生最终取下一双茶色革制便鞋，价格便宜且卖相不错。",
+      "店员用毛巾帮亚托莉擦干净脚后，她试穿发现尺寸正合适。"
+    ],
+    "character_hook": "亚托莉会认真比较多个判断标准，也会因为收到夏生送的鞋子而高兴地哼歌、抬脚炫耀。",
+    "adaptation": "以“陪亚托莉在旧商店街挑一双日常鞋”为核心，可扩展为两小时的逛街、试穿、比较和短暂休息；不涉及买卖亚托莉的交易。",
+    "editor_note": "与后期挑凉鞋区别：本篇核心是初次挑选耐用便鞋、穿着走一段路。不要预设店主送礼或固定购买结果。",
+    "evidence": [
+      {
+        "line": 477,
+        "id": "vol1/b102.ks.scn/0/dialogue/36",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我们来到了城镇的中心街。"
+      },
+      {
+        "line": 478,
+        "id": "vol1/b102.ks.scn/0/dialogue/37",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "这一带似乎很久以前就是条繁荣的商店街。"
+      },
+      {
+        "line": 522,
+        "id": "vol1/b102.ks.scn/0/dialogue/81",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "然后停在了某家店前。"
+      },
+      {
+        "line": 526,
+        "id": "vol1/b102.ks.scn/0/dialogue/85",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "这里是家鞋店。"
+      },
+      {
+        "line": 527,
+        "id": "vol1/b102.ks.scn/0/dialogue/86",
+        "speaker": "夏生",
+        "text": "选一双喜欢的吧。不过也只能选这个架子上的"
+      },
+      {
+        "line": 534,
+        "id": "vol1/b102.ks.scn/0/dialogue/93",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉浏览一遍货架上的鞋子后，陷入了沉思。"
+      },
+      {
+        "line": 536,
+        "id": "vol1/b102.ks.scn/0/dialogue/95",
+        "speaker": "亚托莉",
+        "text": "……请等一下。判断标准有很多种，很难下决定"
+      },
+      {
+        "line": 537,
+        "id": "vol1/b102.ks.scn/0/dialogue/96",
+        "speaker": "亚托莉",
+        "text": "这双最结实，这双最好看……性价比最高的又是……"
+      },
+      {
+        "line": 540,
+        "id": "vol1/b102.ks.scn/0/dialogue/99",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "没想到问题抛回了我头上，我为难地随便拿了一双鞋下来。"
+      },
+      {
+        "line": 541,
+        "id": "vol1/b102.ks.scn/0/dialogue/100",
+        "speaker": "夏生",
+        "text": "这双鞋最适合你吧"
+      },
+      {
+        "line": 542,
+        "id": "vol1/b102.ks.scn/0/dialogue/101",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "我取下一双茶色的革制便鞋，卖相不错而且价格便宜。"
+      },
+      {
+        "line": 544,
+        "id": "vol1/b102.ks.scn/0/dialogue/103",
+        "speaker": "亚托莉",
+        "text": "哇～，尺寸也正合适！"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "日程紧扣原作选鞋场景，时间分配基本合理（逛街30分、比选40分、试穿30分、走街歇脚20分），未出现把他人行为归给亚托莉、捏造菜品或关键设定、预先断言味道/成败/反应等实质问题。凯瑟琳被合理排除，擦脚毛巾写作虚构前提，购买与合脚交由RP决定，符合改编边界。可选微调：40分钟鞋架比选偏长，可压缩后多留些沿街生活延展，但非必须修正。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "日程紧扣原作选鞋场景，时间分配基本合理（逛街30分、比选40分、试穿30分、走街歇脚20分），未出现把他人行为归给亚托莉、捏造菜品或关键设定、预先断言味道/成败/反应等实质问题。凯瑟琳被合理排除，擦脚毛巾写作虚构前提，购买与合脚交由RP决定，符合改编边界。可选微调：40分钟鞋架比选偏长，可压缩后多留些沿街生活延展，但非必须修正。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "2e7bcb899e50e25c55aee6cb71de01a21d6f3771681214cf71d35d2d47080ec0",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "9173b43f8e41b7609faeeec7c239f4ff3b45a3aaf8c041fec5bf50b78178a147"
+  }
+}

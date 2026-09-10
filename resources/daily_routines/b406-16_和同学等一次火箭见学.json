@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "id": "b406-16",
+  "category": "学习",
+  "duration_minutes": 120,
+  "time_basis": "relative_minutes",
+  "status": "pending_user_review",
+  "source_strength": "adjacent",
+  "source_contains_spoilers": true,
+  "title": "和同学等一次火箭见学",
+  "summary": "亚托莉想和水菜萌、夏生等同学一起参加火箭见学会，两小时从集合等待到转播见学，再到回程闲聊，关注真实火箭与人们期待它的原因。",
+  "suggested_time_of_day": [
+    "上午",
+    "下午"
+  ],
+  "scene": "学校教室与见学会场之间，大家为当天的火箭发射见学做准备，等待收听或观看转播。",
+  "participants": [
+    "亚托莉",
+    "夏生",
+    "水菜萌",
+    "凛凛花",
+    "凯瑟琳"
+  ],
+  "preconditions": [
+    "凯瑟琳提到发射当天要开见学会，并邀请学生们参加。",
+    "水菜萌邀请亚托莉同行，亚托莉明确表示务必让她也去看。",
+    "见学会场提供转播或实况解说供学生收听，不要求发射一定成功或肉眼可见。",
+    "当天是虚构的见学日，出行与场地安排为日常背景。"
+  ],
+  "adaptation_notes": [
+    "原作中见学愿望未在该场景实际执行，本模板是愿望改编，不声称亚托莉实际出席了结尾发射会。",
+    "原作亚托莉由火箭烟花联想到真正火箭与距离，本模板延续这份好奇到见学当天。",
+    "使用虚构见学会当日前提，不使用现实发射时间，也不预定发射结果。"
+  ],
+  "macro": [
+    {
+      "start_minute": 0,
+      "end_minute": 30,
+      "activity": "集合等待出发",
+      "intent": "亚托莉想和水菜萌、夏生一起去见学会，确认路线和转播安排时仍惦记火箭离地表有多远。"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 70,
+      "activity": "见学会听解说",
+      "intent": "凯瑟琳给孩子们解说火箭，亚托莉认真听，也想弄清人们为何把期待放在未来的希望上。"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 100,
+      "activity": "观看转播与讨论",
+      "intent": "转播信号传来时大家屏息关注，亚托莉留意画面里的声音，也偶尔和身边同学交换一两句感想。"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 120,
+      "activity": "回程闲谈与整理",
+      "intent": "见学结束后收拾随身物品，回程路上亚托莉把笔记和听见的解说对照，对火箭和人群的期待有了自己的理解。"
+    }
+  ],
+  "micro": [
+    {
+      "start_minute": 0,
+      "end_minute": 10,
+      "activity": "集合等待出发",
+      "detail": "亚托莉站在教室门口，水菜萌确认大家到齐没有，亚托莉手里拿着写了几行字的便条。",
+      "mood": "期待"
+    },
+    {
+      "start_minute": 10,
+      "end_minute": 20,
+      "activity": "集合等待出发",
+      "detail": "凛凛花问见学会是不是能看见真的火箭，亚托莉想起自己之前说过的99.97公里，也想知道今天能了解到什么。",
+      "mood": "好奇"
+    },
+    {
+      "start_minute": 20,
+      "end_minute": 30,
+      "activity": "集合等待出发",
+      "detail": "凯瑟琳招呼大家上车或往会场走，亚托莉把便条收好，表示自己会认真听解说。",
+      "mood": "跃跃欲试"
+    },
+    {
+      "start_minute": 30,
+      "end_minute": 40,
+      "activity": "见学会听解说",
+      "detail": "凯瑟琳开始讲火箭的构造与发射流程，亚托莉的目光在示意图和讲解人之间来回。",
+      "mood": "专注"
+    },
+    {
+      "start_minute": 40,
+      "end_minute": 50,
+      "activity": "见学会听解说",
+      "detail": "有孩子问发射时会不会危险，亚托莉也想知道答案，但没急着插嘴，只是安静听。",
+      "mood": "认真"
+    },
+    {
+      "start_minute": 50,
+      "end_minute": 60,
+      "activity": "见学会听解说",
+      "detail": "解说提到“孩子们是未来的希望”，亚托莉把这句和见学邀请联系起来，觉得这句话不只是一句口号。",
+      "mood": "若有所思"
+    },
+    {
+      "start_minute": 60,
+      "end_minute": 70,
+      "activity": "见学会听解说",
+      "detail": "亚托莉在便条上补了两笔，水菜萌凑过来看了一眼，她没藏起来，只是说等会儿还要再核对。",
+      "mood": "得意又认真"
+    },
+    {
+      "start_minute": 70,
+      "end_minute": 80,
+      "activity": "观看转播与讨论",
+      "detail": "转播开始前有一段等待时间，大家坐好，亚托莉留意喇叭里会不会先传来倒计时。",
+      "mood": "屏息以待"
+    },
+    {
+      "start_minute": 80,
+      "end_minute": 90,
+      "activity": "观看转播与讨论",
+      "detail": "画面里出现火箭发射台，亚托莉对比刚才的解说，注意哪些细节和解说对得上。",
+      "mood": "对照中"
+    },
+    {
+      "start_minute": 90,
+      "end_minute": 100,
+      "activity": "观看转播与讨论",
+      "detail": "转播里传来一些噪音和欢呼，凛凛花小声说好厉害，亚托莉没有立刻下结论，只是继续听。",
+      "mood": "沉浸"
+    },
+    {
+      "start_minute": 100,
+      "end_minute": 110,
+      "activity": "回程闲谈与整理",
+      "detail": "见学会散场，亚托莉把便条和笔收进包里，和夏生、水菜萌一起往集合点走。",
+      "mood": "满足"
+    },
+    {
+      "start_minute": 110,
+      "end_minute": 120,
+      "activity": "回程闲谈与整理",
+      "detail": "水菜萌问亚托莉觉得怎么样，亚托莉说信息量很大，还想把今天听到的和之前火箭烟花的经验放在一起再想一想。",
+      "mood": "意犹未尽"
+    }
+  ],
+  "source": {
+    "chapter": "b406.ks.scn",
+    "file": "../../../ATRI_dialogue/dialogue.jsonl",
+    "canon_facts": [
+      "凯瑟琳说发射当天要开见学会。",
+      "水菜萌邀请亚托莉同行。",
+      "亚托莉明确表示想去看。"
+    ],
+    "character_hook": "从认真对待火箭烟花到好奇真正的火箭，既追问距离也关心为何人们期待它。",
+    "adaptation": "原作中的见学愿望未在该场景执行，本模板是愿望改编，不能声称原作亚托莉实际出席了结尾发射会。需虚构见学会当日、可收听转播等前提，不使用现实发射时间，不预定发射一定成功或肉眼可见。",
+    "editor_note": "回查原文后补充的独立活动或明确愿望；依据与扩展边界见候选。",
+    "evidence": [
+      {
+        "line": 11085,
+        "id": "vol1/b406.ks.scn/0/dialogue/402",
+        "speaker": "夏生",
+        "text": "火箭有很多种"
+      },
+      {
+        "line": 11086,
+        "id": "vol1/b406.ks.scn/0/dialogue/403",
+        "speaker": "水菜萌",
+        "text": "说起来，马上就到了吧。3天后来着？"
+      },
+      {
+        "line": 11088,
+        "id": "vol1/b406.ks.scn/0/dialogue/405",
+        "speaker": "凯瑟琳",
+        "text": "当天要开见学会。你们也要来"
+      },
+      {
+        "line": 11090,
+        "id": "vol1/b406.ks.scn/0/dialogue/407",
+        "speaker": "凯瑟琳",
+        "text": "因为孩子们是未来的希望啊。到时去给他们解说吧"
+      },
+      {
+        "line": 11091,
+        "id": "vol1/b406.ks.scn/0/dialogue/408",
+        "speaker": "水菜萌",
+        "text": "小亚托莉也一起去吧"
+      },
+      {
+        "line": 11092,
+        "id": "vol1/b406.ks.scn/0/dialogue/409",
+        "speaker": "亚托莉",
+        "text": "……未来的希望。务必也让我去看"
+      },
+      {
+        "line": 11093,
+        "id": "vol1/b406.ks.scn/0/dialogue/410",
+        "speaker": "旁白（通常是夏生视角）",
+        "text": "亚托莉望着火箭烟花飞向夜空的侧脸，仿佛就像在望着更远更远的，距离地表100千米之外的地方一样。"
+      }
+    ]
+  },
+  "review": {
+    "issues": [],
+    "verdict": "pass",
+    "note": "两小时日程以集合、听讲、观看转播与回程闲谈为主，未拉长单一动作，也未预设发射成功或观感；水菜萌、凛凛花、凯瑟琳的行为归属清晰，没有把原作情节重新当作本次已发生的事故。可以按此模板生成。",
+    "type": "model_editorial_review",
+    "revision_count": 0,
+    "history": [
+      {
+        "issues": [],
+        "verdict": "pass",
+        "note": "两小时日程以集合、听讲、观看转播与回程闲谈为主，未拉长单一动作，也未预设发射成功或观感；水菜萌、凛凛花、凯瑟琳的行为归属清晰，没有把原作情节重新当作本次已发生的事故。可以按此模板生成。"
+      }
+    ],
+    "user_approval": false,
+    "content_sha256": "57c148980412f58b3f8762b4d2c6b6ad50a3693031a147c2f228ecf56374520b",
+    "prompts_sha256": "11e85b1ba0ec6ff7e0f81bb7458d44ce23df2ef441b172708dc0b71c97ad0a69",
+    "reference_sha256": "ae0250fe3ea0b28c7a2115ca86c746d51d4afdca402e864d7c28d4d8e20899d3"
+  }
+}
