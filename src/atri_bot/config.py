@@ -30,7 +30,7 @@ class Config:
     max_output_tokens: int = 512
     output_limit_field: str = "max_tokens"
     thinking: str = ""
-    recent_messages: int = 50
+    history_seconds: int = 3600
     personal_info: str = "personal_info.txt"
     reply: ReplyConfig = field(default_factory=ReplyConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
@@ -54,7 +54,7 @@ class Config:
             llm_timeout=l.get("timeout", 60), max_output_tokens=l.get("max_output_tokens", 512),
             output_limit_field=l.get("output_limit_field", "max_tokens"),
             thinking=l.get("thinking", ""),
-            recent_messages=c.get("recent_messages", 50),
+            history_seconds=c.get("history_seconds", 3600),
             personal_info=b.get("personal_info", "personal_info.txt"))
         try:
             conf.reply = ReplyConfig(**raw.get("reply", {}))
@@ -74,7 +74,9 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [schedule] configuration fields") from None
         conf.schedule.validate()
-        for name in ("queue_size", "parallel", "action_timeout", "llm_timeout", "max_output_tokens", "recent_messages"):
+        if type(conf.history_seconds) is not int or conf.history_seconds <= 0:
+            raise ValueError("context.history_seconds must be a positive integer")
+        for name in ("queue_size", "parallel", "action_timeout", "llm_timeout", "max_output_tokens"):
             if getattr(conf, name) <= 0:
                 raise ValueError(f"{name} must be positive")
         if conf.output_limit_field not in ("max_tokens", "max_completion_tokens"):

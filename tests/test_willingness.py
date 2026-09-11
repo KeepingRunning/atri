@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 import tempfile
+import time
 import unittest
 
 from atri_bot.bot import Bot
@@ -235,7 +236,7 @@ class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
         group = self.bot.group('1')
         for mid in range(100):
             group.append({'kind': 'incoming', 'key': str(mid), 'text': '正常聊天'})
-        self.assertEqual(len(group.history), 51)
+        self.assertEqual(len(group.history), 100)
         self.assertEqual(len(group.activity), 100)
         restored = GroupLog(self.config.data, '1')
         self.assertEqual(len(restored.activity), 100)
@@ -258,6 +259,20 @@ class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
         await asyncio.gather(first, other)
         self.assertEqual(len(calls), 2)
 
+    async def test_history_expires_while_waiting_for_judgment_slot(self):
+        group = self.bot.group('1')
+        now = time.time()
+        group.now = lambda: now
+        group.append({'kind': 'incoming', 'key': 'old', 'timestamp': now - 3599, 'text': '即将过期'})
+        self.bot.semaphore = asyncio.Semaphore(0)
+        future = self.bot.enqueue(Event.parse(raw()), self.send)
+        await asyncio.sleep(0)
+        now += 2
+        self.bot.semaphore.release()
+        self.assertEqual((await future).status, 'sent')
+        self.assertEqual(json.loads(self.model.judgments[0][1]['content'])['history'], [])
+        self.assertNotIn('即将过期', str(self.model.replies))
+
 
 class AssessmentTests(unittest.TestCase):
     def test_persona_and_chat_history_are_data_instead_of_judgment_examples(self):
@@ -267,15 +282,15 @@ class AssessmentTests(unittest.TestCase):
                     'text': f'旧聊天-{i}', 'time': i + 1} for i in range(15)]
         history.append({'key': event.key, 'text': event.text})
         gate = GateDecision(True, 100, 42, 'at_self')
-        messages = build_willingness_context(persona, event, history, gate)
+        messages = build_willingness_context(persona, event, history, gate, now=20)
         self.assertEqual([m['role'] for m in messages], ['system', 'user'])
         self.assertNotIn(persona, messages[0]['content'])
         self.assertIn('{"score":90,"reason":', messages[0]['content'])
         data = json.loads(messages[1]['content'])
         self.assertEqual(data['persona_reference'], persona)
-        self.assertEqual(len(data['history']), 12)
-        self.assertEqual(data['history'][0]['text'], '旧聊天-3')
-        self.assertEqual(data['history'][0]['timestamp'], 4)
+        self.assertEqual(len(data['history']), 15)
+        self.assertEqual(data['history'][0]['text'], '旧聊天-0')
+        self.assertEqual(data['history'][0]['timestamp'], 1)
         self.assertEqual(data['current_message']['text'], event.text)
         self.assertTrue(data['current_message']['mentions_self'])
         self.assertEqual(data['rule_observation']['score'], 100)

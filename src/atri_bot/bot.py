@@ -37,7 +37,7 @@ class Bot:
 
     def group(self, gid):
         if gid not in self.groups:
-            self.groups[gid] = GroupLog(self.config.data, gid, self.config.recent_messages + 1)
+            self.groups[gid] = GroupLog(self.config.data, gid, history_seconds=self.config.history_seconds)
             self.willingness[gid] = ReplyWillingness(self.config.reply)
         return self.groups[gid]
 
@@ -152,7 +152,8 @@ class Bot:
             # 在实际生成前读钟，避免等待槽位时跨过十分钟边界而使用旧背景。
             background = self.schedule.context()
             conversation = build_conversation(self.personal_info, event, group.history,
-                                              self.config.recent_messages, schedule_context=background)
+                                              history_seconds=self.config.history_seconds, now=group.now(),
+                                              schedule_context=background)
             try:
                 with guard_model_requests(lambda: not self.schedule.blocks_reply(
                         received_at=received_at, timestamp=event.timestamp)):
@@ -200,15 +201,16 @@ class Bot:
         group.append({"kind": "willingness", "key": event.key, "stage": "gate", **asdict(gate)})
         if not gate.consider:
             return Receipt("ignored", reason=gate.reason)
-        messages = build_willingness_context(self.personal_info, event, group.history, gate)
         state.begin_check(time.time())
         started = time.perf_counter()
-        willingness_log.info("[模型判断开始] 判断阈值=%d 上下文条数=%d", self.config.reply.threshold, len(messages))
+        willingness_log.info("[模型判断开始] 判断阈值=%d", self.config.reply.threshold)
         try:
             async with self.semaphore:
                 if ignored := self.sleep_guard(event, received_at, "意愿模型前"):
                     return ignored
                 willingness_log.debug("[模型判断] 已取得并发槽位，等待=%.1fms", (time.perf_counter() - started) * 1000)
+                messages = build_willingness_context(self.personal_info, event, group.history, gate,
+                                                    history_seconds=self.config.history_seconds, now=group.now())
                 with guard_model_requests(lambda: not self.schedule.blocks_reply(
                         received_at=received_at, timestamp=event.timestamp)):
                     assessment = await self.model.assess_reply(messages)

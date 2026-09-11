@@ -10,6 +10,20 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ConfigTests(unittest.TestCase):
+    def test_context_uses_seconds_and_ignores_retired_count_setting(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for text, expected in (('', 3600), ('[context]\nrecent_messages=1\n', 3600),
+                                   ('[context]\nhistory_seconds=1800\nrecent_messages=1\n', 1800)):
+                path.write_text(text)
+                config = Config.load(path)
+                self.assertEqual(config.history_seconds, expected)
+                self.assertFalse(hasattr(config, 'recent_messages'))
+            for value in ('0', '-1', 'true', '"3600"', '3600.5', 'inf', 'nan'):
+                path.write_text('[context]\nhistory_seconds=' + value)
+                with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'context.history_seconds'):
+                    Config.load(path)
+
     def test_toml_is_the_only_source_even_when_environment_is_set(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

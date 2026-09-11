@@ -4,6 +4,7 @@ from zoneinfo import ZoneInfo
 import json
 from pathlib import Path
 import tempfile
+import time
 import unittest
 
 from atri_bot.bot import Bot
@@ -81,21 +82,62 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
         data["message"] = "[CQ:at,qq=99]你好"
         self.assertEqual((await self.bot.enqueue(Event.parse(data), self.send)).status, "sent")
 
-    async def test_latest_50_history_and_group_isolation(self):
+    async def test_all_recent_history_above_50_and_group_isolation(self):
         await self.submit(gid=2, text="群二秘密", mention=False)
         for mid in range(1, 61):
             await self.submit(mid=mid, text=f"历史-{mid}", mention=False)
         await self.submit(mid=61, text="当前")
         messages = self.model.prompts[-1]
-        self.assertEqual(len(messages), 52)
+        self.assertEqual(len(messages), 62)
         self.assertEqual([json.loads(row["content"])["text"] for row in messages[1:-1]],
-                         [f"历史-{mid}" for mid in range(11, 61)])
+                         [f"历史-{mid}" for mid in range(1, 61)])
         self.assertNotIn("群二秘密", str(messages))
 
     async def test_denied_self_and_wrong_account_are_not_logged(self):
         for args in ({"gid": 3}, {"uid": 99}, {"self_id": 88}):
             self.assertEqual((await self.submit(**args)).status, "ignored")
         self.assertFalse(self.bot.groups)
+
+    async def test_hour_window_restarts_without_losing_dedup_quote_ids_or_disk_history(self):
+        group = self.bot.group('1')
+        now = time.time()
+        group.append({'kind': 'incoming', 'key': '99:1:90', 'timestamp': now - 7200,
+                      'text': '两小时前的测试消息'})
+        group.append({'kind': 'delivery', 'key': '99:1:90', 'status': 'sent', 'time': now - 7200,
+                      'message_id': 'old-reply', 'text': '过去的待机回答'})
+        for i in range(60):
+            group.append({'kind': 'incoming', 'key': f'recent-{i}', 'timestamp': now - 600,
+                          'text': f'近一小时-{i}'})
+        group.append({'kind': 'delivery', 'key': 'recent-reply', 'status': 'sent', 'time': now - 300,
+                      'message_id': 'recent-reply-id', 'text': '近一小时的回复'})
+        await self.bot.close()
+        self.bot = Bot(self.config, self.model, now=daytime)
+        restored = self.bot.group('1')
+        self.assertEqual(len(restored.history), 61)
+        self.assertIn('99:1:90', restored.seen)
+        self.assertIn('old-reply', restored.sent_message_ids)
+        self.assertEqual((await self.submit(mid=90)).status, 'duplicate')
+        self.assertEqual((await self.submit()).status, 'sent')
+        prompt = self.model.prompts[-1]
+        self.assertEqual(len(prompt), 63)
+        self.assertNotIn('两小时前的测试消息', str(prompt))
+        self.assertNotIn('过去的待机回答', str(prompt))
+        self.assertIn('近一小时-0', str(prompt))
+        self.assertIn('近一小时的回复', str(prompt))
+        self.assertIn('过去的待机回答', restored.path.read_text())
+
+    async def test_history_expires_while_waiting_for_reply_slot(self):
+        group = self.bot.group('1')
+        now = time.time()
+        group.now = lambda: now
+        group.append({'kind': 'incoming', 'key': 'old', 'timestamp': now - 3599, 'text': '即将过期'})
+        self.bot.semaphore = asyncio.Semaphore(0)
+        future = self.bot.enqueue(Event.parse(raw()), self.send)
+        await asyncio.sleep(0)
+        now += 2
+        self.bot.semaphore.release()
+        self.assertEqual((await future).status, 'sent')
+        self.assertNotIn('即将过期', str(self.model.prompts[-1]))
 
     async def test_duplicate_and_restart_restore_history(self):
         event = Event.parse(raw(text="已发过"))
