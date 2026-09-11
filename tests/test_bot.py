@@ -34,7 +34,7 @@ class RecordingModel:
     def __init__(self):
         self.prompts = []
 
-    async def complete(self, messages):
+    async def complete(self, messages, *, tool_session=None):
         self.prompts.append(messages)
         return "收到啦 [CQ:at,qq=all]"
 
@@ -158,7 +158,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
             result = await self.bot.enqueue(Event.parse(raw(mid=mid)), sender)
             self.assertEqual(result.status, status)
         self.assertFalse(any(row.get("role") == "assistant" for row in self.bot.group("1").history))
-        async def fail(messages):
+        async def fail(messages, *, tool_session=None):
             raise ModelError("Failure", "model_timeout")
         self.model.complete = fail
         self.assertEqual((await self.submit(mid=3)).reason, "model_timeout")
@@ -178,7 +178,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_serial_per_group_and_bounded_parallel_across_groups(self):
         entered, release = asyncio.Event(), asyncio.Event()
-        async def complete(messages):
+        async def complete(messages, *, tool_session=None):
             self.model.prompts.append(messages)
             if len(self.model.prompts) == 2:
                 entered.set()

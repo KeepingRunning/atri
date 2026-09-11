@@ -8,6 +8,7 @@ from urllib.parse import urlsplit
 from .willingness import ReplyConfig
 from .logging_setup import LoggingConfig
 from .schedule import ScheduleConfig
+from .tools import ToolsConfig
 
 
 @dataclass
@@ -35,6 +36,7 @@ class Config:
     reply: ReplyConfig = field(default_factory=ReplyConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
     schedule: ScheduleConfig = field(default_factory=ScheduleConfig)
+    tools: ToolsConfig = field(default_factory=ToolsConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -74,6 +76,11 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [schedule] configuration fields") from None
         conf.schedule.validate()
+        try:
+            conf.tools = ToolsConfig(**raw.get("tools", {}))
+        except TypeError:
+            raise ValueError("Invalid [tools] configuration fields") from None
+        conf.tools.validate()
         if type(conf.history_seconds) is not int or conf.history_seconds <= 0:
             raise ValueError("context.history_seconds must be a positive integer")
         for name in ("queue_size", "parallel", "action_timeout", "llm_timeout", "max_output_tokens"):

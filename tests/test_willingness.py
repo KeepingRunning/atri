@@ -125,7 +125,7 @@ class JudgingModel:
         self.judgments.append(messages)
         return self.assessment
 
-    async def complete(self, messages):
+    async def complete(self, messages, *, tool_session=None):
         self.replies.append(messages)
         return '这是实际回复'
 

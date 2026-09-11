@@ -6,7 +6,9 @@ import time
 
 from .context import build_conversation, build_willingness_context
 from .logging_setup import log_context, preview
-from .model import ModelError, ModelRequestBlocked, guard_model_requests
+from .model import ModelError, ModelRequestBlocked, guard_model_requests, check_request_allowed
+from .history_tools import ChatArchive, history_registry, tool_instructions
+from .tools import ToolContext, ToolSession
 from .storage import GroupLog
 from .types import Receipt
 from .willingness import ReplyWillingness
@@ -24,6 +26,8 @@ class Bot:
         self.config, self.model = config, model
         self.personal_info = config.read_personal_info()
         config.reply.validate()
+        config.tools.validate()
+        self.tool_registry = history_registry()
         self.semaphore = asyncio.Semaphore(config.parallel)
         self.groups, self.queues, self.tasks = {}, {}, {}
         self.willingness = {}
@@ -151,13 +155,25 @@ class Bot:
             log.debug("[生成回复] 已取得槽位，等待=%.1fms", (time.perf_counter() - slot_started) * 1000)
             # 在实际生成前读钟，避免等待槽位时跨过十分钟边界而使用旧背景。
             background = self.schedule.context()
+            now = group.now()
+            tool_session = None
+            if self.config.tools.enabled:
+                archive = ChatArchive(group.path, group_id=event.group_id, self_id=event.self_id,
+                                      now=now, exclude_key=event.key)
+                context = ToolContext(event.group_id, event.user_id, event.self_id, event.key, now,
+                                      archive, lambda: check_request_allowed("tool"), group.append)
+                tool_session = ToolSession(self.tool_registry, context, self.config.tools)
             conversation = build_conversation(self.personal_info, event, group.history,
-                                              history_seconds=self.config.history_seconds, now=group.now(),
-                                              schedule_context=background)
+                                              history_seconds=self.config.history_seconds, now=now,
+                                              schedule_context=background,
+                                              tool_context=tool_instructions(now) if tool_session else "")
             try:
                 with guard_model_requests(lambda: not self.schedule.blocks_reply(
                         received_at=received_at, timestamp=event.timestamp)):
-                    reply = await self.model.complete(conversation)
+                    if tool_session is None:
+                        reply = await self.model.complete(conversation)
+                    else:
+                        reply = await self.model.complete(conversation, tool_session=tool_session)
             except ModelRequestBlocked:
                 return self.ignore_sleep(event, "回复HTTP前")
         if ignored := self.sleep_guard(event, received_at, "生成后"):

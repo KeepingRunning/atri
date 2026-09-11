@@ -144,7 +144,7 @@ class TraceTests(unittest.IsolatedAsyncioTestCase):
         model = JudgingModel()
         entered, release = asyncio.Event(), asyncio.Event()
         active = 0
-        async def complete(messages):
+        async def complete(messages, *, tool_session=None):
             nonlocal active
             active += 1
             if active == 2:

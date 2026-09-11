@@ -1,4 +1,5 @@
 import asyncio
+from copy import deepcopy
 from contextlib import contextmanager
 from contextvars import ContextVar
 import json
@@ -49,7 +50,45 @@ class ChatModel:
     def __init__(self, config, session):
         self.config, self.session = config, session
 
-    async def complete(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False):
+    async def complete(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False,
+                       tool_session=None):
+        options = dict(max_output_tokens=max_output_tokens, model=model, purpose=purpose, json_mode=json_mode)
+        if tool_session is None:
+            message = await self._request(messages, **options)
+            if message.get("tool_calls"):
+                raise ModelError("Unrequested tool call", "unexpected_tool_call")
+            return message["content"].strip()
+        if purpose != "reply" or json_mode:
+            raise ValueError("Tools are only available for conversational replies")
+        # Tool messages and provider reasoning stay in this one turn, never in group history.
+        conversation = deepcopy(messages)
+        definitions = tool_session.registry.definitions()
+        used_ids = set()
+        for round_number in range(tool_session.config.max_rounds + 1):
+            tool_session.context.check_active()
+            final = (round_number == tool_session.config.max_rounds or
+                     tool_session.calls >= tool_session.config.max_calls)
+            log.debug("[工具生成轮次] 轮次=%d/%d 工具选择=%s", round_number + 1,
+                      tool_session.config.max_rounds + 1, "none" if final else "auto")
+            message = await self._request(conversation, tools=definitions,
+                                          tool_choice="none" if final else "auto", **options)
+            tool_session.context.check_active()
+            calls = message.get("tool_calls") or []
+            if not calls:
+                return message["content"].strip()
+            if final:
+                raise ModelError("Provider ignored tool_choice=none", "tool_round_limit")
+            if any(call["id"] in used_ids for call in calls):
+                raise ModelError("Provider repeated tool call ID", "invalid_tool_calls")
+            used_ids.update(call["id"] for call in calls)
+            conversation.append(message)
+            for call in calls:
+                result = await tool_session.execute(call)
+                conversation.append({"role": "tool", "tool_call_id": call["id"], "content": result})
+        raise ModelError("Tool round limit reached", "tool_round_limit")
+
+    async def _request(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False,
+                       tools=None, tool_choice=None):
         check_request_allowed(purpose)
         self.config.require_live()
         payload = {"model": model or self.config.model, "messages": messages,
@@ -58,6 +97,9 @@ class ChatModel:
             payload["thinking"] = {"type": self.config.thinking}
         if json_mode:
             payload["response_format"] = {"type": "json_object"}
+        if tools:
+            payload["tools"] = tools
+            payload["tool_choice"] = tool_choice or "auto"
         started = time.perf_counter()
         log.info("[请求开始] 用途=%s 模型=%s 消息条数=%d 输出上限=%d 超时=%.1fs",
                  purpose, payload["model"], len(messages), payload[self.config.output_limit_field], self.config.llm_timeout)
@@ -83,14 +125,37 @@ class ChatModel:
             log.debug("[生成结束原因] 用途=%s finish_reason=%s", purpose, choice.get("finish_reason", "未提供"))
             message = choice["message"]
             content = message.get("content") or message.get("refusal")
-            if not isinstance(content, str) or not content.strip():
+            calls = message.get("tool_calls") or []
+            if calls:
+                if choice.get("finish_reason") == "length" or not isinstance(calls, list) or len(calls) > 16:
+                    raise ModelError("Incomplete or excessive tool calls", "invalid_tool_calls")
+                ids = set()
+                for call in calls:
+                    if (not isinstance(call, dict) or call.get("type") != "function" or
+                            not isinstance(call.get("id"), str) or not 0 < len(call["id"]) <= 200 or
+                            call["id"] in ids or not isinstance(call.get("function"), dict)):
+                        raise ModelError("Invalid tool call envelope", "invalid_tool_calls")
+                    function = call["function"]
+                    if (not isinstance(function.get("name"), str) or not 0 < len(function["name"]) <= 64 or
+                            not isinstance(function.get("arguments"), str)):
+                        raise ModelError("Invalid tool function", "invalid_tool_calls")
+                    ids.add(call["id"])
+            elif not isinstance(content, str) or not content.strip():
                 raise ModelError("Model returned no text", "model_empty_response")
+            result = {"role": "assistant", "content": content if isinstance(content, str) else None}
+            if calls:
+                result["tool_calls"] = [{"id": c["id"], "type": "function", "function": {
+                    "name": c["function"]["name"], "arguments": c["function"]["arguments"]}} for c in calls]
+            # Required by DeepSeek when tools and thinking are enabled; never log this field.
+            if isinstance(message.get("reasoning_content"), str):
+                result["reasoning_content"] = message["reasoning_content"]
             usage = data.get("usage") or {}
             counts = {key: usage[key] for key in ("prompt_tokens", "completion_tokens", "total_tokens")
                       if isinstance(usage, dict) and type(usage.get(key)) is int}
-            log.info("[请求完成] 用途=%s 耗时=%.1fms 输出字符=%d token用量=%s",
-                     purpose, (time.perf_counter() - started) * 1000, len(content.strip()), counts or "接口未提供")
-            return content.strip()
+            log.info("[请求完成] 用途=%s 耗时=%.1fms 输出字符=%d 工具调用=%d token用量=%s",
+                     purpose, (time.perf_counter() - started) * 1000, len(content.strip()) if isinstance(content, str) else 0,
+                     len(calls), counts or "接口未提供")
+            return result
         except ModelError as exc:
             log.error("[请求失败] 用途=%s 错误=%s 耗时=%.1fms", purpose, exc.code, (time.perf_counter() - started) * 1000)
             raise

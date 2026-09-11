@@ -212,7 +212,7 @@ class FakeModel:
     def __init__(self):
         self.calls, self.judgments = [], []
 
-    async def complete(self, messages):
+    async def complete(self, messages, *, tool_session=None):
         self.calls.append(deepcopy(messages))
         return '我在呢。'
 
@@ -319,10 +319,10 @@ class ScheduleBotTests(unittest.IsolatedAsyncioTestCase):
     async def test_generation_and_queued_messages_crossing_midnight_never_send(self):
         entered, release = asyncio.Event(), asyncio.Event()
         original = self.model.complete
-        async def slow(messages):
+        async def slow(messages, *, tool_session=None):
             entered.set()
             await release.wait()
-            return await original(messages)
+            return await original(messages, tool_session=tool_session)
         self.model.complete = slow
         self.now = instant('2026-09-11T23:59:59')
         first = self.bot.enqueue(Event.parse(raw()), self.sender)

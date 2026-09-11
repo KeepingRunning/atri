@@ -17,7 +17,17 @@ from atri_bot.onebot import create_app
 from atri_bot.types import Event, Receipt
 from atri_bot.storage import read_jsonl
 from atri_bot.willingness import ReplyConfig
+from atri_bot.tools import ToolSpec, ToolResult
+from atri_bot.history_tools import object_schema
 from test_bot import ROOT, raw, daytime
+from test_tools import call
+
+
+def tool_response(*calls, content=None, reasoning=None):
+    message = {'role': 'assistant', 'content': content, 'tool_calls': list(calls)}
+    if reasoning is not None:
+        message['reasoning_content'] = reasoning
+    return {'choices': [{'message': message, 'finish_reason': 'tool_calls'}]}
 
 
 class TransportTests(unittest.IsolatedAsyncioTestCase):
@@ -65,7 +75,7 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
             {'type': 'text', 'data': {'text': '模型回复'}}]})
         self.assertEqual(len(self.requests), 1)
         request = self.requests[0]
-        self.assertEqual(set(request), {'model', 'messages', 'max_tokens'})
+        self.assertEqual(set(request), {'model', 'messages', 'max_tokens', 'tools', 'tool_choice'})
         self.assertEqual(request['model'], 'test-model')
         self.assertIn(self.config.read_personal_info(), request['messages'][0]['content'])
         self.assertIn('大家刚才在聊天', str(request))
@@ -220,6 +230,8 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual([r['model'] for r in self.requests], ['fast-judge', 'test-model'])
         self.assertEqual([r['thinking'] for r in self.requests], [{'type': 'disabled'}] * 2)
         self.assertEqual(self.requests[0]['max_completion_tokens'], 256)
+        self.assertNotIn('tools', self.requests[0])
+        self.assertIn('tools', self.requests[1])
         self.assertEqual(self.requests[1]['max_completion_tokens'], 512)
         self.assertIn('群聊参与判断器', self.requests[0]['messages'][0]['content'])
         await ws.send_json({'echo': action['echo'], 'status': 'ok', 'retcode': 0, 'data': {'message_id': 800}})
@@ -290,3 +302,118 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(raised.exception.code, 'model_http_503')
         self.assertEqual(raised.exception.attempts, 3)
         self.assertEqual(len(self.requests), 3)
+
+    async def test_tool_search_then_context_then_reply_only_final_text_is_sent_and_remembered(self):
+        group = self.bot.group('1')
+        group.append({'kind': 'incoming', 'key': '99:1:10', 'message_id': '10', 'user_id': '2',
+                      'nickname': '测试群友', 'text': '我喜欢香草冰淇淋', 'timestamp': group.now() - 7200})
+        self.config.groups = frozenset({'1', '2'})
+        self.bot.group('2').append({'kind': 'incoming', 'key': '99:2:10', 'message_id': '10',
+                                   'user_id': '2', 'text': '其他群的秘密冰淇淋', 'timestamp': group.now() - 7200})
+        self.responses = [
+            tool_response(call('search_chat_history', {'query': '冰淇淋'}), content='检索中的中间文本', reasoning='内部推理'),
+            tool_response(call('get_chat_context', {'record_id': 'L1', 'before': 0, 'after': 1}, 'call_2')),
+            {'choices': [{'message': {'content': '你说过喜欢香草冰淇淋。'}}]},
+        ]
+        sent = []
+        async def sender(gid, parts):
+            sent.append(parts[0]['data']['text'])
+            return Receipt('sent', '700')
+        result = await self.bot.enqueue(Event.parse(raw(text='我以前说喜欢吃什么？')), sender)
+        self.assertEqual(result.status, 'sent')
+        self.assertEqual(sent, ['你说过喜欢香草冰淇淋。'])
+        self.assertEqual(len(self.requests), 3)
+        self.assertNotIn('我喜欢香草冰淇淋', str(self.requests[0]['messages']))
+        second = self.requests[1]['messages']
+        self.assertEqual(second[-2]['reasoning_content'], '内部推理')
+        self.assertEqual(second[-1]['tool_call_id'], 'call_1')
+        self.assertEqual(json.loads(second[-1]['content'])['data']['items'][0]['record_id'], 'L1')
+        self.assertNotIn('其他群的秘密', str(self.requests))
+        self.assertEqual(self.requests[-1]['tool_choice'], 'none')
+        rows = list(read_jsonl(group.path))
+        audits = [r for r in rows if r['kind'] == 'tool']
+        self.assertEqual([r['tool'] for r in audits], ['search_chat_history', 'get_chat_context'])
+        self.assertTrue(all(r['status'] == 'ok' for r in audits))
+        self.assertNotIn('内部推理', str(rows))
+        self.assertNotIn('检索中的中间文本', str(group.history))
+        self.assertEqual(len([r for r in group.history if r.get('role') == 'assistant']), 1)
+        # A new user turn contains only normal history, not the previous tool protocol.
+        await self.bot.enqueue(Event.parse(raw(mid=2, text='谢谢')), sender)
+        self.assertFalse(any(m['role'] == 'tool' for m in self.requests[-1]['messages']))
+        self.assertNotIn('内部推理', str(self.requests[-1]['messages']))
+
+    async def test_invalid_tool_arguments_and_unknown_tool_are_returned_as_errors(self):
+        self.responses = [tool_response(call('unknown', {}, 'one'),
+                                        call('search_chat_history', {'query': 'x', 'group_id': '2'}, 'two')),
+                          {'choices': [{'message': {'content': '暂时没能查到。'}}]}]
+        result = await self.bot.enqueue(Event.parse(raw()), lambda gid, parts: asyncio.sleep(0, Receipt('sent', '701')))
+        self.assertEqual(result.status, 'sent')
+        errors = [json.loads(m['content'])['error']['code'] for m in self.requests[1]['messages'] if m['role'] == 'tool']
+        self.assertEqual(errors, ['unknown_tool', 'invalid_arguments'])
+        self.assertNotIn('2', self.bot.groups)
+
+    async def test_batch_call_budget_and_forced_final_response(self):
+        self.config.tools.max_calls = 1
+        self.responses = [tool_response(call('search_chat_history', {'query': 'x'}, 'one'),
+                                        call('search_chat_history', {'query': 'y'}, 'two')),
+                          {'choices': [{'message': {'content': '没有检索到相关消息。'}}]}]
+        result = await self.bot.enqueue(Event.parse(raw()), lambda gid, parts: asyncio.sleep(0, Receipt('sent', '702')))
+        self.assertEqual(result.status, 'sent')
+        self.assertEqual(self.requests[1]['tool_choice'], 'none')
+        messages = [json.loads(m['content']) for m in self.requests[1]['messages'] if m['role'] == 'tool']
+        self.assertTrue(messages[0]['ok'])
+        self.assertEqual(messages[1]['error']['code'], 'call_limit')
+
+    async def test_provider_ignoring_final_limit_fails_without_sending_tool_text(self):
+        self.config.tools.max_rounds = 1
+        self.responses = [tool_response(call('search_chat_history', {'query': 'x'}, 'one')),
+                          tool_response(call('search_chat_history', {'query': 'y'}, 'two'), content='不得发送')]
+        async def forbidden(gid, parts):
+            self.fail('Tool preamble must not be sent')
+        result = await self.bot.enqueue(Event.parse(raw()), forbidden)
+        self.assertEqual(result.reason, 'tool_round_limit')
+        rows = list(read_jsonl(self.bot.group('1').path))
+        self.assertEqual(len([r for r in rows if r['kind'] == 'tool']), 1)
+        self.assertFalse(any(r['kind'] == 'delivery' for r in rows))
+
+    async def test_malformed_and_duplicate_call_envelopes_never_execute(self):
+        original = call('search_chat_history', {'query': 'x'})
+        for mid, response in enumerate((tool_response(original, original),
+                tool_response({'id': 'one', 'type': 'shell', 'function': {'name': 'x', 'arguments': '{}'}})), 1):
+            self.responses = [response]
+            result = await self.bot.enqueue(Event.parse(raw(mid=mid)), lambda gid, parts: asyncio.sleep(0))
+            self.assertEqual(result.reason, 'invalid_tool_calls')
+        self.assertFalse(any(r['kind'] == 'tool' for r in read_jsonl(self.bot.group('1').path)))
+
+    async def test_midnight_after_call_request_or_during_tool_prevents_followup_http(self):
+        now = daytime().replace(hour=23, minute=59, second=59)
+        self.bot.schedule.now = lambda: now
+        def midnight():
+            nonlocal now
+            now += timedelta(seconds=1)
+        self.on_request = midnight
+        self.responses = [tool_response(call('search_chat_history', {'query': 'x'}))]
+        async def forbidden(gid, parts):
+            self.fail('Must not send at midnight')
+        result = await self.bot.enqueue(Event.parse(raw()), forbidden)
+        self.assertEqual(result.reason, 'sleeping')
+        self.assertEqual(len(self.requests), 1)
+        self.assertFalse(any(r['kind'] == 'tool' for r in read_jsonl(self.bot.group('1').path)))
+        # Midnight occurs inside an async tool handler instead of the HTTP response.
+        now -= timedelta(seconds=1)
+        self.on_request = None
+        async def late(ctx, args):
+            midnight()
+            return ToolResult(True, {'items': []})
+        self.bot.tool_registry.register(ToolSpec('late', '测试', object_schema({}), late))
+        self.responses = [tool_response(call('late', {}))]
+        result = await self.bot.enqueue(Event.parse(raw(mid=2)), forbidden)
+        self.assertEqual(result.reason, 'sleeping')
+        self.assertEqual(len(self.requests), 2)
+
+    async def test_disabled_tools_use_plain_reply_request(self):
+        self.config.tools.enabled = False
+        result = await self.bot.enqueue(Event.parse(raw()), lambda gid, parts: asyncio.sleep(0, Receipt('sent', '703')))
+        self.assertEqual(result.status, 'sent')
+        self.assertNotIn('tools', self.requests[0])
+        self.assertNotIn('【历史检索工具】', self.requests[0]['messages'][0]['content'])
