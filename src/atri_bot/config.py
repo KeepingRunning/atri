@@ -9,6 +9,7 @@ from .willingness import ReplyConfig
 from .logging_setup import LoggingConfig
 from .schedule import ScheduleConfig
 from .tools import ToolsConfig
+from .vision import VisionConfig
 
 
 @dataclass
@@ -37,6 +38,7 @@ class Config:
     logging: LoggingConfig = field(default_factory=LoggingConfig)
     schedule: ScheduleConfig = field(default_factory=ScheduleConfig)
     tools: ToolsConfig = field(default_factory=ToolsConfig)
+    vision: VisionConfig = field(default_factory=VisionConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -81,6 +83,13 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [tools] configuration fields") from None
         conf.tools.validate()
+        try:
+            conf.vision = VisionConfig(**raw.get("vision", {}))
+        except TypeError:
+            raise ValueError("Invalid [vision] configuration fields") from None
+        conf.vision.validate()
+        if conf.vision.enabled and not conf.tools.enabled:
+            raise ValueError("vision.enabled requires tools.enabled=true")
         if type(conf.history_seconds) is not int or conf.history_seconds <= 0:
             raise ValueError("context.history_seconds must be a positive integer")
         for name in ("queue_size", "parallel", "action_timeout", "llm_timeout", "max_output_tokens"):

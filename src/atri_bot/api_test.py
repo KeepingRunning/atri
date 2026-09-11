@@ -96,3 +96,62 @@ async def run_api_tests(config, *, stream=None):
     emit(f"测试完成：{sum(r.passed for r in results)}/{len(results)} 通过，"
          f"总耗时 {time.perf_counter() - started:.2f} 秒。")
     return results
+
+
+async def run_vision_test(config, *, image_path=None, stream=None):
+    """A deliberate real request with a synthetic image or an explicitly selected local file."""
+    import asyncio
+    from io import BytesIO
+    import secrets
+    from PIL import Image
+    from .tools import ToolError
+    from .vision import normalize_image, vision_messages
+
+    config.require_live()
+    config.vision.validate()
+    stream = sys.stdout if stream is None else stream
+    formatter = ModuleFormatter(secrets=(config.api_key, config.token))
+    expected = None
+    if image_path is None:
+        palette = {'red': (255, 0, 0), 'blue': (0, 0, 255), 'green': (0, 180, 0), 'yellow': (255, 255, 0)}
+        left, right = secrets.SystemRandom().sample(list(palette), 2)
+        expected = [left, right]
+        image = Image.new('RGB', (512, 256), palette[left])
+        image.paste(palette[right], (256, 0, 512, 256))
+        buffer = BytesIO()
+        image.save(buffer, format='PNG')
+        raw = buffer.getvalue()
+        question = '按从左到右的顺序，只输出图片两侧的主要颜色英文名，用一个英文逗号分隔，不加其他文字。'
+        source = '随机双色合成图（无需真实群消息）'
+    else:
+        # Bound the read before decoding; this path is supplied by the human CLI caller.
+        with image_path.open('rb') as file:
+            raw = file.read(config.vision.max_image_bytes + 1)
+        question = '描述这张图片的主要内容，并转写清晰可读的文字；不确定的部分请说明。'
+        source = '用户指定的本地图片'
+    print(f'图片测试：{source}；视觉模型：{config.vision.model or config.model}；将调用一次真实 API。', file=stream, flush=True)
+    started = time.perf_counter()
+    error = ''
+    try:
+        async with asyncio.timeout(config.vision.timeout):
+            data, _ = await asyncio.to_thread(normalize_image, raw, config.vision)
+            async with aiohttp.ClientSession() as session:
+                result = await ChatModel(config, session).complete(vision_messages(data, question),
+                    model=config.vision.model or None, purpose='vision_test', max_output_tokens=config.vision.max_output_tokens)
+        if expected is not None:
+            normalized = result.strip().lower().replace('，', ',').removesuffix('.')
+            passed = [part.strip() for part in normalized.split(',')] == expected
+            if not passed:
+                error = 'unexpected_image_answer'
+            detail = f'预期={",".join(expected)}；回复={preview(formatter.clean(result), config.logging.preview_chars)}'
+        else:
+            passed = True
+            detail = '接口已返回识别结果，准确性需人工核对；回复=' + preview(formatter.clean(result), config.logging.preview_chars)
+    except (ModelError, ToolError) as exc:
+        passed, error, detail = False, exc.code, formatter.clean(str(exc))
+    except TimeoutError:
+        passed, error, detail = False, 'vision_timeout', '图片测试超时'
+    elapsed = time.perf_counter() - started
+    print(formatter.clean(f'[{"通过" if passed else "失败"}] 图片理解 | {elapsed:.2f} 秒 | {error + "：" if error else ""}{detail}'),
+          file=stream, flush=True)
+    return ApiTestResult('图片理解', passed, elapsed, detail, error)

@@ -17,7 +17,7 @@
 
 保留同一轮模型返回的 `reasoning_content` 供后续工具请求回传，以兼容 [DeepSeek 思考模式](https://api-docs.deepseek.com/guides/thinking_mode/)。该字段不写聊天存档、不打印，也不跨用户轮次保存。下一条用户消息的上下文仍从普通聊天历史重新构造。
 
-## 三个内置工具
+## 内置检索工具
 
 | 工具 | 参数 | 行为 |
 | --- | --- | --- |
@@ -82,6 +82,20 @@ handler 签名为 `async def handler(context: ToolContext, arguments: dict) -> T
 
 常见错误码：`unknown_tool`、`invalid_arguments`、`empty_query`、`invalid_time`、`invalid_time_range`、`record_not_found`、`tool_timeout`、`tool_failed`、`call_limit`、`result_too_large`。成功但 `items=[]` 表示本次查询未命中；错误或 `partial=true` 不等于没有记录。
 
+## 图片理解工具
+
+`vision.enabled=true` 时另外注册 `inspect_image(image_id, question?)`，需要 `tools.enabled=true`。`image_id` 从消息的 `images` 字段读取，如 `img_12345_1` 表示消息 12345 的第一张图片；`question` 可指定关注点，最多 500 字符。
+
+主进程为本轮创建 `ImageAccess` 并放入 `ToolContext.images`，只包含当前群、当前消息及一小时窗口内的图片。工具只能选择编号，没有群号、路径或下载链接参数。历史窗口外的图片即使在旧聊天检索中出现，也不能直接通过图片工具读取。
+
+工具通过相同模型客户端单独请求视觉模型，返回 `data.image_id`、`data.observation`、原始/处理尺寸、是否缩放、是否只读首帧；随后聊天模型结合观察生成正文。图片处理与群权限由主进程提供，无 MCP 进程。
+
+通用 `ToolSpec` 新增可选 `timeout` 字段，必须在 (0,120] 秒内，未指定时使用 `tools.timeout`。这是应用注册工具时的设置，模型不能修改。看图工具使用 `vision.timeout`（默认 45 秒）涵盖下载、解码和视觉模型请求；其他工具仍使用默认 5 秒。模型请求仍受 `llm.timeout` 限制，以先到达的超时为准。
+
+视觉调用继承当前消息的睡眠检查和日志上下文；进程关闭会取消异步请求，已经在线程中开始的本地图片解码可能短暂继续，但不会再提交模型或发送回复。`ImageReader.inspect(image_id, question) -> dict` 是可替换的内部接口，将来切换视觉服务时可保留工具契约。
+
+错误码包括 `image_not_available`、`image_url_unavailable`、`image_source_not_allowed`、`image_download_failed`、`image_download_timeout`、`image_too_large`、`invalid_image`、`unsupported_image`、`vision_model_failed`；工具总超时仍返回 `tool_timeout`。模型失败信息不包含 API 响应体或凭据。配置、格式限制和测试入口见 [README 的图片理解说明](../README.md#图片理解)。
+
 ## 添加工具
 
 无需修改模型的 HTTP 代码或工具循环。实现 handler 和 schema，在 Bot 的 `tool_registry` 初始化后注册即可，例如在模块中写：
@@ -125,4 +139,4 @@ JSONL 不做迁移或重复存储。检索使用 `rb` 打开，读取开始时�
 
 运行 `uv run python -m unittest discover -s tests -v`。新增测试使用临时 JSONL 和本地模拟 HTTP，覆盖旧消息检索、原始时间/乱序、群隔离、未发送正文排除、关键词/分页、上下文、处理记录投影、坏行只读、参数校验、结果上限、复用注册、超时取消、调用预算、工具协议往返及午夜中断。
 
-`atri test-api` 仍是原有四项连接/意愿/人设测试，不会执行存档工具，也不能据此证明供应商的工具调用兼容性。真实模型的检索选择和回答质量需要用户启动后用实际问题观察；本次开发没有调用外部模型或发送 QQ 消息。
+`atri test-api` 仍是原有四项连接/意愿/人设测试，不会执行存档工具，也不能据此证明供应商的工具调用兼容性。`atri test-vision` 单独测试真实图片模型接口；真实群聊中的工具选择和回答质量仍需要启动后观察。自动测试不连接外部模型或真实 QQ。

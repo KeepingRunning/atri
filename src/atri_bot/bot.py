@@ -9,6 +9,7 @@ from .logging_setup import log_context, preview
 from .model import ModelError, ModelRequestBlocked, guard_model_requests, check_request_allowed
 from .history_tools import ChatArchive, history_registry, tool_instructions
 from .tools import ToolContext, ToolSession
+from .vision import ImageAccess, register_vision, VISION_INSTRUCTIONS
 from .storage import GroupLog
 from .types import Receipt
 from .willingness import ReplyWillingness
@@ -27,7 +28,12 @@ class Bot:
         self.personal_info = config.read_personal_info()
         config.reply.validate()
         config.tools.validate()
+        config.vision.validate()
+        if config.vision.enabled and not config.tools.enabled:
+            raise ValueError("vision.enabled requires tools.enabled=true")
         self.tool_registry = history_registry()
+        if config.vision.enabled:
+            register_vision(self.tool_registry, config.vision)
         self.semaphore = asyncio.Semaphore(config.parallel)
         self.groups, self.queues, self.tasks = {}, {}, {}
         self.willingness = {}
@@ -161,12 +167,17 @@ class Bot:
                 archive = ChatArchive(group.path, group_id=event.group_id, self_id=event.self_id,
                                       now=now, exclude_key=event.key)
                 context = ToolContext(event.group_id, event.user_id, event.self_id, event.key, now,
-                                      archive, lambda: check_request_allowed("tool"), group.append)
+                                      archive, lambda: check_request_allowed("tool"), group.append,
+                                      ImageAccess(self.config.vision, self.model, event, group.history, now=now,
+                                                  history_seconds=self.config.history_seconds)
+                                      if self.config.vision.enabled else None)
                 tool_session = ToolSession(self.tool_registry, context, self.config.tools)
             conversation = build_conversation(self.personal_info, event, group.history,
                                               history_seconds=self.config.history_seconds, now=now,
                                               schedule_context=background,
-                                              tool_context=tool_instructions(now) if tool_session else "")
+                                              tool_context=(tool_instructions(now) +
+                                                  (VISION_INSTRUCTIONS if self.config.vision.enabled else "")) if tool_session else "",
+                                              vision_enabled=self.config.vision.enabled)
             try:
                 with guard_model_requests(lambda: not self.schedule.blocks_reply(
                         received_at=received_at, timestamp=event.timestamp)):
@@ -226,7 +237,8 @@ class Bot:
                     return ignored
                 willingness_log.debug("[模型判断] 已取得并发槽位，等待=%.1fms", (time.perf_counter() - started) * 1000)
                 messages = build_willingness_context(self.personal_info, event, group.history, gate,
-                                                    history_seconds=self.config.history_seconds, now=group.now())
+                                                    history_seconds=self.config.history_seconds, now=group.now(),
+                                                    vision_enabled=self.config.vision.enabled)
                 with guard_model_requests(lambda: not self.schedule.blocks_reply(
                         received_at=received_at, timestamp=event.timestamp)):
                     assessment = await self.model.assess_reply(messages)

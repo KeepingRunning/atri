@@ -103,9 +103,20 @@ class ChatModel:
         started = time.perf_counter()
         log.info("[请求开始] 用途=%s 模型=%s 消息条数=%d 输出上限=%d 超时=%.1fs",
                  purpose, payload["model"], len(messages), payload[self.config.output_limit_field], self.config.llm_timeout)
-        log.debug("[请求构成] 用途=%s 各角色=%s 上下文字符=%d 限额字段=%s",
+        text_chars, image_count = 0, 0
+        for message in messages:
+            content = message.get("content")
+            if isinstance(content, str):
+                text_chars += len(content)
+            elif isinstance(content, list):
+                for block in content:
+                    if isinstance(block, dict) and block.get("type") == "text":
+                        text_chars += len(block.get("text", ""))
+                    elif isinstance(block, dict) and block.get("type") == "image_url":
+                        image_count += 1
+        log.debug("[请求构成] 用途=%s 各角色=%s 文本字符=%d 图片=%d 限额字段=%s",
                   purpose, [m.get("role", "unknown") for m in messages],
-                  sum(len(str(m.get("content", ""))) for m in messages), self.config.output_limit_field)
+                  text_chars, image_count, self.config.output_limit_field)
         if self.config.thinking:
             log.debug("[思考模式] 用途=%s thinking=%s", purpose, self.config.thinking)
         # Check immediately before HTTP submission, including every judgment retry.

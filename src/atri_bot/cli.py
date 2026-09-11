@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 import aiohttp
 from aiohttp import web
 
-from .api_test import run_api_tests
+from .api_test import run_api_tests, run_vision_test
 from .bot import Bot
 from .config import Config
 from .model import ChatModel
@@ -66,12 +66,15 @@ def main(argv=None):
     parser.add_argument("--config", type=Path, default=Path("config.toml"))
     parser.add_argument("--log-level", choices=("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"))
     parser.add_argument("--log-color", choices=("auto", "always", "never"))
-    parser.add_argument("command", nargs="?", choices=("serve", "check", "test-api", "test-schedule"), default="serve",
-                        help="serve 启动服务；check 检查配置；test-api 实测模型接口；test-schedule 预览日程")
+    parser.add_argument("command", nargs="?", choices=("serve", "check", "test-api", "test-schedule", "test-vision"), default="serve",
+                        help="serve 启动服务；check 检查配置；test-api 实测模型接口；test-schedule 预览日程；test-vision 测试看图")
     parser.add_argument("--at", help="仅供test-schedule：预览时刻，如2026-09-11T18:35:00+08:00")
+    parser.add_argument("--image", type=Path, help="仅供test-vision：要上传测试的本地图片，省略则使用合成图")
     args = parser.parse_args(argv)
     if args.at and args.command != 'test-schedule':
         parser.error('--at only applies to test-schedule')
+    if args.image and args.command != 'test-vision':
+        parser.error('--image only applies to test-vision')
     try:
         config = Config.load(args.config)
         if args.log_level:
@@ -86,6 +89,9 @@ def main(argv=None):
             results = asyncio.run(run_api_tests(config))
             if not all(result.passed for result in results):
                 parser.exit(1)
+        elif args.command == "test-vision":
+            if not asyncio.run(run_vision_test(config, image_path=args.image)).passed:
+                parser.exit(1)
         elif args.command == 'test-schedule':
             if not asyncio.run(preview_schedule(config, args.at)):
                 parser.exit(1)
@@ -94,7 +100,7 @@ def main(argv=None):
     except (ValueError, RuntimeError, OSError) as exc:
         parser.exit(2, f"配置或启动失败：{exc}\n")
     except KeyboardInterrupt:
-        if args.command in ("test-api", "test-schedule"):
+        if args.command in ("test-api", "test-schedule", "test-vision"):
             parser.exit(130, "测试已中断。\n")
 
 

@@ -47,6 +47,10 @@ class ArchiveReader(Protocol):
     async def run(self, method: str, arguments: dict) -> ToolResult: ...
 
 
+class ImageReader(Protocol):
+    async def inspect(self, image_id: str, question: str) -> dict: ...
+
+
 @dataclass(frozen=True)
 class ToolContext:
     group_id: str
@@ -58,6 +62,7 @@ class ToolContext:
     archive: ArchiveReader = field(repr=False)
     check_active: Callable[[], None] = field(repr=False)
     audit: Callable[[dict], None] = field(repr=False)
+    images: ImageReader | None = field(default=None, repr=False)
 
 
 @dataclass
@@ -107,6 +112,7 @@ class ToolSpec:
     description: str
     parameters: dict
     handler: Callable[[ToolContext, dict], Awaitable[ToolResult]]
+    timeout: float | None = None
 
 
 class ToolRegistry:
@@ -116,6 +122,9 @@ class ToolRegistry:
     def register(self, spec: ToolSpec):
         if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_-]{0,63}", spec.name) or spec.name in self._tools:
             raise ValueError("Invalid or duplicate tool name")
+        if spec.timeout is not None and (type(spec.timeout) not in (int, float) or
+                not math.isfinite(spec.timeout) or not 0 < spec.timeout <= 120):
+            raise ValueError("Tool timeout must be in (0, 120]")
         schema = deepcopy(spec.parameters)
         if schema.get("type") != "object" or schema.get("additionalProperties") is not False:
             raise ValueError("Tool parameters must be an object with additionalProperties=false")
@@ -159,7 +168,7 @@ class ToolRegistry:
                 # jsonschema's full message may contain arbitrary input or private data.
                 raise ToolError("invalid_arguments", f"参数不符合工具 schema（{error.validator}）。")
             log.debug("[工具参数校验通过] 工具=%s 字段=%s", name, sorted(args))
-            async with asyncio.timeout(config.timeout):
+            async with asyncio.timeout(spec.timeout if spec.timeout is not None else config.timeout):
                 result = await spec.handler(context, args)
             if not isinstance(result, ToolResult):
                 raise TypeError("Handler must return ToolResult")
@@ -167,8 +176,9 @@ class ToolRegistry:
         except ToolError as exc:
             result = ToolResult.failure(exc.code, str(exc)).bounded(config.max_result_chars)
         except TimeoutError:
-            result = ToolResult.failure("tool_timeout", "检索超时，未获得完整结果，请缩小查询范围。")
+            result = ToolResult.failure("tool_timeout", "工具执行超时，未获得完整结果，请稍后再试。")
         except Exception as exc:
+            context.check_active()
             log.error("[工具异常] 工具=%s 异常类型=%s", name, type(exc).__name__)
             result = ToolResult.failure("tool_failed", "工具执行失败，不能据此断言没有相关记录。")
         context.check_active()

@@ -38,6 +38,14 @@ def display_text(parts, self_id):
         for s in parts).strip()
 
 
+def image_references(parts, message_id):
+    """Expose stable message-local image IDs, never download URLs or filesystem paths."""
+    if not re.fullmatch(r"-?[0-9]{1,24}", str(message_id)):
+        return []
+    images = [p for p in parts if isinstance(p, dict) and p.get("type") == "image"]
+    return [{"image_id": f"img_{message_id}_{i}", "position": i} for i in range(1, len(images) + 1)]
+
+
 @dataclass(frozen=True)
 class Event:
     group_id: str
