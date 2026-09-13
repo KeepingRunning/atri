@@ -1,4 +1,4 @@
-"""按上海时间从本地日常库选取两小时安排；00:00–08:00 固定睡眠。"""
+"""按上海时间从本地日常库选取两小时安排；默认00:00–08:00睡眠，可配置关闭。"""
 from __future__ import annotations
 
 import asyncio
@@ -28,10 +28,13 @@ class ScheduleConfig:
     enabled: bool = True
     timezone: str = 'Asia/Shanghai'
     routines_dir: str = 'resources/daily_routines'
+    sleep_enabled: bool = True
 
     def validate(self):
         if type(self.enabled) is not bool:
             raise ValueError('schedule.enabled must be a boolean')
+        if type(self.sleep_enabled) is not bool:
+            raise ValueError('schedule.sleep_enabled must be a boolean')
         if not isinstance(self.routines_dir, str) or not self.routines_dir.strip():
             raise ValueError('schedule.routines_dir must be a nonempty path')
         if self.timezone != 'Asia/Shanghai':
@@ -109,8 +112,8 @@ def validate_routine(data):
                 raise ValueError(f'invalid micro {key}')
 
 
-def make_plan(start, routine=None):
-    sleeping = start.hour < 8
+def make_plan(start, routine=None, *, sleeping=None):
+    sleeping = start.hour < 8 if sleeping is None else sleeping
     if routine is None:
         title = '睡觉' if sleeping else '自由休息'
         summary = '00:00–08:00 睡觉，不回复消息。' if sleeping else '暂时没有合适的日常，随意休息。'
@@ -153,9 +156,11 @@ class ScheduleService:
 
     def is_sleeping(self, now=None):
         now = self.local_now() if now is None else now.astimezone(self.zone)
-        return now.hour < 8
+        return self.config.sleep_enabled and now.hour < 8
 
     def blocks_reply(self, *, received_at=None, timestamp=0):
+        if not self.config.sleep_enabled:
+            return False
         now = self.local_now()
         if self.is_sleeping(now):
             return True
@@ -221,12 +226,13 @@ class ScheduleService:
     def current_plan(self, now=None):
         now = self.local_now() if now is None else now.astimezone(self.zone)
         start = window_start(now)
-        if self.plan is not None and self.plan['window_start'] == start.isoformat():
+        if (self.plan is not None and self.plan['window_start'] == start.isoformat()
+                and self.plan['sleeping'] == self.is_sleeping(now)):
             return self.plan
         self.load()
         routine = None
         if not self.is_sleeping(now) and self.config.enabled:
-            labels = time_labels(start) | {'不限'}
+            labels = (time_labels(start) or {'夜晚'}) | {'不限'}
             pool = [r for r in self.read_library().values() if labels.intersection(r['suggested_time_of_day'])]
             old = self.selection or {}
             if old.get('window_start') == start.isoformat():
@@ -241,7 +247,7 @@ class ScheduleService:
                          start.isoformat(), '、'.join(sorted(labels)), len(pool), routine['id'], routine['title'])
             if not pool:
                 log.warning('[日程候选为空] 窗口=%s 使用自由休息，不调用模型', start.isoformat())
-        self.plan = make_plan(start, routine)
+        self.plan = make_plan(start, routine, sleeping=self.is_sleeping(now))
         self.selection = {'version': 2, 'timezone': self.config.timezone, 'routines_dir': str(self.directory),
                           'window_start': start.isoformat(), 'routine_id': self.plan['routine_id']}
         self.save()
@@ -266,7 +272,8 @@ class ScheduleService:
             return
         self.current_plan()
         self.task = asyncio.create_task(self.run(), name='atri-schedule', context=Context())
-        log.info('[日程后台启动] 时区=%s 偶数整点本地随机选择 睡眠=00:00–08:00', self.config.timezone)
+        log.info('[日程后台启动] 时区=%s 偶数整点本地随机选择 睡眠拦截=%s', self.config.timezone,
+                 '00:00–08:00' if self.config.sleep_enabled else '已关闭')
 
     async def run(self):
         while True:

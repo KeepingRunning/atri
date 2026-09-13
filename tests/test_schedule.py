@@ -174,6 +174,29 @@ class ScheduleTests(unittest.IsolatedAsyncioTestCase):
             self.assertIn('a-关注点03', self.service.context())
         self.assertEqual(len(self.choices), 1)
 
+    async def test_sleep_switch_replaces_cached_sleep_with_night_routine_and_restores(self):
+        self.now = instant('2026-09-12T00:35:00')
+        self.write(routine('night', ['夜晚']))
+        self.write(routine('morning', ['上午']))
+        self.assertEqual(self.service.current_plan()['routine_id'], '__sleep__')
+        self.service.config.sleep_enabled = False
+        plan = self.service.current_plan()
+        self.assertFalse(plan['sleeping'])
+        self.assertIn('night', self.choices[-1])
+        self.assertNotIn('morning', self.choices[-1])
+        self.assertNotIn('不回复消息', self.service.context())
+        self.assertFalse(self.service.blocks_reply(received_at=self.now - timedelta(days=1),
+                                                    timestamp=self.now.timestamp()))
+        restored = self.new_service()
+        restored.config.sleep_enabled = False
+        self.assertEqual(restored.current_plan()['routine_id'], plan['routine_id'])
+        self.service.config.enabled = False
+        self.assertEqual(self.service.context(), '')
+        self.assertFalse(self.service.blocks_reply())
+        self.service.config.sleep_enabled = True
+        self.assertTrue(self.service.blocks_reply())
+        self.assertEqual(self.service.current_plan()['routine_id'], '__sleep__')
+
     async def test_background_start_is_idempotent_and_clock_jump_is_seen_without_poll(self):
         self.service.start()
         task = self.service.task
@@ -202,7 +225,12 @@ class ScheduleTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(config.schedule.enabled)
         self.assertEqual(config.schedule.routines_dir, 'routines')
         self.assertFalse(hasattr(config.schedule, 'model'))
-        for config in (ScheduleConfig(enabled='true'), ScheduleConfig(timezone='UTC'),
+        path.write_text('[schedule]\nsleep_enabled=false\n')
+        self.assertFalse(Config.load(path).schedule.sleep_enabled)
+        path.write_text('[schedule]\nsleep_enabled="false"\n')
+        with self.assertRaisesRegex(ValueError, 'schedule.sleep_enabled'):
+            Config.load(path)
+        for config in (ScheduleConfig(enabled='true'), ScheduleConfig(sleep_enabled='false'), ScheduleConfig(timezone='UTC'),
                        ScheduleConfig(routines_dir='')):
             with self.assertRaises(ValueError):
                 config.validate()

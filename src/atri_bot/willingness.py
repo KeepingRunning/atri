@@ -33,8 +33,8 @@ class ReplyConfig:
     judgment_model: str = ""
 
     def validate(self):
-        if self.mode not in ("willingness", "at_only"):
-            raise ValueError("reply.mode must be willingness or at_only")
+        if self.mode not in ("planner", "willingness", "at_only"):
+            raise ValueError("reply.mode must be planner, willingness or at_only")
         for name, low, high in (("frequency", 0, 1), ("cooldown_seconds", 0, 3600),
                                 ("continuation_seconds", 0, 3600), ("max_message_age_seconds", 1, 3600)):
             value = getattr(self, name)

@@ -68,7 +68,7 @@ class ConfigTests(unittest.TestCase):
 
     def test_reply_configuration_and_legacy_mode(self):
         config = Config.load(ROOT / 'config.toml.template')
-        self.assertEqual(config.reply.mode, 'willingness')
+        self.assertEqual(config.reply.mode, 'planner')
         self.assertEqual(config.reply.threshold, 60)
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'config.toml'
@@ -88,6 +88,16 @@ class ConfigTests(unittest.TestCase):
             for value in ('true', '42', '"auto"', '[]'):
                 path.write_text(f'[llm]\nthinking={value}\n')
                 with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'llm.thinking'):
+                    Config.load(path)
+
+    def test_invalid_planner_limits_are_rejected_at_load(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for value in ('max_waits=true', 'max_replans=-1', 'max_batch_messages=0',
+                          'max_batch_seconds=1', 'debounce_seconds=nan', 'max_wait_seconds=inf',
+                          'max_snapshot_chars=100', 'max_output_tokens=1', 'temperature=nan', 'temperature=3', 'typo=1'):
+                path.write_text('[planner]\n' + value + '\n')
+                with self.subTest(value=value), self.assertRaises(ValueError):
                     Config.load(path)
 
     def test_invalid_reply_configuration_is_rejected_at_load(self):

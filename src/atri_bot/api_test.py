@@ -155,3 +155,87 @@ async def run_vision_test(config, *, image_path=None, stream=None):
     print(formatter.clean(f'[{"通过" if passed else "失败"}] 图片理解 | {elapsed:.2f} 秒 | {error + "：" if error else ""}{detail}'),
           file=stream, flush=True)
     return ApiTestResult('图片理解', passed, elapsed, detail, error)
+
+
+async def run_planner_tests(config, *, stream=None):
+    """Exercise the real group worker/model with synthetic chats and an in-memory sender."""
+    import asyncio
+    from copy import deepcopy
+    from datetime import datetime
+    import json
+    from pathlib import Path
+    from tempfile import TemporaryDirectory
+    from zoneinfo import ZoneInfo
+    from .bot import Bot
+    from .types import Receipt
+
+    config.require_live()
+    stream = sys.stdout if stream is None else stream
+    formatter = ModuleFormatter(secrets=(config.api_key, config.token))
+    def emit(message):
+        print(formatter.clean(message), file=stream, flush=True)
+
+    cases = [
+        ("拆句与当前日程", ["亚托莉", "你现在在干嘛？"], "sent"),
+        ("明确要求安静", ["亚托莉，这条消息不用回复，请保持安静。"], "ignored"),
+        ("没有 @ 的开放分享", ["刚把旧收音机修好了！它真的还能响，有点开心。"], None),
+        ("查询两小时前的记录", ["查一下我之前提到的「椰子」是什么甜点，别凭印象猜。"], "sent"),
+    ]
+    emit("Planner 实测：4 组模拟群聊，包含合批、旁听、主动参与和历史查询；通常约 7–10 次模型请求。")
+    emit("不连接 QQ，临时数据会删除；采用当天 14:35 的日程背景，关闭主动等待与看图。开放分享仅展示选择供人工评阅。")
+    results = []
+    with TemporaryDirectory(prefix="atri-planner-test-") as directory:
+        test_config = deepcopy(config)
+        test_config.data = Path(directory)
+        test_config.groups, test_config.self_id = frozenset(str(i) for i in range(1, 5)), "99"
+        test_config.reply.mode = "planner"
+        test_config.reply.frequency = .7
+        test_config.reply.cooldown_seconds = 0
+        test_config.tools.enabled = True
+        test_config.vision.enabled = False
+        test_config.planner.debounce_seconds = .02
+        test_config.planner.max_batch_seconds = .05
+        test_config.planner.max_waits = 0
+        moment = datetime.now(ZoneInfo(config.schedule.timezone)).replace(hour=14, minute=35, second=0, microsecond=0)
+        async with aiohttp.ClientSession() as session:
+            bot = Bot(test_config, ChatModel(test_config, session), now=lambda: moment)
+            try:
+                for index, (name, texts, expected) in enumerate(cases, 1):
+                    gid = str(index)
+                    group = bot.group(gid)
+                    group.now = lambda: moment.timestamp()
+                    if index == 4:
+                        group.append({"kind": "incoming", "key": f"99:{gid}:900", "message_id": "900",
+                            "user_id": "2", "nickname": "模拟群友", "timestamp": moment.timestamp() - 7200,
+                            "text": "我说的椰子甜点是椰子布丁。"})
+                    sent = []
+                    async def sender(group_id, parts):
+                        sent.append(parts[0]["data"]["text"])
+                        return Receipt("sent", f"test-{index}")
+                    emit(f"[{index}/4] {name}：{' / '.join(texts)}")
+                    started = time.perf_counter()
+                    futures = []
+                    for mid, text in enumerate(texts, 1):
+                        event = Event.parse({"post_type": "message", "message_type": "group", "group_id": gid,
+                            "self_id": "99", "user_id": "2", "message_id": mid, "time": moment.timestamp(),
+                            "sender": {"nickname": "模拟群友"}, "message": [{"type": "text", "data": {"text": text}}]})
+                        futures.append(bot.enqueue(event, sender))
+                    receipts = await asyncio.gather(*futures)
+                    rows = [json.loads(line) for line in group.path.read_text().splitlines()]
+                    decisions = [row for row in rows if row["kind"] == "planner" and row.get("stage") == "decision"]
+                    for row in decisions:
+                        emit(f"  行动={row['action']}；理解={json.dumps(row['understanding'], ensure_ascii=False)}；理由={row['reason']}")
+                    tools = [row["tool"] for row in rows if row["kind"] == "tool"]
+                    passed = (all(r.status in ("sent", "ignored") for r in receipts) and len(sent) <= 1
+                              and bool(decisions) and (expected is None or receipts[-1].status == expected))
+                    if index == 4:
+                        passed = passed and "search_chat_history" in tools and bool(sent) and "椰子布丁" in sent[0]
+                    detail = f"状态={receipts[-1].status}；工具={tools}；回复={sent[0] if sent else '（旁听）'}"
+                    error = "" if passed else receipts[-1].reason or "unexpected_response"
+                    result = ApiTestResult(name, passed, time.perf_counter() - started, detail, error)
+                    results.append(result)
+                    emit(f"[{'通过' if passed else '失败'}] {name} | {result.elapsed_seconds:.2f} 秒 | {detail}")
+            finally:
+                await bot.close(timeout=.1)
+    emit(f"Planner 测试完成：{sum(r.passed for r in results)}/{len(results)} 通过。回复自然度仍需人工判断。")
+    return results

@@ -50,6 +50,16 @@ class ChatModel:
     def __init__(self, config, session):
         self.config, self.session = config, session
 
+    async def plan(self, messages, definitions):
+        """One native action/tool call; execution belongs to Planner and Bot."""
+        # DeepSeek rejects required tool_choice in thinking mode. Explicitly
+        # disabled thinking can enforce a call instead of relying only on prose.
+        choice = "required" if self.config.thinking == "disabled" else "auto"
+        return await self._request(messages, purpose="planner", tools=definitions, tool_choice=choice,
+                                   model=self.config.reply.judgment_model or None,
+                                   max_output_tokens=self.config.planner.max_output_tokens,
+                                   temperature=self.config.planner.temperature)
+
     async def complete(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False,
                        tool_session=None):
         options = dict(max_output_tokens=max_output_tokens, model=model, purpose=purpose, json_mode=json_mode)
@@ -88,13 +98,15 @@ class ChatModel:
         raise ModelError("Tool round limit reached", "tool_round_limit")
 
     async def _request(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False,
-                       tools=None, tool_choice=None):
+                       tools=None, tool_choice=None, temperature=None):
         check_request_allowed(purpose)
         self.config.require_live()
         payload = {"model": model or self.config.model, "messages": messages,
                    self.config.output_limit_field: max_output_tokens or self.config.max_output_tokens}
         if self.config.thinking:
             payload["thinking"] = {"type": self.config.thinking}
+        if temperature is not None:
+            payload["temperature"] = temperature
         if json_mode:
             payload["response_format"] = {"type": "json_object"}
         if tools:

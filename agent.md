@@ -3,16 +3,19 @@
 ## 项目说明
 
 ATRI 是 Python QQ 群聊机器人，使用 aiohttp 和 OneBot v11。
-消息处理流程：接收消息 → 规则评分 → 模型判断意愿 → 生成回复 → 发送回执。
+默认消息处理流程：接收并记录 → 按群合批 → 固定聊天快照 → Planner 选择行动 → Replyer 写正文 → 发送回执。旧 willingness 模式保留用于对比。
 
 关键文件：
 
 - src/atri_bot/bot.py：消息处理与调度。
+- src/atri_bot/group_session.py：合批、等待唤醒、快照失效与重新规划。
+- src/atri_bot/planner.py：原生行动调用、协议校验及查询循环。
 - src/atri_bot/willingness.py：接话规则、冷却和退避。
 - src/atri_bot/context.py：人设、群聊历史和判断提示词。
 - src/atri_bot/model.py：大模型 API 调用。
 - personal_info.txt：ATRI 的运行时人设。
 - docs/reply-willingness.md：接话意愿设计说明。
+- docs/planner.md：当前 Planner 与 Replyer 设计、预算与试用。
 
 ## 常用命令
 
@@ -22,6 +25,7 @@ ATRI 是 Python QQ 群聊机器人，使用 aiohttp 和 OneBot v11。
 - 检查配置：uv run atri check
 - 自动测试：uv run python -m unittest discover -s tests -v
 - 真实模型测试：uv run atri test-api
+- 新流程真实模型测试：uv run atri test-planner（模拟群聊、临时存储，不连接 QQ）。
 
 test-api 会调用真实模型；用于模型连接、配置或兼容性验证。
 普通自动测试使用本地模拟接口。
@@ -40,7 +44,8 @@ test-api 会调用真实模型；用于模型连接、配置或兼容性验证�
 
 - 不同群的聊天上下文必须隔离。
 - 只有确认发送成功的回复才能进入聊天历史。
-- 接话规则决定是否调用判断模型；模型仍可以选择等待。
+- Planner 模式的代码只做睡眠、过期、频率、冷却等技术门控；参与兴趣、等待与旁听由模型决定，不能加入预设主题的关键词门槛。
+- Planner 与 Replyer 共享固定快照；规划交接和工具观察不作为已确认聊天写入历史。
 - 模型调用失败必须明确记录，不能记为成功。
 - 测试消息不能写入真实群聊历史。
 - 启动后台和发送真实 QQ 消息应符合用户当前任务的授权范围。

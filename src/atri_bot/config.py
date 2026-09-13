@@ -10,6 +10,7 @@ from .logging_setup import LoggingConfig
 from .schedule import ScheduleConfig
 from .tools import ToolsConfig
 from .vision import VisionConfig
+from .planner import PlannerConfig
 
 
 @dataclass
@@ -39,6 +40,7 @@ class Config:
     schedule: ScheduleConfig = field(default_factory=ScheduleConfig)
     tools: ToolsConfig = field(default_factory=ToolsConfig)
     vision: VisionConfig = field(default_factory=VisionConfig)
+    planner: PlannerConfig = field(default_factory=PlannerConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -65,6 +67,11 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [reply] configuration fields") from None
         conf.reply.validate()
+        try:
+            conf.planner = PlannerConfig(**raw.get("planner", {}))
+        except TypeError:
+            raise ValueError("Invalid [planner] configuration fields") from None
+        conf.planner.validate()
         try:
             conf.logging = LoggingConfig(**raw.get("logging", {}))
         except TypeError:

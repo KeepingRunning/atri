@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 import aiohttp
 from aiohttp import web
 
-from .api_test import run_api_tests, run_vision_test
+from .api_test import run_api_tests, run_vision_test, run_planner_tests
 from .bot import Bot
 from .config import Config
 from .model import ChatModel
@@ -43,9 +43,13 @@ async def preview_schedule(config, at=None):
 async def serve(config):
     config.require_serve()
     log = logging.getLogger("atri.core")
-    log.info("[启动] 群数量=%d 模式=%s 意愿阈值=%d 频率=%.2f 模型并发=%d 日志级别=%s",
-             len(config.groups), config.reply.mode, config.reply.threshold,
+    log.info("[启动] 群数量=%d 模式=%s 频率=%.2f 模型并发=%d 日志级别=%s",
+             len(config.groups), config.reply.mode,
              config.reply.frequency, config.parallel, config.logging.level)
+    if config.reply.mode == "planner":
+        log.info("[规划配置] 合批安静间隔=%.1fs 最多收集=%.1fs 等待次数=%d 重规划次数=%d",
+                 config.planner.debounce_seconds, config.planner.max_batch_seconds,
+                 config.planner.max_waits, config.planner.max_replans)
     with single_instance(config.data):
         async with aiohttp.ClientSession() as session:
             bot = Bot(config, ChatModel(config, session))
@@ -66,8 +70,8 @@ def main(argv=None):
     parser.add_argument("--config", type=Path, default=Path("config.toml"))
     parser.add_argument("--log-level", choices=("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"))
     parser.add_argument("--log-color", choices=("auto", "always", "never"))
-    parser.add_argument("command", nargs="?", choices=("serve", "check", "test-api", "test-schedule", "test-vision"), default="serve",
-                        help="serve 启动服务；check 检查配置；test-api 实测模型接口；test-schedule 预览日程；test-vision 测试看图")
+    parser.add_argument("command", nargs="?", choices=("serve", "check", "test-api", "test-planner", "test-schedule", "test-vision"), default="serve",
+                        help="serve 启动服务；check 检查配置；test-api 实测模型接口；test-planner 实测规划与回复；test-schedule 预览日程；test-vision 测试看图")
     parser.add_argument("--at", help="仅供test-schedule：预览时刻，如2026-09-11T18:35:00+08:00")
     parser.add_argument("--image", type=Path, help="仅供test-vision：要上传测试的本地图片，省略则使用合成图")
     args = parser.parse_args(argv)
@@ -89,6 +93,9 @@ def main(argv=None):
             results = asyncio.run(run_api_tests(config))
             if not all(result.passed for result in results):
                 parser.exit(1)
+        elif args.command == "test-planner":
+            if not all(result.passed for result in asyncio.run(run_planner_tests(config))):
+                parser.exit(1)
         elif args.command == "test-vision":
             if not asyncio.run(run_vision_test(config, image_path=args.image)).passed:
                 parser.exit(1)
@@ -100,7 +107,7 @@ def main(argv=None):
     except (ValueError, RuntimeError, OSError) as exc:
         parser.exit(2, f"配置或启动失败：{exc}\n")
     except KeyboardInterrupt:
-        if args.command in ("test-api", "test-schedule", "test-vision"):
+        if args.command in ("test-api", "test-planner", "test-schedule", "test-vision"):
             parser.exit(130, "测试已中断。\n")
 
 

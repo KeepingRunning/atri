@@ -14,6 +14,7 @@ from .storage import GroupLog
 from .types import Receipt
 from .willingness import ReplyWillingness
 from .schedule import ScheduleService
+from .group_session import GroupSession
 
 log = logging.getLogger("atri.bot")
 receive_log = logging.getLogger("atri.receive")
@@ -27,6 +28,7 @@ class Bot:
         self.config, self.model = config, model
         self.personal_info = config.read_personal_info()
         config.reply.validate()
+        config.planner.validate()
         config.tools.validate()
         config.vision.validate()
         if config.vision.enabled and not config.tools.enabled:
@@ -37,6 +39,7 @@ class Bot:
         self.semaphore = asyncio.Semaphore(config.parallel)
         self.groups, self.queues, self.tasks = {}, {}, {}
         self.willingness = {}
+        self.waiting = {}
         self.inflight = set()
         self.closed = False
         self.schedule = ScheduleService(config.schedule, config.data, root=config.root, now=now)
@@ -78,8 +81,11 @@ class Bot:
             future.set_result(self.ignore_sleep(event, "接收"))
             return future
         gid = event.group_id
+        if self.config.reply.mode == "planner":
+            self.record_incoming(event, self.group(gid))
         if gid not in self.queues:
             self.queues[gid] = asyncio.Queue(self.config.queue_size)
+            self.waiting[gid] = {}
             # 工作任务不继承第一条消息的追踪上下文，每次出队时单独绑定。
             self.tasks[gid] = asyncio.create_task(self.worker(gid), name=f"atri-group-{gid}", context=Context())
             queue_log.debug("[新建队列] 容量=%d", self.config.queue_size)
@@ -90,10 +96,14 @@ class Bot:
             queue_log.warning("[队列已满] 当前=%d 容量=%d，本条未入队", self.queues[gid].qsize(), self.config.queue_size)
         else:
             self.inflight.add(event.key)
+            if self.config.reply.mode == "planner":
+                self.waiting[gid][event.key] = event
             queue_log.debug("[入队] 等待消息=%d 处理中总数=%d", self.queues[gid].qsize(), len(self.inflight))
         return future
 
     async def worker(self, gid):
+        if self.config.reply.mode == "planner":
+            return await GroupSession(self, gid).run()
         queue = self.queues[gid]
         while True:
             event, sender, future, enqueued_at, received_at = await queue.get()
@@ -187,6 +197,11 @@ class Bot:
                         reply = await self.model.complete(conversation, tool_session=tool_session)
             except ModelRequestBlocked:
                 return self.ignore_sleep(event, "回复HTTP前")
+        return await self.deliver_reply(event, sender, reply, received_at=received_at)
+
+    async def deliver_reply(self, event, sender, reply, *, received_at=None, is_current=None):
+        """The sole delivery path, shared by Planner and legacy willingness modes."""
+        group = self.group(event.group_id)
         if ignored := self.sleep_guard(event, received_at, "生成后"):
             return ignored
         if not isinstance(reply, str) or not reply.strip():
@@ -204,10 +219,12 @@ class Bot:
             async def deliver():
                 if ignored := self.sleep_guard(event, received_at, "发送前"):
                     return ignored
+                if is_current is not None and not is_current():
+                    return Receipt("ignored", reason="superseded")
                 return await sender(event.group_id, parts)
             receipt = await asyncio.wait_for(deliver(), self.config.action_timeout)
             if not isinstance(receipt, Receipt) or (receipt.status not in ("sent", "failed", "unknown")
-                    and not (receipt.status == "ignored" and receipt.reason == "sleeping")):
+                    and not (receipt.status == "ignored" and receipt.reason in ("sleeping", "superseded"))):
                 receipt = Receipt("unknown", reason="invalid_receipt")
         except asyncio.CancelledError:
             receipt = Receipt("unknown", reason="shutdown_after_submission")
@@ -290,6 +307,7 @@ class Bot:
             while not queue.empty():
                 event, _, future, _, _ = queue.get_nowait()
                 self.inflight.discard(event.key)
+                self.waiting.get(event.group_id, {}).pop(event.key, None)
                 if not future.done():
                     future.set_result(Receipt("failed", reason="shutdown_before_processing"))
                 queue.task_done()

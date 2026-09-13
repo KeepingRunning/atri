@@ -28,13 +28,13 @@ output_limit_field = "max_tokens"
 thinking = ""
 
 [context]
-# 回复与意愿判断均只读取近一小时的历史，不再按消息条数截断。
+# 读取近一小时历史；planner 另外受 max_snapshot_chars 字符预算约束。
 history_seconds = 3600
 
 [tools]
-# 决定接话后，模型可检索本群已存盘的聊天及消息处理记录。
+# Planner 可先检索历史或看图，再决定是否回复；旧模式在回复阶段查询。
 enabled = true
-# 最多两轮检索，随后强制生成正文；单条回复累计最多执行四次工具。
+# 最多两轮检索，随后必须决定行动；每批最多四次工具，等待/重规划不重置预算。
 max_rounds = 2
 max_calls = 4
 # 单次工具超时（秒），单次返回的 JSON 字符数上限（不是 token 数）。
@@ -42,7 +42,7 @@ timeout = 5
 max_result_chars = 8000
 
 [vision]
-# 打开后，回复模型可通过 inspect_image 查看当前群近一小时消息中的图片。
+# 打开后，Planner 可通过 inspect_image 查看当前群近一小时消息中的图片。
 # 需要 tools.enabled=true，以及支持 image_url 图片输入的模型。
 enabled = false
 # 空字符串沿用 llm.model；DeepSeek 官方当前可设 deepseek-flash。
@@ -59,18 +59,22 @@ allowed_hosts = ["multimedia.nt.qq.com.cn", "gchat.qpic.cn", "c2cpicdw.qpic.cn"]
 
 [schedule]
 # 上海时间偶数整点，从本地日常库按时段随机选一份；不调用模型。
-# enabled 只控制白天日程注入；每天 00:00–08:00 固定睡觉，不回复任何消息。
+# enabled 控制清醒时的日程注入；sleep_enabled 独立控制 00:00–08:00 的睡眠拦截。
 enabled = true
+# 临时夜间测试可设为 false，届时使用“夜晚/不限”日程；测试后改回 true，重启生效。
+sleep_enabled = true
 timezone = "Asia/Shanghai"
 # 路径相对于配置文件目录。
 routines_dir = "resources/daily_routines"
 
 [reply]
-# willingness：规则评分后由模型判断是否接话；at_only：原先的仅 @ 回复。
-mode = "willingness"
-# 0 只评估真正 @ 自己或引用自己已发送消息的内容；越大越容易评估普通群聊。
+# planner：按群合并消息 → 动作规划 → 正文生成（新流程）。
+# willingness：旧规则评分与模型意愿判断；at_only：旧的仅 @ 回复。
+mode = "planner"
+# 0 只评估真正 @ 自己或引用自己已发送消息的内容；planner 中非零值作参与偏好传给模型。
 frequency = 0.7
 names = ["亚托莉", "ATRI", "アトリ"]
+# 以下 threshold / continuation_seconds 仅用于旧 willingness 模式。
 # 判断模型的意愿分达到此值才生成回复，范围 1–100；分数不是概率。
 # 判断失败会重试2次；三次都失败时，用本条消息的规则分对比此阈值。
 threshold = 60
@@ -79,6 +83,22 @@ continuation_seconds = 90
 max_message_age_seconds = 120
 # 可选：同一接口上的快速判断模型；空字符串沿用 llm.model。
 judgment_model = ""
+
+[planner]
+# 连续消息安静两秒后成批；持续发消息最多等八秒、每批最多三十二条。
+debounce_seconds = 2
+max_batch_seconds = 8
+max_batch_messages = 32
+# Planner 最多主动等待一次（新消息会提前唤醒）；相关补充最多重建快照一次。
+max_wait_seconds = 8
+max_waits = 1
+max_replans = 1
+# 动作参数的输出额度独立于聊天正文；快照上限为字符数，不是 token 数。
+# 先裁剪较旧历史；过长消息会标注截断。人设、工具描述、工具结果另受各自限制。
+max_output_tokens = 1024
+max_snapshot_chars = 32000
+# 规划用较低采样温度，减少行动参数漂移；不改变聊天正文的生成参数。
+temperature = 0.2
 
 [logging]
 # DEBUG 显示各步计算；INFO 只显示主要结果。

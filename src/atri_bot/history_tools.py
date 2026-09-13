@@ -193,11 +193,12 @@ class ChatArchive:
         items, total = [], 0
         limit, offset = args.get("limit", 20), args.get("offset", 0)
         for number, row in self._rows(stop, stats):
-            if row.get("kind") not in ("willingness", "delivery", "schedule", "tool"):
+            if row.get("kind") not in ("willingness", "delivery", "schedule", "tool", "planner", "snapshot", "batch"):
                 continue
             if args.get("kind") is not None and row["kind"] != args["kind"]:
                 continue
-            if args["message_id"] not in (row["key"].rsplit(":", 1)[-1], str(row.get("message_id", ""))):
+            if args["message_id"] not in (row["key"].rsplit(":", 1)[-1], str(row.get("message_id", "")),
+                                          *(row.get("message_ids") or [])):
                 continue
             stamp = row.get("time")
             if type(stamp) not in (int, float) or not math.isfinite(stamp) or not 0 < stamp <= self.now:
@@ -209,7 +210,8 @@ class ChatArchive:
             item = {"record_id": f"L{number}", "timestamp": stamp, "time": local_time(stamp)}
             for field in ("kind", "stage", "status", "score", "threshold", "reason", "consider", "pending_count",
                           "message_id", "reply_to_message_id", "tool", "call_id", "error_code", "elapsed_ms",
-                          "items", "truncated", "cached"):
+                          "items", "truncated", "cached", "snapshot_id", "action", "history_count", "chars",
+                          "omitted_history", "replans"):
                 value = row.get(field)
                 if isinstance(value, str):
                     item[field] = value[:500]
@@ -256,7 +258,8 @@ def history_registry():
         "按消息号查本群的处理记录，如接话评分、等待理由、睡眠拦截和发送状态。仅在用户询问这些过程时使用。"
         "这些是程序记录，不是群友说过的话；不包含全局运行日志或未发送的回复正文。",
         object_schema({"message_id": {"type": "string", "pattern": "^-?[0-9]+$", "maxLength": 24},
-                       "kind": {"type": "string", "enum": ["willingness", "delivery", "schedule", "tool"]},
+                       "kind": {"type": "string", "enum": ["willingness", "delivery", "schedule", "tool",
+                                                              "planner", "snapshot", "batch"]},
                        "limit": {"type": "integer", "minimum": 1, "maximum": 50}, "offset": offset_schema},
                       ("message_id",)), events))
     return registry

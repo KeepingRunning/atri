@@ -126,6 +126,25 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.bot.group('1').last_receipts['99:1:2']['status'], 'sent')
         await ws.close()
 
+    async def test_sleep_disabled_allows_http_and_onebot_send_across_midnight(self):
+        self.config.schedule.sleep_enabled = False
+        now = daytime().replace(hour=23, minute=59, second=59)
+        self.bot.schedule.now = lambda: now
+        def cross_midnight():
+            nonlocal now
+            now += timedelta(seconds=1)
+        self.on_request = cross_midnight
+        ws = await self.client.ws_connect(self.config.ws_path, headers=self.headers)
+        await ws.send_json(raw(text='临时夜间测试'))
+        action = await asyncio.wait_for(ws.receive_json(), 1)
+        self.assertEqual(len(self.requests), 1)
+        self.assertEqual(now.hour, 0)
+        self.assertEqual(action['action'], 'send_group_msg')
+        await ws.send_json({'echo': action['echo'], 'status': 'ok', 'retcode': 0, 'data': {'message_id': 902}})
+        await asyncio.wait_for(self.bot.queues['1'].join(), 1)
+        self.assertEqual(self.bot.group('1').last_receipts['99:1:1']['status'], 'sent')
+        await ws.close()
+
     async def test_judgment_failure_after_midnight_stops_http_retries_and_rule_fallback(self):
         self.config.reply.mode = 'willingness'
         now = daytime().replace(hour=23, minute=59, second=59)
