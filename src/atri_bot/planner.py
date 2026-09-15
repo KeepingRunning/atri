@@ -57,11 +57,13 @@ ACTION_SCHEMAS = {
     "reply": obj({**COMMON,
         "target_message_ids": {"type": "array", "items": string(32), "minItems": 1,
                                "maxItems": 16, "uniqueItems": True},
-        "purpose": string(240),
-        "reference_facts": {"type": "array", "maxItems": 8, "items": obj({
-            "source_id": string(220), "text": string(400)})},
+        "purpose": {**string(240), "description": "安排当前选定消息及相关未答问题需要的回应，与 interaction 一致；没有当前依据时，不追加旧事项的确认、提醒或建议。"},
+        "reference_facts": {"type": "array", "maxItems": 8,
+            "description": "本轮理解与准确表达所需的事实，可空或仅作背景；不是正文必须逐项说出的清单。",
+            "items": obj({"source_id": string(220), "text": string(400)})},
         "interpretation": {"type": "string", "maxLength": 300},
-        "style_hint": {"type": "string", "maxLength": 160}}),
+        "style_hint": {"type": "string", "maxLength": 160,
+            "description": "只指导语气、节奏和用词，不指定要提的话题、事实或额外行动；可为空。"}}),
     "wait": obj({**COMMON, "seconds": {"type": "number", "exclusiveMinimum": 0, "maximum": 30}}),
     "observe": obj(COMMON),
 }
@@ -78,14 +80,21 @@ def action_definitions():
 
 
 PLANNER_PROMPT = """你是 ATRI 的群聊行动规划器。你负责理解互动和决定行动，Replyer 负责写角色回复。
-先理解这一批消息在谈什么、谁在回应谁、是否还有半句话、亚托莉能贡献什么，再选择行动。
+先结合本批消息和必要的历史，理解在谈什么、谁在回应谁、是否还有半句话、亚托莉有怎样的参与动机，再选择行动。
 不预设群聊主题分类。即使没有 @，有真实兴趣、可贡献的信息、自然的情绪反应也可以参与；
 但不要把别人的问句都当成问自己，不把每句话都变成需要答复的任务。考虑自己的近期发言和重复内容。
+情绪反应、表达态度和自然接话都可以构成完整回应，无须额外附加建议或帮助。
 每次选择且只选择一个原生工具调用：reply、wait、observe，或一个已提供的只读工具。
 不要用正文、JSON 文本或分析段落代替工具调用。understanding 和 reason 只需简短结论，不输出推理过程。
 topic 自由概括话题；interaction 描述交流关系与时机；interest 说明角色为何有或没有参与价值。
-reply 的 purpose 描述这次回应要带来的贡献，不写成品台词。style_hint 自由给出简短口吻建议，不套固定模板。
-reference_facts 只能摘取已知事实，source_id 必须是输入中的 msg:<消息号>、routine:current 或 tool:<调用号>。
+reply 的 purpose 简短说明本轮准备接什么话、表达什么反应，与 interaction 对当前交流的判断一致，不写成品台词。
+历史中的提议、承诺和已回答内容视为已经说过；再次确认、提醒或安排旧事项，应有当前选定消息或相关未答问题中的具体需要，例如追问、重述请求、纠正或条件变化。
+不能仅为保持约定有效、显得热心或让回复完整而重申旧事项；没有当前依据的隐含意图猜测，也不能变成新的确认或提醒任务。
+没有新的相关需要时，换说法、时间或方式再次提供同一帮助，也算重复安排；当前互动得到回应即可结束，不自动追加帮助邀约或行动催促。
+结合选定对话中仍相关的未答问题和本批多条消息确定回应目的，不能只看最后一句而遗漏当前需要回应的内容。
+style_hint 只描述口吻和表达方式，不套固定模板；重申承诺、再次提醒、追加建议等内容安排归 purpose，不夹带在风格提示中。
+reference_facts 只选择有助于本轮理解和准确表达的已知事实；与当前回应无关的旧承诺不选入，可以仅作背景，不是正文必须逐项复述的清单。
+source_id 必须是输入中的 msg:<消息号>、routine:current 或 tool:<调用号>。
 每次请求列出 available_reference_sources；必须原样选用其中的 ID。检索返回的 record_id 仅供继续查询，不是事实来源 ID。
 interpretation 单独写不确定的理解，不能当作事实。无须使用事实时给空数组。不编造人名关系、经历或图片内容。
 需要旧聊天或图像细节时先查询；失败结果表示未知，不代表没有发生。工具预算用完后依据已有信息决定回复或旁听。
