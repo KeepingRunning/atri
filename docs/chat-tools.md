@@ -98,6 +98,12 @@ handler 签名为 `async def handler(context: ToolContext, arguments: dict) -> T
 
 错误码包括 `image_not_available`、`image_url_unavailable`、`image_source_not_allowed`、`image_download_failed`、`image_download_timeout`、`image_too_large`、`invalid_image`、`unsupported_image`、`vision_model_failed`；工具总超时仍返回 `tool_timeout`。模型失败信息不包含 API 响应体或凭据。配置、格式限制和测试入口见 [README 的图片理解说明](../README.md#图片理解)。
 
+## 链接阅读与 MCP
+
+`links.enabled=true` 时注册 `read_link(url, question?)` 和 `read_document(document_id, question? | chunk_ids? | cursor?)`，通过统一的 `MCPManager.call` 连接配置中的只读服务。MCP 工具不直接全部暴露给模型：连接层检查服务和工具白名单，链接适配层负责 URL 平台识别、字幕来源与错误分类、按最终 JSON 大小分页和群隔离存储。文档整理启用时，长文先返回中立概览和目录，具体问题再返回原文块；短文直接返回正文。完整契约及部署见 [链接阅读与 MCP 接入](link-tools.md)。
+
+来源读取默认限时 45 秒，云端转写启用时另限 300 秒（含音轨下载），文档整理/定位合计另限 60 秒；工具总限时为启用阶段之和，默认 405 秒，超时直接失败，不自动重试，仍共享查询次数/轮数预算。实际概览/定位模型请求单独占用模型并发槽位，网络和工具等待不占用。原文位于 `data.text` 或 `data.passages`，概览位于 `data.overview`。`has_more/next_cursor` 仅描述当前 `view` 的分页；`meta.overview_complete` 仅指概览覆盖已获取文本，`meta.partial/truncated` 描述来源不完整或存储截断。结果不要求包含 `data.items`。
+
 ## 添加工具
 
 无需修改模型的 HTTP 代码或工具循环。实现 handler 和 schema，在 Bot 的 `tool_registry` 初始化后注册即可，例如在模块中写：

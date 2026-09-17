@@ -6,7 +6,8 @@ import time
 
 from .context import build_conversation, build_willingness_context
 from .logging_setup import log_context, preview
-from .model import ModelError, ModelRequestBlocked, guard_model_requests, check_request_allowed
+from .model import (ModelError, ModelRequestBlocked, guard_model_requests, check_request_allowed,
+                    reserve_model_slot)
 from .history_tools import ChatArchive, history_registry, tool_instructions
 from .tools import ToolContext, ToolSession
 from .vision import ImageAccess, register_vision, VISION_INSTRUCTIONS
@@ -15,6 +16,12 @@ from .types import Receipt
 from .willingness import ReplyWillingness
 from .schedule import ScheduleService
 from .group_session import GroupSession
+from .mcp_client import MCPManager
+from .link_tools import LinkReader, register_links, LINK_INSTRUCTIONS
+from .documents import DocumentStore
+from .document_analysis import DocumentProcessor
+from .cloud_asr import CloudASR
+from .video_cache import VideoSourceCache
 
 log = logging.getLogger("atri.bot")
 receive_log = logging.getLogger("atri.receive")
@@ -31,11 +38,31 @@ class Bot:
         config.planner.validate()
         config.tools.validate()
         config.vision.validate()
+        config.mcp.validate()
+        config.links.validate()
+        config.documents.validate()
         if config.vision.enabled and not config.tools.enabled:
             raise ValueError("vision.enabled requires tools.enabled=true")
         self.tool_registry = history_registry()
         if config.vision.enabled:
             register_vision(self.tool_registry, config.vision)
+        self.mcp = MCPManager(config.mcp, config.root)
+        self.link_reader = None
+        if config.links.enabled:
+            if not config.tools.enabled or not config.mcp.enabled:
+                raise ValueError("links.enabled requires tools.enabled=true and mcp.enabled=true")
+            processor = None
+            if config.documents.enabled:
+                store = DocumentStore(config.data / "documents",
+                    ttl_seconds=config.links.cache_ttl_seconds,
+                    max_documents_per_scope=config.links.max_documents_per_group)
+                processor = DocumentProcessor(config.documents, self.model, store)
+            self.link_reader = LinkReader(config.links, self.mcp,
+                max_result_chars=config.tools.max_result_chars, processor=processor,
+                asr=CloudASR(config.asr) if config.asr.enabled else None,
+                video_cache=VideoSourceCache(config.data / "video-sources",
+                                            ttl_seconds=config.links.cache_ttl_seconds))
+            register_links(self.tool_registry, self.link_reader)
         self.semaphore = asyncio.Semaphore(config.parallel)
         self.groups, self.queues, self.tasks = {}, {}, {}
         self.willingness = {}
@@ -45,6 +72,8 @@ class Bot:
         self.schedule = ScheduleService(config.schedule, config.data, root=config.root, now=now)
 
     async def start(self):
+        if not self.closed:
+            await self.mcp.start()
         if self.schedule is not None and not self.closed:
             self.schedule.start()
 
@@ -165,7 +194,7 @@ class Bot:
                 return ignored
         slot_started = time.perf_counter()
         log.debug("[生成回复] 等待模型并发槽位")
-        async with self.semaphore:
+        async with reserve_model_slot(self.semaphore):
             if ignored := self.sleep_guard(event, received_at, "生成前"):
                 return ignored
             log.debug("[生成回复] 已取得槽位，等待=%.1fms", (time.perf_counter() - slot_started) * 1000)
@@ -186,8 +215,10 @@ class Bot:
                                               history_seconds=self.config.history_seconds, now=now,
                                               schedule_context=background,
                                               tool_context=(tool_instructions(now) +
-                                                  (VISION_INSTRUCTIONS if self.config.vision.enabled else "")) if tool_session else "",
-                                              vision_enabled=self.config.vision.enabled)
+                                                  (VISION_INSTRUCTIONS if self.config.vision.enabled else "") +
+                                                  (LINK_INSTRUCTIONS if self.config.links.enabled else "")) if tool_session else "",
+                                              vision_enabled=self.config.vision.enabled,
+                                              links_enabled=self.config.links.enabled)
             try:
                 with guard_model_requests(lambda: not self.schedule.blocks_reply(
                         received_at=received_at, timestamp=event.timestamp)):
@@ -249,7 +280,7 @@ class Bot:
         started = time.perf_counter()
         willingness_log.info("[模型判断开始] 判断阈值=%d", self.config.reply.threshold)
         try:
-            async with self.semaphore:
+            async with reserve_model_slot(self.semaphore):
                 if ignored := self.sleep_guard(event, received_at, "意愿模型前"):
                     return ignored
                 willingness_log.debug("[模型判断] 已取得并发槽位，等待=%.1fms", (time.perf_counter() - started) * 1000)
@@ -311,3 +342,4 @@ class Bot:
                 if not future.done():
                     future.set_result(Receipt("failed", reason="shutdown_before_processing"))
                 queue.task_done()
+        await self.mcp.close()

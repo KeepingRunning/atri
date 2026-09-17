@@ -101,7 +101,8 @@ class ToolResult:
                     result.data["has_more"] = True
             else:
                 return self.failure("result_too_large", "工具结果过长，请缩小范围或降低 limit。")
-        if result.meta.get("truncated") and not result.data.get("items"):
+        if (result.meta.get("truncated") and result.data is not None
+                and "items" in result.data and not result.data["items"]):
             return self.failure("result_too_large", "单条结果过长，请缩小检索范围。")
         return result
 
@@ -123,8 +124,8 @@ class ToolRegistry:
         if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_-]{0,63}", spec.name) or spec.name in self._tools:
             raise ValueError("Invalid or duplicate tool name")
         if spec.timeout is not None and (type(spec.timeout) not in (int, float) or
-                not math.isfinite(spec.timeout) or not 0 < spec.timeout <= 120):
-            raise ValueError("Tool timeout must be in (0, 120]")
+                not math.isfinite(spec.timeout) or not 0 < spec.timeout <= 3600):
+            raise ValueError("Tool timeout must be in (0, 3600]")
         schema = deepcopy(spec.parameters)
         if schema.get("type") != "object" or schema.get("additionalProperties") is not False:
             raise ValueError("Tool parameters must be an object with additionalProperties=false")
@@ -175,8 +176,11 @@ class ToolRegistry:
             result = result.bounded(config.max_result_chars)
         except ToolError as exc:
             result = ToolResult.failure(exc.code, str(exc)).bounded(config.max_result_chars)
+            if exc.code == "tool_timeout":
+                result.meta["retryable"] = False
         except TimeoutError:
-            result = ToolResult.failure("tool_timeout", "工具执行超时，未获得完整结果，请稍后再试。")
+            result = ToolResult.failure("tool_timeout", "工具执行超时，本次执行失败，未获得完整结果。")
+            result.meta["retryable"] = False
         except Exception as exc:
             context.check_active()
             log.error("[工具异常] 工具=%s 异常类型=%s", name, type(exc).__name__)

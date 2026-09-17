@@ -1,6 +1,6 @@
 import asyncio
 from copy import deepcopy
-from contextlib import contextmanager
+from contextlib import asynccontextmanager, contextmanager
 from contextvars import ContextVar
 import json
 import logging
@@ -14,6 +14,9 @@ from .logging_setup import preview
 
 log = logging.getLogger("atri.model")
 _request_allowed = ContextVar("atri_model_request_allowed", default=None)
+_request_semaphore = ContextVar("atri_model_request_semaphore", default=None)
+_reserved_slot = ContextVar("atri_model_reserved_slot", default=None)
+_active_slot = ContextVar("atri_model_active_slot", default=None)
 
 
 class ModelRequestBlocked(RuntimeError):
@@ -35,6 +38,68 @@ def check_request_allowed(purpose):
     if allowed is not None and not allowed():
         log.info("[模型请求拦截] 用途=%s 消息已因睡眠失效，不请求或重试", purpose)
         raise ModelRequestBlocked("Message blocked by sleep policy")
+
+
+class _ModelSlot:
+    def __init__(self, semaphore):
+        self.semaphore = semaphore
+        self.owner = asyncio.current_task()
+        self.held = True
+
+    def release(self):
+        if self.held:
+            self.held = False
+            self.semaphore.release()
+
+
+@asynccontextmanager
+async def reserve_model_slot(semaphore):
+    """Reserve the first request before building a fresh snapshot/conversation.
+
+    The first model_request_slot consumes this reservation and releases it as
+    soon as that request ends. Keeping this scope open while running tools does
+    not retain the slot; subsequent requests acquire their own slots. A model
+    implementation without request-level instrumentation releases it on exit.
+    """
+    await semaphore.acquire()
+    slot = _ModelSlot(semaphore)
+    semaphore_token = _request_semaphore.set(semaphore)
+    reservation_token = _reserved_slot.set(slot)
+    try:
+        yield
+    finally:
+        slot.release()
+        _reserved_slot.reset(reservation_token)
+        _request_semaphore.reset(semaphore_token)
+
+
+@asynccontextmanager
+async def model_request_slot(purpose):
+    """Limit actual requests, including image requests made inside tool tasks."""
+    check_request_allowed(purpose)
+    semaphore = _request_semaphore.get()
+    active = _active_slot.get()
+    # Planner wraps its model interface, while ChatModel wraps HTTP. Only calls
+    # in this same task may reuse a slot; inherited child-task context is not a
+    # permit to bypass the concurrency limit.
+    if semaphore is None or (active is not None and active.held
+                             and active.owner is asyncio.current_task()
+                             and active.semaphore is semaphore):
+        yield
+        return
+    slot = _reserved_slot.get()
+    if slot is None or not slot.held or slot.owner is not asyncio.current_task():
+        started = time.perf_counter()
+        await semaphore.acquire()
+        slot = _ModelSlot(semaphore)
+        log.debug("[模型并发槽位] 用途=%s 等待=%.1fms", purpose, (time.perf_counter() - started) * 1000)
+    token = _active_slot.set(slot)
+    try:
+        check_request_allowed(purpose)
+        yield
+    finally:
+        _active_slot.reset(token)
+        slot.release()
 
 
 class ModelError(RuntimeError):
@@ -99,6 +164,13 @@ class ChatModel:
 
     async def _request(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False,
                        tools=None, tool_choice=None, temperature=None):
+        async with model_request_slot(purpose):
+            return await self._request_once(messages, max_output_tokens=max_output_tokens, model=model,
+                                           purpose=purpose, json_mode=json_mode, tools=tools,
+                                           tool_choice=tool_choice, temperature=temperature)
+
+    async def _request_once(self, messages, *, max_output_tokens=None, model=None, purpose="reply", json_mode=False,
+                            tools=None, tool_choice=None, temperature=None):
         check_request_allowed(purpose)
         self.config.require_live()
         payload = {"model": model or self.config.model, "messages": messages,

@@ -9,7 +9,7 @@ import time
 from jsonschema import Draft202012Validator
 
 from .logging_setup import preview
-from .model import ModelError, check_request_allowed
+from .model import ModelError, check_request_allowed, model_request_slot
 
 log = logging.getLogger("atri.planner")
 
@@ -118,11 +118,14 @@ class Planner:
     def messages(self, persona, snapshot, *, remaining_waits):
         from .history_tools import tool_instructions
         from .vision import VISION_INSTRUCTIONS
+        from .link_tools import LINK_INSTRUCTIONS
         instructions = PLANNER_PROMPT
         if self.config.tools.enabled:
             instructions += tool_instructions(snapshot.now)
             if self.config.vision.enabled:
                 instructions += VISION_INSTRUCTIONS
+            if self.config.links.enabled:
+                instructions += LINK_INSTRUCTIONS
         return [{"role": "system", "content": instructions}, {"role": "user", "content": json.dumps({
             "persona_reference": persona, "snapshot": snapshot.data,
             "participation_frequency": self.config.reply.frequency,
@@ -157,7 +160,8 @@ class Planner:
             for attempt in range(1, 4):
                 check_request_allowed("planner")
                 try:
-                    message = await self.model.plan(messages, definitions)
+                    async with model_request_slot("planner"):
+                        message = await self.model.plan(messages, definitions)
                     call, args = self.parse(message, allowed, snapshot, remaining_waits)
                     break
                 except ModelError as exc:

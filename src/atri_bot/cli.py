@@ -17,6 +17,9 @@ from .logging_setup import configure_logging
 from .onebot import create_app
 from .storage import single_instance
 from .schedule import ScheduleService
+from .link_test import run_link_test
+from .asr_test import run_asr_test
+from .document_test import run_document_test
 
 
 async def preview_schedule(config, at=None):
@@ -70,22 +73,38 @@ def main(argv=None):
     parser.add_argument("--config", type=Path, default=Path("config.toml"))
     parser.add_argument("--log-level", choices=("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"))
     parser.add_argument("--log-color", choices=("auto", "always", "never"))
-    parser.add_argument("command", nargs="?", choices=("serve", "check", "test-api", "test-planner", "test-schedule", "test-vision"), default="serve",
-                        help="serve 启动服务；check 检查配置；test-api 实测模型接口；test-planner 实测规划与回复；test-schedule 预览日程；test-vision 测试看图")
+    parser.add_argument("command", nargs="?", choices=("serve", "check", "test-api", "test-planner", "test-schedule", "test-vision", "test-links", "test-asr", "test-document"), default="serve",
+                        help="serve 启动服务；check 检查配置；test-api 实测模型接口；test-planner 实测规划与回复；test-schedule 预览日程；test-vision 测试看图；test-links 测试链接解析；test-asr 测试百炼语音转写；test-document 测试本地文档概览与证据读取")
     parser.add_argument("--at", help="仅供test-schedule：预览时刻，如2026-09-11T18:35:00+08:00")
     parser.add_argument("--image", type=Path, help="仅供test-vision：要上传测试的本地图片，省略则使用合成图")
+    parser.add_argument("--url", help="test-links 的读取链接；test-document 可选的原文来源链接")
+    parser.add_argument("--document", type=Path, help="仅供test-document：本地 UTF-8 文本、Markdown 或 ASR JSON")
+    parser.add_argument("--question", help="仅供test-document：需要定位原文的问题，省略则生成概览")
     args = parser.parse_args(argv)
     if args.at and args.command != 'test-schedule':
         parser.error('--at only applies to test-schedule')
     if args.image and args.command != 'test-vision':
         parser.error('--image only applies to test-vision')
+    if args.url and args.command not in ('test-links', 'test-document'):
+        parser.error('--url only applies to test-links or test-document')
+    if args.command == 'test-links' and not args.url:
+        parser.error('test-links requires --url')
+    if args.document is not None and args.command != 'test-document':
+        parser.error('--document only applies to test-document')
+    if args.question is not None and args.command != 'test-document':
+        parser.error('--question only applies to test-document')
+    if args.command == 'test-document' and args.document is None:
+        parser.error('test-document requires --document')
     try:
         config = Config.load(args.config)
         if args.log_level:
             config.logging.level = args.log_level
         if args.log_color:
             config.logging.color = args.log_color
-        configure_logging(config.logging, config.root, secrets=(config.api_key, config.token))
+        # Explicit media/document diagnostics never write the live bot's log.
+        if args.command in ("test-asr", "test-document", "test-links"):
+            config.logging.file = ""
+        configure_logging(config.logging, config.root, secrets=(config.api_key, config.token, config.asr.api_key))
         if args.command == "check":
             config.require_serve()
             print("配置检查通过。")
@@ -99,6 +118,15 @@ def main(argv=None):
         elif args.command == "test-vision":
             if not asyncio.run(run_vision_test(config, image_path=args.image)).passed:
                 parser.exit(1)
+        elif args.command == "test-links":
+            if not asyncio.run(run_link_test(config, args.url)):
+                parser.exit(1)
+        elif args.command == "test-asr":
+            if not asyncio.run(run_asr_test(config)):
+                parser.exit(1)
+        elif args.command == "test-document":
+            if not asyncio.run(run_document_test(config, args.document, url=args.url, question=args.question)):
+                parser.exit(1)
         elif args.command == 'test-schedule':
             if not asyncio.run(preview_schedule(config, args.at)):
                 parser.exit(1)
@@ -107,7 +135,7 @@ def main(argv=None):
     except (ValueError, RuntimeError, OSError) as exc:
         parser.exit(2, f"配置或启动失败：{exc}\n")
     except KeyboardInterrupt:
-        if args.command in ("test-api", "test-planner", "test-schedule", "test-vision"):
+        if args.command in ("test-api", "test-planner", "test-schedule", "test-vision", "test-links", "test-asr", "test-document"):
             parser.exit(130, "测试已中断。\n")
 
 

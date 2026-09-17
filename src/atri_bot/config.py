@@ -11,6 +11,10 @@ from .schedule import ScheduleConfig
 from .tools import ToolsConfig
 from .vision import VisionConfig
 from .planner import PlannerConfig
+from .mcp_client import MCPConfig
+from .link_tools import LinkConfig
+from .cloud_asr import ASRConfig
+from .documents import DocumentConfig
 
 
 @dataclass
@@ -41,6 +45,10 @@ class Config:
     tools: ToolsConfig = field(default_factory=ToolsConfig)
     vision: VisionConfig = field(default_factory=VisionConfig)
     planner: PlannerConfig = field(default_factory=PlannerConfig)
+    mcp: MCPConfig = field(default_factory=MCPConfig)
+    links: LinkConfig = field(default_factory=LinkConfig)
+    asr: ASRConfig = field(default_factory=ASRConfig)
+    documents: DocumentConfig = field(default_factory=DocumentConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -90,6 +98,34 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [tools] configuration fields") from None
         conf.tools.validate()
+        conf.mcp = MCPConfig.from_dict(raw.get("mcp", {}))
+        conf.mcp.validate()
+        try:
+            conf.links = LinkConfig(**raw.get("links", {}))
+        except TypeError:
+            raise ValueError("Invalid [links] configuration fields") from None
+        conf.links.validate()
+        try:
+            conf.asr = ASRConfig(**raw.get("asr", {}))
+        except TypeError:
+            raise ValueError("Invalid [asr] configuration fields") from None
+        conf.asr.validate()
+        if conf.asr.enabled and not conf.asr.api_key:
+            raise ValueError("asr.enabled requires asr.api_key")
+        try:
+            conf.documents = DocumentConfig(**raw.get("documents", {}))
+        except TypeError:
+            raise ValueError("Invalid [documents] configuration fields") from None
+        conf.documents.validate()
+        if conf.links.enabled:
+            if not conf.tools.enabled or not conf.mcp.enabled:
+                raise ValueError("links.enabled requires tools.enabled=true and mcp.enabled=true")
+            required = {"website2markdown": {"convert_url"},
+                        "bilibili": {"get_video_metadata", "get_video_transcript"}}
+            for name, allowed in required.items():
+                server = conf.mcp.servers.get(name)
+                if server is None or not server.enabled or not allowed <= set(server.allowed_tools):
+                    raise ValueError(f"links.enabled requires enabled mcp.servers.{name} and its read tools")
         try:
             conf.vision = VisionConfig(**raw.get("vision", {}))
         except TypeError:

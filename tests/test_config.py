@@ -10,6 +10,22 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ConfigTests(unittest.TestCase):
+    def test_video_retention_defaults_and_cloud_enable_requires_key(self):
+        config = Config.load(ROOT / "config.toml.template")
+        self.assertEqual(config.links.cache_ttl_seconds, 86400)
+        self.assertEqual(config.history_seconds, 3600)
+        self.assertFalse(config.asr.enabled)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "config.toml"
+            path.write_text('[asr]\nenabled=true\n')
+            with self.assertRaisesRegex(ValueError, "asr.api_key"):
+                Config.load(path)
+            path.write_text('[asr]\nenabled=true\napi_key="test-cloud-key"\n')
+            config = Config.load(path)
+            self.assertTrue(config.asr.enabled)
+            self.assertEqual(config.asr.timeout, 300)
+            self.assertNotIn("test-cloud-key", repr(config))
+
     def test_context_uses_seconds_and_ignores_retired_count_setting(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'config.toml'
@@ -131,5 +147,48 @@ class ConfigTests(unittest.TestCase):
             path = Path(directory) / 'config.toml'
             for value in invalid:
                 path.write_text('[logging]\n' + value + '\n')
+                with self.subTest(value=value), self.assertRaises(ValueError):
+                    Config.load(path)
+
+    def test_short_link_dns_configuration_is_independent_and_boolean(self):
+        config = Config.load(ROOT / 'config.toml.template')
+        self.assertFalse(config.links.dns_over_https)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            path.write_text('[links]\ndns_over_https=true\n[asr]\nenabled=false\ndns_over_https=false\n')
+            config = Config.load(path)
+            self.assertTrue(config.links.dns_over_https)
+            self.assertFalse(config.asr.enabled)
+            self.assertFalse(config.asr.dns_over_https)
+            for value in ('1', '"true"', '[]'):
+                path.write_text('[links]\ndns_over_https=' + value + '\n')
+                with self.subTest(value=value), self.assertRaises(ValueError):
+                    Config.load(path)
+
+    def test_document_defaults_and_independent_model_configuration(self):
+        config = Config.load(ROOT / 'config.toml.template')
+        self.assertTrue(config.documents.enabled)
+        self.assertEqual(config.documents.chunk_chars, 1200)
+        self.assertEqual(config.documents.input_token_budget, 48000)
+        self.assertEqual(config.documents.timeout, 60)
+        self.assertEqual(config.documents.max_model_calls, 8)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            path.write_text('[llm]\nmodel="chat-model"\n[documents]\nenabled=false\nmodel="reader-model"\n')
+            config = Config.load(path)
+            self.assertFalse(config.documents.enabled)
+            self.assertEqual(config.documents.model, 'reader-model')
+            self.assertEqual(config.model, 'chat-model')
+
+    def test_invalid_document_configuration_is_rejected_at_load(self):
+        invalid = ['enabled=1', 'chunk_chars=true', 'chunk_chars=199', 'chunk_chars=8001',
+                   'overview_min_chars=-1', 'input_token_budget=3999', 'input_token_budget=inf',
+                   'max_output_tokens=255', 'timeout=nan', 'timeout=inf', 'timeout=0',
+                   'timeout=true', 'timeout=121', 'max_model_calls=0', 'max_model_calls=33',
+                   'max_model_calls=1.5', 'model=1', 'model="bad\\nname"', 'typo=1']
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for value in invalid:
+                path.write_text('[documents]\n' + value + '\n')
                 with self.subTest(value=value), self.assertRaises(ValueError):
                     Config.load(path)

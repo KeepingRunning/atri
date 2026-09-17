@@ -8,7 +8,8 @@ import time
 from .context import build_snapshot, build_planned_reply
 from .history_tools import ChatArchive
 from .logging_setup import log_context, preview
-from .model import ModelError, ModelRequestBlocked, check_request_allowed, guard_model_requests
+from .model import (ModelError, ModelRequestBlocked, check_request_allowed, guard_model_requests,
+                    reserve_model_slot)
 from .planner import Planner
 from .storage import history_timestamp
 from .tools import ToolContext, ToolSession
@@ -123,7 +124,7 @@ class GroupSession:
             allowed = lambda: not any(self.bot.schedule.blocks_reply(received_at=i[4], timestamp=i[0].timestamp)
                                       for i in active)
             with guard_model_requests(allowed):
-                async with self.bot.semaphore:
+                async with reserve_model_slot(self.bot.semaphore):
                     check_request_allowed("planner")
                     # Include input received while awaiting a global model slot.
                     if self.waiting and len(batch) < self.config.planner.max_batch_messages:
@@ -131,7 +132,8 @@ class GroupSession:
                         continue
                     snapshot = build_snapshot(events, self.visible_history(), now=self.group.now(),
                         history_seconds=self.config.history_seconds, schedule_context=self.bot.schedule.context(),
-                        vision_enabled=self.config.vision.enabled, max_chars=self.config.planner.max_snapshot_chars)
+                        vision_enabled=self.config.vision.enabled, links_enabled=self.config.links.enabled,
+                        max_chars=self.config.planner.max_snapshot_chars)
                     self.group.append({"kind": "snapshot", "key": event.key, "snapshot_id": snapshot.id,
                         "message_ids": [e.message_id for e in events],
                         "history_count": len(snapshot.data["history"]), "chars": len(snapshot.encoded),
@@ -159,7 +161,7 @@ class GroupSession:
                     await self.collect(batch, wait_seconds=decision["seconds"])
                     continue
                 if not self.related_pending(events, decision):
-                    async with self.bot.semaphore:
+                    async with reserve_model_slot(self.bot.semaphore):
                         check_request_allowed("reply")
                         # Recheck after waiting for the second model slot.
                         if not self.related_pending(events, decision):

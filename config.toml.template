@@ -27,6 +27,24 @@ output_limit_field = "max_tokens"
 # DeepSeek 官方：base_url = "https://api.deepseek.com"，model = "deepseek-v4-flash"。
 thinking = ""
 
+[asr]
+enabled = false
+# B站字幕不可用时读取公开音轨，交给百炼云端转写；无需本地模型。
+# 北京地域的兼容域名；也可用 https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/api/v1。
+# 新加坡 Key 使用 https://dashscope-intl.aliyuncs.com/api/v1，Key 与地址地域必须一致。
+base_url = "https://dashscope.aliyuncs.com/api/v1"
+model = "fun-asr"
+api_key = ""
+# 音轨下载、上传、提交、排队、轮询与转写下载共用总超时；失败不重试。
+timeout = 300
+
+# 临时音轨上限：128 MiB、两小时；处理结束即删除本地音轨。
+max_audio_bytes = 134217728
+max_audio_seconds = 7200
+download_timeout = 60
+# 若系统 DNS 返回代理 Fake-IP，可显式启用公网 DoH；不在失败后自动切换。
+dns_over_https = false
+
 [context]
 # 读取近一小时历史；planner 另外受 max_snapshot_chars 字符预算约束。
 history_seconds = 3600
@@ -40,6 +58,66 @@ max_calls = 4
 # 单次工具超时（秒），单次返回的 JSON 字符数上限（不是 token 数）。
 timeout = 5
 max_result_chars = 8000
+
+[links]
+# 按需读取公众号、知乎文章/回答、B站视频；需要 tools.enabled 和 mcp.enabled。
+enabled = false
+# b23.tv 短链接的独立 DNS 开关；本机代理返回 Fake-IP 时可启用。
+# 不依赖 asr.enabled，仍校验公网地址；失败不自动切换解析方式。
+dns_over_https = false
+# MCP 启动与字幕/文章抓取限时；云端转写和文档整理另用各自限时。
+timeout = 45
+# 文档保留24小时；视频来源按机器人+BV+分P共享，群聊观察仍隔离。
+cache_ttl_seconds = 86400
+max_documents_per_group = 32
+max_document_chars = 200000
+
+[documents]
+# 原文存盘、无损分块、长文中立概览；使用现有云端模型，不下载本地模型。
+enabled = true
+chunk_chars = 1200
+# 超过此字符数生成全文概览；短文直接提供原文。
+overview_min_chars = 4000
+# 每次模型输入预算：以 UTF-8 字节数保守估计 token 上界，包含提示词。
+input_token_budget = 48000
+max_output_tokens = 4096
+# 整次文档整理总限时60秒，包含概览和可选原文定位请求。
+timeout = 60
+# 空字符串沿用 llm.model，以及同一 API 地址和密钥。
+model = ""
+# 长文分块整理与合并合计最多8次模型调用；失败明确返回，不用部分概览假装全文。
+max_model_calls = 8
+
+[mcp]
+enabled = false
+startup_timeout = 20
+# 单次 MCP 调用超时；整段来源读取还受 links.timeout 约束。
+request_timeout = 30
+
+[mcp.servers.website2markdown]
+enabled = true
+command = "npx"
+# 固定版本；首次运行需要 npm 联网下载。工作目录为 config.toml 所在目录。
+args = ["--yes", "--ignore-scripts", "@digidai/mcp-website2markdown@0.1.0"]
+allowed_tools = ["convert_url"]
+# 仅把这些额外环境变量交给子进程；不继承模型/OneBot 凭据。
+env_passthrough = ["WEBSITE2MARKDOWN_API_TOKEN"]
+[mcp.servers.website2markdown.env]
+# 此 MCP 默认使用在线解析后端；可替换为自行部署的 API 地址。
+WEBSITE2MARKDOWN_API_URL = "https://md.genedai.me"
+
+[mcp.servers.bilibili]
+enabled = true
+# 先按 docs/link-tools.md 固定安装到 data/mcp；此版本的 npx 符号链接入口会提前退出。
+command = "node"
+args = ["--import", "./scripts/bilibili-dns.mjs", "data/mcp/node_modules/@xzxzzx/bilibili-mcp/dist/index.js"]
+allowed_tools = ["get_video_metadata", "get_video_transcript"]
+# 在启动 ATRI 的环境中提供 Cookie，或使用上游 setup 的本地凭据配置。
+# MCP自身的本地ASR保持关闭；公开音轨下载和百炼调用由主进程完成。
+env_passthrough = ["BILIBILI_SESSDATA", "BILIBILI_BILI_JCT", "BILIBILI_DEDEUSERID"]
+# 仅影响此 MCP 的 api.bilibili.com 解析；系统 DNS 为 Fake-IP 时可设为 "1"。
+# B站包默认内部 HTTP 限时仅10秒；这里设25秒，仍受上面的 MCP 30秒和 links 总限时约束。
+env = { ATRI_BILIBILI_DOH = "0", BILIBILI_REQUEST_TIMEOUT_MS = "25000" }
 
 [vision]
 # 打开后，Planner 可通过 inspect_image 查看当前群近一小时消息中的图片。
