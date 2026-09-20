@@ -5,6 +5,8 @@ FROM node:22-bookworm-slim AS mcp
 WORKDIR /opt/atri-mcp
 COPY deploy/mcp/package.json deploy/mcp/package-lock.json ./
 RUN npm ci --omit=dev --ignore-scripts --no-audit --no-fund \
+    --fetch-timeout=30000 --fetch-retries=1 \
+    --fetch-retry-mintimeout=2000 --fetch-retry-maxtimeout=5000 --loglevel=http \
     && test -f node_modules/@digidai/mcp-website2markdown/dist/index.js \
     && test -f node_modules/@xzxzzx/bilibili-mcp/dist/index.js
 
