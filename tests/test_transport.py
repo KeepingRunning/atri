@@ -87,6 +87,42 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(len([r for r in self.bot.group('1').history if r.get('role') == 'assistant']), 1)
         await ws.close()
 
+    async def test_health_command_uses_ack_channel_at_night_without_model_or_chat(self):
+        self.bot.schedule.now = lambda: daytime().replace(hour=2)
+        ws = await self.client.ws_connect(self.config.ws_path, headers=self.headers)
+        await ws.send_json(raw(text="/health", mention=False))
+        action = await asyncio.wait_for(ws.receive_json(), 1)
+        self.assertIn("ATRI 服务：正常", str(action["params"]["message"]))
+        await ws.send_json({"echo": action["echo"], "status": "ok", "retcode": 0,
+                            "data": {"message_id": 701}})
+        async with asyncio.timeout(1):
+            while self.bot.command_tasks:
+                await asyncio.sleep(.001)
+        self.assertFalse(self.requests)
+        self.assertFalse(self.bot.group("1").history)
+        self.assertEqual(list(read_jsonl(self.bot.group("1").path))[-1]["status"], "sent")
+        await ws.send_json(raw(mid=2, text="睡眠期间普通消息", mention=True))
+        async with asyncio.timeout(1):
+            while "99:1:2" not in self.bot.group("1").seen:
+                await asyncio.sleep(.001)
+        self.assertFalse(self.requests)
+        self.assertIsNone(self.bot.group("1").last_sent)
+        await ws.close()
+
+    async def test_http_health_exposes_local_status_and_worker_failure(self):
+        response = await self.client.get("/healthz")
+        status = await response.json()
+        self.assertEqual(response.status, 200)
+        self.assertFalse(status["connected"])
+        self.assertEqual(status["status"], "ok")
+        self.assertGreaterEqual(status["uptime_seconds"], 0)
+        task = asyncio.create_task(asyncio.sleep(0))
+        await task
+        self.bot.tasks["1"] = task
+        response = await self.client.get("/healthz")
+        self.assertEqual(response.status, 503)
+        self.assertEqual((await response.json())["failed_workers"], 1)
+
     async def test_local_schedule_is_attached_to_real_reply_flow_without_schedule_http(self):
         self.assertEqual(self.requests, [])
         plan = self.bot.schedule.current_plan()

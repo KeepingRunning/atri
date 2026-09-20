@@ -30,6 +30,7 @@ queue_log = logging.getLogger("atri.queue")
 willingness_log = logging.getLogger("atri.willingness")
 send_log = logging.getLogger("atri.send")
 repeat_log = logging.getLogger("atri.repetition")
+command_log = logging.getLogger("atri.command")
 
 
 class Bot:
@@ -71,6 +72,8 @@ class Bot:
         self.waiting = {}
         self.inflight = set()
         self.repetition = Repetition()
+        self.command_tasks = set()
+        self.started_at = time.monotonic()
         self.closed = False
         self.schedule = ScheduleService(config.schedule, config.data, root=config.root, now=now)
 
@@ -86,11 +89,11 @@ class Bot:
             self.willingness[gid] = ReplyWillingness(self.config.reply)
         return self.groups[gid]
 
-    def enqueue(self, event, sender):
+    def enqueue(self, event, sender, *, command_sender=None):
         with log_context(group_id=event.group_id, message_id=event.message_id, user_id=event.user_id):
-            return self._enqueue(event, sender)
+            return self._enqueue(event, sender, command_sender=command_sender)
 
-    def _enqueue(self, event, sender):
+    def _enqueue(self, event, sender, *, command_sender=None):
         # Keep the WebSocket reader free to receive send acknowledgements.
         future = asyncio.get_running_loop().create_future()
         receive_log.info("[收到消息] 昵称=%s at=%s 引用=%s 段类型=%s 正文=%s",
@@ -107,6 +110,15 @@ class Bot:
             receive_log.info("[去重] 忽略消息，状态=%s", "正在处理" if event.key in self.inflight else "已经记录")
             future.set_result(Receipt("duplicate"))
             return future
+        if event.text == "/health" and event.parts and all(p.get("type") == "text" for p in event.parts):
+            self.repetition.reset(event.group_id)
+            self.group(event.group_id).append({"kind": "command", "key": event.key,
+                "command": "health", "message_id": event.message_id, "user_id": event.user_id})
+            task = asyncio.create_task(self.health_command(event, command_sender or sender),
+                                       name=f"atri-health-{event.group_id}-{event.message_id}")
+            self.command_tasks.add(task)
+            task.add_done_callback(self.command_tasks.discard)
+            return task
         received_at = self.schedule.local_now()
         if self.schedule.blocks_reply(received_at=received_at, timestamp=event.timestamp):
             self.repetition.reset(event.group_id)
@@ -172,6 +184,31 @@ class Bot:
         group.append({"kind": "incoming", "key": event.key, "message_id": event.message_id,
                       "user_id": event.user_id, "nickname": event.nickname, "text": event.text,
                       "parts": list(event.parts), "reply_id": event.reply_id, "timestamp": event.timestamp})
+
+    def health_status(self):
+        failed_workers = sum(task.done() for task in self.tasks.values())
+        return {"status": "stopping" if self.closed else "degraded" if failed_workers else "ok",
+                "uptime_seconds": max(0, int(time.monotonic() - self.started_at)),
+                "queued_messages": sum(queue.qsize() for queue in self.queues.values()),
+                "failed_workers": failed_workers}
+
+    async def health_command(self, event, sender):
+        status = self.health_status()
+        queue = self.queues.get(event.group_id)
+        text = (f"ATRI 服务：{'正常' if status['status'] == 'ok' else '异常'}\n"
+                f"运行时间：{status['uptime_seconds']} 秒\n"
+                f"当前群排队：{queue.qsize() if queue else 0} 条\n"
+                f"异常群任务：{status['failed_workers']}\n"
+                "模型 API / MCP：未主动探测")
+        command_log.info("[健康检查] 状态=%s 运行秒数=%d 异常任务=%d", status["status"],
+                         status["uptime_seconds"], status["failed_workers"])
+        try:
+            return await self.deliver_reply(event, sender, text, record_chat=False, respect_sleep=False)
+        except asyncio.CancelledError:
+            return Receipt("unknown", reason="shutdown")
+        except Exception as exc:
+            command_log.exception("[健康检查失败] 类型=%s", type(exc).__name__)
+            return Receipt("failed", reason=type(exc).__name__)
 
     def ignore_sleep(self, event, stage):
         logging.getLogger("atri.schedule").info("[睡眠拦截] 阶段=%s 时段=00:00–08:00，不回复或补发", stage)
@@ -252,10 +289,11 @@ class Bot:
             return await self.repeat(event, sender, received_at=received_at)
         return await self.deliver_reply(event, sender, reply, received_at=received_at)
 
-    async def deliver_reply(self, event, sender, reply, *, received_at=None, is_current=None):
-        """The sole delivery path, shared by Planner and legacy willingness modes."""
+    async def deliver_reply(self, event, sender, reply, *, received_at=None, is_current=None,
+                            record_chat=True, respect_sleep=True):
+        """Shared delivery; operational commands use separate, non-chat audit records."""
         group = self.group(event.group_id)
-        if ignored := self.sleep_guard(event, received_at, "生成后"):
+        if respect_sleep and (ignored := self.sleep_guard(event, received_at, "生成后")):
             return ignored
         if not isinstance(reply, str) or not reply.strip():
             log.warning("[生成回复] 模型没有返回有效正文，结束处理")
@@ -264,13 +302,14 @@ class Bot:
         log.info("[回复已生成] 字符=%d 正文=%s", len(reply), preview(reply, self.config.logging.preview_chars))
         parts = [{"type": "text", "data": {"text": reply}}]
         target = {"reply_to_user_id": event.user_id, "reply_to_message_id": event.message_id}
-        group.append({"kind": "delivery", "key": event.key, "status": "pending", "text": reply, **target})
+        kind = "delivery" if record_chat else "command_delivery"
+        group.append({"kind": kind, "key": event.key, "status": "pending", "text": reply, **target})
         receipt = Receipt("unknown", reason="delivery_unconfirmed")
         delivery_started = time.perf_counter()
         send_log.info("[开始发送] 等待确认，超时=%.1fs", self.config.action_timeout)
         try:
             async def deliver():
-                if ignored := self.sleep_guard(event, received_at, "发送前"):
+                if respect_sleep and (ignored := self.sleep_guard(event, received_at, "发送前")):
                     return ignored
                 if is_current is not None and not is_current():
                     return Receipt("ignored", reason="superseded")
@@ -285,7 +324,7 @@ class Bot:
         except Exception as exc:
             receipt = Receipt("unknown", reason=type(exc).__name__)
         finally:
-            group.append({"kind": "delivery", "key": event.key, "text": reply, **target, **asdict(receipt)})
+            group.append({"kind": kind, "key": event.key, "text": reply, **target, **asdict(receipt)})
         send_log.log(logging.INFO if receipt.status == "sent" else logging.WARNING,
                      "[发送结束] 状态=%s 消息号=%s 原因=%s 耗时=%.1fms",
                      receipt.status, receipt.message_id or "无", receipt.reason or "无",
@@ -353,9 +392,10 @@ class Bot:
             await asyncio.wait_for(asyncio.gather(*(q.join() for q in self.queues.values())), timeout)
         except asyncio.TimeoutError:
             queue_log.warning("[关闭队列] 等待处理完成超时，将取消剩余任务")
-        for task in self.tasks.values():
+        closing_tasks = [*self.tasks.values(), *self.command_tasks]
+        for task in closing_tasks:
             task.cancel()
-        await asyncio.gather(*self.tasks.values(), return_exceptions=True)
+        await asyncio.gather(*closing_tasks, return_exceptions=True)
         for queue in self.queues.values():
             while not queue.empty():
                 event, _, future, _, _ = queue.get_nowait()

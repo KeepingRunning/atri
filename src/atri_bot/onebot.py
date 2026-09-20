@@ -23,7 +23,13 @@ class Peer:
         self.can_send = can_send or (lambda: True)
 
     async def send(self, gid, parts):
-        if not self.can_send():
+        return await self._send(gid, parts)
+
+    async def send_control(self, gid, parts):
+        return await self._send(gid, parts, respect_sleep=False)
+
+    async def _send(self, gid, parts, *, respect_sleep=True):
+        if respect_sleep and not self.can_send():
             send_log.info("[睡眠拦截] OneBot 提交前已进入睡眠时段")
             return Receipt("ignored", reason="sleeping")
         if self.ws.closed:
@@ -114,7 +120,7 @@ def create_app(config, bot):
                     if event:
                         with log_context(group_id=event.group_id, message_id=event.message_id, user_id=event.user_id):
                             log.debug("[解析完成] 有效群消息，交给消息队列")
-                        bot.enqueue(event, peer.send)
+                        bot.enqueue(event, peer.send, command_sender=peer.send_control)
                     else:
                         log.debug("[忽略事件] 非群消息 post_type=%s message_type=%s",
                                   preview(data.get("post_type"), 40), preview(data.get("message_type"), 40))
@@ -128,7 +134,9 @@ def create_app(config, bot):
         return ws
 
     async def health(request):
-        return web.json_response({"status": "ok", "connected": active is not None})
+        status = bot.health_status()
+        return web.json_response({**status, "connected": active is not None},
+                                 status=200 if status["status"] == "ok" else 503)
 
     async def shutdown(app):
         if active is not None:

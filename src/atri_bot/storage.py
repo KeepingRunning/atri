@@ -105,7 +105,9 @@ class GroupLog:
         now = row["time"]
         while self.activity and now - self.activity[0][0] > 300:
             self.activity.popleft()
-        if row["kind"] == "incoming":
+        if row["kind"] == "command":
+            self.seen.add(row["key"])
+        elif row["kind"] == "incoming":
             self.seen.add(row["key"])
             self._remember(row)
             self.activity.append((now, False))
