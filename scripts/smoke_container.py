@@ -1,6 +1,7 @@
 """Verify an isolated release image with fake credentials and no network access."""
 import argparse
 import json
+import os
 from pathlib import Path
 import subprocess
 import tempfile
@@ -51,11 +52,10 @@ def smoke(image):
         config = config.replace('model = ""', 'model = "smoke-model"', 1)
         config = config.replace('api_key = ""', 'api_key = "smoke-key"', 1)
         (root / "config.toml").write_text(config, encoding="utf-8")
-        (root / "data").mkdir()
         try:
             docker("run", "--detach", "--init", "--network", "none", "--name", name,
                    "--mount", f"type=bind,src={root / 'config.toml'},dst=/app/config.toml,readonly",
-                   "--mount", f"type=bind,src={root / 'data'},dst=/app/data", image)
+                   "--mount", "type=volume,dst=/app/data", image)
             deadline = time.monotonic() + 45
             while time.monotonic() < deadline:
                 health = docker("exec", name, "python", "-c", HEALTH, check=False, timeout=10)
@@ -82,10 +82,18 @@ def smoke(image):
             print(logs.stdout + logs.stderr)
             raise
         finally:
-            docker("rm", "--force", name, check=False)
+            # Container-created files belong to root on Linux. Let Docker remove
+            # its anonymous test volume instead of having the CI user unlink it.
+            docker("rm", "--force", "--volumes", name, check=False)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--image", required=True)
-    smoke(parser.parse_args().image)
+    try:
+        smoke(parser.parse_args().image)
+    except Exception as exc:
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            message = str(exc).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+            print(f"::error::{type(exc).__name__}: {message}")
+        raise
