@@ -63,7 +63,7 @@ class RepetitionTests(unittest.IsolatedAsyncioTestCase):
         text = "好，走吧。OK, go."
         await asyncio.gather(self.submit(1, 2, text=text), self.submit(2, 3, text=text))
         await self.submit(3, 4, text=text)
-        self.assertEqual(self.sent, [("1", [{"type": "text", "data": {"text": "好,,,走吧)OK,,, go."}}])])
+        self.assertEqual(self.sent, [("1", [{"type": "text", "data": {"text": "好，，，走吧)OK，，， go."}}])])
         self.assertEqual([row["text"] for row in self.bot.group("1").history
                           if row.get("role") != "assistant"], [text, text, text])
         self.assertFalse(self.model.plans)

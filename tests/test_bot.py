@@ -74,7 +74,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
         text = json.dumps(messages, ensure_ascii=False)
         self.assertEqual(text.count("唯一当前消息"), 1)
         self.assertIn("闲聊", text)
-        self.assertEqual(self.sent[0][1], [{"type": "text", "data": {"text": "收到啦 [CQ:at,,,qq=all]"}}])
+        self.assertEqual(self.sent[0][1], [{"type": "text", "data": {"text": "收到啦 [CQ:at，，，qq=all]"}}])
         self.assertEqual(self.bot.group("1").history[-1]["role"], "assistant")
 
     async def test_cq_string_at_still_works(self):
@@ -88,7 +88,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
             return "  好，知道了。OK, thanks.\n下一句，继续。  "
         self.model.complete = complete
         await self.submit(text="输入，不改。")
-        expected = "好,,,知道了)OK,,, thanks.\n下一句,,,继续)"
+        expected = "好，，，知道了)OK，，， thanks.\n下一句，，，继续)"
         self.assertEqual(self.sent[0][1][0]["data"]["text"], expected)
         rows = list(read_jsonl(self.bot.group("1").path))
         self.assertEqual(rows[0]["text"], "输入，不改。")

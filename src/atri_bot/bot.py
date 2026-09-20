@@ -31,7 +31,7 @@ willingness_log = logging.getLogger("atri.willingness")
 send_log = logging.getLogger("atri.send")
 repeat_log = logging.getLogger("atri.repetition")
 command_log = logging.getLogger("atri.command")
-OUTPUT_TRANSLATION = str.maketrans({"。": ")", "，": ",,,", ",": ",,,"})
+OUTPUT_TRANSLATION = str.maketrans({"。": ")", "，": "，，，", ",": "，，，"})
 
 
 class Bot:
