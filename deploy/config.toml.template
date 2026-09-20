@@ -1,0 +1,198 @@
+# 容器部署模板：复制到 compose.yaml 同目录的 config.toml。
+# 填写群号、机器人 QQ 号、OneBot token 和模型配置，路径保持 /app 布局。
+# config.toml 包含密钥，已加入 Git 忽略。
+[bot]
+data_dir = "data"
+personal_info = "personal_info.txt"
+allowed_groups = []
+self_id = ""
+queue_size = 32
+max_parallel_generations = 4
+
+[onebot]
+host = "0.0.0.0"
+port = 28080
+path = "/onebot/v11/ws"
+action_timeout = 15
+token = ""
+
+[llm]
+# OpenAI 兼容接口地址，包含供应商要求的版本路径（例如 /v1）。
+base_url = ""
+model = ""
+api_key = ""
+timeout = 60
+max_output_tokens = 512
+output_limit_field = "max_tokens"
+# DeepSeek 可设 disabled 关闭深度思考；enabled 开启；空字符串不发送此参数。
+# DeepSeek 官方：base_url = "https://api.deepseek.com"，model = "deepseek-v4-flash"。
+thinking = ""
+
+[asr]
+enabled = false
+# B站字幕不可用时读取公开音轨，交给百炼云端转写；无需本地模型。
+# 北京地域的兼容域名；也可用 https://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/api/v1。
+# 新加坡 Key 使用 https://dashscope-intl.aliyuncs.com/api/v1，Key 与地址地域必须一致。
+base_url = "https://dashscope.aliyuncs.com/api/v1"
+model = "fun-asr"
+api_key = ""
+# 音轨下载、上传、提交、排队、轮询与转写下载共用总超时；失败不重试。
+timeout = 300
+
+# 临时音轨上限：128 MiB、两小时；处理结束即删除本地音轨。
+max_audio_bytes = 134217728
+max_audio_seconds = 7200
+download_timeout = 60
+# 若系统 DNS 返回代理 Fake-IP，可显式启用公网 DoH；不在失败后自动切换。
+dns_over_https = false
+
+[context]
+# 读取近一小时历史；planner 另外受 max_snapshot_chars 字符预算约束。
+history_seconds = 3600
+
+[tools]
+# Planner 可先检索历史或看图，再决定是否回复；旧模式在回复阶段查询。
+enabled = true
+# 最多两轮检索，随后必须决定行动；每批最多四次工具，等待/重规划不重置预算。
+max_rounds = 2
+max_calls = 4
+# 单次工具超时（秒），单次返回的 JSON 字符数上限（不是 token 数）。
+timeout = 5
+max_result_chars = 8000
+
+[links]
+# 按需读取公众号、知乎文章/回答、B站视频；镜像已内置两个 MCP。
+enabled = true
+# b23.tv 短链接的独立 DNS 开关；本机代理返回 Fake-IP 时可启用。
+# 不依赖 asr.enabled，仍校验公网地址；失败不自动切换解析方式。
+dns_over_https = false
+# MCP 启动与字幕/文章抓取限时；云端转写和文档整理另用各自限时。
+timeout = 45
+# 文档保留24小时；视频来源按机器人+BV+分P共享，群聊观察仍隔离。
+cache_ttl_seconds = 86400
+max_documents_per_group = 32
+max_document_chars = 200000
+
+[documents]
+# 原文存盘、无损分块、长文中立概览；使用现有云端模型，不下载本地模型。
+enabled = true
+chunk_chars = 1200
+# 超过此字符数生成全文概览；短文直接提供原文。
+overview_min_chars = 4000
+# 每次模型输入预算：以 UTF-8 字节数保守估计 token 上界，包含提示词。
+input_token_budget = 48000
+max_output_tokens = 4096
+# 整次文档整理总限时60秒，包含概览和可选原文定位请求。
+timeout = 60
+# 空字符串沿用 llm.model，以及同一 API 地址和密钥。
+model = ""
+# 长文分块整理与合并合计最多8次模型调用；失败明确返回，不用部分概览假装全文。
+max_model_calls = 8
+
+[mcp]
+enabled = true
+startup_timeout = 20
+# 单次 MCP 调用超时；整段来源读取还受 links.timeout 约束。
+request_timeout = 30
+
+[mcp.servers.website2markdown]
+enabled = true
+# 构建镜像时已固定安装，不使用运行时 npx 下载。
+command = "node"
+args = ["/opt/atri-mcp/node_modules/@digidai/mcp-website2markdown/dist/index.js"]
+allowed_tools = ["convert_url"]
+# 仅把这些额外环境变量交给子进程；不继承模型/OneBot 凭据。
+env_passthrough = ["WEBSITE2MARKDOWN_API_TOKEN"]
+[mcp.servers.website2markdown.env]
+# 此 MCP 默认使用在线解析后端；可替换为自行部署的 API 地址。
+WEBSITE2MARKDOWN_API_URL = "https://md.genedai.me"
+
+[mcp.servers.bilibili]
+enabled = true
+# 固定安装在镜像 /opt/atri-mcp；调用真实入口，避免 npx 符号链接提前退出。
+command = "node"
+args = ["--import", "/app/scripts/bilibili-dns.mjs", "/opt/atri-mcp/node_modules/@xzxzzx/bilibili-mcp/dist/index.js"]
+allowed_tools = ["get_video_metadata", "get_video_transcript"]
+# 可在部署目录 .env 中提供 Cookie，Compose 会转交这些环境变量。
+# MCP自身的本地ASR保持关闭；公开音轨下载和百炼调用由主进程完成。
+env_passthrough = ["BILIBILI_SESSDATA", "BILIBILI_BILI_JCT", "BILIBILI_DEDEUSERID"]
+# 仅影响此 MCP 的 api.bilibili.com 解析；系统 DNS 为 Fake-IP 时可设为 "1"。
+# B站包默认内部 HTTP 限时仅10秒；这里设25秒，仍受上面的 MCP 30秒和 links 总限时约束。
+env = { ATRI_BILIBILI_DOH = "0", BILIBILI_REQUEST_TIMEOUT_MS = "25000" }
+
+[vision]
+# 打开后，Planner 可通过 inspect_image 查看当前群近一小时消息中的图片。
+# 需要 tools.enabled=true，以及支持 image_url 图片输入的模型。
+enabled = false
+# 空字符串沿用 llm.model；DeepSeek 官方当前可设 deepseek-flash。
+# 沿用 [llm] 的 API 地址和密钥。
+model = ""
+# 看图工具的总超时，覆盖普通 tools.timeout；包含下载、解码和视觉模型请求。
+timeout = 45
+download_timeout = 10
+max_image_bytes = 8388608
+max_pixels = 20000000
+max_output_tokens = 768
+# 只允许从明确配置的图片服务器下载，不跟随重定向，不读取本地路径。
+allowed_hosts = ["multimedia.nt.qq.com.cn", "gchat.qpic.cn", "c2cpicdw.qpic.cn"]
+
+[schedule]
+# 上海时间偶数整点，从本地日常库按时段随机选一份；不调用模型。
+# enabled 控制清醒时的日程注入；sleep_enabled 独立控制 00:00–08:00 的睡眠拦截。
+enabled = true
+# 临时夜间测试可设为 false，届时使用“夜晚/不限”日程；测试后改回 true，重启生效。
+sleep_enabled = true
+timezone = "Asia/Shanghai"
+# 路径相对于配置文件目录。
+routines_dir = "resources/daily_routines"
+
+[reply]
+# planner：按群合并消息 → 动作规划 → 正文生成（新流程）。
+# willingness：旧规则评分与模型意愿判断；at_only：旧的仅 @ 回复。
+mode = "planner"
+# 0 只评估真正 @ 自己或引用自己已发送消息的内容；planner 中非零值作参与偏好传给模型。
+frequency = 0.7
+names = ["亚托莉", "ATRI", "アトリ"]
+# 以下 threshold / continuation_seconds 仅用于旧 willingness 模式。
+# 判断模型的意愿分达到此值才生成回复，范围 1–100；分数不是概率。
+# 判断失败会重试2次；三次都失败时，用本条消息的规则分对比此阈值。
+threshold = 60
+cooldown_seconds = 10
+continuation_seconds = 90
+max_message_age_seconds = 120
+# 可选：同一接口上的快速判断模型；空字符串沿用 llm.model。
+judgment_model = ""
+
+[planner]
+# 连续消息安静两秒后成批；持续发消息最多等八秒、每批最多三十二条。
+debounce_seconds = 2
+max_batch_seconds = 8
+max_batch_messages = 32
+# Planner 最多主动等待一次（新消息会提前唤醒）；相关补充最多重建快照一次。
+max_wait_seconds = 8
+max_waits = 1
+max_replans = 1
+# 动作参数的输出额度独立于聊天正文；快照上限为字符数，不是 token 数。
+# 先裁剪较旧历史；过长消息会标注截断。人设、工具描述、工具结果另受各自限制。
+max_output_tokens = 1024
+max_snapshot_chars = 32000
+# 规划用较低采样温度，减少行动参数漂移；不改变聊天正文的生成参数。
+temperature = 0.2
+
+[logging]
+# DEBUG 显示各步计算；INFO 只显示主要结果。
+level = "DEBUG"
+# auto 终端自动彩色；always 即使重定向也保留颜色；never 关闭颜色。
+color = "auto"
+# 无色轮转日志；路径相对于配置文件目录，空字符串关闭文件日志。
+file = "data/logs/atri.log"
+max_bytes = 10485760
+backup_count = 3
+# 收发正文预览字符数，0 隐藏正文。凭据不写入运行日志。
+preview_chars = 500
+
+[logging.modules]
+# 各分类可独立覆盖级别，例如：
+# willingness = "DEBUG"
+# storage = "INFO"
+# "plugins.weather" = "DEBUG"

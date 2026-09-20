@@ -29,6 +29,8 @@ QQ / OneBot → 校验、记录、睡眠拦截 → 按群收集 → 固定聊天
 
 ## 启动方法
 
+服务器部署可使用 Release 中的 Docker Compose 部署包，包含 ATRI、NapCat 和只更新 ATRI 的版本更新脚本。首次登录、迁移数据、备份与回滚见 [服务器部署说明](docs/deployment.md)。
+
 需要 Python 3.11+、uv、支持 OneBot v11 的 QQ 客户端（如 NapCat），以及可用的模型接口。
 
 在本项目目录执行（已有 `config.toml` 时跳过复制）：

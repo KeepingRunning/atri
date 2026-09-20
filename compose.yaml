@@ -1,0 +1,69 @@
+name: atri
+
+services:
+  atri:
+    image: ghcr.io/keepingrunning/atri:${ATRI_VERSION:-0.1.0}
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 30s
+    environment:
+      TZ: Asia/Shanghai
+      WEBSITE2MARKDOWN_API_TOKEN: ${WEBSITE2MARKDOWN_API_TOKEN:-}
+      BILIBILI_SESSDATA: ${BILIBILI_SESSDATA:-}
+      BILIBILI_BILI_JCT: ${BILIBILI_BILI_JCT:-}
+      BILIBILI_DEDEUSERID: ${BILIBILI_DEDEUSERID:-}
+    volumes:
+      - type: bind
+        source: ./config.toml
+        target: /app/config.toml
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./personal_info.txt
+        target: /app/personal_info.txt
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./data
+        target: /app/data
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:28080/healthz', timeout=3).close()"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  napcat:
+    image: mlikiowa/napcat-docker:${NAPCAT_VERSION:-v4.18.28}
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 30s
+    environment:
+      TZ: Asia/Shanghai
+      NAPCAT_UID: ${NAPCAT_UID:-1000}
+      NAPCAT_GID: ${NAPCAT_GID:-1000}
+    ports:
+      - "127.0.0.1:6099:6099"
+    volumes:
+      - type: bind
+        source: ./napcat/qq
+        target: /app/.config/QQ
+      - type: bind
+        source: ./napcat/config
+        target: /app/napcat/config
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"

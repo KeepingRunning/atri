@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 import logging
+import signal
 from datetime import datetime
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -53,19 +54,41 @@ async def serve(config):
         log.info("[规划配置] 合批安静间隔=%.1fs 最多收集=%.1fs 等待次数=%d 重规划次数=%d",
                  config.planner.debounce_seconds, config.planner.max_batch_seconds,
                  config.planner.max_waits, config.planner.max_replans)
-    with single_instance(config.data):
-        async with aiohttp.ClientSession() as session:
-            bot = Bot(config, ChatModel(config, session))
-            runner = web.AppRunner(create_app(config, bot), access_log=None)
-            await runner.setup()
-            try:
-                await web.TCPSite(runner, config.host, config.port).start()
-                log.info("[就绪] 监听 %s:%s%s，等待 OneBot 连接", config.host, config.port, config.ws_path)
-                await asyncio.Event().wait()
-            finally:
-                log.info("[停止] 正在关闭连接并等待消息队列结束")
-                await runner.cleanup()
-                log.info("[停止] 服务已退出")
+    stop = asyncio.Event()
+    loop = asyncio.get_running_loop()
+    previous_sigterm = signal.getsignal(signal.SIGTERM)
+    sigterm_installed = False
+    try:
+        # Docker stops the main process with SIGTERM. Keep asyncio.run's SIGINT
+        # handling so Ctrl+C still cancels serve and enters the same cleanup.
+        try:
+            loop.add_signal_handler(signal.SIGTERM, stop.set)
+            sigterm_installed = True
+        except (NotImplementedError, RuntimeError):
+            # Windows and event loops outside the main thread do not support it.
+            log.debug("[信号处理] 当前事件循环不支持 SIGTERM，保留系统默认处理")
+        with single_instance(config.data):
+            async with aiohttp.ClientSession() as session:
+                bot = Bot(config, ChatModel(config, session))
+                runner = web.AppRunner(create_app(config, bot), access_log=None)
+                try:
+                    await runner.setup()
+                    await web.TCPSite(runner, config.host, config.port).start()
+                    log.info("[就绪] 监听 %s:%s%s，等待 OneBot 连接", config.host, config.port, config.ws_path)
+                    await stop.wait()
+                finally:
+                    log.info("[停止] 正在关闭连接并等待消息队列结束")
+                    try:
+                        await runner.cleanup()
+                    finally:
+                        # A failure before aiohttp's cleanup context yields may
+                        # leave partially started MCP or schedule resources.
+                        await bot.close()
+                    log.info("[停止] 服务已退出")
+    finally:
+        if sigterm_installed:
+            loop.remove_signal_handler(signal.SIGTERM)
+            signal.signal(signal.SIGTERM, previous_sigterm)
 
 
 def main(argv=None):

@@ -1,0 +1,20 @@
+# Whitelist build inputs; never send local config, credentials or chat data.
+**
+!Dockerfile
+!pyproject.toml
+!uv.lock
+!src/
+!src/**
+!resources/
+!resources/daily_routines/
+!resources/daily_routines/**
+!scripts/
+!scripts/bilibili-dns.mjs
+!personal_info.txt
+!deploy/
+!deploy/config.toml.template
+!deploy/mcp/
+!deploy/mcp/package.json
+!deploy/mcp/package-lock.json
+**/__pycache__/
+**/*.pyc

@@ -1,0 +1,10 @@
+{
+  "name": "atri-release-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pinned stdio MCP servers installed when building the ATRI image",
+  "dependencies": {
+    "@digidai/mcp-website2markdown": "0.1.0",
+    "@xzxzzx/bilibili-mcp": "1.14.1"
+  }
+}
