@@ -277,7 +277,7 @@ class SessionTests(unittest.IsolatedAsyncioTestCase):
         futures = []
         async def produce():
             for i in range(1, 25):
-                futures.append(self.submit(mid=i, uid=i + 10, mention=False))
+                futures.append(self.submit(mid=i, uid=i + 10, text=f"持续输入-{i}", mention=False))
                 await asyncio.sleep(.01)
         producer = asyncio.create_task(produce())
         try:

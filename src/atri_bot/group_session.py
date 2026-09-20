@@ -77,6 +77,8 @@ class GroupSession:
                 and now - item[0].timestamp > self.config.reply.max_message_age_seconds))]
 
     def related_pending(self, events, decision):
+        if any(self.bot.repetition.contains(event) for event in events):
+            return True
         ids = set(decision["target_message_ids"])
         users = {e.user_id for e in events if e.message_id in ids}
         # Conservative interruption rule, not topic classification. Unrelated new turns
@@ -104,10 +106,26 @@ class GroupSession:
         planner = Planner(self.bot.model, self.config)
         waits = replans = 0
         tools = None
+        repeated = set()
+        repeat_receipt = None
         await self.collect(batch)
         while True:
-            active = self.eligible(batch)
+            eligible = self.eligible(batch)
+            active = []
+            for item in eligible:
+                event = item[0]
+                if event.key in repeated:
+                    continue
+                if self.bot.repetition.contains(event):
+                    receipt = await self.bot.repeat(event, item[1], received_at=item[4])
+                    repeated.add(event.key)
+                    if repeat_receipt is None or receipt.reason != "repeat_already_handled":
+                        repeat_receipt = receipt
+                else:
+                    active.append(item)
             if not active:
+                if repeat_receipt is not None:
+                    return repeat_receipt
                 sleeping = any(self.bot.schedule.blocks_reply(received_at=i[4], timestamp=i[0].timestamp) for i in batch)
                 return Receipt("ignored", reason="sleeping" if sleeping else "stale_message")
             events = [item[0] for item in active]
@@ -221,4 +239,5 @@ class GroupSession:
                             if not future.done():
                                 future.set_result(receipt)
                             self.bot.inflight.discard(member.key)
+                            self.bot.repetition.finish(member)
                             self.queue.task_done()

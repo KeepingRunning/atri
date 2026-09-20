@@ -22,12 +22,14 @@ from .documents import DocumentStore
 from .document_analysis import DocumentProcessor
 from .cloud_asr import CloudASR
 from .video_cache import VideoSourceCache
+from .repetition import Repetition
 
 log = logging.getLogger("atri.bot")
 receive_log = logging.getLogger("atri.receive")
 queue_log = logging.getLogger("atri.queue")
 willingness_log = logging.getLogger("atri.willingness")
 send_log = logging.getLogger("atri.send")
+repeat_log = logging.getLogger("atri.repetition")
 
 
 class Bot:
@@ -68,6 +70,7 @@ class Bot:
         self.willingness = {}
         self.waiting = {}
         self.inflight = set()
+        self.repetition = Repetition()
         self.closed = False
         self.schedule = ScheduleService(config.schedule, config.data, root=config.root, now=now)
 
@@ -106,6 +109,7 @@ class Bot:
             return future
         received_at = self.schedule.local_now()
         if self.schedule.blocks_reply(received_at=received_at, timestamp=event.timestamp):
+            self.repetition.reset(event.group_id)
             self.record_incoming(event, self.group(event.group_id))
             future.set_result(self.ignore_sleep(event, "接收"))
             return future
@@ -121,9 +125,12 @@ class Bot:
         try:
             self.queues[gid].put_nowait((event, sender, future, time.perf_counter(), received_at))
         except asyncio.QueueFull:
+            self.repetition.reset(gid)
             future.set_result(Receipt("busy", reason="queue_full"))
             queue_log.warning("[队列已满] 当前=%d 容量=%d，本条未入队", self.queues[gid].qsize(), self.config.queue_size)
         else:
+            self.repetition.receive(event, now=self.group(gid).now(),
+                                    max_age=self.config.reply.max_message_age_seconds)
             self.inflight.add(event.key)
             if self.config.reply.mode == "planner":
                 self.waiting[gid][event.key] = event
@@ -158,6 +165,7 @@ class Bot:
                         future.set_result(Receipt("failed", reason=getattr(exc, "code", type(exc).__name__)))
                 finally:
                     self.inflight.discard(event.key)
+                    self.repetition.finish(event)
                     queue.task_done()
 
     def record_incoming(self, event, group):
@@ -176,12 +184,24 @@ class Bot:
             return self.ignore_sleep(event, stage)
         return None
 
+    async def repeat(self, event, sender, *, received_at=None):
+        if ignored := self.sleep_guard(event, received_at, "复读前"):
+            return ignored
+        text = self.repetition.claim(event)
+        if text is None:
+            repeat_log.debug("[复读跳过] 同一轮已经跟读，不再调用模型")
+            return Receipt("ignored", reason="repeat_already_handled")
+        repeat_log.info("[自动复读] 两名不同群友连续发送相同正文，字符=%d", len(text))
+        return await self.deliver_reply(event, sender, text, received_at=received_at)
+
     async def process(self, event, sender, *, received_at=None):
         received_at = received_at or self.schedule.local_now()
         group = self.group(event.group_id)
         self.record_incoming(event, group)
         if ignored := self.sleep_guard(event, received_at, "出队"):
             return ignored
+        if self.repetition.contains(event):
+            return await self.repeat(event, sender, received_at=received_at)
         if self.config.reply.mode == "at_only":
             log.debug("[回复模式] at_only 真实at=%s", event.self_id in event.mentions)
             if event.self_id not in event.mentions:
@@ -228,6 +248,8 @@ class Bot:
                         reply = await self.model.complete(conversation, tool_session=tool_session)
             except ModelRequestBlocked:
                 return self.ignore_sleep(event, "回复HTTP前")
+        if self.repetition.contains(event):
+            return await self.repeat(event, sender, received_at=received_at)
         return await self.deliver_reply(event, sender, reply, received_at=received_at)
 
     async def deliver_reply(self, event, sender, reply, *, received_at=None, is_current=None):
@@ -338,6 +360,7 @@ class Bot:
             while not queue.empty():
                 event, _, future, _, _ = queue.get_nowait()
                 self.inflight.discard(event.key)
+                self.repetition.finish(event)
                 self.waiting.get(event.group_id, {}).pop(event.key, None)
                 if not future.done():
                     future.set_result(Receipt("failed", reason="shutdown_before_processing"))
