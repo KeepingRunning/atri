@@ -376,7 +376,7 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
             return Receipt('sent', '700')
         result = await self.bot.enqueue(Event.parse(raw(text='我以前说喜欢吃什么？')), sender)
         self.assertEqual(result.status, 'sent')
-        self.assertEqual(sent, ['你说过喜欢香草冰淇淋。'])
+        self.assertEqual(sent, ['你说过喜欢香草冰淇淋)'])
         self.assertEqual(len(self.requests), 3)
         self.assertNotIn('我喜欢香草冰淇淋', str(self.requests[0]['messages']))
         second = self.requests[1]['messages']

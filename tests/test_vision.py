@@ -208,7 +208,7 @@ class VisionFlowTests(unittest.IsolatedAsyncioTestCase):
     async def test_complete_picture_flow_and_followup_keep_urls_and_bytes_out_of_model_history(self):
         result = await self.bot.enqueue(picture_event(), self.sender)
         self.assertEqual(result.status, 'sent')
-        self.assertEqual(self.sent, ['我看到了红色方块。'])
+        self.assertEqual(self.sent, ['我看到了红色方块)'])
         self.assertEqual([r['model'] for r in self.requests], ['reply-model', 'vision-model', 'reply-model'])
         self.assertEqual(self.downloads, ['/pic'])
         first = json.loads(self.requests[0]['messages'][-1]['content'])
@@ -252,7 +252,7 @@ class VisionFlowTests(unittest.IsolatedAsyncioTestCase):
             await self.bot.enqueue(picture_event(mid=mid), self.sender)
             result = json.loads(self.requests[-1]['messages'][-1]['content'])
             self.assertEqual(result['error']['code'], code)
-            self.assertEqual(self.sent[-1], '这张图暂时没能读取。')
+            self.assertEqual(self.sent[-1], '这张图暂时没能读取)')
         self.assertTrue(all(path == '/pic' for path in self.downloads))
 
     async def test_download_timeout_and_byte_cap_are_enforced(self):

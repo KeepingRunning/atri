@@ -74,13 +74,28 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
         text = json.dumps(messages, ensure_ascii=False)
         self.assertEqual(text.count("唯一当前消息"), 1)
         self.assertIn("闲聊", text)
-        self.assertEqual(self.sent[0][1], [{"type": "text", "data": {"text": "收到啦 [CQ:at,qq=all]"}}])
+        self.assertEqual(self.sent[0][1], [{"type": "text", "data": {"text": "收到啦 [CQ:at,,,qq=all]"}}])
         self.assertEqual(self.bot.group("1").history[-1]["role"], "assistant")
 
     async def test_cq_string_at_still_works(self):
         data = raw()
         data["message"] = "[CQ:at,qq=99]你好"
         self.assertEqual((await self.bot.enqueue(Event.parse(data), self.send)).status, "sent")
+
+    async def test_output_translation_matches_delivery_and_history_without_changing_input(self):
+        async def complete(messages, **kwargs):
+            self.model.prompts.append(messages)
+            return "  好，知道了。OK, thanks.\n下一句，继续。  "
+        self.model.complete = complete
+        await self.submit(text="输入，不改。")
+        expected = "好,,,知道了)OK,,, thanks.\n下一句,,,继续)"
+        self.assertEqual(self.sent[0][1][0]["data"]["text"], expected)
+        rows = list(read_jsonl(self.bot.group("1").path))
+        self.assertEqual(rows[0]["text"], "输入，不改。")
+        self.assertEqual([r["text"] for r in rows if r["kind"] == "delivery"], [expected, expected])
+        self.assertEqual(self.bot.group("1").history[-1]["text"], expected)
+        await self.submit(mid=2, text="继续")
+        self.assertIn({"role": "assistant", "content": expected}, self.model.prompts[-1])
 
     async def test_all_recent_history_above_50_and_group_isolation(self):
         await self.submit(gid=2, text="群二秘密", mention=False)

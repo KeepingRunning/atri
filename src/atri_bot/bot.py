@@ -31,6 +31,7 @@ willingness_log = logging.getLogger("atri.willingness")
 send_log = logging.getLogger("atri.send")
 repeat_log = logging.getLogger("atri.repetition")
 command_log = logging.getLogger("atri.command")
+OUTPUT_TRANSLATION = str.maketrans({"。": ")", "，": ",,,", ",": ",,,"})
 
 
 class Bot:
@@ -298,7 +299,7 @@ class Bot:
         if not isinstance(reply, str) or not reply.strip():
             log.warning("[生成回复] 模型没有返回有效正文，结束处理")
             return Receipt("failed", reason="empty_reply")
-        reply = reply.strip()
+        reply = reply.strip().translate(OUTPUT_TRANSLATION)
         log.info("[回复已生成] 字符=%d 正文=%s", len(reply), preview(reply, self.config.logging.preview_chars))
         parts = [{"type": "text", "data": {"text": reply}}]
         target = {"reply_to_user_id": event.user_id, "reply_to_message_id": event.message_id}

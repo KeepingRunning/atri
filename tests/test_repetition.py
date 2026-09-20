@@ -59,6 +59,15 @@ class RepetitionTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(len(self.sent), 1)
         self.assertEqual(len(self.model.plans), 1)
 
+    async def test_repeated_text_is_formatted_only_at_delivery(self):
+        text = "好，走吧。OK, go."
+        await asyncio.gather(self.submit(1, 2, text=text), self.submit(2, 3, text=text))
+        await self.submit(3, 4, text=text)
+        self.assertEqual(self.sent, [("1", [{"type": "text", "data": {"text": "好,,,走吧)OK,,, go."}}])])
+        self.assertEqual([row["text"] for row in self.bot.group("1").history
+                          if row.get("role") != "assistant"], [text, text, text])
+        self.assertFalse(self.model.plans)
+
     async def test_changed_text_resets_run_and_groups_are_independent(self):
         await asyncio.gather(self.submit(1, 2), self.submit(2, 3))
         self.model.steps = [action("observe")]
