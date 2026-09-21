@@ -11,7 +11,7 @@ from .model import (ModelError, ModelRequestBlocked, guard_model_requests, check
 from .history_tools import ChatArchive, history_registry, tool_instructions
 from .tools import ToolContext, ToolSession
 from .vision import ImageAccess, register_vision, VISION_INSTRUCTIONS
-from .storage import GroupLog
+from .storage import GroupLog, sticker_metadata
 from .types import Receipt
 from .willingness import ReplyWillingness
 from .schedule import ScheduleService
@@ -23,6 +23,8 @@ from .document_analysis import DocumentProcessor
 from .cloud_asr import CloudASR
 from .video_cache import VideoSourceCache
 from .repetition import Repetition
+from .stickers import StickerLibrary
+from .sticker_planner import StickerSupplements
 
 log = logging.getLogger("atri.bot")
 receive_log = logging.getLogger("atri.receive")
@@ -45,9 +47,13 @@ class Bot:
         config.mcp.validate()
         config.links.validate()
         config.documents.validate()
+        config.stickers.validate()
         if config.vision.enabled and not config.tools.enabled:
             raise ValueError("vision.enabled requires tools.enabled=true")
+        if config.stickers.enabled and (not config.tools.enabled or config.reply.mode != "planner"):
+            raise ValueError("stickers.enabled requires tools.enabled=true and reply.mode='planner'")
         self.tool_registry = history_registry()
+        self.stickers = StickerLibrary(config.root, config.stickers) if config.stickers.enabled else None
         if config.vision.enabled:
             register_vision(self.tool_registry, config.vision)
         self.mcp = MCPManager(config.mcp, config.root)
@@ -77,6 +83,7 @@ class Bot:
         self.started_at = time.monotonic()
         self.closed = False
         self.schedule = ScheduleService(config.schedule, config.data, root=config.root, now=now)
+        self.sticker_supplements = StickerSupplements(self)
 
     async def start(self):
         if not self.closed:
@@ -120,6 +127,7 @@ class Bot:
             self.command_tasks.add(task)
             task.add_done_callback(self.command_tasks.discard)
             return task
+        self.sticker_supplements.invalidate(event.group_id)
         received_at = self.schedule.local_now()
         if self.schedule.blocks_reply(received_at=received_at, timestamp=event.timestamp):
             self.repetition.reset(event.group_id)
@@ -230,7 +238,8 @@ class Bot:
             repeat_log.debug("[复读跳过] 同一轮已经跟读，不再调用模型")
             return Receipt("ignored", reason="repeat_already_handled")
         repeat_log.info("[自动复读] 两名不同群友连续发送相同正文，字符=%d", len(text))
-        return await self.deliver_reply(event, sender, text, received_at=received_at)
+        return await self.deliver_reply(event, sender, text, received_at=received_at,
+                                        delivery_origin="repetition")
 
     async def process(self, event, sender, *, received_at=None):
         received_at = received_at or self.schedule.local_now()
@@ -291,20 +300,57 @@ class Bot:
         return await self.deliver_reply(event, sender, reply, received_at=received_at)
 
     async def deliver_reply(self, event, sender, reply, *, received_at=None, is_current=None,
-                            record_chat=True, respect_sleep=True):
+                            record_chat=True, respect_sleep=True, sticker_id=None,
+                            delivery_origin="chat", parent_message_id=None, before_submit=None):
         """Shared delivery; operational commands use separate, non-chat audit records."""
         group = self.group(event.group_id)
         if respect_sleep and (ignored := self.sleep_guard(event, received_at, "生成后")):
             return ignored
-        if not isinstance(reply, str) or not reply.strip():
+        if not isinstance(reply, str) or (not reply.strip() and sticker_id is None):
             log.warning("[生成回复] 模型没有返回有效正文，结束处理")
             return Receipt("failed", reason="empty_reply")
+        if sticker_id is not None and reply.strip():
+            return Receipt("failed", reason="mixed_sticker_reply")
+        if delivery_origin == "sticker_supplement":
+            parent = group.last_receipts.get(event.key)
+            if (not parent_message_id or not parent or parent.get("status") != "sent"
+                    or str(parent.get("message_id")) != str(parent_message_id)
+                    or parent.get("delivery_origin", "chat") != "chat"):
+                return Receipt("failed", reason="unconfirmed_sticker_parent")
         reply = reply.strip().translate(OUTPUT_TRANSLATION)
-        log.info("[回复已生成] 字符=%d 正文=%s", len(reply), preview(reply, self.config.logging.preview_chars))
-        parts = [{"type": "text", "data": {"text": reply}}]
+        parts = [{"type": "text", "data": {"text": reply}}] if reply else []
         target = {"reply_to_user_id": event.user_id, "reply_to_message_id": event.message_id}
         kind = "delivery" if record_chat else "command_delivery"
-        group.append({"kind": kind, "key": event.key, "status": "pending", "text": reply, **target})
+        key = f"{event.key}:sticker:{parent_message_id}" if parent_message_id is not None else event.key
+        audit = {"kind": kind, "key": key, "turn_id": event.key, "text": reply, **target,
+                 "delivery_origin": delivery_origin,
+                 **({"parent_message_id": str(parent_message_id)} if parent_message_id is not None else {})}
+        if sticker_id is not None:
+            if is_current is not None and not is_current():
+                return Receipt("ignored", reason="superseded")
+            try:
+                if self.stickers is None:
+                    raise ValueError("Sticker delivery is unavailable")
+                image_part, metadata = await asyncio.to_thread(self.stickers.prepare, sticker_id)
+                metadata = sticker_metadata(metadata)
+                if metadata is None or metadata["id"] != sticker_id:
+                    raise ValueError("Invalid prepared sticker metadata")
+            except Exception as exc:
+                send_log.warning("[表情准备失败] ID=%s 错误=%s 类型=%s，不提交消息",
+                                 preview(sticker_id, 80), getattr(exc, "code", type(exc).__name__),
+                                 type(exc).__name__)
+                receipt = Receipt("failed", reason="sticker_prepare_failed")
+                group.append({**audit, **asdict(receipt)})
+                return receipt
+            if respect_sleep and (ignored := self.sleep_guard(event, received_at, "表情准备后")):
+                return ignored
+            if is_current is not None and not is_current():
+                return Receipt("ignored", reason="superseded")
+            parts = [image_part]
+            audit.update(sticker=metadata)
+            send_log.debug("[表情准备完成] ID=%s 父消息=%s", metadata["id"], parent_message_id or "无")
+        log.info("[回复已生成] 字符=%d 正文=%s", len(reply), preview(reply, self.config.logging.preview_chars))
+        group.append({**audit, "status": "pending"})
         receipt = Receipt("unknown", reason="delivery_unconfirmed")
         delivery_started = time.perf_counter()
         send_log.info("[开始发送] 等待确认，超时=%.1fs", self.config.action_timeout)
@@ -314,6 +360,8 @@ class Bot:
                     return ignored
                 if is_current is not None and not is_current():
                     return Receipt("ignored", reason="superseded")
+                if before_submit is not None:
+                    before_submit()
                 return await sender(event.group_id, parts)
             receipt = await asyncio.wait_for(deliver(), self.config.action_timeout)
             if not isinstance(receipt, Receipt) or (receipt.status not in ("sent", "failed", "unknown")
@@ -325,7 +373,7 @@ class Bot:
         except Exception as exc:
             receipt = Receipt("unknown", reason=type(exc).__name__)
         finally:
-            group.append({"kind": kind, "key": event.key, "text": reply, **target, **asdict(receipt)})
+            group.append({**audit, **asdict(receipt)})
         send_log.log(logging.INFO if receipt.status == "sent" else logging.WARNING,
                      "[发送结束] 状态=%s 消息号=%s 原因=%s 耗时=%.1fms",
                      receipt.status, receipt.message_id or "无", receipt.reason or "无",
@@ -387,6 +435,7 @@ class Bot:
             return
         queue_log.info("[关闭队列] 群数=%d 处理中=%d 等待超时=%.1fs", len(self.queues), len(self.inflight), timeout)
         self.closed = True
+        await self.sticker_supplements.close()
         if self.schedule is not None:
             await self.schedule.close()
         try:

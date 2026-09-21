@@ -193,6 +193,9 @@ async def run_planner_tests(config, *, stream=None):
         test_config.reply.cooldown_seconds = 0
         test_config.tools.enabled = True
         test_config.vision.enabled = False
+        # These four existing diagnostics assert text replies; optional supplements
+        # have separate integration coverage and must not change those fixtures.
+        test_config.stickers.enabled = False
         test_config.links.enabled = False
         test_config.mcp.enabled = False
         test_config.planner.debounce_seconds = .02

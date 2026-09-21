@@ -115,12 +115,12 @@ class ChatModel:
     def __init__(self, config, session):
         self.config, self.session = config, session
 
-    async def plan(self, messages, definitions):
+    async def plan(self, messages, definitions, *, purpose="planner"):
         """One native action/tool call; execution belongs to Planner and Bot."""
         # DeepSeek rejects required tool_choice in thinking mode. Explicitly
         # disabled thinking can enforce a call instead of relying only on prose.
         choice = "required" if self.config.thinking == "disabled" else "auto"
-        return await self._request(messages, purpose="planner", tools=definitions, tool_choice=choice,
+        return await self._request(messages, purpose=purpose, tools=definitions, tool_choice=choice,
                                    model=self.config.reply.judgment_model or None,
                                    max_output_tokens=self.config.planner.max_output_tokens,
                                    temperature=self.config.planner.temperature)

@@ -148,6 +148,7 @@ class GroupSession:
                     if self.waiting and len(batch) < self.config.planner.max_batch_messages:
                         self.drain(batch)
                         continue
+                    sticker_revision = self.bot.sticker_supplements.revision(self.gid)
                     snapshot = build_snapshot(events, self.visible_history(), now=self.group.now(),
                         history_seconds=self.config.history_seconds, schedule_context=self.bot.schedule.context(),
                         vision_enabled=self.config.vision.enabled, links_enabled=self.config.links.enabled,
@@ -178,6 +179,8 @@ class GroupSession:
                              decision["seconds"], waits, self.config.planner.max_waits)
                     await self.collect(batch, wait_seconds=decision["seconds"])
                     continue
+                purpose = decision["purpose"]
+                reply = ""
                 if not self.related_pending(events, decision):
                     async with reserve_model_slot(self.bot.semaphore):
                         check_request_allowed("reply")
@@ -185,7 +188,7 @@ class GroupSession:
                         if not self.related_pending(events, decision):
                             reply_log.info("[生成正文] 快照=%s 目标=%s 目的=%s 风格=%s",
                                 snapshot.id, decision["target_message_ids"],
-                                preview(decision["purpose"], self.config.logging.preview_chars),
+                                preview(purpose, self.config.logging.preview_chars),
                                 preview(decision["style_hint"], self.config.logging.preview_chars))
                             reply = await self.bot.model.complete(build_planned_reply(
                                 self.bot.personal_info, snapshot, decision, planner.observations))
@@ -205,9 +208,14 @@ class GroupSession:
                     continue
                 target_id = decision["target_message_ids"][-1]
                 target = next(item for item in active if item[0].message_id == target_id)
-                # No await between the staleness check and entering the shared delivery code.
-                return await self.bot.deliver_reply(target[0], target[1], reply, received_at=target[4],
+                # Finish the main batch as soon as text is confirmed. The optional
+                # image has its own task, receipt and bounded lifetime.
+                receipt = await self.bot.deliver_reply(target[0], target[1], reply, received_at=target[4],
                     is_current=lambda: not self.related_pending(events, decision))
+                if receipt.status == "sent":
+                    self.bot.sticker_supplements.start(target[0], target[1], receipt, snapshot, decision,
+                        received_at=target[4], revision=sticker_revision)
+                return receipt
 
     async def run(self):
         while True:

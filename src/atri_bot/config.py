@@ -15,6 +15,7 @@ from .mcp_client import MCPConfig
 from .link_tools import LinkConfig
 from .cloud_asr import ASRConfig
 from .documents import DocumentConfig
+from .stickers import StickerConfig
 
 
 @dataclass
@@ -49,6 +50,7 @@ class Config:
     links: LinkConfig = field(default_factory=LinkConfig)
     asr: ASRConfig = field(default_factory=ASRConfig)
     documents: DocumentConfig = field(default_factory=DocumentConfig)
+    stickers: StickerConfig = field(default_factory=StickerConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -98,6 +100,13 @@ class Config:
         except TypeError:
             raise ValueError("Invalid [tools] configuration fields") from None
         conf.tools.validate()
+        try:
+            conf.stickers = StickerConfig(**raw.get("stickers", {}))
+        except TypeError:
+            raise ValueError("Invalid [stickers] configuration fields") from None
+        conf.stickers.validate()
+        if conf.stickers.enabled and (not conf.tools.enabled or conf.reply.mode != "planner"):
+            raise ValueError("stickers.enabled requires tools.enabled=true and reply.mode=planner")
         conf.mcp = MCPConfig.from_dict(raw.get("mcp", {}))
         conf.mcp.validate()
         try:

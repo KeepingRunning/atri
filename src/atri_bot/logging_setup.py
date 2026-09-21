@@ -16,7 +16,7 @@ LEVELS = {"DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"}
 COLORS = {"core": 117, "onebot": 45, "receive": 51, "queue": 75, "bot": 111,
           "willingness": 213, "context": 141, "model": 221, "send": 82, "storage": 109,
           "schedule": 87, "tools": 208, "vision": 171, "planner": 213, "replyer": 119,
-          "mcp": 39, "links": 179, "asr": 81, "documents": 153}
+          "mcp": 39, "links": 179, "asr": 81, "documents": 153, "stickers": 207}
 PLUGIN_COLORS = (208, 39, 177, 149, 203, 87, 219, 179, 69, 155, 209, 183)
 TRACE = ContextVar("atri_log_trace", default={})
 _module_overrides = set()

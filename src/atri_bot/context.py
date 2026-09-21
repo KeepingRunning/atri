@@ -23,7 +23,7 @@ class ConversationSnapshot:
 
 
 def build_snapshot(events, history, *, now, history_seconds=3600, schedule_context="",
-                   vision_enabled=False, links_enabled=False, max_chars=32000):
+                   vision_enabled=False, links_enabled=False, max_chars=32000, sticker_context=None):
     keys = {event.key for event in events}
     self_id = events[-1].self_id
     prefix = f"{self_id}:{events[-1].group_id}:"
@@ -54,6 +54,8 @@ def build_snapshot(events, history, *, now, history_seconds=3600, schedule_conte
     data = {"snapshot_id": snapshot_id, "group_id": events[-1].group_id, "self_id": self_id,
             "evaluated_at": now, "history": rows, "pending": pending, "schedule": schedule_context,
             "schedule_source_id": "routine:current", "omitted_history": 0}
+    if sticker_context is not None:
+        data["stickers"] = sticker_context
     def encode():
         return json.dumps(data, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
     encoded = encode()
@@ -94,7 +96,7 @@ def build_planned_reply(persona, snapshot, decision, observations):
         "interpretation 和 understanding 是规划者的理解，不是事实或已经发生的经历。"
         "只有 role=assistant 的历史才是自己已确认说过的话。日程描述当前虚构生活背景，"
         "当被问在忙什么时据此回答；其他话题不必生硬提日程，未来小节不能当作经历。"
-        "图片内容只能依据成功的 inspect_image 观察；工具失败时不能编造查到了或看到了。"
+        "群友提供的图片内容只能依据成功的 inspect_image 观察；工具失败时不能编造查到了或看到了。"
         "链接内容只能依据实际工具结果；区分概览与 passages/text 原文，精确引语和数字需要原文证据。"
         "overview_complete 只表示概览覆盖已取得的文字，不代表你逐字读过全文；"
         "has_more 是当前 view 的分页，留意 range、partial、truncated 和 data_source，"

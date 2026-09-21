@@ -63,6 +63,7 @@ class ToolContext:
     check_active: Callable[[], None] = field(repr=False)
     audit: Callable[[dict], None] = field(repr=False)
     images: ImageReader | None = field(default=None, repr=False)
+    sticker_state: dict | None = field(default=None, repr=False)
 
 
 @dataclass

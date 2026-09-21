@@ -130,6 +130,10 @@ def main(argv=None):
         configure_logging(config.logging, config.root, secrets=(config.api_key, config.token, config.asr.api_key))
         if args.command == "check":
             config.require_serve()
+            if config.stickers.enabled:
+                from .stickers import StickerLibrary
+                library = StickerLibrary(config.root, config.stickers)
+                print(f"表情包目录加载通过：{len(library)} 张可用，发送前逐张校验文件。")
             print("配置检查通过。")
         elif args.command == "test-api":
             results = asyncio.run(run_api_tests(config))

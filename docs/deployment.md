@@ -92,6 +92,8 @@ Docker 的 `healthy` 检查本地 `/healthz` 是否返回 HTTP 200；它不要�
 
 旧项目的整个 `data/` 可复制到新部署目录，保留 `groups`、去重记录、文档缓存等；新镜像使用 `/opt/atri-mcp`，旧 `data/mcp` 下的 npm 依赖不用迁移。用 SSH/SCP/rsync 传输备份。QQ 登录资料可一并迁移，但新机器上仍可能需要重新扫码。
 
+启用表情包时，也要保留整个 `data/sticker_review/`，包含 `catalog.json` 及其相对图片目录。表情以图片内容交给 NapCat，不需要额外的跨容器图片挂载；发行包不包含本地挑选的素材。功能配置见 [表情包发送](stickers.md)。
+
 `personal_info.txt` 可以原样迁移。配置应以服务器模板为基础填写原有值，尤其保留容器的监听地址、MCP 路径和数据路径；不要直接拿本机绝对路径覆盖服务器模板。NapCat 迁移后还要把反向 WebSocket 地址改为前面的 `ws://atri:28080/onebot/v11/ws`。
 
 服务器已在使用时，可在每次升级前做一份包含登录资料的停机备份：

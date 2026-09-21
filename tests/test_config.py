@@ -10,6 +10,29 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ConfigTests(unittest.TestCase):
+    def test_stickers_require_planner_and_tools_and_templates_match(self):
+        import tomllib
+        ordinary = tomllib.loads((ROOT / 'config.toml.template').read_text())['stickers']
+        container = tomllib.loads((ROOT / 'deploy/config.toml.template').read_text())['stickers']
+        self.assertEqual(ordinary, container)
+        self.assertFalse(Config.load(ROOT / 'config.toml.template').stickers.enabled)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for prefix in ('', '[reply]\nmode="willingness"\n',
+                           '[reply]\nmode="planner"\n[tools]\nenabled=false\n'):
+                path.write_text(prefix + '[stickers]\nenabled=true\n')
+                with self.subTest(prefix=prefix), self.assertRaisesRegex(ValueError, 'stickers.enabled'):
+                    Config.load(path)
+            path.write_text('[reply]\nmode="planner"\n[stickers]\nenabled=true\n')
+            configured = Config.load(path)
+            self.assertTrue(configured.stickers.enabled)
+            self.assertEqual(configured.stickers.target_turns_min, 3)
+            self.assertEqual(configured.stickers.target_turns_max, 5)
+            self.assertEqual(configured.stickers.max_age_seconds, 20)
+            path.write_text('[stickers]\nunrecognized=true\n')
+            with self.assertRaisesRegex(ValueError, 'Invalid \\[stickers\\]'):
+                Config.load(path)
+
     def test_video_retention_defaults_and_cloud_enable_requires_key(self):
         config = Config.load(ROOT / "config.toml.template")
         self.assertEqual(config.links.cache_ttl_seconds, 86400)
