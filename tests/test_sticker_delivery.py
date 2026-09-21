@@ -17,7 +17,8 @@ from atri_bot.storage import GroupLog, read_jsonl
 from atri_bot.stickers import StickerLibrary
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import ReplyConfig
-from test_bot import ROOT, RecordingModel, daytime, raw
+from tests.support.factories import ROOT, daytime, raw
+from tests.support.models import RecordingModel
 
 
 IMAGE = {"type": "image", "data": {"file": "base64://c3RpY2tlci1ieXRlcw=="}}
@@ -38,21 +39,18 @@ class TestLibrary:
 
 class StickerDeliveryTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
+        self.data_dir = Path(self.enterContext(tempfile.TemporaryDirectory()))
         self.clock = daytime()
-        self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1", "2"}), self_id="99",
+        self.config = Config(ROOT, self.data_dir, groups=frozenset({"1", "2"}), self_id="99",
                              reply=ReplyConfig(mode="planner"))
         self.config.stickers.enabled = True
         self.library = TestLibrary()
         with patch("atri_bot.bot.StickerLibrary", return_value=self.library):
             self.bot = Bot(self.config, RecordingModel(), now=lambda: self.clock)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         for gid in self.config.groups:
             self.bot.group(gid).now = lambda: self.clock.timestamp()
         self.sent = []
-
-    async def asyncTearDown(self):
-        await self.bot.close(timeout=.1)
-        self.tmp.cleanup()
 
     async def send(self, gid, parts):
         self.sent.append((gid, parts))
@@ -111,7 +109,7 @@ class StickerDeliveryTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.bot.group("1").sticker_state()["recent_turns"], 1)
 
     async def test_real_library_image_reaches_sender_and_visible_text_reaches_history(self):
-        directory = Path(self.tmp.name) / "stickers"
+        directory = self.data_dir / "stickers"
         directory.mkdir()
         path = directory / "happy.png"
         Image.new("RGB", (8, 8), "red").save(path)
@@ -121,7 +119,7 @@ class StickerDeliveryTests(unittest.IsolatedAsyncioTestCase):
                "animation_summary": "", "needs_review": False}
         (directory / "catalog.json").write_text(json.dumps({"items": [row]}, ensure_ascii=False))
         self.config.stickers.catalog = "stickers/catalog.json"
-        self.bot.stickers = StickerLibrary(Path(self.tmp.name), self.config.stickers)
+        self.bot.stickers = StickerLibrary(self.data_dir, self.config.stickers)
         self.assertEqual((await self.deliver()).status, "sent")
         payload = self.sent[0][1][0]["data"]["file"]
         self.assertEqual(base64.b64decode(payload.removeprefix("base64://")), raw_image)

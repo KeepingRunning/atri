@@ -10,9 +10,8 @@ from atri_bot.bot import Bot
 from atri_bot.config import Config
 from atri_bot.context import build_snapshot, build_conversation
 from atri_bot.types import Event, Receipt, link_references
-from test_bot import ROOT, daytime, raw
-from test_planner import PlanningModel, action
-from test_tools import call
+from tests.support.factories import ROOT, action, call, daytime, raw
+from tests.support.models import PlanningModel
 
 
 class SharedLinkTests(unittest.TestCase):

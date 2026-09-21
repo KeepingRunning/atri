@@ -294,6 +294,8 @@ uv run atri --config config.local.toml --log-level ERROR test-api
 uv run python -m unittest discover -s tests -v
 ```
 
+测试文件分工、共享辅助代码和单模块运行方式见 [自动测试说明](tests/README.md)。
+
 日程测试覆盖时段筛选、十分钟及两小时边界、重启恢复、坏文件降级、午夜/08:00、跨午夜排队与生成、发送前拦截和本地预览无 API 调用。
 
 图片测试使用合成图片和本地模拟 HTTP，覆盖下载限制、格式/尺寸、透明图和动图首帧、群与时间范围、意愿等待不下载、工具往返、下载/模型失败以及跨午夜停止后续调用。

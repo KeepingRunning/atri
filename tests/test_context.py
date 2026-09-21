@@ -1,13 +1,14 @@
+from dataclasses import replace
 import json
 from pathlib import Path
 import tempfile
 import unittest
 
-from atri_bot.context import build_conversation, build_willingness_context
+from atri_bot.context import build_conversation, build_snapshot, build_willingness_context
 from atri_bot.storage import GroupLog
 from atri_bot.types import Event
 from atri_bot.willingness import GateDecision
-from test_bot import raw
+from tests.support.factories import daytime, raw
 
 
 class HistoryWindowTests(unittest.TestCase):
@@ -78,3 +79,33 @@ class HistoryWindowTests(unittest.TestCase):
             now += 3601
             restored.prune_history()
             self.assertFalse(restored.history)
+
+
+class SnapshotTests(unittest.TestCase):
+    def test_snapshot_is_immutable_filters_time_group_and_has_budget(self):
+        now = daytime().timestamp()
+        event = Event.parse(raw())
+        rows = [dict(kind="incoming", key=f"99:1:{i}", message_id=str(i), timestamp=now - 30,
+                     text="历史" * 300) for i in range(10, 70)]
+        rows.extend([dict(key="99:2:80", timestamp=now, text="别群"),
+                     dict(key="99:1:81", timestamp=now - 3601, text="过期"),
+                     dict(key="99:1:82", timestamp=now + 1, text="未来")])
+        snapshot = build_snapshot([event], rows, now=now, max_chars=4000)
+        self.assertLessEqual(len(snapshot.encoded), 4000)
+        self.assertGreater(snapshot.data["omitted_history"], 0)
+        self.assertNotIn("别群", snapshot.encoded)
+        self.assertNotIn("过期", snapshot.encoded)
+        self.assertNotIn("未来", snapshot.encoded)
+        rows.clear()
+        snapshot.data["pending"].clear()
+        self.assertEqual(len(snapshot.data["pending"]), 1)
+
+    def test_snapshot_keeps_more_than_fifty_messages_and_hides_image_url(self):
+        now = daytime().timestamp()
+        event = Event.parse(raw())
+        event = replace(event, parts=({"type": "image", "data": {"url": "private-signed-url"}},))
+        rows = [dict(key=f"99:1:{i}", message_id=str(i), timestamp=now, text="一条") for i in range(10, 70)]
+        snapshot = build_snapshot([event], rows, now=now, vision_enabled=True)
+        self.assertEqual(len(snapshot.data["history"]), 60)
+        self.assertNotIn("private-signed-url", snapshot.encoded)
+        self.assertIn("img_1_1", snapshot.encoded)

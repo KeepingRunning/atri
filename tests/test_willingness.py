@@ -13,7 +13,8 @@ from atri_bot.model import ModelError
 from atri_bot.storage import GroupLog, read_jsonl
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import GateDecision, ReplyAssessment, ReplyConfig, ReplyWillingness
-from test_bot import ROOT, raw, daytime
+from tests.support.factories import ROOT, raw, daytime
+from tests.support.models import JudgingModel
 
 
 class GateTests(unittest.TestCase):
@@ -116,31 +117,14 @@ class GateTests(unittest.TestCase):
         self.assertFalse(result.consider)
 
 
-class JudgingModel:
-    def __init__(self):
-        self.assessment = ReplyAssessment(85, '在向我提问')
-        self.judgments, self.replies = [], []
-
-    async def assess_reply(self, messages):
-        self.judgments.append(messages)
-        return self.assessment
-
-    async def complete(self, messages, *, tool_session=None):
-        self.replies.append(messages)
-        return '这是实际回复'
-
-
 class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({'1', '2'}), self_id='99')
+        self.data_dir = Path(self.enterContext(tempfile.TemporaryDirectory()))
+        self.config = Config(ROOT, self.data_dir, groups=frozenset({'1', '2'}), self_id='99')
         self.model = JudgingModel()
         self.bot = Bot(self.config, self.model, now=daytime)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         self.sent = []
-
-    async def asyncTearDown(self):
-        await self.bot.close(timeout=.1)
-        self.tmp.cleanup()
 
     async def send(self, gid, parts):
         self.sent.append((gid, parts))
@@ -208,6 +192,7 @@ class WillingnessBotTests(unittest.IsolatedAsyncioTestCase):
         await self.bot.close()
         self.config.reply.frequency = 0
         self.bot = Bot(self.config, self.model, now=daytime)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         for gid, expected in ((2, 'ignored'), (1, 'sent')):
             data = raw(mid=2, gid=gid, mention=False, text='还有一个问题')
             data['message'].insert(0, {'type': 'reply', 'data': {'id': '501'}})

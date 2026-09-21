@@ -9,22 +9,20 @@ from atri_bot.history_tools import ChatArchive
 from atri_bot.storage import read_jsonl
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import ReplyConfig
-from test_bot import ROOT, daytime, raw, RecordingModel
+from tests.support.factories import ROOT, daytime, raw
+from tests.support.models import RecordingModel
 
 
 class HealthTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1"}), self_id="99",
+        self.data_dir = Path(self.enterContext(tempfile.TemporaryDirectory()))
+        self.config = Config(ROOT, self.data_dir, groups=frozenset({"1"}), self_id="99",
                              reply=ReplyConfig(mode="at_only"))
         self.model = RecordingModel()
         self.clock = daytime()
         self.bot = Bot(self.config, self.model, now=lambda: self.clock)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         self.sent = []
-
-    async def asyncTearDown(self):
-        await self.bot.close(timeout=.1)
-        self.tmp.cleanup()
 
     async def send(self, gid, parts):
         self.sent.append((gid, parts))
@@ -53,6 +51,7 @@ class HealthTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(result.data["items"], [])
         await self.bot.close()
         self.bot = Bot(self.config, self.model, now=daytime)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         self.assertEqual((await self.submit()).status, "duplicate")
         self.assertFalse(self.bot.group("1").history)
         await self.submit(mid=2, text="现在聊点别的", mention=True)

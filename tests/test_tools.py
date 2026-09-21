@@ -9,11 +9,7 @@ from atri_bot.config import Config
 from atri_bot.history_tools import ChatArchive, history_registry, local_time, object_schema
 from atri_bot.model import ModelRequestBlocked
 from atri_bot.tools import ToolContext, ToolRegistry, ToolResult, ToolSession, ToolSpec, ToolsConfig
-
-
-def call(name, args, call_id="call_1"):
-    return {"id": call_id, "type": "function", "function": {"name": name,
-            "arguments": json.dumps(args, ensure_ascii=False)}}
+from tests.support.factories import call
 
 
 class HistoryToolsTests(unittest.IsolatedAsyncioTestCase):

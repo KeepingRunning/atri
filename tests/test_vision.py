@@ -22,7 +22,7 @@ from atri_bot.tools import ToolError, ToolSpec, ToolResult, ToolsConfig
 from atri_bot.types import Event, Receipt, image_references
 from atri_bot.vision import ImageAccess, VisionConfig, normalize_image
 from atri_bot.willingness import ReplyConfig
-from test_bot import ROOT, raw, daytime
+from tests.support.factories import ROOT, raw, daytime
 
 
 def png(size=(128, 128), color='red'):

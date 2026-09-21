@@ -9,14 +9,14 @@ from atri_bot.bot import Bot
 from atri_bot.config import Config
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import ReplyConfig
-from test_bot import ROOT, daytime, raw
-from test_planner import PlanningModel, action
+from tests.support.factories import ROOT, action, daytime, raw
+from tests.support.models import PlanningModel
 
 
 class RepetitionTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1", "2"}), self_id="99",
+        self.data_dir = Path(self.enterContext(tempfile.TemporaryDirectory()))
+        self.config = Config(ROOT, self.data_dir, groups=frozenset({"1", "2"}), self_id="99",
                              reply=ReplyConfig(mode="planner", cooldown_seconds=0))
         self.config.tools.enabled = False
         self.config.planner.debounce_seconds = .01
@@ -24,13 +24,10 @@ class RepetitionTests(unittest.IsolatedAsyncioTestCase):
         self.clock = daytime()
         self.model = PlanningModel()
         self.bot = Bot(self.config, self.model, now=lambda: self.clock)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         self.sent = []
         for gid in self.config.groups:
             self.bot.group(gid).now = lambda: self.clock.timestamp()
-
-    async def asyncTearDown(self):
-        await self.bot.close(timeout=.1)
-        self.tmp.cleanup()
 
     async def send(self, gid, parts):
         self.sent.append((gid, parts))

@@ -16,7 +16,7 @@ from atri_bot.schedule import ScheduleConfig, ScheduleService, time_labels, vali
 from atri_bot.storage import read_jsonl
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import ReplyAssessment, ReplyConfig
-from test_bot import ROOT, raw
+from tests.support.factories import ROOT, raw
 
 ZONE = ZoneInfo('Asia/Shanghai')
 

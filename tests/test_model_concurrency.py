@@ -18,9 +18,7 @@ from atri_bot.tools import ToolResult, ToolSpec
 from atri_bot.types import Event, Receipt
 from atri_bot.vision import ImageAccess, register_vision
 from atri_bot.willingness import ReplyConfig
-from test_bot import ROOT, daytime, raw
-from test_planner import action
-from test_tools import call
+from tests.support.factories import ROOT, action, call, daytime, raw
 
 
 class ModelConcurrencyTests(unittest.IsolatedAsyncioTestCase):

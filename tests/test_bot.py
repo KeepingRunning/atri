@@ -1,6 +1,4 @@
 import asyncio
-from datetime import datetime
-from zoneinfo import ZoneInfo
 import json
 from pathlib import Path
 import tempfile
@@ -13,44 +11,19 @@ from atri_bot.model import ModelError
 from atri_bot.storage import GroupLog, read_jsonl
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import ReplyConfig
-
-ROOT = Path(__file__).resolve().parents[1]
-
-
-def daytime():
-    return datetime(2026, 9, 11, 12, 35, tzinfo=ZoneInfo("Asia/Shanghai"))
-
-
-def raw(mid=1, gid=1, text="你好", uid=2, self_id=99, mention=True):
-    parts = [{"type": "text", "data": {"text": text}}]
-    if mention:
-        parts.insert(0, {"type": "at", "data": {"qq": str(self_id)}})
-    return {"post_type": "message", "message_type": "group", "self_id": self_id,
-            "group_id": gid, "user_id": uid, "message_id": mid, "message": parts,
-            "sender": {"nickname": "测试群友"}}
-
-
-class RecordingModel:
-    def __init__(self):
-        self.prompts = []
-
-    async def complete(self, messages, *, tool_session=None):
-        self.prompts.append(messages)
-        return "收到啦 [CQ:at,qq=all]"
+from tests.support.factories import ROOT, daytime, raw
+from tests.support.models import RecordingModel
 
 
 class BotTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.config = Config(ROOT, Path(self.tmp.name), groups=frozenset({"1", "2"}), self_id="99",
+        self.data_dir = Path(self.enterContext(tempfile.TemporaryDirectory()))
+        self.config = Config(ROOT, self.data_dir, groups=frozenset({"1", "2"}), self_id="99",
                              reply=ReplyConfig(mode="at_only"))
         self.model = RecordingModel()
         self.bot = Bot(self.config, self.model, now=daytime)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         self.sent = []
-
-    async def asyncTearDown(self):
-        await self.bot.close(timeout=.1)
-        self.tmp.cleanup()
 
     async def send(self, gid, parts):
         self.sent.append((gid, parts))
@@ -127,6 +100,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
                       'message_id': 'recent-reply-id', 'text': '近一小时的回复'})
         await self.bot.close()
         self.bot = Bot(self.config, self.model, now=daytime)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         restored = self.bot.group('1')
         self.assertEqual(len(restored.history), 61)
         self.assertIn('99:1:90', restored.seen)
@@ -161,6 +135,7 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
         await first
         await self.bot.close()
         self.bot = Bot(self.config, self.model, now=daytime)
+        self.addAsyncCleanup(self.bot.close, timeout=.1)
         self.assertEqual((await self.bot.enqueue(event, self.send)).status, "duplicate")
         await self.submit(mid=2)
         self.assertTrue(any(row["role"] == "assistant" for row in self.model.prompts[-1]))
@@ -209,12 +184,3 @@ class BotTests(unittest.IsolatedAsyncioTestCase):
         release.set()
         await asyncio.gather(first, second, other)
         self.assertTrue(any(row["role"] == "assistant" for row in self.model.prompts[-1]))
-
-
-class StorageTests(unittest.TestCase):
-    def test_torn_tail_recovered_without_losing_complete_rows(self):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "messages.jsonl"
-            path.write_bytes(b'{"kind":"ok"}\n{"torn":')
-            self.assertEqual(list(read_jsonl(path)), [{"kind": "ok"}])
-            self.assertEqual(len(list(Path(directory).glob('*.torn-*'))), 1)

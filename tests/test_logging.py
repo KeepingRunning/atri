@@ -13,8 +13,8 @@ from atri_bot.config import Config
 from atri_bot.logging_setup import LoggingConfig, ModuleFormatter, configure_logging, current_log_context, log_context, preview
 from atri_bot.onebot import Peer
 from atri_bot.types import Event, Receipt
-from test_bot import ROOT, raw, daytime
-from test_willingness import JudgingModel
+from tests.support.factories import ROOT, raw, daytime
+from tests.support.models import JudgingModel
 
 
 class LogCapture:
