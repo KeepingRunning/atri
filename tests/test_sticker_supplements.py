@@ -15,7 +15,7 @@ from atri_bot.storage import GroupLog, read_jsonl
 from atri_bot.types import Event, Receipt
 from atri_bot.willingness import ReplyConfig
 from tests.support.factories import ROOT, action, daytime, raw
-from tests.support.stickers import CANDIDATE, IMAGE, FakeStickerLibrary, StickerModel, supplement
+from tests.support.stickers import CANDIDATE, IMAGE, FakeStickerLibrary, SupplementModel, supplement
 
 
 class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
@@ -27,7 +27,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         self.config.stickers.enabled = True
         self.config.planner.debounce_seconds = .001
         self.config.planner.max_batch_seconds = .002
-        self.library, self.model = FakeStickerLibrary(), StickerModel()
+        self.library, self.model = FakeStickerLibrary(), SupplementModel()
         with patch("atri_bot.bot.StickerLibrary", return_value=self.library):
             self.bot = Bot(self.config, self.model, now=lambda: self.clock)
         self.addAsyncCleanup(self.bot.close, timeout=.1)
@@ -43,7 +43,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         return self.bot.enqueue(Event.parse(raw(**kwargs)), self.sender)
 
     async def drain(self):
-        await asyncio.wait_for(asyncio.gather(*list(self.bot.sticker_supplements.tasks), return_exceptions=True), 2)
+        await asyncio.wait_for(asyncio.gather(*list(self.bot.supplements.tasks), return_exceptions=True), 2)
 
     def rows(self, gid="1"):
         return list(read_jsonl(self.bot.group(gid).path))
@@ -60,7 +60,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(group.sticker_state()["recent_turns"], 1)
         self.assertEqual(group.sticker_state()["recent_sticker_count"], 1)
         self.assertEqual(sum(own for _, own in group.activity), 1)
-        data = json.loads(self.model.sticker_plans[0][0][1]["content"])
+        data = json.loads(self.model.supplement_plans[0][0][1]["content"])
         self.assertEqual(data["sent_reply"]["text"], self.sent[0][1][0]["data"]["text"])
         main_snapshot = json.loads(self.model.plans[0][1]["content"])["snapshot"]
         self.assertEqual(data["snapshot"], main_snapshot)
@@ -68,7 +68,8 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         for definitions in self.model.main_definitions:
             names = {d["function"]["name"] for d in definitions}
             self.assertIn("reply", names)
-            self.assertFalse(names & {"prepare_reply", "send_sticker", "search_stickers", "supplement_sticker"})
+            self.assertFalse(names & {"prepare_reply", "send_sticker", "search_stickers", "supplement_sticker",
+                                      "send_voice", "search_voices", "supplement_media"})
         self.assertNotIn("selected_sticker", json.dumps(self.model.replies))
         restored = GroupLog(self.config.data, "1", now=lambda: self.clock.timestamp())
         self.assertEqual(restored.sticker_state(), group.sticker_state())
@@ -87,10 +88,10 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
             planning.set()
             await finish.wait()
             return supplement()
-        self.model.sticker_steps = [slow]
+        self.model.supplement_steps = [slow]
         future = self.submit()
         await asyncio.wait_for(sent.wait(), 1)
-        self.assertFalse(self.model.sticker_plans)
+        self.assertFalse(self.model.supplement_plans)
         ack.set()
         self.assertEqual((await asyncio.wait_for(future, 1)).status, "sent")
         await asyncio.wait_for(planning.wait(), 1)
@@ -106,7 +107,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
             self.sender = sender
             self.assertEqual((await self.submit(mid=i)).status, status)
             await self.drain()
-        self.assertFalse(self.model.sticker_plans)
+        self.assertFalse(self.model.supplement_plans)
 
     async def test_observe_health_repetition_and_disabled_do_not_schedule_supplements(self):
         self.model.steps = [action("observe")]
@@ -117,11 +118,11 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         self.config.stickers.enabled = False
         await self.submit(mid=4)
         await self.drain()
-        self.assertFalse(self.model.sticker_plans)
+        self.assertFalse(self.model.supplement_plans)
 
     async def test_skip_and_planning_failure_leave_text_untouched(self):
         for i, steps in enumerate(([supplement(None)], [ModelError("failure")] * 3), 1):
-            self.model.sticker_steps = steps
+            self.model.supplement_steps = steps
             self.assertEqual((await self.submit(mid=i)).status, "sent")
             await self.drain()
         self.assertEqual(len(self.sent), 2)
@@ -158,15 +159,15 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         async def slow(_):
             entered.set()
             await asyncio.Event().wait()
-        self.model.sticker_steps = [slow, supplement(None)]
+        self.model.supplement_steps = [slow, supplement(None)]
         await self.submit()
         await asyncio.wait_for(entered.wait(), 1)
-        old = next(iter(self.bot.sticker_supplements.tasks))
+        old = next(iter(self.bot.supplements.tasks))
         self.assertEqual((await asyncio.wait_for(self.submit(mid=2, uid=3), 1)).status, "sent")
         await self.drain()
         self.assertTrue(old.cancelled())
         self.assertEqual([parts[0]["type"] for _, parts in self.sent], ["text", "text"])
-        self.assertTrue(any(r.get("kind") == "sticker_plan" and r.get("reason") == "new_message" for r in self.rows()))
+        self.assertTrue(any(r.get("kind") == "supplement_plan" and r.get("reason") == "new_message" for r in self.rows()))
 
     async def test_input_during_text_ack_prevents_stale_supplement(self):
         entered, ack = asyncio.Event(), asyncio.Event()
@@ -184,7 +185,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         ack.set()
         await asyncio.gather(first, second)
         await self.drain()
-        self.assertFalse(self.model.sticker_plans)
+        self.assertFalse(self.model.supplement_plans)
 
     async def test_new_message_during_preparation_prevents_late_image(self):
         entered, release = threading.Event(), threading.Event()
@@ -194,7 +195,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
             release.wait(2)
             return original(identity)
         self.library.prepare = slow
-        self.model.sticker_steps = [supplement(), supplement(None)]
+        self.model.supplement_steps = [supplement(), supplement(None)]
         await self.submit()
         try:
             self.assertTrue(await asyncio.to_thread(entered.wait, 1))
@@ -206,10 +207,10 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
             release.set()
 
     async def test_timeout_releases_global_slot(self):
-        self.config.stickers.max_age_seconds = .03
+        self.config.supplements.max_age_seconds = .03
         async def slow(_):
             await asyncio.Event().wait()
-        self.model.sticker_steps = [slow]
+        self.model.supplement_steps = [slow]
         await self.submit()
         await self.drain()
         self.assertEqual(len(self.sent), 1)
@@ -217,7 +218,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(any(r.get("reason") == "expired" for r in self.rows()))
 
     async def test_waiting_for_model_slot_is_included_in_deadline(self):
-        self.config.stickers.max_age_seconds = .03
+        self.config.supplements.max_age_seconds = .03
         # Main text is allowed through; the optional branch then has no model slot.
         original = self.sender
         async def sender(gid, parts):
@@ -229,7 +230,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         try:
             await self.submit()
             await self.drain()
-            self.assertFalse(self.model.sticker_plans)
+            self.assertFalse(self.model.supplement_plans)
             self.assertEqual(len(self.sent), 1)
             self.assertTrue(any(r.get("reason") == "expired" for r in self.rows()))
         finally:
@@ -237,7 +238,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
                 self.bot.semaphore.release()
 
     async def test_preparation_timeout_cannot_send_later_from_worker_thread(self):
-        self.config.stickers.max_age_seconds = .03
+        self.config.supplements.max_age_seconds = .03
         entered, release = threading.Event(), threading.Event()
         original = self.library.prepare
         def slow(identity):
@@ -255,7 +256,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
             release.set()
 
     async def test_submission_ends_freshness_deadline_but_keeps_receipt_wait(self):
-        self.config.stickers.max_age_seconds = .03
+        self.config.supplements.max_age_seconds = .03
         entered, ack = asyncio.Event(), asyncio.Event()
         original = self.sender
         async def sender(gid, parts):
@@ -267,7 +268,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         await self.submit()
         await asyncio.wait_for(entered.wait(), 1)
         await asyncio.sleep(.06)
-        self.assertTrue(self.bot.sticker_supplements.tasks)
+        self.assertTrue(self.bot.supplements.tasks)
         ack.set()
         await self.drain()
         self.assertEqual(len(self.sent), 2)
@@ -292,7 +293,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         async def enter_sleep(_):
             self.clock = self.clock.replace(hour=2)
             return supplement()
-        self.model.sticker_steps = [enter_sleep]
+        self.model.supplement_steps = [enter_sleep]
         await self.submit()
         await self.drain()
         self.assertEqual(len(self.sent), 1)
@@ -304,7 +305,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
             entered.set()
             await finish.wait()
             return supplement()
-        self.model.sticker_steps = [slow, supplement(None)]
+        self.model.supplement_steps = [slow, supplement(None)]
         await self.submit(gid=1)
         await asyncio.wait_for(entered.wait(), 1)
         await self.submit(mid=2, gid=2)
@@ -330,7 +331,7 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         await asyncio.wait_for(entered.wait(), 1)
         self.clock += timedelta(seconds=2)
         second = await self.submit(mid=2)
-        self.assertEqual(len(self.model.sticker_plans), 1)
+        self.assertEqual(len(self.model.supplement_plans), 1)
         ack.set()
         await self.drain()
         group = self.bot.group("1")
@@ -347,9 +348,9 @@ class SupplementSessionTests(unittest.IsolatedAsyncioTestCase):
         async def slow(_):
             entered.set()
             await asyncio.Event().wait()
-        self.model.sticker_steps = [slow]
+        self.model.supplement_steps = [slow]
         await self.submit()
         await asyncio.wait_for(entered.wait(), 1)
         await self.bot.close(timeout=.1)
-        self.assertFalse(self.bot.sticker_supplements.tasks)
+        self.assertFalse(self.bot.supplements.tasks)
         self.assertEqual(len(self.sent), 1)

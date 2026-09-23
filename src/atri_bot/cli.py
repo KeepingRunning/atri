@@ -2,6 +2,7 @@ import argparse
 import asyncio
 import logging
 import signal
+from dataclasses import replace
 from datetime import datetime
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -134,6 +135,16 @@ def main(argv=None):
                 from .stickers import StickerLibrary
                 library = StickerLibrary(config.root, config.stickers)
                 print(f"表情包目录加载通过：{len(library)} 张可用，发送前逐张校验文件。")
+            voice_files = (config.root / config.voices.catalog, config.root / config.voices.selection)
+            if config.voices.enabled or all(path.is_file() for path in voice_files):
+                from .voices import VoiceLibrary
+                library = VoiceLibrary(config.root, replace(config.voices, enabled=True))
+                stats = library.stats
+                print(f"语音目录加载通过：保留 {stats['retained']} 条，可用 {stats['available']} 条，"
+                      f"待标注 {stats['pending']} 条，待复核 {stats['needs_review']} 条，"
+                      f"纯标点 {stats['punctuation']} 条；发送{'已开启' if config.voices.enabled else '已关闭'}。")
+                if not library:
+                    print("语音暂无可用候选：仅选用已保留、完成用途标注且无需复核的明确台词。")
             print("配置检查通过。")
         elif args.command == "test-api":
             results = asyncio.run(run_api_tests(config))

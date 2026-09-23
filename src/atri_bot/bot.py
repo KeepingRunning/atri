@@ -11,7 +11,7 @@ from .model import (ModelError, ModelRequestBlocked, guard_model_requests, check
 from .history_tools import ChatArchive, history_registry, tool_instructions
 from .tools import ToolContext, ToolSession
 from .vision import ImageAccess, register_vision, VISION_INSTRUCTIONS
-from .storage import GroupLog, sticker_metadata
+from .storage import GroupLog, sticker_metadata, voice_metadata
 from .types import Receipt
 from .willingness import ReplyWillingness
 from .schedule import ScheduleService
@@ -24,7 +24,8 @@ from .cloud_asr import CloudASR
 from .video_cache import VideoSourceCache
 from .repetition import Repetition
 from .stickers import StickerLibrary
-from .sticker_planner import StickerSupplements
+from .voices import VoiceLibrary
+from .supplements import Supplements
 
 log = logging.getLogger("atri.bot")
 receive_log = logging.getLogger("atri.receive")
@@ -48,12 +49,17 @@ class Bot:
         config.links.validate()
         config.documents.validate()
         config.stickers.validate()
+        config.voices.validate()
+        config.supplements.validate()
         if config.vision.enabled and not config.tools.enabled:
             raise ValueError("vision.enabled requires tools.enabled=true")
         if config.stickers.enabled and (not config.tools.enabled or config.reply.mode != "planner"):
             raise ValueError("stickers.enabled requires tools.enabled=true and reply.mode='planner'")
+        if config.voices.enabled and (not config.tools.enabled or config.reply.mode != "planner"):
+            raise ValueError("voices.enabled requires tools.enabled=true and reply.mode='planner'")
         self.tool_registry = history_registry()
         self.stickers = StickerLibrary(config.root, config.stickers) if config.stickers.enabled else None
+        self.voices = VoiceLibrary(config.root, config.voices) if config.voices.enabled else None
         if config.vision.enabled:
             register_vision(self.tool_registry, config.vision)
         self.mcp = MCPManager(config.mcp, config.root)
@@ -83,7 +89,7 @@ class Bot:
         self.started_at = time.monotonic()
         self.closed = False
         self.schedule = ScheduleService(config.schedule, config.data, root=config.root, now=now)
-        self.sticker_supplements = StickerSupplements(self)
+        self.supplements = Supplements(self)
 
     async def start(self):
         if not self.closed:
@@ -127,7 +133,7 @@ class Bot:
             self.command_tasks.add(task)
             task.add_done_callback(self.command_tasks.discard)
             return task
-        self.sticker_supplements.invalidate(event.group_id)
+        self.supplements.invalidate(event.group_id)
         received_at = self.schedule.local_now()
         if self.schedule.blocks_reply(received_at=received_at, timestamp=event.timestamp):
             self.repetition.reset(event.group_id)
@@ -300,55 +306,79 @@ class Bot:
         return await self.deliver_reply(event, sender, reply, received_at=received_at)
 
     async def deliver_reply(self, event, sender, reply, *, received_at=None, is_current=None,
-                            record_chat=True, respect_sleep=True, sticker_id=None,
+                            record_chat=True, respect_sleep=True, sticker_id=None, voice_id=None,
                             delivery_origin="chat", parent_message_id=None, before_submit=None):
         """Shared delivery; operational commands use separate, non-chat audit records."""
         group = self.group(event.group_id)
         if respect_sleep and (ignored := self.sleep_guard(event, received_at, "生成后")):
             return ignored
-        if not isinstance(reply, str) or (not reply.strip() and sticker_id is None):
+        if sticker_id is not None and voice_id is not None:
+            return Receipt("failed", reason="mixed_media_reply")
+        media_kind = "voice" if voice_id is not None else "sticker" if sticker_id is not None else None
+        media_id = voice_id if voice_id is not None else sticker_id
+        if not isinstance(reply, str) or (not reply.strip() and media_kind is None):
             log.warning("[生成回复] 模型没有返回有效正文，结束处理")
             return Receipt("failed", reason="empty_reply")
-        if sticker_id is not None and reply.strip():
-            return Receipt("failed", reason="mixed_sticker_reply")
-        if delivery_origin == "sticker_supplement":
+        if media_kind is not None and reply.strip():
+            return Receipt("failed", reason=f"mixed_{media_kind}_reply")
+        if delivery_origin in {"sticker_supplement", "voice_supplement"} or voice_id is not None:
+            if delivery_origin != f"{media_kind}_supplement":
+                return Receipt("failed", reason="invalid_supplement_origin")
             parent = group.last_receipts.get(event.key)
             if (not parent_message_id or not parent or parent.get("status") != "sent"
                     or str(parent.get("message_id")) != str(parent_message_id)
                     or parent.get("delivery_origin", "chat") != "chat"):
-                return Receipt("failed", reason="unconfirmed_sticker_parent")
+                return Receipt("failed", reason=f"unconfirmed_{media_kind}_parent")
+
+        def already_attempted():
+            return parent_message_id is not None and any(
+                f"{event.key}:{kind}:{parent_message_id}" in group.last_receipts
+                for kind in ("sticker", "voice"))
+
+        if already_attempted():
+            return Receipt("ignored", reason="supplement_already_attempted")
         reply = reply.strip().translate(OUTPUT_TRANSLATION)
         parts = [{"type": "text", "data": {"text": reply}}] if reply else []
         target = {"reply_to_user_id": event.user_id, "reply_to_message_id": event.message_id}
         kind = "delivery" if record_chat else "command_delivery"
-        key = f"{event.key}:sticker:{parent_message_id}" if parent_message_id is not None else event.key
+        key = f"{event.key}:{media_kind}:{parent_message_id}" if parent_message_id is not None else event.key
         audit = {"kind": kind, "key": key, "turn_id": event.key, "text": reply, **target,
                  "delivery_origin": delivery_origin,
                  **({"parent_message_id": str(parent_message_id)} if parent_message_id is not None else {})}
-        if sticker_id is not None:
+        if media_kind is not None:
             if is_current is not None and not is_current():
                 return Receipt("ignored", reason="superseded")
             try:
-                if self.stickers is None:
-                    raise ValueError("Sticker delivery is unavailable")
-                image_part, metadata = await asyncio.to_thread(self.stickers.prepare, sticker_id)
-                metadata = sticker_metadata(metadata)
-                if metadata is None or metadata["id"] != sticker_id:
-                    raise ValueError("Invalid prepared sticker metadata")
+                library = self.voices if media_kind == "voice" else self.stickers
+                if library is None:
+                    raise ValueError("Media delivery is unavailable")
+                media_part, metadata = await asyncio.to_thread(library.prepare, media_id)
+                metadata = voice_metadata(metadata) if media_kind == "voice" else sticker_metadata(metadata)
+                expected_part = "record" if media_kind == "voice" else "image"
+                if (metadata is None or metadata["id"] != media_id
+                        or not isinstance(media_part, dict) or media_part.get("type") != expected_part):
+                    raise ValueError("Invalid prepared media")
             except Exception as exc:
-                send_log.warning("[表情准备失败] ID=%s 错误=%s 类型=%s，不提交消息",
-                                 preview(sticker_id, 80), getattr(exc, "code", type(exc).__name__),
+                if already_attempted():
+                    return Receipt("ignored", reason="supplement_already_attempted")
+                send_log.warning("[辅助表达准备失败] 媒介=%s ID=%s 错误=%s 类型=%s，不提交消息",
+                                 media_kind, preview(media_id, 80), getattr(exc, "code", type(exc).__name__),
                                  type(exc).__name__)
-                receipt = Receipt("failed", reason="sticker_prepare_failed")
+                receipt = Receipt("failed", reason=f"{media_kind}_prepare_failed")
                 group.append({**audit, **asdict(receipt)})
                 return receipt
-            if respect_sleep and (ignored := self.sleep_guard(event, received_at, "表情准备后")):
+            if respect_sleep and (ignored := self.sleep_guard(event, received_at, "辅助表达准备后")):
                 return ignored
             if is_current is not None and not is_current():
                 return Receipt("ignored", reason="superseded")
-            parts = [image_part]
-            audit.update(sticker=metadata)
-            send_log.debug("[表情准备完成] ID=%s 父消息=%s", metadata["id"], parent_message_id or "无")
+            parts = [media_part]
+            audit[media_kind] = metadata
+            send_log.debug("[辅助表达准备完成] 媒介=%s ID=%s 父消息=%s",
+                           media_kind, metadata["id"], parent_message_id or "无")
+        # Preparation can yield; another attempted medium for this parent blocks
+        # both retrying an unknown send and sending two kinds in the same turn.
+        if already_attempted():
+            return Receipt("ignored", reason="supplement_already_attempted")
         log.info("[回复已生成] 字符=%d 正文=%s", len(reply), preview(reply, self.config.logging.preview_chars))
         group.append({**audit, "status": "pending"})
         receipt = Receipt("unknown", reason="delivery_unconfirmed")
@@ -435,7 +465,7 @@ class Bot:
             return
         queue_log.info("[关闭队列] 群数=%d 处理中=%d 等待超时=%.1fs", len(self.queues), len(self.inflight), timeout)
         self.closed = True
-        await self.sticker_supplements.close()
+        await self.supplements.close()
         if self.schedule is not None:
             await self.schedule.close()
         try:

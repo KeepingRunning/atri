@@ -16,6 +16,8 @@ from .link_tools import LinkConfig
 from .cloud_asr import ASRConfig
 from .documents import DocumentConfig
 from .stickers import StickerConfig
+from .voices import VoiceConfig
+from .supplements import SupplementConfig
 
 
 @dataclass
@@ -51,6 +53,8 @@ class Config:
     asr: ASRConfig = field(default_factory=ASRConfig)
     documents: DocumentConfig = field(default_factory=DocumentConfig)
     stickers: StickerConfig = field(default_factory=StickerConfig)
+    voices: VoiceConfig = field(default_factory=VoiceConfig)
+    supplements: SupplementConfig = field(default_factory=SupplementConfig)
 
     @classmethod
     def load(cls, path: Path) -> Config:
@@ -107,6 +111,23 @@ class Config:
         conf.stickers.validate()
         if conf.stickers.enabled and (not conf.tools.enabled or conf.reply.mode != "planner"):
             raise ValueError("stickers.enabled requires tools.enabled=true and reply.mode=planner")
+        try:
+            conf.voices = VoiceConfig(**raw.get("voices", {}))
+        except TypeError:
+            raise ValueError("Invalid [voices] configuration fields") from None
+        conf.voices.validate()
+        if conf.voices.enabled and (not conf.tools.enabled or conf.reply.mode != "planner"):
+            raise ValueError("voices.enabled requires tools.enabled=true and reply.mode=planner")
+        try:
+            # Old sticker-only configurations retain their pacing and deadline.
+            shared = raw.get("supplements")
+            if shared is None:
+                shared = {name: getattr(conf.stickers, name) for name in
+                          ("target_turns_min", "target_turns_max", "recent_window", "max_age_seconds")}
+            conf.supplements = SupplementConfig(**shared)
+        except TypeError:
+            raise ValueError("Invalid [supplements] configuration fields") from None
+        conf.supplements.validate()
         conf.mcp = MCPConfig.from_dict(raw.get("mcp", {}))
         conf.mcp.validate()
         try:

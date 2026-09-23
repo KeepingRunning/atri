@@ -148,7 +148,7 @@ class GroupSession:
                     if self.waiting and len(batch) < self.config.planner.max_batch_messages:
                         self.drain(batch)
                         continue
-                    sticker_revision = self.bot.sticker_supplements.revision(self.gid)
+                    supplement_revision = self.bot.supplements.revision(self.gid)
                     snapshot = build_snapshot(events, self.visible_history(), now=self.group.now(),
                         history_seconds=self.config.history_seconds, schedule_context=self.bot.schedule.context(),
                         vision_enabled=self.config.vision.enabled, links_enabled=self.config.links.enabled,
@@ -209,12 +209,12 @@ class GroupSession:
                 target_id = decision["target_message_ids"][-1]
                 target = next(item for item in active if item[0].message_id == target_id)
                 # Finish the main batch as soon as text is confirmed. The optional
-                # image has its own task, receipt and bounded lifetime.
+                # supplement has its own task, receipt and bounded lifetime.
                 receipt = await self.bot.deliver_reply(target[0], target[1], reply, received_at=target[4],
                     is_current=lambda: not self.related_pending(events, decision))
                 if receipt.status == "sent":
-                    self.bot.sticker_supplements.start(target[0], target[1], receipt, snapshot, decision,
-                        received_at=target[4], revision=sticker_revision)
+                    self.bot.supplements.start(target[0], target[1], receipt, snapshot, decision,
+                        received_at=target[4], revision=supplement_revision)
                 return receipt
 
     async def run(self):

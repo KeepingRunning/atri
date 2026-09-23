@@ -10,6 +10,52 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ConfigTests(unittest.TestCase):
+    def test_voices_require_planner_and_tools_and_templates_match(self):
+        import tomllib
+        ordinary = tomllib.loads((ROOT / 'config.toml.template').read_text())
+        container = tomllib.loads((ROOT / 'deploy/config.toml.template').read_text())
+        for name in ('voices', 'supplements'):
+            self.assertEqual(ordinary[name], container[name])
+        config = Config.load(ROOT / 'config.toml.template')
+        self.assertFalse(config.voices.enabled)
+        self.assertEqual(config.voices.preferred_max_seconds, 5)
+        self.assertEqual(config.voices.target_turns_min, 6)
+        self.assertEqual(config.voices.target_turns_max, 10)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            for prefix in ('', '[reply]\nmode="willingness"\n',
+                           '[reply]\nmode="planner"\n[tools]\nenabled=false\n'):
+                path.write_text(prefix + '[voices]\nenabled=true\n')
+                with self.subTest(prefix=prefix), self.assertRaisesRegex(ValueError, 'voices.enabled'):
+                    Config.load(path)
+            path.write_text('[reply]\nmode="planner"\n[voices]\nenabled=true\n')
+            self.assertTrue(Config.load(path).voices.enabled)
+            for values in ('enabled=1', 'search_limit=true', 'preferred_max_seconds=nan',
+                           'catalog="../outside.json"', 'target_turns_min=11', 'typo=1'):
+                path.write_text('[voices]\n' + values)
+                with self.subTest(values=values), self.assertRaises(ValueError):
+                    Config.load(path)
+
+    def test_legacy_sticker_pacing_migrates_unless_shared_section_is_explicit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'config.toml'
+            old = '[stickers]\ntarget_turns_min=7\ntarget_turns_max=9\nrecent_window=30\nmax_age_seconds=12\n'
+            path.write_text(old)
+            config = Config.load(path)
+            self.assertEqual((config.supplements.target_turns_min, config.supplements.target_turns_max,
+                              config.supplements.recent_window, config.supplements.max_age_seconds), (7, 9, 30, 12))
+            path.write_text(old + '[supplements]\ntarget_turns_min=2\ntarget_turns_max=4\n')
+            config = Config.load(path)
+            self.assertEqual((config.supplements.target_turns_min, config.supplements.target_turns_max), (2, 4))
+            self.assertEqual(config.supplements.recent_window, 20)
+            self.assertEqual(config.supplements.max_age_seconds, 20)
+            self.assertEqual(config.stickers.target_turns_min, 7)
+            for values in ('typo=1', 'target_turns_min=true', 'target_turns_max=0',
+                           'max_age_seconds=nan', 'max_age_seconds=61', 'recent_window=0'):
+                path.write_text('[supplements]\n' + values)
+                with self.subTest(values=values), self.assertRaises(ValueError):
+                    Config.load(path)
+
     def test_stickers_require_planner_and_tools_and_templates_match(self):
         import tomllib
         ordinary = tomllib.loads((ROOT / 'config.toml.template').read_text())['stickers']

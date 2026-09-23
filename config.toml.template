@@ -135,21 +135,37 @@ max_output_tokens = 768
 # 只允许从明确配置的图片服务器下载，不跟随重定向，不读取本地路径。
 allowed_hosts = ["multimedia.nt.qq.com.cn", "gchat.qpic.cn", "c2cpicdw.qpic.cn"]
 
-[stickers]
-# 文字确认成功后，独立表情规划器决定是否单独补图；不影响正文生成。
-# 需要 tools.enabled=true、reply.mode="planner" 以及已生成的本地素材库。
-enabled = false
-# 路径相对于 config.toml 所在目录；图片路径相对于 catalog.json。
-catalog = "data/sticker_review/catalog.json"
-search_limit = 6
-# 每个群内，平均每3～5次已确认的自然发言使用一次图片；是模型偏好，不强制凑数。
+[supplements]
+# 文字确认成功后，辅助表达规划器选择补一张表情、一条语音，或不补充。
+# 每群平均每3～5轮自然发言补充一次；是模型偏好，不强制凑数。
 target_turns_min = 3
 target_turns_max = 5
 recent_window = 20
-# 单张原图及发送编码前图片的最大字节数；动画 WebP 发送时转换为 GIF。
-max_image_bytes = 8388608
-# 从文字确认起，到补图提交前的总时限；超时丢弃，不积压。
+# 从文字确认到补充提交前的总时限；超时取消，不积压。
 max_age_seconds = 20
+
+[stickers]
+# 由辅助表达规划器独立补图；需要 tools.enabled=true、reply.mode="planner"。
+enabled = false
+# 整个素材目录随运行数据迁移；文件路径相对于 catalog.json。
+catalog = "data/sticker_review/catalog.json"
+search_limit = 6
+# 单张原图及发送编码前图片上限；动画 WebP 发送时转换为 GIF。
+max_image_bytes = 8388608
+
+[voices]
+# 独立发送原作日语短句；需要 tools.enabled=true、reply.mode="planner"。
+# 仅入选、用途标注完成且无需复核的台词参与选择；其余素材仍保留。
+enabled = false
+catalog = "data/voice_review/catalog.json"
+selection = "data/voice_review/selection.json"
+search_limit = 6
+# 语音占用 supplements 的总补充机会，并倾向每6～10轮发言使用一次。
+target_turns_min = 6
+target_turns_max = 10
+preferred_max_seconds = 5
+# 读取已生成的 MP3，经 NapCat 转码发送；不下载模型或修改原声。
+max_audio_bytes = 8388608
 
 [schedule]
 # 上海时间偶数整点，从本地日常库按时段随机选一份；不调用模型。

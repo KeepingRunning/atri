@@ -28,9 +28,13 @@ uv run python -m unittest tests.test_sticker_supplements -k timeout -v
 | `test_context.py` | 一小时历史窗口、快照筛选、不可变性和大小预算 |
 | `test_storage.py` | JSONL 存储恢复 |
 | `test_stickers.py` | 表情包素材、检索和配置 |
-| `test_sticker_planner.py` | 补图候选、选择/跳过、协议重试和 HTTP 请求 |
-| `test_sticker_supplements.py` | 正文确认后的异步补图、取消、超时、过期和晚到回执 |
+| `test_sticker_planner.py` | 统一辅助表达候选、类型与编号校验、选择/跳过、协议重试和 HTTP 请求 |
+| `test_sticker_supplements.py` | 正文确认后的异步补充、取消、超时、过期和晚到回执 |
 | `test_sticker_delivery.py` | 图片发送、可见历史、统计及失败回执 |
+| `test_voices.py` | 语音保留清单、标注过滤、检索去重和音频校验 |
+| `test_voice_supplements.py` | 语音与图片统一选择、异步取消及跨群隔离 |
+| `test_voice_delivery.py` | 独立语音消息、父回执校验和未知投递不补发 |
+| `test_voice_storage.py` | 原台词历史、共享频率、迟到确认和重启恢复 |
 
 其余 `test_*.py` 按对应功能组织，如链接、转写、传输、意愿和部署。新用例优先放进对应功能文件；协议校验与后台调度可以分别运行和定位。
 
@@ -38,11 +42,11 @@ uv run python -m unittest tests.test_sticker_supplements -k timeout -v
 
 - `support/factories.py`：固定白天时刻 `daytime()`、OneBot 群消息 `raw()`、原生工具调用 `call()`、Planner 行动 `action()`。
 - `support/models.py`：记录正文请求的 `RecordingModel`、意愿判断的 `JudgingModel`、可编排 Planner 结果的 `PlanningModel`。
-- `support/stickers.py`：隔离的候选素材、`FakeStickerLibrary`、`StickerModel` 和补图行动 `supplement()`。
+- `support/stickers.py`：隔离的候选素材、`FakeStickerLibrary`、`SupplementModel` 和补图行动 `supplement()`。
 
 测试之间不互相导入 `test_*.py`。只有真正被多个模块使用的辅助代码才放进 `support/`；场景专用的发送器和测试数据留在当前文件。
 
-`PlanningModel.steps` 和 `StickerModel.sticker_steps` 接受行动字典、异常或异步函数。异步函数可以用 `asyncio.Event` 控制模型挂起和释放，以测试并发顺序；不要靠任意延时猜测另一个任务是否已执行。验证退避、截止时间等时间行为时仍使用明确、有上限的等待。
+`PlanningModel.steps` 和 `SupplementModel.supplement_steps` 接受行动字典、异常或异步函数。异步函数可以用 `asyncio.Event` 控制模型挂起和释放，以测试并发顺序；不要靠任意延时猜测另一个任务是否已执行。验证退避、截止时间等时间行为时仍使用明确、有上限的等待。
 
 临时目录使用 `self.enterContext(tempfile.TemporaryDirectory())`，Bot 创建后立即用 `self.addAsyncCleanup(self.bot.close, timeout=.1)` 注册关闭；清理按逆序执行，先关闭后台任务，再删除数据目录。这样初始化或测试断言失败时也能清理。HTTP 服务和客户端优先使用异步上下文管理器。
 

@@ -12,7 +12,7 @@ from pathlib import Path
 import threading
 from zoneinfo import ZoneInfo
 
-from .storage import delivery_text, history_timestamp, sticker_metadata
+from .storage import delivery_text, history_timestamp, sticker_metadata, voice_metadata
 from .tools import ToolError, ToolRegistry, ToolResult, ToolSpec
 from .types import display_text
 
@@ -112,6 +112,8 @@ class ChatArchive:
                 "timestamp": stamp, "time": local_time(stamp), "text": text}
         if role == "assistant" and (sticker := sticker_metadata(row.get("sticker"))):
             item["sticker"] = sticker
+        if role == "assistant" and (voice := voice_metadata(row.get("voice"))):
+            item["voice"] = voice
         return item
 
     @staticmethod
@@ -196,7 +198,8 @@ class ChatArchive:
         items, total = [], 0
         limit, offset = args.get("limit", 20), args.get("offset", 0)
         for number, row in self._rows(stop, stats):
-            if row.get("kind") not in ("willingness", "delivery", "schedule", "tool", "planner", "snapshot", "batch", "sticker_plan"):
+            if row.get("kind") not in ("willingness", "delivery", "schedule", "tool", "planner", "snapshot", "batch",
+                                       "sticker_plan", "supplement_plan"):
                 continue
             if args.get("kind") is not None and row["kind"] != args["kind"]:
                 continue
@@ -216,7 +219,8 @@ class ChatArchive:
                           "message_id", "reply_to_message_id", "tool", "call_id", "error_code", "elapsed_ms",
                           "items", "truncated", "cached", "snapshot_id", "action", "history_count", "chars",
                           "omitted_history", "replans", "delivery_origin", "sticker_position",
-                          "turn_id", "parent_message_id", "sticker_id"):
+                          "turn_id", "parent_message_id", "sticker_id", "voice_id", "asset_id",
+                          "supplement_kind", "media_kind"):
                 value = row.get(field)
                 if isinstance(value, str):
                     item[field] = value[:500]
@@ -228,6 +232,8 @@ class ChatArchive:
                                    if type(factors.get(k)) is int}
             if row.get("status") == "sent" and (sticker := sticker_metadata(row.get("sticker"))):
                 item["sticker"] = sticker
+            if row.get("status") == "sent" and (voice := voice_metadata(row.get("voice"))):
+                item["voice"] = voice
             items.append(item)
         more = total > offset + len(items)
         return self._result({"items": items, "matched_total": total, "offset": offset,
@@ -266,7 +272,8 @@ def history_registry():
         "这些是程序记录，不是群友说过的话；不包含全局运行日志或未发送的回复正文。",
         object_schema({"message_id": {"type": "string", "pattern": "^-?[0-9]+$", "maxLength": 24},
                        "kind": {"type": "string", "enum": ["willingness", "delivery", "schedule", "tool",
-                                                              "planner", "snapshot", "batch", "sticker_plan"]},
+                                                              "planner", "snapshot", "batch", "sticker_plan",
+                                                              "supplement_plan"]},
                        "limit": {"type": "integer", "minimum": 1, "maximum": 50}, "offset": offset_schema},
                       ("message_id",)), events))
     return registry
